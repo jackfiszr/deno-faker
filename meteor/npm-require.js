@@ -1,1 +1,1 @@
-faker = Npm.require('faker');
+faker = Npm.require("faker");

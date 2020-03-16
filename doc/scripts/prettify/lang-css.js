@@ -4,8 +4,15 @@ PR.registerLangHandler(PR.createSimpleLexer([
   ["str", /^"(?:[^\n\f\r"\\]|\\(?:\r\n?|\n|\f)|\\[\S\s])*"/, null],
   ["str", /^'(?:[^\n\f\r'\\]|\\(?:\r\n?|\n|\f)|\\[\S\s])*'/, null],
   ["lang-css-str", /^url\(([^"')]*)\)/i],
-  ["kwd", /^(?:url|rgb|!important|@import|@page|@media|@charset|inherit)(?=[^\w-]|$)/i, null],
-  ["lang-css-kw", /^(-?(?:[_a-z]|\\[\da-f]+ ?)(?:[\w-]|\\\\[\da-f]+ ?)*)\s*:/i],
+  [
+    "kwd",
+    /^(?:url|rgb|!important|@import|@page|@media|@charset|inherit)(?=[^\w-]|$)/i,
+    null
+  ],
+  [
+    "lang-css-kw",
+    /^(-?(?:[_a-z]|\\[\da-f]+ ?)(?:[\w-]|\\\\[\da-f]+ ?)*)\s*:/i
+  ],
   ["com", /^\/\*[^*]*\*+(?:[^*/][^*]*\*+)*\//],
   ["com", /^(?:<\!--|--\>)/],
   ["lit", /^(?:\d+|\d*\.\d+)(?:%|[a-z]+)?/i],

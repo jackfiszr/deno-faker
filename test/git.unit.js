@@ -1,14 +1,14 @@
-if (typeof module !== 'undefined') {
-  var assert = require('assert');
-  var sinon = require('sinon');
-  var faker = require('../index');
+if (typeof module !== "undefined") {
+  var assert = require("assert");
+  var sinon = require("sinon");
+  var faker = require("../index");
 }
 
 describe("git.js", function() {
   describe("branch()", function() {
     beforeEach(function() {
-      sinon.spy(faker.hacker, 'noun');
-      sinon.spy(faker.hacker, 'verb');
+      sinon.spy(faker.hacker, "noun");
+      sinon.spy(faker.hacker, "verb");
     });
 
     afterEach(function() {
@@ -26,12 +26,12 @@ describe("git.js", function() {
 
   describe("commitEntry()", function() {
     beforeEach(function() {
-      sinon.spy(faker.git, 'commitMessage');
-      sinon.spy(faker.git, 'commitSha');
-      sinon.spy(faker.internet, 'email');
-      sinon.spy(faker.name, 'firstName');
-      sinon.spy(faker.name, 'lastName');
-      sinon.spy(faker.random, 'number');
+      sinon.spy(faker.git, "commitMessage");
+      sinon.spy(faker.git, "commitSha");
+      sinon.spy(faker.internet, "email");
+      sinon.spy(faker.name, "firstName");
+      sinon.spy(faker.name, "lastName");
+      sinon.spy(faker.random, "number");
     });
 
     afterEach(function() {
@@ -71,7 +71,7 @@ describe("git.js", function() {
 
     context("with options['merge'] equal to true", function() {
       beforeEach(function() {
-        sinon.spy(faker.git, 'shortSha');
+        sinon.spy(faker.git, "shortSha");
       });
 
       afterEach(function() {
@@ -88,9 +88,9 @@ describe("git.js", function() {
 
   describe("commitMessage()", function() {
     beforeEach(function() {
-      sinon.spy(faker.hacker, 'verb');
-      sinon.spy(faker.hacker, 'adjective');
-      sinon.spy(faker.hacker, 'noun');
+      sinon.spy(faker.hacker, "verb");
+      sinon.spy(faker.hacker, "adjective");
+      sinon.spy(faker.hacker, "noun");
     });
 
     afterEach(function() {
@@ -107,7 +107,6 @@ describe("git.js", function() {
       assert.ok(faker.hacker.noun.calledOnce);
     });
   });
-
 
   describe("commitSha()", function() {
     it("returns a random commit SHA", function() {
