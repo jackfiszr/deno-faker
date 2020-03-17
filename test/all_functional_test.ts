@@ -1,6 +1,6 @@
 import functionalHelpers from "./support/function-helpers.js";
 import { assert } from "./support/test_deps.ts";
-import { faker } from "../mod.js";
+import { faker } from "../mod.ts";
 const { test } = Deno;
 
 const modules = functionalHelpers.modulesList();

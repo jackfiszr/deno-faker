@@ -27,7 +27,7 @@ The license for that script is as follows:
 If we meet some day, and you think this stuff is worth it, you can buy me a beer in return. Luka Pusic
 
 */
-import { faker } from "../mod.js";
+import { faker } from "../mod.ts";
 
 function rnd(a, b) {
   //calling rnd() with no arguments is identical to rnd(0, 100)

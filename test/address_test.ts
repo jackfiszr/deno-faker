@@ -1,6 +1,6 @@
 import { assert, assertEquals, sinon } from "./support/test_deps.ts";
 import { testWrapper } from "./support/test_utils.ts";
-import { faker } from "../mod.js";
+import { faker } from "../mod.ts";
 const { test } = Deno;
 
 function citySpy() {

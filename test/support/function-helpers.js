@@ -1,4 +1,4 @@
-import { faker } from "../../mod.js";
+import { faker } from "../../mod.ts";
 
 var functionHelpers = {};
 
