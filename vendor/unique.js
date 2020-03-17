@@ -101,4 +101,4 @@ unique.exec = function(method, args, opts) {
   }
 };
 
-module.exports = unique;
+export default unique;

@@ -314,7 +314,7 @@ var browser = {
   }
 };
 
-exports.generate = function generate() {
+export function generate() {
   var random = randomBrowserAndOS();
   return browser[random[0]](random[1]);
 };
