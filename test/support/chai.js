@@ -2751,7 +2751,7 @@
           if (mArr) val = { p: mArr[1], i: parseFloat(mArr[2]) };
           return val || value;
         });
-      }/*!
+      } /*!
  * ## _getPathValue(parsed, obj)
  *
  * Helper companion function for `.parsePath` that returns
