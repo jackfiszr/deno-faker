@@ -164,7 +164,7 @@ function MersenneTwister19937() {
       //c//- i; /* non linear */
       mt[i] = subtraction32(
         unsigned32(
-          (dbg = mt[i]) ^ multiplication32(
+          mt[i] ^ multiplication32(
             unsigned32(mt[i - 1] ^ (mt[i - 1] >>> 30)),
             1566083941
           )
