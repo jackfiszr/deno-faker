@@ -1,12 +1,8 @@
-if (typeof module !== "undefined") {
-  var assert = require("assert");
-  var sinon = require("sinon");
-  var faker = require("../../index");
-}
+import { faker } from "../../mod.js";
 
 var functionHelpers = {};
 
-module.exports = functionHelpers;
+export default functionHelpers;
 
 var IGNORED_MODULES = [
   "locales",
