@@ -1,5 +1,5 @@
 import { assert, assertEquals, assertThrows, _ } from "./support/test_deps.ts";
-import * as mersenne from "../vendor/mersenne.js";
+import * as mersenne from "../vendor/mersenne.ts";
 import { faker } from "../mod.ts";
 const { test } = Deno;
 

@@ -1,4 +1,4 @@
-import * as mersenne from "../vendor/mersenne.js";
+import * as mersenne from "../vendor/mersenne.ts";
 
 /**
  *
