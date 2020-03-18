@@ -1,11 +1,11 @@
 const id = {};
 
 id.title = "Indonesia";
-id.address = await import("./address/mod.js");
-id.company = await import("./company/mod.js");
-id.internet = await import("./internet/mod.js");
-id.date = await import("./date/mod.js");
-id.name = await import("./name/mod.js");
-id.phone_number = await import("./phone_number/mod.js");
+id.address = await import("./address/mod.ts");
+id.company = await import("./company/mod.ts");
+id.internet = await import("./internet/mod.ts");
+id.date = await import("./date/mod.ts");
+id.name = await import("./name/mod.ts");
+id.phone_number = await import("./phone_number/mod.ts");
 
 export { id };

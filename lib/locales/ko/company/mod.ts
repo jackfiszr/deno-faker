@@ -1,6 +1,6 @@
-import suffix from "./suffix.js";
-import prefix from "./prefix.js";
-import name from "./name.js";
+import suffix from "./suffix.ts";
+import prefix from "./prefix.ts";
+import name from "./name.ts";
 
 export {
   suffix,

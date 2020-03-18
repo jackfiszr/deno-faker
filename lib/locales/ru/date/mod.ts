@@ -1,5 +1,5 @@
-import month from "./month.js";
-import weekday from "./weekday.js";
+import month from "./month.ts";
+import weekday from "./weekday.ts";
 
 export {
   month,

@@ -2,12 +2,12 @@ const az = {};
 
 az.title = "Azerbaijani";
 az.separator = " və ";
-az.address = await import("./address/mod.js");
-az.internet = await import("./internet/mod.js");
-az.name = await import("./name/mod.js");
-az.phone_number = await import("./phone_number/mod.js");
-az.commerce = await import("./commerce/mod.js");
-az.company = await import("./company/mod.js");
-az.date = await import("./date/mod.js");
+az.address = await import("./address/mod.ts");
+az.internet = await import("./internet/mod.ts");
+az.name = await import("./name/mod.ts");
+az.phone_number = await import("./phone_number/mod.ts");
+az.commerce = await import("./commerce/mod.ts");
+az.company = await import("./company/mod.ts");
+az.date = await import("./date/mod.ts");
 
 export { az };

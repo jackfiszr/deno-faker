@@ -1,5 +1,5 @@
-import default_country from "./default_country.js";
-import postcode_by_state from "./postcode_by_state.js";
+import default_country from "./default_country.ts";
+import postcode_by_state from "./postcode_by_state.ts";
 
 export {
   default_country,

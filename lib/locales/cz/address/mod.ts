@@ -1,16 +1,16 @@
-import country from "./country.js";
-import building_number from "./building_number.js";
-import secondary_address from "./secondary_address.js";
-import postcode from "./postcode.js";
-import state from "./state.js";
-import state_abbr from "./state_abbr.js";
-import time_zone from "./time_zone.js";
-import city_name from "./city_name.js";
-import city from "./city.js";
-import street from "./street.js";
-import street_name from "./street_name.js";
-import street_address from "./street_address.js";
-import default_country from "./default_country.js";
+import country from "./country.ts";
+import building_number from "./building_number.ts";
+import secondary_address from "./secondary_address.ts";
+import postcode from "./postcode.ts";
+import state from "./state.ts";
+import state_abbr from "./state_abbr.ts";
+import time_zone from "./time_zone.ts";
+import city_name from "./city_name.ts";
+import city from "./city.ts";
+import street from "./street.ts";
+import street_name from "./street_name.ts";
+import street_address from "./street_address.ts";
+import default_country from "./default_country.ts";
 
 export {
   country,

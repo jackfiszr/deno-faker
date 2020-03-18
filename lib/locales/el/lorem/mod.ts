@@ -1,4 +1,4 @@
-import words from "./words.js";
+import words from "./words.ts";
 
 export {
   words

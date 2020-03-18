@@ -1,5 +1,5 @@
-import prefix from "./prefix.js";
-import name from "./name.js";
+import prefix from "./prefix.ts";
+import name from "./name.ts";
 
 export {
   prefix,

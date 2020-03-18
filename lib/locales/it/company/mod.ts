@@ -1,11 +1,11 @@
-import suffix from "./suffix.js";
-import noun from "./noun.js";
-import descriptor from "./descriptor.js";
-import adjective from "./adjective.js";
-import bs_noun from "./bs_noun.js";
-import bs_verb from "./bs_verb.js";
-import bs_adjective from "./bs_adjective.js";
-import name from "./name.js";
+import suffix from "./suffix.ts";
+import noun from "./noun.ts";
+import descriptor from "./descriptor.ts";
+import adjective from "./adjective.ts";
+import bs_noun from "./bs_noun.ts";
+import bs_verb from "./bs_verb.ts";
+import bs_adjective from "./bs_adjective.ts";
+import name from "./name.ts";
 
 export {
   suffix,

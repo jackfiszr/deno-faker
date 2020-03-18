@@ -1,9 +1,9 @@
-import first_name_women from "./first_name_women.js";
-import first_name_men from "./first_name_men.js";
-import last_name from "./last_name.js";
-import prefix from "./prefix.js";
-import title from "./title.js";
-import name from "./name.js";
+import first_name_women from "./first_name_women.ts";
+import first_name_men from "./first_name_men.ts";
+import last_name from "./last_name.ts";
+import prefix from "./prefix.ts";
+import title from "./title.ts";
+import name from "./name.ts";
 
 export {
   first_name_women,

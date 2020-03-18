@@ -1,5 +1,5 @@
-import area_code from "./area_code.js";
-import formats from "./formats.js";
+import area_code from "./area_code.ts";
+import formats from "./formats.ts";
 
 export {
   area_code,

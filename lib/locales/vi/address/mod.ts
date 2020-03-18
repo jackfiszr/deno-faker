@@ -1,7 +1,7 @@
-import city_root from "./city_root.js";
-import city from "./city.js";
-import county from "./county.js";
-import default_country from "./default_country.js";
+import city_root from "./city_root.ts";
+import city from "./city.ts";
+import county from "./county.ts";
+import default_country from "./default_country.ts";
 
 export {
   city_root,

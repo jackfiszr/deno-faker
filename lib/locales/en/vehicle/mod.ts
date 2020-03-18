@@ -1,7 +1,7 @@
-import manufacturer from "./manufacturer.js";
-import model from "./model.js";
-import _type from "./vehicle_type.js";
-import fuel from "./fuel.js";
+import manufacturer from "./manufacturer.ts";
+import model from "./model.ts";
+import _type from "./vehicle_type.ts";
+import fuel from "./fuel.ts";
 
 export {
   manufacturer,

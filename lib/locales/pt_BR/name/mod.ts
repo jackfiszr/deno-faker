@@ -1,7 +1,7 @@
-import first_name from "./first_name.js";
-import last_name from "./last_name.js";
-import prefix from "./prefix.js";
-import suffix from "./suffix.js";
+import first_name from "./first_name.ts";
+import last_name from "./last_name.ts";
+import prefix from "./prefix.ts";
+import suffix from "./suffix.ts";
 
 export {
   first_name,

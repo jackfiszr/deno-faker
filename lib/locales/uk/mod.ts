@@ -1,10 +1,10 @@
 const uk = {};
 
 uk.title = "Ukrainian";
-uk.address = await import("./address/mod.js");
-uk.company = await import("./company/mod.js");
-uk.internet = await import("./internet/mod.js");
-uk.name = await import("./name/mod.js");
-uk.phone_number = await import("./phone_number/mod.js");
+uk.address = await import("./address/mod.ts");
+uk.company = await import("./company/mod.ts");
+uk.internet = await import("./internet/mod.ts");
+uk.name = await import("./name/mod.ts");
+uk.phone_number = await import("./phone_number/mod.ts");
 
 export { uk };

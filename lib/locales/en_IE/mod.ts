@@ -1,9 +1,9 @@
 const en_IE = {};
 
 en_IE.title = "Ireland (English)";
-en_IE.address = await import("./address/mod.js");
-en_IE.internet = await import("./internet/mod.js");
-en_IE.phone_number = await import("./phone_number/mod.js");
-en_IE.cell_phone = await import("./cell_phone/mod.js");
+en_IE.address = await import("./address/mod.ts");
+en_IE.internet = await import("./internet/mod.ts");
+en_IE.phone_number = await import("./phone_number/mod.ts");
+en_IE.cell_phone = await import("./cell_phone/mod.ts");
 
 export { en_IE };

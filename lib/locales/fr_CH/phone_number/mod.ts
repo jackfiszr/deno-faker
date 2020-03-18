@@ -1,4 +1,4 @@
-import formats from "./formats.js";
+import formats from "./formats.ts";
 
 export {
   formats

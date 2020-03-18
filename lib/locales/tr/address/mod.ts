@@ -1,11 +1,11 @@
-import city from "./city.js";
-import street_root from "./street_root.js";
-import country from "./country.js";
-import postcode from "./postcode.js";
-import default_country from "./default_country.js";
-import building_number from "./building_number.js";
-import street_name from "./street_name.js";
-import street_address from "./street_address.js";
+import city from "./city.ts";
+import street_root from "./street_root.ts";
+import country from "./country.ts";
+import postcode from "./postcode.ts";
+import default_country from "./default_country.ts";
+import building_number from "./building_number.ts";
+import street_name from "./street_name.ts";
+import street_address from "./street_address.ts";
 
 export {
   city,

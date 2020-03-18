@@ -1,5 +1,5 @@
-import directoryPaths from "./directoryPaths.js";
-import mimeTypes from "./mimeTypes.js";
+import directoryPaths from "./directoryPaths.ts";
+import mimeTypes from "./mimeTypes.ts";
 
 export {
   directoryPaths,

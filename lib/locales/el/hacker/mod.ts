@@ -1,7 +1,7 @@
-import abbreviation from "./abbreviation.js";
-import adjective from "./adjective.js";
-import noun from "./noun.js";
-import verb from "./verb.js";
+import abbreviation from "./abbreviation.ts";
+import adjective from "./adjective.ts";
+import noun from "./noun.ts";
+import verb from "./verb.ts";
 
 export {
   abbreviation,

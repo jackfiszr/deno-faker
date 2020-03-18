@@ -1,5 +1,5 @@
-import creature from "./creature.js";
-import name from "./name.js";
+import creature from "./creature.ts";
+import name from "./name.ts";
 
 export {
   creature,

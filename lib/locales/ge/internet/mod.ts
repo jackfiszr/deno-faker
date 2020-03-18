@@ -1,5 +1,5 @@
-import free_email from "./free_email.js";
-import domain_suffix from "./domain_suffix.js";
+import free_email from "./free_email.ts";
+import domain_suffix from "./domain_suffix.ts";
 
 export {
   free_email,

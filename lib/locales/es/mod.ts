@@ -1,12 +1,12 @@
 const es = {};
 
 es.title = "Spanish";
-es.address = await import("./address/mod.js");
-es.company = await import("./company/mod.js");
-es.internet = await import("./internet/mod.js");
-es.name = await import("./name/mod.js");
-es.phone_number = await import("./phone_number/mod.js");
-es.cell_phone = await import("./cell_phone/mod.js");
-es.commerce = await import("./commerce/mod.js");
+es.address = await import("./address/mod.ts");
+es.company = await import("./company/mod.ts");
+es.internet = await import("./internet/mod.ts");
+es.name = await import("./name/mod.ts");
+es.phone_number = await import("./phone_number/mod.ts");
+es.cell_phone = await import("./cell_phone/mod.ts");
+es.commerce = await import("./commerce/mod.ts");
 
 export { es };

@@ -1,6 +1,6 @@
-import name from "./name.js";
-import version from "./version.js";
-import author from "./author.js";
+import name from "./name.ts";
+import version from "./version.ts";
+import author from "./author.ts";
 
 export {
   name,

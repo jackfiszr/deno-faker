@@ -1,9 +1,9 @@
-import state_abbr from "./state_abbr.js";
-import state from "./state.js";
-import postcode from "./postcode.js";
-import building_number from "./building_number.js";
-import street_suffix from "./street_suffix.js";
-import default_country from "./default_country.js";
+import state_abbr from "./state_abbr.ts";
+import state from "./state.ts";
+import postcode from "./postcode.ts";
+import building_number from "./building_number.ts";
+import street_suffix from "./street_suffix.ts";
+import default_country from "./default_country.ts";
 
 export {
   state_abbr,

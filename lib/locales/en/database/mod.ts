@@ -1,7 +1,7 @@
-import collation from "./collation.js";
-import column from "./column.js";
-import engine from "./engine.js";
-import _type from "./type.js";
+import collation from "./collation.ts";
+import column from "./column.ts";
+import engine from "./engine.ts";
+import _type from "./type.ts";
 
 export {
   collation,

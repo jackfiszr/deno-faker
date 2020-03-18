@@ -2,14 +2,14 @@ const lv = {};
 
 lv.title = "Latvian";
 lv.separator = " un ";
-lv.name = await import("./name/mod.js");
-lv.date = await import("./date/mod.js");
-lv.address = await import("./address/mod.js");
-lv.phone_number = await import("./phone_number/mod.js");
-lv.cell_phone = await import("./cell_phone/mod.js");
-lv.commerce = await import("./commerce/mod.js");
-lv.company = await import("./company/mod.js");
-lv.internet = await import("./internet/mod.js");
-lv.lorem = await import("./lorem/mod.js");
+lv.name = await import("./name/mod.ts");
+lv.date = await import("./date/mod.ts");
+lv.address = await import("./address/mod.ts");
+lv.phone_number = await import("./phone_number/mod.ts");
+lv.cell_phone = await import("./cell_phone/mod.ts");
+lv.commerce = await import("./commerce/mod.ts");
+lv.company = await import("./company/mod.ts");
+lv.internet = await import("./internet/mod.ts");
+lv.lorem = await import("./lorem/mod.ts");
 
 export { lv };

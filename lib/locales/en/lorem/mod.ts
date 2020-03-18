@@ -1,5 +1,5 @@
-import words from "./words.js";
-import supplemental from "./supplemental.js";
+import words from "./words.ts";
+import supplemental from "./supplemental.ts";
 
 export {
   words,

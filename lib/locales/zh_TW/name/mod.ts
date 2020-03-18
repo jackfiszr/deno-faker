@@ -1,6 +1,6 @@
-import first_name from "./first_name.js";
-import last_name from "./last_name.js";
-import name from "./name.js";
+import first_name from "./first_name.ts";
+import last_name from "./last_name.ts";
+import name from "./name.ts";
 
 export {
   first_name,

@@ -1,6 +1,6 @@
-import area_code from "./area_code.js";
-import exchange_code from "./exchange_code.js";
-import formats from "./formats.js";
+import area_code from "./area_code.ts";
+import exchange_code from "./exchange_code.ts";
+import formats from "./formats.ts";
 
 export {
   area_code,

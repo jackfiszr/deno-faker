@@ -1,5 +1,5 @@
-import suffix from "./suffix.js";
-import name from "./name.js";
+import suffix from "./suffix.ts";
+import name from "./name.ts";
 
 export {
   suffix,

@@ -1,15 +1,15 @@
-import building_number from "./building_number.js";
-import city from "./city.js";
-import county from "./county.js";
-import default_country from "./default_country.js";
-import postcode from "./postcode.js";
-import secondary_address from "./secondary_address.js";
-import state from "./state.js";
-import state_abbr from "./state_abbr.js";
-import street_address from "./street_address.js";
-import street_name from "./street_name.js";
-import street_suffix from "./street_suffix.js";
-import streets from "./streets.js";
+import building_number from "./building_number.ts";
+import city from "./city.ts";
+import county from "./county.ts";
+import default_country from "./default_country.ts";
+import postcode from "./postcode.ts";
+import secondary_address from "./secondary_address.ts";
+import state from "./state.ts";
+import state_abbr from "./state_abbr.ts";
+import street_address from "./street_address.ts";
+import street_name from "./street_name.ts";
+import street_suffix from "./street_suffix.ts";
+import streets from "./streets.ts";
 
 export {
   building_number,

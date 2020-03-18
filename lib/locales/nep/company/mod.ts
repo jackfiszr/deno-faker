@@ -1,4 +1,4 @@
-import suffix from "./suffix.js";
+import suffix from "./suffix.ts";
 
 export {
   suffix
