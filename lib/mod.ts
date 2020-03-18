@@ -39,163 +39,169 @@ import { Vehicle } from "./vehicle.js";
  *
  * @namespace faker
  */
-function Faker(opts) {
-  var self = this;
+class Faker {
+  [key: string]: any
 
-  opts = opts || {};
+  constructor(opts: any) {
+    this.opts = opts || {};
+    // assign options
+    this.locales = opts.locales || {};
+    this.locale = opts.locale || "en";
+    this.localeFallback = opts.localeFallback || "en";
 
-  // assign options
-  var locales = self.locales || opts.locales || {};
-  var locale = self.locale || opts.locale || "en";
-  var localeFallback = self.localeFallback || opts.localeFallback || "en";
+    this.definitions = {};
 
-  self.locales = locales;
-  self.locale = locale;
-  self.localeFallback = localeFallback;
+    this.fake = new Fake(this).fake;
+    this.unique = new Unique(this).unique;
+    this.random = new Random(this);
+    this.helpers = new Helpers(this);
+    this.name = new Name(this);
+    this.address = new Address(this);
+    this.company = new Company(this);
+    this.finance = new Finance(this);
+    this.image = new Image(this);
+    this.lorem = new Lorem(this);
+    this.hacker = new Hacker(this);
+    this.internet = new Internet(this);
+    this.database = new Database(this);
+    this.phone = new Phone(this);
+    this.date = new _Date(this);
+    this.commerce = new Commerce(this);
+    this.system = new System(this);
+    this.git = new Git(this);
+    this.vehicle = new Vehicle(this);
 
-  self.definitions = {};
+    this._definitions = {
+      "name": [
+        "first_name",
+        "last_name",
+        "prefix",
+        "suffix",
+        "gender",
+        "title",
+        "male_prefix",
+        "female_prefix",
+        "male_first_name",
+        "female_first_name",
+        "male_middle_name",
+        "female_middle_name",
+        "male_last_name",
+        "female_last_name"
+      ],
+      "address": [
+        "city_prefix",
+        "city_suffix",
+        "street_suffix",
+        "county",
+        "country",
+        "country_code",
+        "state",
+        "state_abbr",
+        "street_prefix",
+        "postcode",
+        "postcode_by_state",
+        "direction",
+        "direction_abbr"
+      ],
+      "company": [
+        "adjective",
+        "noun",
+        "descriptor",
+        "bs_adjective",
+        "bs_noun",
+        "bs_verb",
+        "suffix"
+      ],
+      "lorem": ["words"],
+      "hacker": [
+        "abbreviation",
+        "adjective",
+        "noun",
+        "verb",
+        "ingverb",
+        "phrase"
+      ],
+      "phone_number": ["formats"],
+      "finance": [
+        "account_type",
+        "transaction_type",
+        "currency",
+        "iban",
+        "credit_card"
+      ],
+      "internet": [
+        "avatar_uri",
+        "domain_suffix",
+        "free_email",
+        "example_email",
+        "password"
+      ],
+      "commerce": [
+        "color",
+        "department",
+        "product_name",
+        "price",
+        "categories"
+      ],
+      "database": ["collation", "column", "engine", "type"],
+      "system": ["mimeTypes", "directoryPaths"],
+      "date": ["month", "weekday"],
+      "vehicle": [
+        "vehicle",
+        "manufacturer",
+        "model",
+        "type",
+        "fuel",
+        "vin",
+        "color"
+      ],
+      "title": "",
+      "separator": ""
+    };
 
-  self.fake = new Fake(self).fake;
-  self.unique = new Unique(self).unique;
-  self.random = new Random(self);
-  self.helpers = new Helpers(self);
-  self.name = new Name(self);
-  self.address = new Address(self);
-  self.company = new Company(self);
-  self.finance = new Finance(self);
-  self.image = new Image(self);
-  self.lorem = new Lorem(self);
-  self.hacker = new Hacker(self);
-  self.internet = new Internet(self);
-  self.database = new Database(self);
-  self.phone = new Phone(self);
-  self.date = new _Date(self);
-  self.commerce = new Commerce(self);
-  self.system = new System(self);
-  self.git = new Git(self);
-  self.vehicle = new Vehicle(self);
+    // Create a Getter for all definitions.foo.bar properties
+    Object.keys(this._definitions).forEach((d: any) => {
+      if (typeof this.definitions[d] === "undefined") {
+        this.definitions[d] = {};
+      }
 
-  var _definitions = {
-    "name": [
-      "first_name",
-      "last_name",
-      "prefix",
-      "suffix",
-      "gender",
-      "title",
-      "male_prefix",
-      "female_prefix",
-      "male_first_name",
-      "female_first_name",
-      "male_middle_name",
-      "female_middle_name",
-      "male_last_name",
-      "female_last_name"
-    ],
-    "address": [
-      "city_prefix",
-      "city_suffix",
-      "street_suffix",
-      "county",
-      "country",
-      "country_code",
-      "state",
-      "state_abbr",
-      "street_prefix",
-      "postcode",
-      "postcode_by_state",
-      "direction",
-      "direction_abbr"
-    ],
-    "company": [
-      "adjective",
-      "noun",
-      "descriptor",
-      "bs_adjective",
-      "bs_noun",
-      "bs_verb",
-      "suffix"
-    ],
-    "lorem": ["words"],
-    "hacker": [
-      "abbreviation",
-      "adjective",
-      "noun",
-      "verb",
-      "ingverb",
-      "phrase"
-    ],
-    "phone_number": ["formats"],
-    "finance": [
-      "account_type",
-      "transaction_type",
-      "currency",
-      "iban",
-      "credit_card"
-    ],
-    "internet": [
-      "avatar_uri",
-      "domain_suffix",
-      "free_email",
-      "example_email",
-      "password"
-    ],
-    "commerce": ["color", "department", "product_name", "price", "categories"],
-    "database": ["collation", "column", "engine", "type"],
-    "system": ["mimeTypes", "directoryPaths"],
-    "date": ["month", "weekday"],
-    "vehicle": [
-      "vehicle",
-      "manufacturer",
-      "model",
-      "type",
-      "fuel",
-      "vin",
-      "color"
-    ],
-    "title": "",
-    "separator": ""
-  };
+      if (typeof this._definitions[d] === "string") {
+        this.definitions[d] = this._definitions[d];
+        return;
+      }
 
-  // Create a Getter for all definitions.foo.bar properties
-  Object.keys(_definitions).forEach(function(d) {
-    if (typeof self.definitions[d] === "undefined") {
-      self.definitions[d] = {};
-    }
-
-    if (typeof _definitions[d] === "string") {
-      self.definitions[d] = _definitions[d];
-      return;
-    }
-
-    _definitions[d].forEach(function(p) {
-      Object.defineProperty(self.definitions[d], p, {
-        get: function() {
-          if (
-            typeof self.locales[self.locale][d] === "undefined" ||
-            typeof self.locales[self.locale][d][p] === "undefined"
-          ) {
-            // certain localization sets contain less data then others.
-            // in the case of a missing definition, use the default localeFallback to substitute the missing set data
-            // throw new Error('unknown property ' + d + p)
-            return self.locales[localeFallback][d][p];
-          } else {
-            // return localized data
-            return self.locales[self.locale][d][p];
-          }
-        }
-      });
+      if (Array.isArray(this._definitions[d])) {
+        const defsArray = [...this._definitions[d]];
+        defsArray.forEach((p: any) => {
+          Object.defineProperty(this.definitions[d], p, {
+            get: () => {
+              if (
+                typeof this.locales[this.locale][d] === "undefined" ||
+                typeof this.locales[this.locale][d][p] === "undefined"
+              ) {
+                // certain localization sets contain less data then others.
+                // in the case of a missing definition, use the default localeFallback to substitute the missing set data
+                // throw new Error('unknown property ' + d + p)
+                return this.locales[this.localeFallback][d][p];
+              } else {
+                // return localized data
+                return this.locales[this.locale][d][p];
+              }
+            }
+          });
+        });
+      }
     });
-  });
+  }
+
+  setLocale(locale: any) {
+    this.locale = locale;
+  }
+
+  seed(value: number | number[]) {
+    this.seedValue = value;
+    this.random = new Random(this, this.seedValue);
+  }
 }
-
-Faker.prototype.setLocale = function(locale) {
-  this.locale = locale;
-};
-
-Faker.prototype.seed = function(value) {
-  this.seedValue = value;
-  this.random = new Random(this, this.seedValue);
-};
 
 export { Faker };
