@@ -17,7 +17,7 @@
 
 */
 import { Fake } from "./fake.ts";
-import { Unique } from "./unique.js";
+import { Unique } from "./unique.ts";
 import { Random } from "./random.js";
 import { Helpers } from "./helpers.js";
 import { Name } from "./name.js";
