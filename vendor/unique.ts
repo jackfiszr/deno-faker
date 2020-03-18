@@ -1,22 +1,26 @@
 // the `unique` module
-var unique = {};
+const unique: {
+  [key: string]: Function;
+} = {};
 
 // global results store
 // currently uniqueness is global to entire faker instance
 // this means that faker should currently *never* return duplicate values across all API methods when using `Faker.unique`
 // it's possible in the future that some users may want to scope found per function call instead of faker instance
-var found = {};
+const found: {
+  [key: string]: Function;
+} = {};
 
 // global exclude list of results
 // defaults to nothing excluded
-var exclude = [];
+const exclude: string[] | string = [];
 
 // current iteration or retries of unique.exec ( current loop depth )
-var currentIterations = 0;
+const currentIterations = 0;
 
 // uniqueness compare function
 // default behavior is to check value as key against object hash
-var defaultCompare = function(obj, key) {
+const defaultCompare = function(obj: { [key: string]: any }, key: string) {
   if (typeof obj[key] === "undefined") {
     return -1;
   }
@@ -24,7 +28,11 @@ var defaultCompare = function(obj, key) {
 };
 
 // common error handler for messages
-unique.errorMessage = function(now, code, opts) {
+unique.errorMessage = function(
+  now: number,
+  code: number,
+  opts: { [key: string]: any }
+) {
   console.error("error", code);
   console.log(
     "found",
@@ -41,10 +49,14 @@ unique.errorMessage = function(now, code, opts) {
   );
 };
 
-unique.exec = function(method, args, opts) {
-  //console.log(currentIterations)
+unique.exec = function(
+  method: Function,
+  args: string[],
+  opts: { [key: string]: any }
+) {
+  // console.log(currentIterations)
 
-  var now = new Date().getTime();
+  const now = new Date().getTime();
 
   opts = opts || {};
   opts.maxTime = opts.maxTime || 3;
@@ -60,7 +72,7 @@ unique.exec = function(method, args, opts) {
     opts.startTime = new Date().getTime();
   }
 
-  var startTime = opts.startTime;
+  const startTime = opts.startTime;
 
   // support single exclude argument as string
   if (typeof opts.exclude === "string") {
@@ -85,7 +97,7 @@ unique.exec = function(method, args, opts) {
   }
 
   // execute the provided method to find a potential satifised value
-  var result = method.apply(this, args);
+  const result = method.apply(this, args);
 
   // if the result has not been previously found, add it to the found array and return the value as it's unique
   if (
@@ -95,7 +107,7 @@ unique.exec = function(method, args, opts) {
     opts.currentIterations = 0;
     return result;
   } else {
-    // console.log('conflict', result);
+    // console.log('conflict', result)
     opts.currentIterations++;
     return unique.exec(method, args, opts);
   }
