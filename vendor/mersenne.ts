@@ -102,7 +102,7 @@ function MersenneTwister19937(this: MersenneTwister19937) {
 
   /* initializes mt[N] with a seed */
   //c//void init_genrand(unsigned long s)
-  this.init_genrand = function(s: number) {
+  this.init_genrand = (s: number) => {
     //c//mt[0]= s & 0xffffffff;
     mt[0] = unsigned32(s & 0xffffffff);
     for (mti = 1; mti < N; mti++) {
@@ -129,7 +129,7 @@ function MersenneTwister19937(this: MersenneTwister19937) {
   /* key_length is its length */
   /* slight change for C++, 2004/2/26 */
   //c//void init_by_array(unsigned long init_key[], int key_length)
-  this.init_by_array = function(init_key: number[], key_length: number) {
+  this.init_by_array = (init_key: number[], key_length: number) => {
     //c//int i, j, k;
     let i, j, k;
     //c//init_genrand(19650218);
@@ -190,7 +190,7 @@ function MersenneTwister19937(this: MersenneTwister19937) {
 
   /* generates a random number on [0,0xffffffff]-interval */
   //c//unsigned long genrand_int32(void)
-  this.genrand_int32 = function() {
+  this.genrand_int32 = () => {
     //c//unsigned long y;
     //c//static unsigned long mag01[2]={0x0UL, MATRIX_A};
     let y;
@@ -243,14 +243,14 @@ function MersenneTwister19937(this: MersenneTwister19937) {
 
   /* generates a random number on [0,0x7fffffff]-interval */
   //c//long genrand_int31(void)
-  this.genrand_int31 = function() {
+  this.genrand_int31 = () => {
     //c//return (genrand_int32()>>1);
     return (this.genrand_int32() >>> 1);
   };
 
   /* generates a random number on [0,1]-real-interval */
   //c//double genrand_real1(void)
-  this.genrand_real1 = function() {
+  this.genrand_real1 = () => {
     //c//return genrand_int32()*(1.0/4294967295.0);
     return this.genrand_int32() * (1.0 / 4294967295.0);
     /* divided by 2^32-1 */
@@ -258,7 +258,7 @@ function MersenneTwister19937(this: MersenneTwister19937) {
 
   /* generates a random number on [0,1)-real-interval */
   //c//double genrand_real2(void)
-  this.genrand_real2 = function() {
+  this.genrand_real2 = () => {
     //c//return genrand_int32()*(1.0/4294967296.0);
     return this.genrand_int32() * (1.0 / 4294967296.0);
     /* divided by 2^32 */
@@ -266,7 +266,7 @@ function MersenneTwister19937(this: MersenneTwister19937) {
 
   /* generates a random number on (0,1)-real-interval */
   //c//double genrand_real3(void)
-  this.genrand_real3 = function() {
+  this.genrand_real3 = () => {
     //c//return ((genrand_int32()) + 0.5)*(1.0/4294967296.0);
     return ((this.genrand_int32()) + 0.5) * (1.0 / 4294967296.0);
     /* divided by 2^32 */
@@ -274,7 +274,7 @@ function MersenneTwister19937(this: MersenneTwister19937) {
 
   /* generates a random number on [0,1) with 53-bit resolution*/
   //c//double genrand_res53(void)
-  this.genrand_res53 = function() {
+  this.genrand_res53 = () => {
     //c//unsigned long a=genrand_int32()>>5, b=genrand_int32()>>6;
     const a = this.genrand_int32() >>> 5, b = this.genrand_int32() >>> 6;
     return (a * 67108864.0 + b) * (1.0 / 9007199254740992.0);
