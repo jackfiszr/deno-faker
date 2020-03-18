@@ -1,4 +1,6 @@
-const pl = {};
+const pl: {
+  [key: string]: any;
+} = {};
 
 pl.title = "Polish";
 pl.name = await import("./name/mod.ts");

@@ -1,4 +1,6 @@
-const nl_BE = {};
+const nl_BE: {
+  [key: string]: any;
+} = {};
 
 nl_BE.title = "Dutch (Belgium)";
 nl_BE.address = await import("./address/mod.ts");

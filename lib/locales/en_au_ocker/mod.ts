@@ -1,4 +1,6 @@
-const en_au_ocker = {};
+const en_au_ocker: {
+  [key: string]: any;
+} = {};
 
 en_au_ocker.title = "Australia Ocker (English)";
 en_au_ocker.name = await import("./name/mod.ts");

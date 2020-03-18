@@ -1,4 +1,6 @@
-const lv = {};
+const lv: {
+  [key: string]: any;
+} = {};
 
 lv.title = "Latvian";
 lv.separator = " un ";

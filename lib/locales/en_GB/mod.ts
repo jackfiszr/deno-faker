@@ -1,4 +1,6 @@
-const en_GB = {};
+const en_GB: {
+  [key: string]: any;
+} = {};
 
 en_GB.title = "Great Britain (English)";
 en_GB.address = await import("./address/mod.ts");

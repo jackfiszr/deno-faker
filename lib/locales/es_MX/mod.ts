@@ -1,4 +1,6 @@
-const es_MX = {};
+const es_MX: {
+  [key: string]: any;
+} = {};
 
 es_MX.title = "Spanish Mexico";
 es_MX.separator = " & ";

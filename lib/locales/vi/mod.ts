@@ -1,4 +1,6 @@
-const vi = {};
+const vi: {
+  [key: string]: any;
+} = {};
 
 vi.title = "Vietnamese";
 vi.address = await import("./address/mod.ts");

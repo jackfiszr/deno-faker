@@ -1,4 +1,6 @@
-const id = {};
+const id: {
+  [key: string]: any;
+} = {};
 
 id.title = "Indonesia";
 id.address = await import("./address/mod.ts");

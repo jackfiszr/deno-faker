@@ -1,4 +1,6 @@
-const en_IND = {};
+const en_IND: {
+  [key: string]: any;
+} = {};
 
 en_IND.title = "India (English)";
 en_IND.name = await import("./name/mod.ts");

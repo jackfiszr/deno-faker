@@ -1,4 +1,6 @@
-const cz = {};
+const cz: {
+  [key: string]: any;
+} = {};
 
 cz.title = "Czech";
 cz.address = await import("./address/mod.ts");

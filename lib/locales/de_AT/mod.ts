@@ -1,4 +1,6 @@
-const de_AT = {};
+const de_AT: {
+  [key: string]: any;
+} = {};
 
 de_AT.title = "German (Austria)";
 de_AT.address = await import("./address/mod.ts");

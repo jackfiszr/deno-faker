@@ -1,4 +1,6 @@
-const en_IE = {};
+const en_IE: {
+  [key: string]: any;
+} = {};
 
 en_IE.title = "Ireland (English)";
 en_IE.address = await import("./address/mod.ts");

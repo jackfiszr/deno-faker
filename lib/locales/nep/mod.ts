@@ -1,4 +1,6 @@
-const nep = {};
+const nep: {
+  [key: string]: any;
+} = {};
 
 nep.title = "Nepalese";
 nep.name = await import("./name/mod.ts");

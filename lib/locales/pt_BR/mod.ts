@@ -1,4 +1,6 @@
-const pt_BR = {};
+const pt_BR: {
+  [key: string]: any;
+} = {};
 
 pt_BR.title = "Portuguese (Brazil)";
 pt_BR.address = await import("./address/mod.ts");

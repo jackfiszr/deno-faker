@@ -1,4 +1,6 @@
-const ar = {};
+const ar: {
+  [key: string]: any;
+} = {};
 
 ar.title = "Arabic";
 ar.separator = " & ";

@@ -1,4 +1,6 @@
-const az = {};
+const az: {
+  [key: string]: any;
+} = {};
 
 az.title = "Azerbaijani";
 az.separator = " və ";

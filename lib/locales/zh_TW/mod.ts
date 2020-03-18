@@ -1,4 +1,6 @@
-const zh_TW = {};
+const zh_TW: {
+  [key: string]: any;
+} = {};
 
 zh_TW.title = "Chinese (Taiwan)";
 zh_TW.address = await import("./address/mod.ts");

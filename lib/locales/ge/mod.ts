@@ -1,4 +1,6 @@
-const ge = {};
+const ge: {
+  [key: string]: any;
+} = {};
 
 ge.title = "Georgian";
 ge.separator = " და ";

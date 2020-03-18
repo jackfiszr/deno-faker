@@ -1,4 +1,6 @@
-const en_ZA = {};
+const en_ZA: {
+  [key: string]: any;
+} = {};
 
 en_ZA.title = "South Africa (Zulu)";
 en_ZA.address = await import("./address/mod.ts");

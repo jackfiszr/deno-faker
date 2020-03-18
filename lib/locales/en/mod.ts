@@ -1,4 +1,6 @@
-const en = {};
+const en: {
+  [key: string]: any;
+} = {};
 
 en.title = "English";
 en.separator = " & ";

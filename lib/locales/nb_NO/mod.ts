@@ -1,4 +1,6 @@
-const nb_NO = {};
+const nb_NO: {
+  [key: string]: any;
+} = {};
 
 nb_NO.title = "Norwegian";
 nb_NO.address = await import("./address/mod.ts");

@@ -1,4 +1,6 @@
-const ru = {};
+const ru: {
+  [key: string]: any;
+} = {};
 
 ru.title = "Russian";
 ru.separator = " и ";

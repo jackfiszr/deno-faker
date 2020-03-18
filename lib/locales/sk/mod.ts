@@ -1,4 +1,6 @@
-const sk = {};
+const sk: {
+  [key: string]: any;
+} = {};
 
 sk.title = "Slovakian";
 sk.address = await import("./address/mod.ts");
