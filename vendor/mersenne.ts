@@ -72,25 +72,25 @@ function MersenneTwister19937(this: MersenneTwister19937) {
   const mt = new Array(N); /* the array for the state vector  */
   let mti = N + 1; /* mti==N+1 means mt[N] is not initialized */
 
-  function unsigned32(n1: number) // returns a 32-bits unsiged integer from an operand to which applied a bit operator.
-  {
+  function unsigned32(n1: number) {
+    // returns a 32-bits unsiged integer from an operand to which applied a bit operator.
     return n1 < 0 ? (n1 ^ UPPER_MASK) + UPPER_MASK : n1;
   }
 
-  function subtraction32(n1: number, n2: number) // emulates lowerflow of a c 32-bits unsiged integer variable, instead of the operator -. these both arguments must be non-negative integers expressible using unsigned 32 bits.
-  {
+  function subtraction32(n1: number, n2: number) {
+    // emulates lowerflow of a c 32-bits unsiged integer variable, instead of the operator -. these both arguments must be non-negative integers expressible using unsigned 32 bits.
     return n1 < n2
       ? unsigned32((0x100000000 - (n2 - n1)) & 0xffffffff)
       : n1 - n2;
   }
 
-  function addition32(n1: number, n2: number) // emulates overflow of a c 32-bits unsiged integer variable, instead of the operator +. these both arguments must be non-negative integers expressible using unsigned 32 bits.
-  {
+  function addition32(n1: number, n2: number) {
+    // emulates overflow of a c 32-bits unsiged integer variable, instead of the operator +. these both arguments must be non-negative integers expressible using unsigned 32 bits.
     return unsigned32((n1 + n2) & 0xffffffff);
   }
 
-  function multiplication32(n1: number, n2: number) // emulates overflow of a c 32-bits unsiged integer variable, instead of the operator *. these both arguments must be non-negative integers expressible using unsigned 32 bits.
-  {
+  function multiplication32(n1: number, n2: number) {
+    // emulates overflow of a c 32-bits unsiged integer variable, instead of the operator *. these both arguments must be non-negative integers expressible using unsigned 32 bits.
     let sum = 0;
     for (let i = 0; i < 32; ++i) {
       if ((n1 >>> i) & 0x1) {
@@ -282,7 +282,7 @@ function MersenneTwister19937(this: MersenneTwister19937) {
   /* These real versions are due to Isaku Wada, 2002/01/09 added */
 }
 
-//  export const  Public API
+//  Exports: Public API
 
 //  Export the twister class
 export { MersenneTwister19937 };
