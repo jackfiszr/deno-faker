@@ -292,7 +292,7 @@ const gen = new MersenneTwister19937();
 gen.init_genrand((new Date()).getTime() % 1000000000);
 
 // Added max, min range functionality, Marak Squires Sept 11 2014
-export const rand = function(max?: number, min?: number) {
+export function rand(max?: number, min?: number) {
   if (max === undefined) {
     min = 0;
     max = 32768;
@@ -301,18 +301,18 @@ export const rand = function(max?: number, min?: number) {
     min = 0;
   }
   return Math.floor(gen.genrand_real2() * (max - min) + min);
-};
-export const seed = function(S: number) {
+}
+export function seed(S: number) {
   if (typeof (S) != "number") {
     throw new Error("seed(S) must take numeric argument; is " + typeof (S));
   }
   gen.init_genrand(S);
-};
-export const seed_array = function(A: number[]) {
+}
+export function seed_array(A: number[]) {
   if (typeof (A) != "object") {
     throw new Error(
       "seed_array(A) must take array of numbers; is " + typeof (A)
     );
   }
   gen.init_by_array(A, A.length);
-};
+}
