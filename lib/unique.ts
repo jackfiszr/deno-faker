@@ -1,4 +1,4 @@
-import uniqueExec from "../vendor/unique.js";
+import uniqueExec from "../vendor/unique.ts";
 /**
  *
  * @namespace faker.unique
