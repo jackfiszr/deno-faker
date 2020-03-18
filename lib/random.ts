@@ -4,13 +4,19 @@ import * as mersenne from "../vendor/mersenne.js";
  *
  * @namespace faker.random
  */
-function Random(faker, seed) {
-  // Use a user provided seed if it exists
-  if (seed) {
-    if (Array.isArray(seed) && seed.length) {
-      mersenne.seed_array(seed);
-    } else {
-      mersenne.seed(seed);
+class Random {
+  faker: any;
+  seed: number;
+  constructor(faker: any, seed?: any) {
+    this.faker = faker;
+    this.seed = seed;
+    // Use a user provided seed if it exists
+    if (this.seed) {
+      if (Array.isArray(this.seed) && this.seed.length) {
+        mersenne.seed_array(this.seed);
+      } else {
+        mersenne.seed(this.seed);
+      }
     }
   }
   /**
@@ -19,7 +25,7 @@ function Random(faker, seed) {
    * @method faker.random.number
    * @param {mixed} options {min, max, precision}
    */
-  this.number = function(options) {
+  number = (options: any) => {
     if (typeof options === "number") {
       options = {
         max: options
@@ -40,12 +46,12 @@ function Random(faker, seed) {
     }
 
     // Make the range inclusive of the max value
-    var max = options.max;
+    let max = options.max;
     if (max >= 0) {
       max += options.precision;
     }
 
-    var randomNumber = Math.floor(
+    let randomNumber = Math.floor(
       mersenne.rand(max / options.precision, options.min / options.precision)
     );
     // Workaround problem in Float point arithmetics for e.g. 6681493 / 0.01
@@ -60,21 +66,23 @@ function Random(faker, seed) {
    * @method faker.random.float
    * @param {mixed} options
    */
-  this.float = function(options) {
+  float = (options: any) => {
     if (typeof options === "number") {
       options = {
         precision: options
       };
     }
     options = options || {};
-    var opts = {};
-    for (var p in options) {
+    const opts: {
+      [key: string]: any;
+    } = {};
+    for (const p in options) {
       opts[p] = options[p];
     }
     if (typeof opts.precision === "undefined") {
       opts.precision = 0.01;
     }
-    return faker.random.number(opts);
+    return this.faker.random.number(opts);
   };
 
   /**
@@ -83,9 +91,9 @@ function Random(faker, seed) {
    * @method faker.random.arrayElement
    * @param {array} array
    */
-  this.arrayElement = function(array) {
+  arrayElement = (array: string[]) => {
     array = array || ["a", "b", "c"];
-    var r = faker.random.number({ max: array.length - 1 });
+    const r = this.faker.random.number({ max: array.length - 1 });
     return array[r];
   };
 
@@ -96,21 +104,23 @@ function Random(faker, seed) {
    * @param {array} array
    * @param {number} count number of elements to pick
    */
-  this.arrayElements = function(array, count) {
+  arrayElements = (array: string[], count: number) => {
     array = array || ["a", "b", "c"];
 
     if (typeof count !== "number") {
-      count = faker.random.number({ min: 1, max: array.length });
+      count = this.faker.random.number({ min: 1, max: array.length });
     } else if (count > array.length) {
       count = array.length;
     } else if (count < 0) {
       count = 0;
     }
 
-    var arrayCopy = array.slice();
-    var countToRemove = arrayCopy.length - count;
-    for (var i = 0; i < countToRemove; i++) {
-      var indexToRemove = faker.random.number({ max: arrayCopy.length - 1 });
+    const arrayCopy = array.slice();
+    const countToRemove = arrayCopy.length - count;
+    for (let i = 0; i < countToRemove; i++) {
+      const indexToRemove = this.faker.random.number(
+        { max: arrayCopy.length - 1 }
+      );
       arrayCopy.splice(indexToRemove, 1);
     }
 
@@ -124,10 +134,10 @@ function Random(faker, seed) {
    * @param {object} object
    * @param {mixed} field
    */
-  this.objectElement = function(object, field) {
+  objectElement = (object: any, field: string) => {
     object = object || { "foo": "bar", "too": "car" };
-    var array = Object.keys(object);
-    var key = faker.random.arrayElement(array);
+    const array = Object.keys(object);
+    const key = this.faker.random.arrayElement(array);
 
     return field === "key" ? key : object[key];
   };
@@ -137,11 +147,11 @@ function Random(faker, seed) {
    *
    * @method faker.random.uuid
    */
-  this.uuid = function() {
-    var RFC4122_TEMPLATE = "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx";
-    var replacePlaceholders = function(placeholder) {
-      var random = faker.random.number({ min: 0, max: 15 });
-      var value = placeholder == "x" ? random : (random & 0x3 | 0x8);
+  uuid = () => {
+    const RFC4122_TEMPLATE = "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx";
+    const replacePlaceholders = (placeholder: string) => {
+      const random = this.faker.random.number({ min: 0, max: 15 });
+      const value = placeholder == "x" ? random : (random & 0x3 | 0x8);
       return value.toString(16);
     };
     return RFC4122_TEMPLATE.replace(/[xy]/g, replacePlaceholders);
@@ -152,8 +162,8 @@ function Random(faker, seed) {
    *
    * @method faker.random.boolean
    */
-  this.boolean = function() {
-    return !!faker.random.number(1);
+  boolean = () => {
+    return !!this.faker.random.number(1);
   };
 
   // TODO: have ability to return specific type of word? As in: noun, adjective, verb, etc
@@ -163,8 +173,8 @@ function Random(faker, seed) {
    * @method faker.random.word
    * @param {string} type
    */
-  this.word = function randomWord(type) {
-    var wordMethods = [
+  word = (type: string) => {
+    const wordMethods = [
       "commerce.department",
       "commerce.productName",
       "commerce.productAdjective",
@@ -195,8 +205,8 @@ function Random(faker, seed) {
     ];
 
     // randomly pick from the many faker methods that can generate words
-    var randomWordMethod = faker.random.arrayElement(wordMethods);
-    return faker.fake("{{" + randomWordMethod + "}}");
+    const randomWordMethod = this.faker.random.arrayElement(wordMethods);
+    return this.faker.fake("{{" + randomWordMethod + "}}");
   };
 
   /**
@@ -205,13 +215,13 @@ function Random(faker, seed) {
    * @method faker.random.words
    * @param {number} count defaults to a random value between 1 and 3
    */
-  this.words = function randomWords(count) {
-    var words = [];
+  words = (count: number) => {
+    const words = [];
     if (typeof count === "undefined") {
-      count = faker.random.number({ min: 1, max: 3 });
+      count = this.faker.random.number({ min: 1, max: 3 });
     }
-    for (var i = 0; i < count; i++) {
-      words.push(faker.random.word());
+    for (let i = 0; i < count; i++) {
+      words.push(this.faker.random.word());
     }
     return words.join(" ");
   };
@@ -221,8 +231,8 @@ function Random(faker, seed) {
    *
    * @method faker.random.image
    */
-  this.image = function randomImage() {
-    return faker.image.image();
+  image = () => {
+    return this.faker.image.image();
   };
 
   /**
@@ -230,8 +240,8 @@ function Random(faker, seed) {
    *
    * @method faker.random.locale
    */
-  this.locale = function randomLocale() {
-    return faker.random.arrayElement(Object.keys(faker.locales));
+  locale = () => {
+    return this.faker.random.arrayElement(Object.keys(this.faker.locales));
   };
 
   /**
@@ -240,7 +250,7 @@ function Random(faker, seed) {
    * @method faker.random.alpha
    * @param {mixed} options // defaults to { count: 1, upcase: false }
    */
-  this.alpha = function alpha(options) {
+  alpha = (options: any) => {
     if (typeof options === "undefined") {
       options = {
         count: 1
@@ -257,9 +267,9 @@ function Random(faker, seed) {
       options.upcase = false;
     }
 
-    var wholeString = "";
-    for (var i = 0; i < options.count; i++) {
-      wholeString += faker.random.arrayElement(
+    let wholeString = "";
+    for (let i = 0; i < options.count; i++) {
+      wholeString += this.faker.random.arrayElement(
         [
           "a",
           "b",
@@ -300,14 +310,14 @@ function Random(faker, seed) {
    * @method faker.random.alphaNumeric
    * @param {number} count defaults to 1
    */
-  this.alphaNumeric = function alphaNumeric(count) {
+  alphaNumeric = (count: number) => {
     if (typeof count === "undefined") {
       count = 1;
     }
 
-    var wholeString = "";
-    for (var i = 0; i < count; i++) {
-      wholeString += faker.random.arrayElement(
+    let wholeString = "";
+    for (let i = 0; i < count; i++) {
+      wholeString += this.faker.random.arrayElement(
         [
           "0",
           "1",
@@ -358,14 +368,14 @@ function Random(faker, seed) {
    * @method faker.random.hexaDecimal
    * @param {number} count defaults to 1
    */
-  this.hexaDecimal = function hexaDecimal(count) {
+  hexaDecimal = (count: number) => {
     if (typeof count === "undefined") {
       count = 1;
     }
 
-    var wholeString = "";
-    for (var i = 0; i < count; i++) {
-      wholeString += faker.random.arrayElement(
+    let wholeString = "";
+    for (let i = 0; i < count; i++) {
+      wholeString += this.faker.random.arrayElement(
         [
           "0",
           "1",
@@ -395,8 +405,6 @@ function Random(faker, seed) {
 
     return "0x" + wholeString;
   };
-
-  return this;
 }
 
 export { Random };
