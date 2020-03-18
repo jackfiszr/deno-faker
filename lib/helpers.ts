@@ -2,8 +2,11 @@
  *
  * @namespace faker.helpers
  */
-var Helpers = function(faker) {
-  var self = this;
+class Helpers {
+  faker: any;
+  constructor(faker: any) {
+    this.faker = faker;
+  }
 
   /**
    * backword-compatibility
@@ -11,10 +14,10 @@ var Helpers = function(faker) {
    * @method faker.helpers.randomize
    * @param {array} array
    */
-  self.randomize = function(array) {
+  randomize(array: string[]) {
     array = array || ["a", "b", "c"];
-    return faker.random.arrayElement(array);
-  };
+    return this.faker.random.arrayElement(array);
+  }
 
   /**
    * slugifies string
@@ -22,10 +25,10 @@ var Helpers = function(faker) {
    * @method faker.helpers.slugify
    * @param {string} string
    */
-  self.slugify = function(string) {
+  slugify(string: string) {
     string = string || "";
     return string.replace(/ /g, "-").replace(/[^\w\.\-]+/g, "");
-  };
+  }
 
   /**
    * parses string for a symbol and replace it with a random number from 1-10
@@ -34,25 +37,25 @@ var Helpers = function(faker) {
    * @param {string} string
    * @param {string} symbol defaults to `"#"`
    */
-  self.replaceSymbolWithNumber = function(string, symbol) {
+  replaceSymbolWithNumber(string: string, symbol: string) {
     string = string || "";
     // default symbol is '#'
     if (symbol === undefined) {
       symbol = "#";
     }
 
-    var str = "";
-    for (var i = 0; i < string.length; i++) {
+    let str = "";
+    for (let i = 0; i < string.length; i++) {
       if (string.charAt(i) == symbol) {
-        str += faker.random.number(9);
+        str += this.faker.random.number(9);
       } else if (string.charAt(i) == "!") {
-        str += faker.random.number({ min: 2, max: 9 });
+        str += this.faker.random.number({ min: 2, max: 9 });
       } else {
         str += string.charAt(i);
       }
     }
     return str;
-  };
+  }
 
   /**
    * parses string for symbols (numbers or letters) and replaces them appropriately (# will be replaced with number,
@@ -61,9 +64,9 @@ var Helpers = function(faker) {
    * @method faker.helpers.replaceSymbols
    * @param {string} string
    */
-  self.replaceSymbols = function(string) {
+  replaceSymbols(string: string) {
     string = string || "";
-    var alpha = [
+    const alpha = [
       "A",
       "B",
       "C",
@@ -91,23 +94,23 @@ var Helpers = function(faker) {
       "Y",
       "Z"
     ];
-    var str = "";
+    let str = "";
 
-    for (var i = 0; i < string.length; i++) {
+    for (let i = 0; i < string.length; i++) {
       if (string.charAt(i) == "#") {
-        str += faker.random.number(9);
+        str += this.faker.random.number(9);
       } else if (string.charAt(i) == "?") {
-        str += faker.random.arrayElement(alpha);
+        str += this.faker.random.arrayElement(alpha);
       } else if (string.charAt(i) == "*") {
-        str += faker.random.boolean()
-          ? faker.random.arrayElement(alpha)
-          : faker.random.number(9);
+        str += this.faker.random.boolean()
+          ? this.faker.random.arrayElement(alpha)
+          : this.faker.random.number(9);
       } else {
         str += string.charAt(i);
       }
     }
     return str;
-  };
+  }
 
   /**
    * replace symbols in a credit card schems including Luhn checksum
@@ -117,11 +120,11 @@ var Helpers = function(faker) {
    * @param {string} symbol
    */
 
-  self.replaceCreditCardSymbols = function(string, symbol) {
+  replaceCreditCardSymbols = (string: string, symbol: string) => {
     symbol = symbol || "#";
 
     // Function calculating the Luhn checksum of a number string
-    var getCheckBit = function(number) {
+    const getCheckBit = (number: number[]) => {
       number.reverse();
       number = number.map(function(num, index) {
         if (index % 2 === 0) {
@@ -132,21 +135,21 @@ var Helpers = function(faker) {
         }
         return num;
       });
-      var sum = number.reduce(function(prev, curr) {
+      const sum = number.reduce(function(prev, curr) {
         return prev + curr;
       });
       return sum % 10;
     };
 
     string = string || "";
-    string = faker.helpers.regexpStyleStringParse(string); // replace [4-9] with a random number in range etc...
-    string = faker.helpers.replaceSymbolWithNumber(string, symbol); // replace ### with random numbers
+    string = this.faker.helpers.regexpStyleStringParse(string); // replace [4-9] with a random number in range etc...
+    string = this.faker.helpers.replaceSymbolWithNumber(string, symbol); // replace ### with random numbers
 
-    var numberList = string.replace(/\D/g, "").split("").map(function(num) {
+    const numberList = string.replace(/\D/g, "").split("").map(function(num) {
       return parseInt(num);
     });
-    var checkNum = getCheckBit(numberList);
-    return string.replace("L", checkNum);
+    const checkNum = getCheckBit(numberList);
+    return string.replace("L", String(checkNum));
   };
 
   /** string repeat helper, alternative to String.prototype.repeat.... See PR #382
@@ -155,12 +158,12 @@ var Helpers = function(faker) {
    * @param {string} string
    * @param {number} num
    */
-  self.repeatString = function(string, num) {
+  repeatString = (string: string, num: number) => {
     if (typeof num === "undefined") {
       num = 0;
     }
-    var text = "";
-    for (var i = 0; i < num; i++) {
+    let text = "";
+    for (let i = 0; i < num; i++) {
       text += string.toString();
     }
     return text;
@@ -174,15 +177,15 @@ var Helpers = function(faker) {
     * @method faker.helpers.regexpStyleStringParse
     * @param {string} string
     */
-  self.regexpStyleStringParse = function(string) {
+  regexpStyleStringParse = (string: string) => {
     string = string || "";
     // Deal with range repeat `{min,max}`
-    var RANGE_REP_REG = /(.)\{(\d+)\,(\d+)\}/;
-    var REP_REG = /(.)\{(\d+)\}/;
-    var RANGE_REG = /\[(\d+)\-(\d+)\]/;
-    var min, max, tmp, repetitions;
-    var token = string.match(RANGE_REP_REG);
-    while (token !== null) {
+    const RANGE_REP_REG = /(.)\{(\d+)\,(\d+)\}/;
+    const REP_REG = /(.)\{(\d+)\}/;
+    const RANGE_REG = /\[(\d+)\-(\d+)\]/;
+    let min, max, tmp, repetitions;
+    let token = string.match(RANGE_REP_REG);
+    while (token !== null && token.index !== undefined) {
       min = parseInt(token[2]);
       max = parseInt(token[3]);
       // switch min and max
@@ -191,18 +194,18 @@ var Helpers = function(faker) {
         max = min;
         min = tmp;
       }
-      repetitions = faker.random.number({ min: min, max: max });
+      repetitions = this.faker.random.number({ min: min, max: max });
       string = string.slice(0, token.index) +
-        faker.helpers.repeatString(token[1], repetitions) +
+        this.faker.helpers.repeatString(token[1], repetitions) +
         string.slice(token.index + token[0].length);
       token = string.match(RANGE_REP_REG);
     }
     // Deal with repeat `{num}`
     token = string.match(REP_REG);
-    while (token !== null) {
+    while (token !== null && token.index !== undefined) {
       repetitions = parseInt(token[2]);
       string = string.slice(0, token.index) +
-        faker.helpers.repeatString(token[1], repetitions) +
+        this.faker.helpers.repeatString(token[1], repetitions) +
         string.slice(token.index + token[0].length);
       token = string.match(REP_REG);
     }
@@ -210,7 +213,7 @@ var Helpers = function(faker) {
     //TODO: implement for letters e.g. [0-9a-zA-Z] etc.
 
     token = string.match(RANGE_REG);
-    while (token !== null) {
+    while (token !== null && token.index !== undefined) {
       min = parseInt(token[1]); // This time we are not capturing the char befor `[]`
       max = parseInt(token[2]);
       // switch min and max
@@ -220,7 +223,7 @@ var Helpers = function(faker) {
         min = tmp;
       }
       string = string.slice(0, token.index) +
-        faker.random.number({ min: min, max: max }).toString() +
+        this.faker.random.number({ min: min, max: max }).toString() +
         string.slice(token.index + token[0].length);
       token = string.match(RANGE_REG);
     }
@@ -233,21 +236,21 @@ var Helpers = function(faker) {
    * @method faker.helpers.shuffle
    * @param {array} o
    */
-  self.shuffle = function(o) {
+  shuffle(o: string[]) {
     if (typeof o === "undefined" || o.length === 0) {
       return [];
     }
     o = o || ["a", "b", "c"];
     for (
-      var j, x, i = o.length - 1;
+      let j, x, i = o.length - 1;
       i;
-      j = faker.random.number(i),
+      j = this.faker.random.number(i),
         x = o[--i],
         o[i] = o[j],
         o[j] = x
     );
     return o;
-  };
+  }
 
   /**
    * mustache
@@ -256,168 +259,165 @@ var Helpers = function(faker) {
    * @param {string} str
    * @param {object} data
    */
-  self.mustache = function(str, data) {
+  mustache(str: string, data: any) {
     if (typeof str === "undefined") {
       return "";
     }
-    for (var p in data) {
-      var re = new RegExp("{{" + p + "}}", "g");
+    for (const p in data) {
+      const re = new RegExp("{{" + p + "}}", "g");
       str = str.replace(re, data[p]);
     }
     return str;
-  };
+  }
 
   /**
    * createCard
    *
    * @method faker.helpers.createCard
    */
-  self.createCard = function() {
+  createCard() {
     return {
-      "name": faker.name.findName(),
-      "username": faker.internet.userName(),
-      "email": faker.internet.email(),
+      "name": this.faker.name.findName(),
+      "username": this.faker.internet.userName(),
+      "email": this.faker.internet.email(),
       "address": {
-        "streetA": faker.address.streetName(),
-        "streetB": faker.address.streetAddress(),
-        "streetC": faker.address.streetAddress(true),
-        "streetD": faker.address.secondaryAddress(),
-        "city": faker.address.city(),
-        "state": faker.address.state(),
-        "country": faker.address.country(),
-        "zipcode": faker.address.zipCode(),
+        "streetA": this.faker.address.streetName(),
+        "streetB": this.faker.address.streetAddress(),
+        "streetC": this.faker.address.streetAddress(true),
+        "streetD": this.faker.address.secondaryAddress(),
+        "city": this.faker.address.city(),
+        "state": this.faker.address.state(),
+        "country": this.faker.address.country(),
+        "zipcode": this.faker.address.zipCode(),
         "geo": {
-          "lat": faker.address.latitude(),
-          "lng": faker.address.longitude()
+          "lat": this.faker.address.latitude(),
+          "lng": this.faker.address.longitude()
         }
       },
-      "phone": faker.phone.phoneNumber(),
-      "website": faker.internet.domainName(),
+      "phone": this.faker.phone.phoneNumber(),
+      "website": this.faker.internet.domainName(),
       "company": {
-        "name": faker.company.companyName(),
-        "catchPhrase": faker.company.catchPhrase(),
-        "bs": faker.company.bs()
+        "name": this.faker.company.companyName(),
+        "catchPhrase": this.faker.company.catchPhrase(),
+        "bs": this.faker.company.bs()
       },
       "posts": [
         {
-          "words": faker.lorem.words(),
-          "sentence": faker.lorem.sentence(),
-          "sentences": faker.lorem.sentences(),
-          "paragraph": faker.lorem.paragraph()
+          "words": this.faker.lorem.words(),
+          "sentence": this.faker.lorem.sentence(),
+          "sentences": this.faker.lorem.sentences(),
+          "paragraph": this.faker.lorem.paragraph()
         },
         {
-          "words": faker.lorem.words(),
-          "sentence": faker.lorem.sentence(),
-          "sentences": faker.lorem.sentences(),
-          "paragraph": faker.lorem.paragraph()
+          "words": this.faker.lorem.words(),
+          "sentence": this.faker.lorem.sentence(),
+          "sentences": this.faker.lorem.sentences(),
+          "paragraph": this.faker.lorem.paragraph()
         },
         {
-          "words": faker.lorem.words(),
-          "sentence": faker.lorem.sentence(),
-          "sentences": faker.lorem.sentences(),
-          "paragraph": faker.lorem.paragraph()
+          "words": this.faker.lorem.words(),
+          "sentence": this.faker.lorem.sentence(),
+          "sentences": this.faker.lorem.sentences(),
+          "paragraph": this.faker.lorem.paragraph()
         }
       ],
       "accountHistory": [
-        faker.helpers.createTransaction(),
-        faker.helpers.createTransaction(),
-        faker.helpers.createTransaction()
+        this.faker.helpers.createTransaction(),
+        this.faker.helpers.createTransaction(),
+        this.faker.helpers.createTransaction()
       ]
     };
-  };
+  }
 
   /**
    * contextualCard
    *
    * @method faker.helpers.contextualCard
    */
-  self.contextualCard = function() {
-    var name = faker.name.firstName(),
-      userName = faker.internet.userName(name);
+  contextualCard() {
+    const name = this.faker.name.firstName(),
+      userName = this.faker.internet.userName(name);
     return {
       "name": name,
       "username": userName,
-      "avatar": faker.internet.avatar(),
-      "email": faker.internet.email(userName),
-      "dob": faker.date.past(
+      "avatar": this.faker.internet.avatar(),
+      "email": this.faker.internet.email(userName),
+      "dob": this.faker.date.past(
         50,
         new Date("Sat Sep 20 1992 21:35:02 GMT+0200 (CEST)")
       ),
-      "phone": faker.phone.phoneNumber(),
+      "phone": this.faker.phone.phoneNumber(),
       "address": {
-        "street": faker.address.streetName(true),
-        "suite": faker.address.secondaryAddress(),
-        "city": faker.address.city(),
-        "zipcode": faker.address.zipCode(),
+        "street": this.faker.address.streetName(true),
+        "suite": this.faker.address.secondaryAddress(),
+        "city": this.faker.address.city(),
+        "zipcode": this.faker.address.zipCode(),
         "geo": {
-          "lat": faker.address.latitude(),
-          "lng": faker.address.longitude()
+          "lat": this.faker.address.latitude(),
+          "lng": this.faker.address.longitude()
         }
       },
-      "website": faker.internet.domainName(),
+      "website": this.faker.internet.domainName(),
       "company": {
-        "name": faker.company.companyName(),
-        "catchPhrase": faker.company.catchPhrase(),
-        "bs": faker.company.bs()
+        "name": this.faker.company.companyName(),
+        "catchPhrase": this.faker.company.catchPhrase(),
+        "bs": this.faker.company.bs()
       }
     };
-  };
+  }
 
   /**
    * userCard
    *
    * @method faker.helpers.userCard
    */
-  self.userCard = function() {
+  userCard() {
     return {
-      "name": faker.name.findName(),
-      "username": faker.internet.userName(),
-      "email": faker.internet.email(),
+      "name": this.faker.name.findName(),
+      "username": this.faker.internet.userName(),
+      "email": this.faker.internet.email(),
       "address": {
-        "street": faker.address.streetName(true),
-        "suite": faker.address.secondaryAddress(),
-        "city": faker.address.city(),
-        "zipcode": faker.address.zipCode(),
+        "street": this.faker.address.streetName(true),
+        "suite": this.faker.address.secondaryAddress(),
+        "city": this.faker.address.city(),
+        "zipcode": this.faker.address.zipCode(),
         "geo": {
-          "lat": faker.address.latitude(),
-          "lng": faker.address.longitude()
+          "lat": this.faker.address.latitude(),
+          "lng": this.faker.address.longitude()
         }
       },
-      "phone": faker.phone.phoneNumber(),
-      "website": faker.internet.domainName(),
+      "phone": this.faker.phone.phoneNumber(),
+      "website": this.faker.internet.domainName(),
       "company": {
-        "name": faker.company.companyName(),
-        "catchPhrase": faker.company.catchPhrase(),
-        "bs": faker.company.bs()
+        "name": this.faker.company.companyName(),
+        "catchPhrase": this.faker.company.catchPhrase(),
+        "bs": this.faker.company.bs()
       }
     };
-  };
+  }
 
   /**
    * createTransaction
    *
    * @method faker.helpers.createTransaction
    */
-  self.createTransaction = function() {
+  createTransaction = () => {
     return {
-      "amount": faker.finance.amount(),
+      "amount": this.faker.finance.amount(),
       "date": new Date(2012, 1, 2), //TODO: add a ranged date method
-      "business": faker.company.companyName(),
-      "name": [faker.finance.accountName(), faker.finance.mask()].join(" "),
-      "type": self.randomize(faker.definitions.finance.transaction_type),
-      "account": faker.finance.account()
+      "business": this.faker.company.companyName(),
+      "name": [this.faker.finance.accountName(), this.faker.finance.mask()]
+        .join(" "),
+      "type": this.randomize(this.faker.definitions.finance.transaction_type),
+      "account": this.faker.finance.account()
     };
   };
-
-  return self;
-};
-
+}
 /*
-String.prototype.capitalize = function () { //v1.0
-    return this.replace(/\w+/g, function (a) {
-        return a.charAt(0).toUpperCase() + a.substr(1).toLowerCase();
-    });
-};
-*/
+String.prototype.capitalize () { //v1.0
+  return this.replace(/\w+/g, function (a) {
+    return a.charAt(0).toUpperCase() + a.substr(1).toLowerCase();
+  });
+}; */
 
 export { Helpers };
