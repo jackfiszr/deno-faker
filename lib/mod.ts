@@ -16,7 +16,7 @@
   if you plan on modifying the faker library you should be performing your changes in the /lib/ directory
 
 */
-import { Fake } from "./fake.js";
+import { Fake } from "./fake.ts";
 import { Unique } from "./unique.js";
 import { Random } from "./random.js";
 import { Helpers } from "./helpers.js";
