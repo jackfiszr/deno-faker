@@ -21,7 +21,7 @@ import { Unique } from "./unique.ts";
 import { Random } from "./random.ts";
 import { Helpers } from "./helpers.ts";
 import { Name } from "./name.ts";
-import { Address } from "./address.js";
+import { Address } from "./address.ts";
 import { Company } from "./company.js";
 import { Finance } from "./finance.js";
 import { Image } from "./image.js";
