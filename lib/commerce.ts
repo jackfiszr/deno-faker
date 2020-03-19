@@ -2,16 +2,21 @@
  *
  * @namespace faker.commerce
  */
-var Commerce = function(faker) {
-  var self = this;
+class Commerce {
+  faker: any;
+  constructor(faker: any) {
+    this.faker = faker;
+  }
 
   /**
    * color
    *
    * @method faker.commerce.color
    */
-  self.color = function() {
-    return faker.random.arrayElement(faker.definitions.commerce.color);
+  color = () => {
+    return this.faker.random.arrayElement(
+      this.faker.definitions.commerce.color
+    );
   };
 
   /**
@@ -19,8 +24,10 @@ var Commerce = function(faker) {
    *
    * @method faker.commerce.department
    */
-  self.department = function() {
-    return faker.random.arrayElement(faker.definitions.commerce.department);
+  department = () => {
+    return this.faker.random.arrayElement(
+      this.faker.definitions.commerce.department
+    );
   };
 
   /**
@@ -28,10 +35,10 @@ var Commerce = function(faker) {
    *
    * @method faker.commerce.productName
    */
-  self.productName = function() {
-    return faker.commerce.productAdjective() + " " +
-      faker.commerce.productMaterial() + " " +
-      faker.commerce.product();
+  productName = () => {
+    return this.faker.commerce.productAdjective() + " " +
+      this.faker.commerce.productMaterial() + " " +
+      this.faker.commerce.product();
   };
 
   /**
@@ -45,7 +52,7 @@ var Commerce = function(faker) {
    *
    * @return {string}
    */
-  self.price = function(min, max, dec, symbol) {
+  price = (min: number, max: number, dec: number, symbol: string) => {
     min = min || 1;
     max = max || 1000;
     dec = dec === undefined ? 2 : dec;
@@ -55,7 +62,7 @@ var Commerce = function(faker) {
       return symbol + 0.00;
     }
 
-    var randValue = faker.random.number({ max: max, min: min });
+    const randValue = this.faker.random.number({ max: max, min: min });
 
     return symbol +
       (Math.round(randValue * Math.pow(10, dec)) / Math.pow(10, dec)).toFixed(
@@ -64,11 +71,11 @@ var Commerce = function(faker) {
   };
 
   /*
-  self.categories = function(num) {
-      var categories = [];
+  categories = (num) => {
+      const categories = [];
 
       do {
-          var category = faker.random.arrayElement(faker.definitions.commerce.department);
+          const category = this.faker.random.arrayElement(faker.definitions.commerce.department);
           if(categories.indexOf(category) === -1) {
               categories.push(category);
           }
@@ -79,11 +86,11 @@ var Commerce = function(faker) {
 
   */
   /*
-  self.mergeCategories = function(categories) {
-      var separator = faker.definitions.separator || " &";
+  mergeCategories = (categories) => {
+      const separator = faker.definitions.separator || " &";
       // TODO: find undefined here
       categories = categories || faker.definitions.commerce.categories;
-      var commaSeparated = categories.slice(0, -1).join(', ');
+      const commaSeparated = categories.slice(0, -1).join(', ');
 
       return [commaSeparated, categories[categories.length - 1]].join(separator + " ");
   };
@@ -94,9 +101,9 @@ var Commerce = function(faker) {
    *
    * @method faker.commerce.productAdjective
    */
-  self.productAdjective = function() {
-    return faker.random.arrayElement(
-      faker.definitions.commerce.product_name.adjective
+  productAdjective = () => {
+    return this.faker.random.arrayElement(
+      this.faker.definitions.commerce.product_name.adjective
     );
   };
 
@@ -105,9 +112,9 @@ var Commerce = function(faker) {
    *
    * @method faker.commerce.productMaterial
    */
-  self.productMaterial = function() {
-    return faker.random.arrayElement(
-      faker.definitions.commerce.product_name.material
+  productMaterial = () => {
+    return this.faker.random.arrayElement(
+      this.faker.definitions.commerce.product_name.material
     );
   };
 
@@ -116,13 +123,11 @@ var Commerce = function(faker) {
    *
    * @method faker.commerce.product
    */
-  self.product = function() {
-    return faker.random.arrayElement(
-      faker.definitions.commerce.product_name.product
+  product = () => {
+    return this.faker.random.arrayElement(
+      this.faker.definitions.commerce.product_name.product
     );
   };
-
-  return self;
-};
+}
 
 export { Commerce };
