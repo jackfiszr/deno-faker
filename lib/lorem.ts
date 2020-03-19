@@ -2,9 +2,13 @@
  *
  * @namespace faker.lorem
  */
-var Lorem = function(faker) {
-  var self = this;
-  var Helpers = faker.helpers;
+class Lorem {
+  faker: any;
+  Helpers: any;
+  constructor(faker: any) {
+    this.faker = faker;
+    this.Helpers = faker.helpers;
+  }
 
   /**
    * word
@@ -12,8 +16,8 @@ var Lorem = function(faker) {
    * @method faker.lorem.word
    * @param {number} num
    */
-  self.word = function(num) {
-    return faker.random.arrayElement(faker.definitions.lorem.words);
+  word = (num: number) => {
+    return this.faker.random.arrayElement(this.faker.definitions.lorem.words);
   };
 
   /**
@@ -22,11 +26,11 @@ var Lorem = function(faker) {
    * @method faker.lorem.words
    * @param {number} num number of words, defaults to 3
    */
-  self.words = function(num) {
+  words = (num: number) => {
     if (typeof num == "undefined") num = 3;
-    var words = [];
-    for (var i = 0; i < num; i++) {
-      words.push(faker.lorem.word());
+    const words = [];
+    for (let i = 0; i < num; i++) {
+      words.push(this.faker.lorem.word());
     }
     return words.join(" ");
   };
@@ -38,9 +42,9 @@ var Lorem = function(faker) {
    * @param {number} wordCount defaults to a random number between 3 and 10
    * @param {number} range
    */
-  self.sentence = function(wordCount, range) {
+  sentence = (wordCount: number, range: number) => {
     if (typeof wordCount == "undefined") {
-      wordCount = faker.random.number(
+      wordCount = this.faker.random.number(
         { min: 3, max: 10 }
       );
     }
@@ -49,7 +53,7 @@ var Lorem = function(faker) {
     // strange issue with the node_min_test failing for captialize, please fix and add faker.lorem.back
     //return  faker.lorem.words(wordCount + Helpers.randomNumber(range)).join(' ').capitalize();
 
-    var sentence = faker.lorem.words(wordCount);
+    const sentence = this.faker.lorem.words(wordCount);
     return sentence.charAt(0).toUpperCase() + sentence.slice(1) + ".";
   };
 
@@ -59,9 +63,9 @@ var Lorem = function(faker) {
    * @method faker.lorem.slug
    * @param {number} wordCount number of words, defaults to 3
    */
-  self.slug = function(wordCount) {
-    var words = faker.lorem.words(wordCount);
-    return Helpers.slugify(words);
+  slug = (wordCount: number) => {
+    const words = this.faker.lorem.words(wordCount);
+    return this.Helpers.slugify(words);
   };
 
   /**
@@ -71,14 +75,14 @@ var Lorem = function(faker) {
    * @param {number} sentenceCount defautls to a random number between 2 and 6
    * @param {string} separator defaults to `' '`
    */
-  self.sentences = function(sentenceCount, separator) {
+  sentences = (sentenceCount: number, separator: string) => {
     if (typeof sentenceCount === "undefined") {
-      sentenceCount = faker.random.number({ min: 2, max: 6 });
+      sentenceCount = this.faker.random.number({ min: 2, max: 6 });
     }
     if (typeof separator == "undefined") separator = " ";
-    var sentences = [];
+    const sentences = [];
     for (sentenceCount; sentenceCount > 0; sentenceCount--) {
-      sentences.push(faker.lorem.sentence());
+      sentences.push(this.faker.lorem.sentence());
     }
     return sentences.join(separator);
   };
@@ -89,9 +93,11 @@ var Lorem = function(faker) {
    * @method faker.lorem.paragraph
    * @param {number} sentenceCount defaults to 3
    */
-  self.paragraph = function(sentenceCount) {
+  paragraph = (sentenceCount: number) => {
     if (typeof sentenceCount == "undefined") sentenceCount = 3;
-    return faker.lorem.sentences(sentenceCount + faker.random.number(3));
+    return this.faker.lorem.sentences(
+      sentenceCount + this.faker.random.number(3)
+    );
   };
 
   /**
@@ -101,14 +107,14 @@ var Lorem = function(faker) {
    * @param {number} paragraphCount defaults to 3
    * @param {string} separator defaults to `'\n \r'`
    */
-  self.paragraphs = function(paragraphCount, separator) {
+  paragraphs = (paragraphCount: number, separator: string) => {
     if (typeof separator === "undefined") {
       separator = "\n \r";
     }
     if (typeof paragraphCount == "undefined") paragraphCount = 3;
-    var paragraphs = [];
+    const paragraphs = [];
     for (paragraphCount; paragraphCount > 0; paragraphCount--) {
-      paragraphs.push(faker.lorem.paragraph());
+      paragraphs.push(this.faker.lorem.paragraph());
     }
     return paragraphs.join(separator);
   };
@@ -119,8 +125,8 @@ var Lorem = function(faker) {
    * @method faker.lorem.text
    * @param {number} times
    */
-  self.text = function loremText(times) {
-    var loremMethods = [
+  loremText = (times: number) => {
+    const loremMethods = [
       "lorem.word",
       "lorem.words",
       "lorem.sentence",
@@ -129,8 +135,8 @@ var Lorem = function(faker) {
       "lorem.paragraphs",
       "lorem.lines"
     ];
-    var randomLoremMethod = faker.random.arrayElement(loremMethods);
-    return faker.fake("{{" + randomLoremMethod + "}}");
+    const randomLoremMethod = this.faker.random.arrayElement(loremMethods);
+    return this.faker.fake("{{" + randomLoremMethod + "}}");
   };
 
   /**
@@ -139,16 +145,14 @@ var Lorem = function(faker) {
    * @method faker.lorem.lines
    * @param {number} lineCount defaults to a random number between 1 and 5
    */
-  self.lines = function lines(lineCount) {
+  lines = (lineCount: number) => {
     if (typeof lineCount === "undefined") {
-      lineCount = faker.random.number(
+      lineCount = this.faker.random.number(
         { min: 1, max: 5 }
       );
     }
-    return faker.lorem.sentences(lineCount, "\n");
+    return this.faker.lorem.sentences(lineCount, "\n");
   };
-
-  return self;
-};
+}
 
 export { Lorem };
