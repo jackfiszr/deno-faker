@@ -1,4 +1,4 @@
-import * as random_ua from "../vendor/user-agent.js";
+import * as random_ua from "../vendor/user-agent.ts";
 import schemas from "./schemas.ts";
 
 /**
