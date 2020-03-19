@@ -1,21 +1,24 @@
+import schemas from "./schemas.ts";
 /**
  *
  * @namespace faker.database
  */
-var Database = function(faker) {
-  var self = this;
+class Database {
+  faker: any;
+  constructor(faker: any) {
+    this.faker = faker;
+  }
+
   /**
    * column
    *
    * @method faker.database.column
    */
-  self.column = function() {
-    return faker.random.arrayElement(faker.definitions.database.column);
-  };
-
-  self.column.schema = {
-    "description": "Generates a column name.",
-    "sampleResults": ["id", "title", "createdAt"]
+  column = () => {
+    const schema = schemas.column;
+    return this.faker.random.arrayElement(
+      this.faker.definitions.database.column
+    );
   };
 
   /**
@@ -23,13 +26,11 @@ var Database = function(faker) {
    *
    * @method faker.database.type
    */
-  self.type = function() {
-    return faker.random.arrayElement(faker.definitions.database.type);
-  };
-
-  self.type.schema = {
-    "description": "Generates a column type.",
-    "sampleResults": ["byte", "int", "varchar", "timestamp"]
+  type = () => {
+    const schema = schemas.type;
+    return this.faker.random.arrayElement(
+      this.faker.definitions.database.type
+    );
   };
 
   /**
@@ -37,13 +38,11 @@ var Database = function(faker) {
    *
    * @method faker.database.collation
    */
-  self.collation = function() {
-    return faker.random.arrayElement(faker.definitions.database.collation);
-  };
-
-  self.collation.schema = {
-    "description": "Generates a collation.",
-    "sampleResults": ["utf8_unicode_ci", "utf8_bin"]
+  collation = () => {
+    const schema = schemas.collation;
+    return this.faker.random.arrayElement(
+      this.faker.definitions.database.collation
+    );
   };
 
   /**
@@ -51,14 +50,12 @@ var Database = function(faker) {
    *
    * @method faker.database.engine
    */
-  self.engine = function() {
-    return faker.random.arrayElement(faker.definitions.database.engine);
+  engine = () => {
+    const schema = schemas.engine;
+    return this.faker.random.arrayElement(
+      this.faker.definitions.database.engine
+    );
   };
-
-  self.engine.schema = {
-    "description": "Generates a storage engine.",
-    "sampleResults": ["MyISAM", "InnoDB"]
-  };
-};
+}
 
 export { Database };
