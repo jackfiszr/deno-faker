@@ -28,7 +28,7 @@ import { Image } from "./image.ts";
 import { Lorem } from "./lorem.ts";
 import { Hacker } from "./hacker.ts";
 import { Internet } from "./internet.ts";
-import { Database } from "./database.js";
+import { Database } from "./database.ts";
 import { Phone } from "./phone_number.js";
 import { _Date } from "./date.js";
 import { Commerce } from "./commerce.js";
