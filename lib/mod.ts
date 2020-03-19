@@ -32,7 +32,7 @@ import { Database } from "./database.ts";
 import { Phone } from "./phone_number.ts";
 import { _Date } from "./date.ts";
 import { Commerce } from "./commerce.ts";
-import { System } from "./system.js";
+import { System } from "./system.ts";
 import { Git } from "./git.js";
 import { Vehicle } from "./vehicle.js";
 /**
