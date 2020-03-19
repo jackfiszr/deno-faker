@@ -1,25 +1,25 @@
 import * as random_ua from "../vendor/user-agent.js";
+import schemas from "./schemas.ts";
 
 /**
  *
  * @namespace faker.internet
  */
-var Internet = function(faker) {
-  var self = this;
+class Internet {
+  faker: any;
+  constructor(faker: any) {
+    this.faker = faker;
+  }
   /**
    * avatar
    *
    * @method faker.internet.avatar
    */
-  self.avatar = function() {
-    return faker.random.arrayElement(faker.definitions.internet.avatar_uri);
-  };
-
-  self.avatar.schema = {
-    "description": "Generates a URL for an avatar.",
-    "sampleResults": [
-      "https://s3.amazonaws.com/uifaces/faces/twitter/igorgarybaldi/128.jpg"
-    ]
+  avatar = () => {
+    const schema = schemas.avatar;
+    return this.faker.random.arrayElement(
+      this.faker.definitions.internet.avatar_uri
+    );
   };
 
   /**
@@ -30,36 +30,17 @@ var Internet = function(faker) {
    * @param {string} lastName
    * @param {string} provider
    */
-  self.email = function(firstName, lastName, provider) {
+  email = (firstName: string, lastName: string, provider: string) => {
+    const schema = schemas.email;
     provider = provider ||
-      faker.random.arrayElement(faker.definitions.internet.free_email);
-    return faker.helpers.slugify(
-      faker.internet.userName(firstName, lastName)
+      this.faker.random.arrayElement(
+        this.faker.definitions.internet.free_email
+      );
+    return this.faker.helpers.slugify(
+      this.faker.internet.userName(firstName, lastName)
     ) + "@" + provider;
   };
 
-  self.email.schema = {
-    "description":
-      "Generates a valid email address based on optional input criteria",
-    "sampleResults": ["foo.bar@gmail.com"],
-    "properties": {
-      "firstName": {
-        "type": "string",
-        "required": false,
-        "description": "The first name of the user"
-      },
-      "lastName": {
-        "type": "string",
-        "required": false,
-        "description": "The last name of the user"
-      },
-      "provider": {
-        "type": "string",
-        "required": false,
-        "description": "The domain of the user"
-      }
-    }
-  };
   /**
    * exampleEmail
    *
@@ -67,11 +48,11 @@ var Internet = function(faker) {
    * @param {string} firstName
    * @param {string} lastName
    */
-  self.exampleEmail = function(firstName, lastName) {
-    var provider = faker.random.arrayElement(
-      faker.definitions.internet.example_email
+  exampleEmail = (firstName: string, lastName: string) => {
+    const provider = this.faker.random.arrayElement(
+      this.faker.definitions.internet.example_email
     );
-    return self.email(firstName, lastName, provider);
+    return this.email(firstName, lastName, provider);
   };
 
   /**
@@ -81,49 +62,27 @@ var Internet = function(faker) {
    * @param {string} firstName
    * @param {string} lastName
    */
-  self.userName = function(firstName, lastName) {
-    var result;
-    firstName = firstName || faker.name.firstName();
-    lastName = lastName || faker.name.lastName();
-    switch (faker.random.number(2)) {
+  userName = (firstName: string, lastName: string) => {
+    const schema = schemas.userName;
+    let result;
+    firstName = firstName || this.faker.name.firstName();
+    lastName = lastName || this.faker.name.lastName();
+    switch (this.faker.random.number(2)) {
       case 0:
-        result = firstName + faker.random.number(99);
+        result = firstName + this.faker.random.number(99);
         break;
       case 1:
-        result = firstName + faker.random.arrayElement([".", "_"]) + lastName;
+        result = firstName + this.faker.random.arrayElement([".", "_"]) +
+          lastName;
         break;
       case 2:
-        result = firstName + faker.random.arrayElement([".", "_"]) + lastName +
-          faker.random.number(99);
+        result = firstName + this.faker.random.arrayElement([".", "_"]) +
+          lastName + this.faker.random.number(99);
         break;
     }
-    result = result.toString().replace(/'/g, "");
-    result = result.replace(/ /g, "");
+    result = result?.toString().replace(/'/g, "");
+    result = result?.replace(/ /g, "");
     return result;
-  };
-
-  self.userName.schema = {
-    "description":
-      "Generates a username based on one of several patterns. The pattern is chosen randomly.",
-    "sampleResults": [
-      "Kirstin39",
-      "Kirstin.Smith",
-      "Kirstin.Smith39",
-      "KirstinSmith",
-      "KirstinSmith39"
-    ],
-    "properties": {
-      "firstName": {
-        "type": "string",
-        "required": false,
-        "description": "The first name of the user"
-      },
-      "lastName": {
-        "type": "string",
-        "required": false,
-        "description": "The last name of the user"
-      }
-    }
   };
 
   /**
@@ -131,14 +90,10 @@ var Internet = function(faker) {
    *
    * @method faker.internet.protocol
    */
-  self.protocol = function() {
-    var protocols = ["http", "https"];
-    return faker.random.arrayElement(protocols);
-  };
-
-  self.protocol.schema = {
-    "description": "Randomly generates http or https",
-    "sampleResults": ["https", "http"]
+  protocol = () => {
+    const schema = schemas.protocol;
+    const protocols = ["http", "https"];
+    return this.faker.random.arrayElement(protocols);
   };
 
   /**
@@ -146,17 +101,10 @@ var Internet = function(faker) {
    *
    * @method faker.internet.url
    */
-  self.url = function() {
-    return faker.internet.protocol() + "://" + faker.internet.domainName();
-  };
-
-  self.url.schema = {
-    "description":
-      "Generates a random URL. The URL could be secure or insecure.",
-    "sampleResults": [
-      "http://rashawn.name",
-      "https://rashawn.name"
-    ]
+  url = () => {
+    const schema = schemas.url;
+    return this.faker.internet.protocol() + "://" +
+      this.faker.internet.domainName();
   };
 
   /**
@@ -164,13 +112,10 @@ var Internet = function(faker) {
    *
    * @method faker.internet.domainName
    */
-  self.domainName = function() {
-    return faker.internet.domainWord() + "." + faker.internet.domainSuffix();
-  };
-
-  self.domainName.schema = {
-    "description": "Generates a random domain name.",
-    "sampleResults": ["marvin.org"]
+  domainName = () => {
+    const schema = schemas.domainName;
+    return this.faker.internet.domainWord() + "." +
+      this.faker.internet.domainSuffix();
   };
 
   /**
@@ -178,13 +123,11 @@ var Internet = function(faker) {
    *
    * @method faker.internet.domainSuffix
    */
-  self.domainSuffix = function() {
-    return faker.random.arrayElement(faker.definitions.internet.domain_suffix);
-  };
-
-  self.domainSuffix.schema = {
-    "description": "Generates a random domain suffix.",
-    "sampleResults": ["net"]
+  domainSuffix = () => {
+    const schema = schemas.domainSuffix;
+    return this.faker.random.arrayElement(
+      this.faker.definitions.internet.domain_suffix
+    );
   };
 
   /**
@@ -192,14 +135,10 @@ var Internet = function(faker) {
    *
    * @method faker.internet.domainWord
    */
-  self.domainWord = function() {
-    return faker.name.firstName().replace(/([\\~#&*{}/:<>?|\"'])/ig, "")
+  domainWord = () => {
+    const schema = schemas.domainWord;
+    return this.faker.name.firstName().replace(/([\\~#&*{}/:<>?|\''])/ig, "")
       .toLowerCase();
-  };
-
-  self.domainWord.schema = {
-    "description": "Generates a random domain word.",
-    "sampleResults": ["alyce"]
   };
 
   /**
@@ -207,22 +146,18 @@ var Internet = function(faker) {
    *
    * @method faker.internet.ip
    */
-  self.ip = function() {
-    var randNum = function() {
-      return (faker.random.number(255)).toFixed(0);
+  ip = () => {
+    const schema = schemas.ip;
+    const randNum = () => {
+      return (this.faker.random.number(255)).toFixed(0);
     };
 
-    var result = [];
-    for (var i = 0; i < 4; i++) {
+    const result = [];
+    for (let i = 0; i < 4; i++) {
       result[i] = randNum();
     }
 
     return result.join(".");
-  };
-
-  self.ip.schema = {
-    "description": "Generates a random IP.",
-    "sampleResults": ["97.238.241.11"]
   };
 
   /**
@@ -230,11 +165,12 @@ var Internet = function(faker) {
    *
    * @method faker.internet.ipv6
    */
-  self.ipv6 = function() {
-    var randHash = function() {
-      var result = "";
-      for (var i = 0; i < 4; i++) {
-        result += (faker.random.arrayElement(
+  ipv6 = () => {
+    const schema = schemas.ipv6;
+    const randHash = () => {
+      let result = "";
+      for (let i = 0; i < 4; i++) {
+        result += (this.faker.random.arrayElement(
           [
             "0",
             "1",
@@ -258,16 +194,11 @@ var Internet = function(faker) {
       return result;
     };
 
-    var result = [];
-    for (var i = 0; i < 8; i++) {
+    const result = [];
+    for (let i = 0; i < 8; i++) {
       result[i] = randHash();
     }
     return result.join(":");
-  };
-
-  self.ipv6.schema = {
-    "description": "Generates a random IPv6 address.",
-    "sampleResults": ["2001:0db8:6276:b1a7:5213:22f1:25df:c8a0"]
   };
 
   /**
@@ -275,15 +206,9 @@ var Internet = function(faker) {
    *
    * @method faker.internet.userAgent
    */
-  self.userAgent = function() {
+  userAgent = () => {
+    const schema = schemas.userAgent;
     return random_ua.generate();
-  };
-
-  self.userAgent.schema = {
-    "description": "Generates a random user agent.",
-    "sampleResults": [
-      "Mozilla/5.0 (Macintosh; U; PPC Mac OS X 10_7_5 rv:6.0; SL) AppleWebKit/532.0.1 (KHTML, like Gecko) Version/7.1.6 Safari/532.0.1"
-    ]
   };
 
   /**
@@ -294,43 +219,22 @@ var Internet = function(faker) {
    * @param {number} baseGreen255
    * @param {number} baseBlue255
    */
-  self.color = function(baseRed255, baseGreen255, baseBlue255) {
+  color = (baseRed255: number, baseGreen255: number, baseBlue255: number) => {
+    const schema = schemas.color;
     baseRed255 = baseRed255 || 0;
     baseGreen255 = baseGreen255 || 0;
     baseBlue255 = baseBlue255 || 0;
     // based on awesome response : http://stackoverflow.com/questions/43044/algorithm-to-randomly-generate-an-aesthetically-pleasing-color-palette
-    var red = Math.floor((faker.random.number(256) + baseRed255) / 2);
-    var green = Math.floor((faker.random.number(256) + baseGreen255) / 2);
-    var blue = Math.floor((faker.random.number(256) + baseBlue255) / 2);
-    var redStr = red.toString(16);
-    var greenStr = green.toString(16);
-    var blueStr = blue.toString(16);
+    const red = Math.floor((this.faker.random.number(256) + baseRed255) / 2);
+    const green = Math.floor((this.faker.random.number(256) + baseGreen255) / 2);
+    const blue = Math.floor((this.faker.random.number(256) + baseBlue255) / 2);
+    const redStr = red.toString(16);
+    const greenStr = green.toString(16);
+    const blueStr = blue.toString(16);
     return "#" +
       (redStr.length === 1 ? "0" : "") + redStr +
       (greenStr.length === 1 ? "0" : "") + greenStr +
       (blueStr.length === 1 ? "0" : "") + blueStr;
-  };
-
-  self.color.schema = {
-    "description": "Generates a random hexadecimal color.",
-    "sampleResults": ["#06267f"],
-    "properties": {
-      "baseRed255": {
-        "type": "number",
-        "required": false,
-        "description": "The red value. Valid values are 0 - 255."
-      },
-      "baseGreen255": {
-        "type": "number",
-        "required": false,
-        "description": "The green value. Valid values are 0 - 255."
-      },
-      "baseBlue255": {
-        "type": "number",
-        "required": false,
-        "description": "The blue value. Valid values are 0 - 255."
-      }
-    }
   };
 
   /**
@@ -339,8 +243,9 @@ var Internet = function(faker) {
    * @method faker.internet.mac
    * @param {string} sep
    */
-  self.mac = function(sep) {
-    var i, mac = "", validSep = ":";
+  mac = (sep: string) => {
+    const schema = schemas.mac;
+    let i, mac = "", validSep = ":";
 
     // if the client passed in a different separator than `:`,
     // we will use it if it is in the list of acceptable separators (dash or no separator)
@@ -349,17 +254,12 @@ var Internet = function(faker) {
     }
 
     for (i = 0; i < 12; i++) {
-      mac += faker.random.number(15).toString(16);
+      mac += this.faker.random.number(15).toString(16);
       if (i % 2 == 1 && i != 11) {
         mac += validSep;
       }
     }
     return mac;
-  };
-
-  self.mac.schema = {
-    "description": "Generates a random mac address.",
-    "sampleResults": ["78:06:cc:ae:b3:81"]
   };
 
   /**
@@ -371,22 +271,33 @@ var Internet = function(faker) {
    * @param {string} pattern
    * @param {string} prefix
    */
-  self.password = function(len, memorable, pattern, prefix) {
+  password = (
+    len: number,
+    memorable: boolean,
+    pattern: RegExp,
+    prefix: string
+  ) => {
+    const schema = schemas.password;
     len = len || 15;
     if (typeof memorable === "undefined") {
       memorable = false;
     }
     /*
-      * password-generator ( function )
-      * Copyright(c) 2011-2013 Bermi Ferrer <bermi@bermilabs.com>
-      * MIT Licensed
-      */
-    var consonant, letter, password, vowel;
+    * password-generator ( function )
+    * Copyright(c) 2011-2013 Bermi Ferrer <bermi@bermilabs.com>
+    * MIT Licensed
+    */
+    let consonant: RegExp, letter: RegExp, password, vowel: RegExp;
     letter = /[a-zA-Z]$/;
     vowel = /[aeiouAEIOU]$/;
     consonant = /[bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ]$/;
-    var _password = function(length, memorable, pattern, prefix) {
-      var char, n;
+    const _password = (
+      length: number,
+      memorable: boolean,
+      pattern: RegExp,
+      prefix: string
+    ): string => {
+      let char, n;
       if (length == null) {
         length = 10;
       }
@@ -409,7 +320,7 @@ var Internet = function(faker) {
           pattern = consonant;
         }
       }
-      n = faker.random.number(94) + 33;
+      n = this.faker.random.number(94) + 33;
       char = String.fromCharCode(n);
       if (memorable) {
         char = char.toLowerCase();
@@ -421,38 +332,6 @@ var Internet = function(faker) {
     };
     return _password(len, memorable, pattern, prefix);
   };
-
-  self.password.schema = {
-    "description": "Generates a random password.",
-    "sampleResults": [
-      "AM7zl6Mg",
-      "susejofe"
-    ],
-    "properties": {
-      "length": {
-        "type": "number",
-        "required": false,
-        "description": "The number of characters in the password."
-      },
-      "memorable": {
-        "type": "boolean",
-        "required": false,
-        "description": "Whether a password should be easy to remember."
-      },
-      "pattern": {
-        "type": "regex",
-        "required": false,
-        "description":
-          "A regex to match each character of the password against. This parameter will be negated if the memorable setting is turned on."
-      },
-      "prefix": {
-        "type": "string",
-        "required": false,
-        "description":
-          "A value to prepend to the generated password. The prefix counts towards the length of the password."
-      }
-    }
-  };
-};
+}
 
 export { Internet };
