@@ -1,5 +1,5 @@
-import { Lorempixel } from "./image_providers/lorempixel.js";
-import { Unsplash } from "./image_providers/unsplash.js";
+import { Lorempixel } from "./image_providers/lorempixel.ts";
+import { Unsplash } from "./image_providers/unsplash.ts";
 /**
  *
  * @namespace faker.image
