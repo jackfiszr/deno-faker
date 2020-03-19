@@ -34,7 +34,7 @@ import { _Date } from "./date.ts";
 import { Commerce } from "./commerce.ts";
 import { System } from "./system.ts";
 import { Git } from "./git.ts";
-import { Vehicle } from "./vehicle.js";
+import { Vehicle } from "./vehicle.ts";
 /**
  *
  * @namespace faker
