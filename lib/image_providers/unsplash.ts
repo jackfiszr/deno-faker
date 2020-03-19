@@ -3,16 +3,20 @@
  * @namespace unsplash
  * @memberof faker.image
  */
-var Unsplash = function(faker) {
-  var self = this;
-  var categories = [
-    "food",
-    "nature",
-    "people",
-    "technology",
-    "objects",
-    "buildings"
-  ];
+class Unsplash {
+  faker: any;
+  categories: string[];
+  constructor(faker: any) {
+    this.faker = faker;
+    this.categories = [
+      "food",
+      "nature",
+      "people",
+      "technology",
+      "objects",
+      "buildings"
+    ];
+  }
 
   /**
    * image
@@ -23,17 +27,17 @@ var Unsplash = function(faker) {
    * @method faker.image.unsplash.image
    * @description search image from unsplash
    */
-  self.image = function(width, height, keyword) {
-    return self.imageUrl(width, height, undefined, keyword);
-  };
+  image(width: number, height: number, keyword: string) {
+    return this.imageUrl(width, height, undefined, keyword);
+  }
   /**
    * avatar
    *
    * @method faker.image.unsplash.avatar
    */
-  self.avatar = function() {
-    return faker.internet.avatar();
-  };
+  avatar() {
+    return this.faker.internet.avatar();
+  }
   /**
    * imageUrl
    *
@@ -43,11 +47,16 @@ var Unsplash = function(faker) {
    * @param {string} keyword
    * @method faker.image.unsplash.imageUrl
    */
-  self.imageUrl = function(width, height, category, keyword) {
-    var width = width || 640;
-    var height = height || 480;
+  imageUrl(
+    width: number,
+    height: number,
+    category: string | undefined,
+    keyword: string
+  ) {
+    width = width || 640;
+    height = height || 480;
 
-    var url = "https://source.unsplash.com";
+    let url = "https://source.unsplash.com";
 
     if (typeof category !== "undefined") {
       url += "/category/" + category;
@@ -56,7 +65,7 @@ var Unsplash = function(faker) {
     url += "/" + width + "x" + height;
 
     if (typeof keyword !== "undefined") {
-      var keywordFormat = new RegExp(
+      const keywordFormat = new RegExp(
         "^([A-Za-z0-9].+,[A-Za-z0-9]+)$|^([A-Za-z0-9]+)$"
       );
       if (keywordFormat.test(keyword)) {
@@ -65,7 +74,7 @@ var Unsplash = function(faker) {
     }
 
     return url;
-  };
+  }
   /**
    * food
    *
@@ -74,9 +83,9 @@ var Unsplash = function(faker) {
    * @param {string} keyword
    * @method faker.image.unsplash.food
    */
-  self.food = function(width, height, keyword) {
-    return faker.image.unsplash.imageUrl(width, height, "food", keyword);
-  };
+  food(width: number, height: number, keyword: string) {
+    return this.faker.image.unsplash.imageUrl(width, height, "food", keyword);
+  }
   /**
    * people
    *
@@ -85,9 +94,14 @@ var Unsplash = function(faker) {
    * @param {string} keyword
    * @method faker.image.unsplash.people
    */
-  self.people = function(width, height, keyword) {
-    return faker.image.unsplash.imageUrl(width, height, "people", keyword);
-  };
+  people(width: number, height: number, keyword: string) {
+    return this.faker.image.unsplash.imageUrl(
+      width,
+      height,
+      "people",
+      keyword
+    );
+  }
   /**
    * nature
    *
@@ -96,9 +110,14 @@ var Unsplash = function(faker) {
    * @param {string} keyword
    * @method faker.image.unsplash.nature
    */
-  self.nature = function(width, height, keyword) {
-    return faker.image.unsplash.imageUrl(width, height, "nature", keyword);
-  };
+  nature(width: number, height: number, keyword: string) {
+    return this.faker.image.unsplash.imageUrl(
+      width,
+      height,
+      "nature",
+      keyword
+    );
+  }
   /**
    * technology
    *
@@ -107,9 +126,14 @@ var Unsplash = function(faker) {
    * @param {string} keyword
    * @method faker.image.unsplash.technology
    */
-  self.technology = function(width, height, keyword) {
-    return faker.image.unsplash.imageUrl(width, height, "technology", keyword);
-  };
+  technology(width: number, height: number, keyword: string) {
+    return this.faker.image.unsplash.imageUrl(
+      width,
+      height,
+      "technology",
+      keyword
+    );
+  }
   /**
    * objects
    *
@@ -118,9 +142,14 @@ var Unsplash = function(faker) {
    * @param {string} keyword
    * @method faker.image.unsplash.objects
    */
-  self.objects = function(width, height, keyword) {
-    return faker.image.unsplash.imageUrl(width, height, "objects", keyword);
-  };
+  objects(width: number, height: number, keyword: string) {
+    return this.faker.image.unsplash.imageUrl(
+      width,
+      height,
+      "objects",
+      keyword
+    );
+  }
   /**
    * buildings
    *
@@ -129,9 +158,14 @@ var Unsplash = function(faker) {
    * @param {string} keyword
    * @method faker.image.unsplash.buildings
    */
-  self.buildings = function(width, height, keyword) {
-    return faker.image.unsplash.imageUrl(width, height, "buildings", keyword);
-  };
-};
+  buildings(width: number, height: number, keyword: string) {
+    return this.faker.image.unsplash.imageUrl(
+      width,
+      height,
+      "buildings",
+      keyword
+    );
+  }
+}
 
 export { Unsplash };
