@@ -49,14 +49,14 @@ export default {
     "008",
     "009"
   ],
-  toDigitString: function(str) {
-    return str.replace(/[A-Z]/gi, function(match) {
-      return match.toUpperCase().charCodeAt(0) - 55;
+  toDigitString: function(str: string) {
+    return str.replace(/[A-Z]/gi, function(match: string): string {
+      return String(match.toUpperCase().charCodeAt(0) - 55);
     });
   },
-  mod97: function(digitStr) {
-    var m = 0;
-    for (var i = 0; i < digitStr.length; i++) {
+  mod97: function(digitStr: any) {
+    let m = 0;
+    for (let i = 0; i < digitStr.length; i++) {
       m = ((m * 10) + (digitStr[i] | 0)) % 97;
     }
     return m;
