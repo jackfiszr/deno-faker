@@ -33,7 +33,7 @@ import { Phone } from "./phone_number.ts";
 import { _Date } from "./date.ts";
 import { Commerce } from "./commerce.ts";
 import { System } from "./system.ts";
-import { Git } from "./git.js";
+import { Git } from "./git.ts";
 import { Vehicle } from "./vehicle.js";
 /**
  *
