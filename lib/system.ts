@@ -4,7 +4,11 @@
  *
  * @namespace faker.system
  */
-function System(faker) {
+class System {
+  faker: any;
+  constructor(faker: any) {
+    this.faker = faker;
+  }
   /**
    * generates a file name with extension or optional type
    *
@@ -12,8 +16,8 @@ function System(faker) {
    * @param {string} ext
    * @param {string} type
    */
-  this.fileName = function(ext, type) {
-    var str = faker.fake("{{random.words}}.{{system.fileExt}}");
+  fileName = (ext: string, type: string) => {
+    let str = this.faker.fake("{{random.words}}.{{system.fileExt}}");
     str = str.replace(/ /g, "_");
     str = str.replace(/\,/g, "_");
     str = str.replace(/\-/g, "_");
@@ -30,9 +34,9 @@ function System(faker) {
    * @param {string} ext
    * @param {string} type
    */
-  this.commonFileName = function(ext, type) {
-    var str = faker.random.words() + "." +
-      (ext || faker.system.commonFileExt());
+  commonFileName = (ext: string, type: string) => {
+    let str = this.faker.random.words() + "." +
+      (ext || this.faker.system.commonFileExt());
     str = str.replace(/ /g, "_");
     str = str.replace(/\,/g, "_");
     str = str.replace(/\-/g, "_");
@@ -47,9 +51,9 @@ function System(faker) {
    *
    * @method faker.system.mimeType
    */
-  this.mimeType = function() {
-    return faker.random.arrayElement(
-      Object.keys(faker.definitions.system.mimeTypes)
+  mimeType = () => {
+    return this.faker.random.arrayElement(
+      Object.keys(this.faker.definitions.system.mimeTypes)
     );
   };
 
@@ -58,9 +62,9 @@ function System(faker) {
    *
    * @method faker.system.commonFileType
    */
-  this.commonFileType = function() {
-    var types = ["video", "audio", "image", "text", "application"];
-    return faker.random.arrayElement(types);
+  commonFileType = () => {
+    const types = ["video", "audio", "image", "text", "application"];
+    return this.faker.random.arrayElement(types);
   };
 
   /**
@@ -69,8 +73,8 @@ function System(faker) {
    * @method faker.system.commonFileExt
    * @param {string} type
    */
-  this.commonFileExt = function(type) {
-    var types = [
+  commonFileExt = (type: string) => {
+    const types = [
       "application/pdf",
       "audio/mpeg",
       "audio/wav",
@@ -81,7 +85,7 @@ function System(faker) {
       "video/mpeg",
       "text/html"
     ];
-    return faker.system.fileExt(faker.random.arrayElement(types));
+    return this.faker.system.fileExt(this.faker.random.arrayElement(types));
   };
 
   /**
@@ -89,16 +93,16 @@ function System(faker) {
    *
    * @method faker.system.fileType
    */
-  this.fileType = function() {
-    var types = [];
-    var mimes = faker.definitions.system.mimeTypes;
+  fileType = () => {
+    const types: string[] = [];
+    const mimes = this.faker.definitions.system.mimeTypes;
     Object.keys(mimes).forEach(function(m) {
-      var parts = m.split("/");
+      const parts = m.split("/");
       if (types.indexOf(parts[0]) === -1) {
         types.push(parts[0]);
       }
     });
-    return faker.random.arrayElement(types);
+    return this.faker.random.arrayElement(types);
   };
 
   /**
@@ -107,24 +111,24 @@ function System(faker) {
    * @method faker.system.fileExt
    * @param {string} mimeType
    */
-  this.fileExt = function(mimeType) {
-    var exts = [];
-    var mimes = faker.definitions.system.mimeTypes;
+  fileExt = (mimeType: string) => {
+    const exts: string[] = [];
+    const mimes = this.faker.definitions.system.mimeTypes;
 
     // get specific ext by mime-type
     if (typeof mimes[mimeType] === "object") {
-      return faker.random.arrayElement(mimes[mimeType].extensions);
+      return this.faker.random.arrayElement(mimes[mimeType].extensions);
     }
 
     // reduce mime-types to those with file-extensions
     Object.keys(mimes).forEach(function(m) {
       if (mimes[m].extensions instanceof Array) {
-        mimes[m].extensions.forEach(function(ext) {
+        mimes[m].extensions.forEach(function(ext: string) {
           exts.push(ext);
         });
       }
     });
-    return faker.random.arrayElement(exts);
+    return this.faker.random.arrayElement(exts);
   };
 
   /**
@@ -132,9 +136,9 @@ function System(faker) {
    *
    * @method faker.system.directoryPath
    */
-  this.directoryPath = function() {
-    var paths = faker.definitions.system.directoryPaths;
-    return faker.random.arrayElement(paths);
+  directoryPath = () => {
+    const paths = this.faker.definitions.system.directoryPaths;
+    return this.faker.random.arrayElement(paths);
   };
 
   /**
@@ -142,8 +146,8 @@ function System(faker) {
    *
    * @method faker.system.filePath
    */
-  this.filePath = function() {
-    return faker.fake("{{system.directoryPath}}/{{system.fileName}}");
+  filePath = () => {
+    return this.faker.fake("{{system.directoryPath}}/{{system.fileName}}");
   };
 
   /**
@@ -151,11 +155,11 @@ function System(faker) {
    *
    * @method faker.system.semver
    */
-  this.semver = function() {
+  semver = () => {
     return [
-      faker.random.number(9),
-      faker.random.number(9),
-      faker.random.number(9)
+      this.faker.random.number(9),
+      this.faker.random.number(9),
+      this.faker.random.number(9)
     ].join(".");
   };
 }
