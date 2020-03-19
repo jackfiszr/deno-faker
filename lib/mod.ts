@@ -25,7 +25,7 @@ import { Address } from "./address.ts";
 import { Company } from "./company.ts";
 import { Finance } from "./finance.ts";
 import { Image } from "./image.ts";
-import { Lorem } from "./lorem.js";
+import { Lorem } from "./lorem.ts";
 import { Hacker } from "./hacker.js";
 import { Internet } from "./internet.js";
 import { Database } from "./database.js";
