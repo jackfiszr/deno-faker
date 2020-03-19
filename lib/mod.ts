@@ -23,7 +23,7 @@ import { Helpers } from "./helpers.ts";
 import { Name } from "./name.ts";
 import { Address } from "./address.ts";
 import { Company } from "./company.ts";
-import { Finance } from "./finance.js";
+import { Finance } from "./finance.ts";
 import { Image } from "./image.js";
 import { Lorem } from "./lorem.js";
 import { Hacker } from "./hacker.js";
