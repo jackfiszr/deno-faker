@@ -29,7 +29,7 @@ import { Lorem } from "./lorem.ts";
 import { Hacker } from "./hacker.ts";
 import { Internet } from "./internet.ts";
 import { Database } from "./database.ts";
-import { Phone } from "./phone_number.js";
+import { Phone } from "./phone_number.ts";
 import { _Date } from "./date.js";
 import { Commerce } from "./commerce.js";
 import { System } from "./system.js";
