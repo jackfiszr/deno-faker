@@ -3,8 +3,11 @@
  * @namespace lorempixel
  * @memberof faker.image
  */
-var Lorempixel = function(faker) {
-  var self = this;
+class Lorempixel {
+  [key: string]: any
+  constructor(faker: any) {
+    this.faker = faker;
+  }
 
   /**
    * image
@@ -14,8 +17,8 @@ var Lorempixel = function(faker) {
    * @param {boolean} randomize
    * @method faker.image.lorempixel.image
    */
-  self.image = function(width, height, randomize) {
-    var categories = [
+  image(width: number, height: number, randomize: boolean) {
+    const categories = [
       "abstract",
       "animals",
       "business",
@@ -30,20 +33,20 @@ var Lorempixel = function(faker) {
       "technics",
       "transport"
     ];
-    return self[faker.random.arrayElement(categories)](
+    return this[this.faker.random.arrayElement(categories)](
       width,
       height,
       randomize
     );
-  };
+  }
   /**
    * avatar
    *
    * @method faker.image.lorempixel.avatar
    */
-  self.avatar = function() {
-    return faker.internet.avatar();
-  };
+  avatar() {
+    return this.faker.internet.avatar();
+  }
   /**
    * imageUrl
    *
@@ -53,21 +56,26 @@ var Lorempixel = function(faker) {
    * @param {boolean} randomize
    * @method faker.image.lorempixel.imageUrl
    */
-  self.imageUrl = function(width, height, category, randomize) {
-    var width = width || 640;
-    var height = height || 480;
+  imageUrl(
+    width: number,
+    height: number,
+    category: string,
+    randomize: boolean
+  ) {
+    width = width || 640;
+    height = height || 480;
 
-    var url = "http://lorempixel.com/" + width + "/" + height;
+    let url = "http://lorempixel.com/" + width + "/" + height;
     if (typeof category !== "undefined") {
       url += "/" + category;
     }
 
     if (randomize) {
-      url += "?" + faker.random.number();
+      url += "?" + this.faker.random.number();
     }
 
     return url;
-  };
+  }
   /**
    * abstract
    *
@@ -76,14 +84,14 @@ var Lorempixel = function(faker) {
    * @param {boolean} randomize
    * @method faker.image.lorempixel.abstract
    */
-  self.abstract = function(width, height, randomize) {
-    return faker.image.lorempixel.imageUrl(
+  abstract(width: number, height: number, randomize: boolean) {
+    return this.faker.image.lorempixel.imageUrl(
       width,
       height,
       "abstract",
       randomize
     );
-  };
+  }
   /**
    * animals
    *
@@ -92,14 +100,14 @@ var Lorempixel = function(faker) {
    * @param {boolean} randomize
    * @method faker.image.lorempixel.animals
    */
-  self.animals = function(width, height, randomize) {
-    return faker.image.lorempixel.imageUrl(
+  animals(width: number, height: number, randomize: boolean) {
+    return this.faker.image.lorempixel.imageUrl(
       width,
       height,
       "animals",
       randomize
     );
-  };
+  }
   /**
    * business
    *
@@ -108,14 +116,14 @@ var Lorempixel = function(faker) {
    * @param {boolean} randomize
    * @method faker.image.lorempixel.business
    */
-  self.business = function(width, height, randomize) {
-    return faker.image.lorempixel.imageUrl(
+  business(width: number, height: number, randomize: boolean) {
+    return this.faker.image.lorempixel.imageUrl(
       width,
       height,
       "business",
       randomize
     );
-  };
+  }
   /**
    * cats
    *
@@ -124,9 +132,14 @@ var Lorempixel = function(faker) {
    * @param {boolean} randomize
    * @method faker.image.lorempixel.cats
    */
-  self.cats = function(width, height, randomize) {
-    return faker.image.lorempixel.imageUrl(width, height, "cats", randomize);
-  };
+  cats(width: number, height: number, randomize: boolean) {
+    return this.faker.image.lorempixel.imageUrl(
+      width,
+      height,
+      "cats",
+      randomize
+    );
+  }
   /**
    * city
    *
@@ -135,9 +148,14 @@ var Lorempixel = function(faker) {
    * @param {boolean} randomize
    * @method faker.image.lorempixel.city
    */
-  self.city = function(width, height, randomize) {
-    return faker.image.lorempixel.imageUrl(width, height, "city", randomize);
-  };
+  city(width: number, height: number, randomize: boolean) {
+    return this.faker.image.lorempixel.imageUrl(
+      width,
+      height,
+      "city",
+      randomize
+    );
+  }
   /**
    * food
    *
@@ -146,9 +164,14 @@ var Lorempixel = function(faker) {
    * @param {boolean} randomize
    * @method faker.image.lorempixel.food
    */
-  self.food = function(width, height, randomize) {
-    return faker.image.lorempixel.imageUrl(width, height, "food", randomize);
-  };
+  food(width: number, height: number, randomize: boolean) {
+    return this.faker.image.lorempixel.imageUrl(
+      width,
+      height,
+      "food",
+      randomize
+    );
+  }
   /**
    * nightlife
    *
@@ -157,14 +180,14 @@ var Lorempixel = function(faker) {
    * @param {boolean} randomize
    * @method faker.image.lorempixel.nightlife
    */
-  self.nightlife = function(width, height, randomize) {
-    return faker.image.lorempixel.imageUrl(
+  nightlife(width: number, height: number, randomize: boolean) {
+    return this.faker.image.lorempixel.imageUrl(
       width,
       height,
       "nightlife",
       randomize
     );
-  };
+  }
   /**
    * fashion
    *
@@ -173,14 +196,14 @@ var Lorempixel = function(faker) {
    * @param {boolean} randomize
    * @method faker.image.lorempixel.fashion
    */
-  self.fashion = function(width, height, randomize) {
-    return faker.image.lorempixel.imageUrl(
+  fashion(width: number, height: number, randomize: boolean) {
+    return this.faker.image.lorempixel.imageUrl(
       width,
       height,
       "fashion",
       randomize
     );
-  };
+  }
   /**
    * people
    *
@@ -189,9 +212,14 @@ var Lorempixel = function(faker) {
    * @param {boolean} randomize
    * @method faker.image.lorempixel.people
    */
-  self.people = function(width, height, randomize) {
-    return faker.image.lorempixel.imageUrl(width, height, "people", randomize);
-  };
+  people(width: number, height: number, randomize: boolean) {
+    return this.faker.image.lorempixel.imageUrl(
+      width,
+      height,
+      "people",
+      randomize
+    );
+  }
   /**
    * nature
    *
@@ -200,9 +228,14 @@ var Lorempixel = function(faker) {
    * @param {boolean} randomize
    * @method faker.image.lorempixel.nature
    */
-  self.nature = function(width, height, randomize) {
-    return faker.image.lorempixel.imageUrl(width, height, "nature", randomize);
-  };
+  nature(width: number, height: number, randomize: boolean) {
+    return this.faker.image.lorempixel.imageUrl(
+      width,
+      height,
+      "nature",
+      randomize
+    );
+  }
   /**
    * sports
    *
@@ -211,9 +244,14 @@ var Lorempixel = function(faker) {
    * @param {boolean} randomize
    * @method faker.image.lorempixel.sports
    */
-  self.sports = function(width, height, randomize) {
-    return faker.image.lorempixel.imageUrl(width, height, "sports", randomize);
-  };
+  sports(width: number, height: number, randomize: boolean) {
+    return this.faker.image.lorempixel.imageUrl(
+      width,
+      height,
+      "sports",
+      randomize
+    );
+  }
   /**
    * technics
    *
@@ -222,14 +260,14 @@ var Lorempixel = function(faker) {
    * @param {boolean} randomize
    * @method faker.image.lorempixel.technics
    */
-  self.technics = function(width, height, randomize) {
-    return faker.image.lorempixel.imageUrl(
+  technics(width: number, height: number, randomize: boolean) {
+    return this.faker.image.lorempixel.imageUrl(
       width,
       height,
       "technics",
       randomize
     );
-  };
+  }
   /**
    * transport
    *
@@ -238,14 +276,14 @@ var Lorempixel = function(faker) {
    * @param {boolean} randomize
    * @method faker.image.lorempixel.transport
    */
-  self.transport = function(width, height, randomize) {
-    return faker.image.lorempixel.imageUrl(
+  transport(width: number, height: number, randomize: boolean) {
+    return this.faker.image.lorempixel.imageUrl(
       width,
       height,
       "transport",
       randomize
     );
-  };
-};
+  }
+}
 
 export { Lorempixel };
