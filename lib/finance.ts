@@ -1,4 +1,4 @@
-import ibanLib from "./iban.js";
+import ibanLib from "./iban.ts";
 import { pad } from "../deps.ts";
 /**
  * @namespace faker.finance

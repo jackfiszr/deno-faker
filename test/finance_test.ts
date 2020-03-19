@@ -1,6 +1,6 @@
 import { assert, assertEquals, assertStrictEq } from "./support/test_deps.ts";
 import { luhnCheck as luhnFormula } from "./support/test_utils.ts";
-import ibanLib from "../lib/iban.js";
+import ibanLib from "../lib/iban.ts";
 import { faker } from "../mod.ts";
 const { test } = Deno;
 
