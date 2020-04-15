@@ -1,7 +1,7 @@
-# faker.js - generate massive amounts of fake data in the browser and node.js
+# deno-faker - generate massive amounts of fake data in Deno and the browser
 
-![Faker.js](https://raw.githubusercontent.com/Marak/faker.js/master/logo.png)
-
+![Deno-faker](https://raw.githubusercontent.com/jackfiszr/deno-faker/master/logo.png)
+<!--
 [![Build Status](https://travis-ci.org/Marak/faker.js.svg?branch=master)](https://travis-ci.org/Marak/faker.js) [![Coverage Status](https://coveralls.io/repos/github/Marak/faker.js/badge.svg?branch=master)](https://coveralls.io/github/Marak/faker.js?branch=master)
 
 [![npm version](https://badge.fury.io/js/faker.svg)](http://badge.fury.io/js/faker)
@@ -23,32 +23,32 @@
 ```bash
 curl http://faker.hook.io?property=name.findName&locale=de
 ```
-
+-->
 ## Usage
-
+<!--
 ### Browser
 
     <script src = "faker.js" type = "text/javascript"></script>
     <script>
-      var randomName = faker.name.findName(); // Caitlyn Kerluke
-      var randomEmail = faker.internet.email(); // Rusty@arne.info
-      var randomCard = faker.helpers.createCard(); // random contact card containing many properties
+      const randomName = faker.name.findName(); // Caitlyn Kerluke
+      const randomEmail = faker.internet.email(); // Rusty@arne.info
+      const randomCard = faker.helpers.createCard(); // random contact card containing many properties
     </script>
+-->
+### Deno
 
-### Node.js
+    import { faker } from "https://raw.githubusercontent.com/jackfiszr/deno-faker/master/mod.ts";
 
-    var faker = require('faker');
-
-    var randomName = faker.name.findName(); // Rowan Nikolaus
-    var randomEmail = faker.internet.email(); // Kassandra.Haley@erich.biz
-    var randomCard = faker.helpers.createCard(); // random contact card containing many properties
+    const randomName = faker.name.findName(); // Rowan Nikolaus
+    const randomEmail = faker.internet.email(); // Kassandra.Haley@erich.biz
+    const randomCard = faker.helpers.createCard(); // random contact card containing many properties
 
 ## API
 
 
 ### Faker.fake()
 
-faker.js contains a super useful generator method `Faker.fake` for combining faker API methods using a mustache string format.
+faker contains a super useful generator method `Faker.fake` for combining faker API methods using a mustache string format.
 
 **Example:**
 
@@ -287,7 +287,7 @@ faker.locale = "de";
  * zh_CN
  * zh_TW
 
-
+<!--
 ### Individual Localization Packages
 
 As of vesion `v3.0.0` faker.js supports incremental loading of locales.
@@ -298,9 +298,9 @@ In a production environment, you may only want to include the locale data for a 
 
 ```js
 // loads only de locale
-var faker = require('faker/locale/de');
+import { faker } from "https://raw.githubusercontent.com/jackfiszr/deno-faker/master/locale/pl.ts";
 ```
-
+-->
 ## Setting a randomness seed
 
 If you want consistent results, you can set your own seed:
@@ -308,24 +308,23 @@ If you want consistent results, you can set your own seed:
 ```js
 faker.seed(123);
 
-var firstRandom = faker.random.number();
+const firstRandom = faker.random.number();
 
 // Setting the seed again resets the sequence.
 faker.seed(123);
 
-var secondRandom = faker.random.number();
+const secondRandom = faker.random.number();
 
 console.log(firstRandom === secondRandom);
 ```
 
 ## Tests
 
-    npm install .
-    make test
-
+    deno test
+<!--
 You can view a code coverage report generated in coverage/lcov-report/index.html.
-
-## Projects Built with faker.js
+-->
+## Projects built with the original faker.js
 
 ### Fake JSON Schema
 
@@ -336,7 +335,7 @@ See: https://github.com/pateketrueke/json-schema-faker/
 
 Run faker generators from Command Line.
 See: https://github.com/lestoni/faker-cli
-
+<!--
 **Want to see your project added here? Let us know!**
 
 ### Meteor
@@ -350,9 +349,9 @@ meteor add practicalmeteor:faker
 #### Meteor Usage, both client and server
 
 ```js
-var randomName = faker.name.findName(); // Rowan Nikolaus
-var randomEmail = faker.internet.email(); // Kassandra.Haley@erich.biz
-var randomCard = faker.helpers.createCard(); // random contact card containing many properties
+const randomName = faker.name.findName(); // Rowan Nikolaus
+const randomEmail = faker.internet.email(); // Kassandra.Haley@erich.biz
+const randomCard = faker.helpers.createCard(); // random contact card containing many properties
 ```
 
 ## Building faker.js
@@ -378,6 +377,8 @@ If you require the absolute latest version of `faker.js` the `master` branch @ h
 ## Maintainer
 
 #### Marak Squires
+-->
+## Original faker.js info and licence
 
 faker.js - Copyright (c) 2017
 Marak Squires
@@ -408,7 +409,7 @@ OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 
-
+<!--
 ## Backers
 
 Support us with a monthly donation and help us continue our activities. [[Become a backer](https://opencollective.com/fakerjs#backer)]
@@ -478,3 +479,4 @@ Become a sponsor and get your logo on our README on Github with a link to your s
 <a href="https://opencollective.com/fakerjs/sponsor/27/website" target="_blank"><img src="https://opencollective.com/fakerjs/sponsor/27/avatar.svg"></a>
 <a href="https://opencollective.com/fakerjs/sponsor/28/website" target="_blank"><img src="https://opencollective.com/fakerjs/sponsor/28/avatar.svg"></a>
 <a href="https://opencollective.com/fakerjs/sponsor/29/website" target="_blank"><img src="https://opencollective.com/fakerjs/sponsor/29/avatar.svg"></a>
+-->
