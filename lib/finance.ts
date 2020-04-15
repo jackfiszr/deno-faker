@@ -1,5 +1,5 @@
 import ibanLib from "./iban.ts";
-import { pad } from "../deps.ts";
+
 /**
  * @namespace faker.finance
  */
@@ -288,7 +288,7 @@ class Finance {
     }
     const checksum = 98 -
       ibanLib.mod97(ibanLib.toDigitString(s + ibanFormat.country + "00"));
-    const checksumStr = pad(String(checksum), 2);
+    const checksumStr = String(checksum).padStart(2, '0');
     const iban = ibanFormat.country + checksumStr + s;
     const ibanMatch = iban.match(/.{1,4}/g);
     if (ibanMatch === null) {
