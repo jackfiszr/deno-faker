@@ -241,9 +241,9 @@ test({
     });
     // Check uniqueness
     subset.forEach((element: string) => {
-      assert(!this.hasOwnProperty(element));
+      assert(!subset.hasOwnProperty(element));
       // this[element] = true
-      Object.defineProperty(this, element, { value: true });
+      Object.defineProperty(subset, element, { value: true });
     }, {});
   }
 });
@@ -262,8 +262,8 @@ test({
     });
     // Check uniqueness
     subset.forEach((element: string) => {
-      assert(!this.hasOwnProperty(element));
-      Object.defineProperty(this, element, { value: true });
+      assert(!subset.hasOwnProperty(element));
+      Object.defineProperty(subset, element, { value: true });
     }, {});
   }
 });
