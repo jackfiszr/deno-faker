@@ -27,7 +27,7 @@ The license for that script is as follows:
 If we meet some day, and you think this stuff is worth it, you can buy me a beer in return. Luka Pusic
 
 */
-import { faker } from "../mod.ts";
+import { Faker } from "../lib/mod.ts";
 
 function rnd(a: any, b?: any) {
   // calling rnd() with no arguments is identical to rnd(0, 100)
@@ -35,7 +35,7 @@ function rnd(a: any, b?: any) {
   b = b || 100;
   if (typeof b === "number" && typeof a === "number") {
     // 9/2018 - Added faker random to ensure mersenne and seed
-    // const faker = await import('../mod.ts')
+    const faker = new Faker({});
     return faker.random.number({ min: a, max: b });
   }
   if (Object.prototype.toString.call(a) === "[object Array]") {
