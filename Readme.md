@@ -287,20 +287,20 @@ faker.locale = "de";
  * zh_CN
  * zh_TW
 
-<!--
+
 ### Individual Localization Packages
 
-As of vesion `v3.0.0` faker.js supports incremental loading of locales.
+As of vesion `v3.0.0` faker supports incremental loading of locales.
 
 By default, requiring `faker` will include *all* locale data.
 
 In a production environment, you may only want to include the locale data for a specific set of locales.
 
 ```js
-// loads only de locale
-import { faker } from "https://raw.githubusercontent.com/jackfiszr/deno-faker/master/locale/pl.ts";
+// loads only pl locale
+import { faker } from "https://raw.githubusercontent.com/jackfiszr/deno-faker/master/locale/pl.js";
 ```
--->
+
 ## Setting a randomness seed
 
 If you want consistent results, you can set your own seed:

@@ -1,5 +1,8 @@
-var Faker = require("../lib");
-var faker = new Faker({ locale: "vi", localeFallback: "en" });
-faker.locales["vi"] = require("../lib/locales/vi");
-faker.locales["en"] = require("../lib/locales/en");
-module["exports"] = faker;
+import { vi, en } from "../lib/locales.ts";
+import { Faker } from "../lib/mod.ts";
+
+export const faker = new Faker({
+  locales: { vi, en },
+  locale: "vi",
+  localeFallback: "en",
+});
