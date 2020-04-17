@@ -7,6 +7,6 @@ These file exist in order to allow users to require the `faker` library using a 
 Example:
 
 ``` js
-import { faker } from "../locale/en.js"
+import { faker } from "../locale/en.ts"
 console.log(faker.name.findName());
 ```

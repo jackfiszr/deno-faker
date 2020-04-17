@@ -298,7 +298,7 @@ In a production environment, you may only want to include the locale data for a 
 
 ```js
 // loads only pl locale
-import { faker } from "https://raw.githubusercontent.com/jackfiszr/deno-faker/master/locale/pl.js";
+import { faker } from "https://raw.githubusercontent.com/jackfiszr/deno-faker/master/locale/pl.ts";
 ```
 
 ## Setting a randomness seed
