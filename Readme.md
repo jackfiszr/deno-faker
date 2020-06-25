@@ -320,7 +320,7 @@ console.log(firstRandom === secondRandom);
 
 ## Tests
 
-    deno test
+    deno test --allow-read
 <!--
 You can view a code coverage report generated in coverage/lcov-report/index.html.
 -->
