@@ -1,7 +1,7 @@
 import {
   assert,
   assertEquals,
-  assertStrictEq,
+  assertStrictEquals,
   sinon
 } from "./support/test_deps.ts";
 import { faker } from "../mod.ts";
@@ -29,7 +29,7 @@ test({
   fn () {
     sinon.spy(faker.random, 'arrayElement')
     const department = faker.commerce.department(1)
-    assertStrictEq(department.split(" ").length, 1)
+    assertStrictEquals(department.split(" ").length, 1)
     assert(faker.random.arrayElement.calledOnce)
     faker.random.arrayElement.restore()
   }
@@ -42,7 +42,7 @@ test({
     const department = faker.commerce.department(5, true)
     console.log(department)
     // account for the separator
-    assertStrictEq(department.split(" ").length, 6)
+    assertStrictEquals(department.split(" ").length, 6)
     // Sometimes it will generate duplicates that aren't used in the final string,
     // so we check if arrayElement has been called exactly or more than 5 times
     assert(faker.random.arrayElement.callCount >= 5)
@@ -132,7 +132,7 @@ test({
   fn() {
     const price = faker.commerce.price(100, 100, 1);
     assert(price);
-    assertStrictEq(price, "100.0", "the price should be equal 100.0");
+    assertStrictEquals(price, "100.0", "the price should be equal 100.0");
   }
 });
 
@@ -141,6 +141,6 @@ test({
   fn() {
     const price = faker.commerce.price(100, 100, 0);
     assert(price);
-    assertStrictEq(price, "100", "the price should be equal 100");
+    assertStrictEquals(price, "100", "the price should be equal 100");
   }
 });

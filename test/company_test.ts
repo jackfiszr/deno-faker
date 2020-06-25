@@ -1,4 +1,4 @@
-import { assert, assertStrictEq, sinon } from "./support/test_deps.ts";
+import { assert, assertStrictEquals, sinon } from "./support/test_deps.ts";
 import { faker } from "../mod.ts";
 const { test } = Deno;
 
@@ -9,7 +9,7 @@ test({
     sinon.stub(faker.random, "number").returns(2);
     const name = faker.company.companyName();
     const parts = name.split(" ");
-    assertStrictEq(parts.length, 4); // account for word 'and'
+    assertStrictEquals(parts.length, 4); // account for word 'and'
     assert(faker.name.lastName.calledThrice);
     faker.random.number.restore();
     faker.name.lastName.restore();

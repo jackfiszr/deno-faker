@@ -1,7 +1,7 @@
 import {
   assert,
   assertEquals,
-  assertStrictEq,
+  assertStrictEquals,
   sinon
 } from "./support/test_deps.ts";
 import { faker } from "../mod.ts";
@@ -88,7 +88,7 @@ test({
     sinon.stub(faker.name, "firstName").returns("FOO");
     const domain_word = faker.internet.domainWord();
     assert(domain_word);
-    assertStrictEq(domain_word, "foo");
+    assertStrictEquals(domain_word, "foo");
     faker.name.firstName.restore();
   }
 });
@@ -99,7 +99,7 @@ test({
   fn(): void {
     sinon.stub(faker.name, "firstName").returns("d'angelo");
     const domain_word = faker.internet.domainWord();
-    assertStrictEq(domain_word, "dangelo");
+    assertStrictEquals(domain_word, "dangelo");
     faker.name.firstName.restore();
   }
 });
@@ -118,7 +118,7 @@ test({
     sinon.stub(faker.random, "number").returns(0);
     const protocol = faker.internet.protocol();
     assert(protocol);
-    assertStrictEq(protocol, "http");
+    assertStrictEquals(protocol, "http");
     faker.random.number.restore();
   }
 });
@@ -129,7 +129,7 @@ test({
     sinon.stub(faker.random, "number").returns(1);
     const protocol = faker.internet.protocol();
     assert(protocol);
-    assertStrictEq(protocol, "https");
+    assertStrictEquals(protocol, "https");
     faker.random.number.restore();
   }
 });
@@ -142,7 +142,7 @@ test({
     sinon.stub(faker.internet, "domainSuffix").returns("net");
     const url = faker.internet.url();
     assert(url);
-    assertStrictEq(url, "http://bar.net");
+    assertStrictEquals(url, "http://bar.net");
   }
 });
 

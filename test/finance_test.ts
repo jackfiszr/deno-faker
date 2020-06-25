@@ -1,4 +1,4 @@
-import { assert, assertEquals, assertStrictEq } from "./support/test_deps.ts";
+import { assert, assertEquals, assertStrictEquals } from "./support/test_deps.ts";
 import { luhnCheck as luhnFormula } from "./support/test_utils.ts";
 import ibanLib from "../lib/iban.ts";
 import { faker } from "../mod.ts";
@@ -220,7 +220,7 @@ test({
   fn() {
     const amount = faker.finance.amount(100, 100, 1);
     assert(amount);
-    assertStrictEq(amount, "100.0", "the amount should be equal 100.0");
+    assertStrictEquals(amount, "100.0", "the amount should be equal 100.0");
   }
 });
 
@@ -229,7 +229,7 @@ test({
   fn() {
     const amount = faker.finance.amount(100, 100, 0);
     assert(amount);
-    assertStrictEq(amount, "100", "the amount should be equal 100");
+    assertStrictEquals(amount, "100", "the amount should be equal 100");
   }
 });
 

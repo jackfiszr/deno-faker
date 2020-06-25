@@ -1,7 +1,7 @@
 import {
   assert,
   assertEquals,
-  assertStrictEq,
+  assertStrictEquals,
   sinon
 } from "./support/test_deps.ts";
 import { testWrapper } from "./support/test_utils.ts";
@@ -35,7 +35,7 @@ test({
     const name = faker.name.findName();
     assert(name);
     const parts = name.split(" ");
-    assertStrictEq(parts.length, 2);
+    assertStrictEquals(parts.length, 2);
     faker.random.number.restore();
   }
 });
