@@ -1,13 +1,20 @@
+import * as address from "./address/mod.ts";
+import * as company from "./company/mod.ts";
+import * as internet from "./internet/mod.ts";
+import * as lorem from "./lorem/mod.ts";
+import * as name from "./name/mod.ts";
+import * as phone_number from "./phone_number/mod.ts";
+
 const sk: {
   [key: string]: any;
 } = {};
 
 sk.title = "Slovakian";
-sk.address = await import("./address/mod.ts");
-sk.company = await import("./company/mod.ts");
-sk.internet = await import("./internet/mod.ts");
-sk.lorem = await import("./lorem/mod.ts");
-sk.name = await import("./name/mod.ts");
-sk.phone_number = await import("./phone_number/mod.ts");
+sk.address = address;
+sk.company = company;
+sk.internet = internet;
+sk.lorem = lorem;
+sk.name = name;
+sk.phone_number = phone_number;
 
 export { sk };

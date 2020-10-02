@@ -1,12 +1,18 @@
+import * as name from "./name/mod.ts";
+import * as address from "./address/mod.ts";
+import * as internet from "./internet/mod.ts";
+import * as company from "./company/mod.ts";
+import * as phone_number from "./phone_number/mod.ts";
+
 const nep: {
   [key: string]: any;
 } = {};
 
 nep.title = "Nepalese";
-nep.name = await import("./name/mod.ts");
-nep.address = await import("./address/mod.ts");
-nep.internet = await import("./internet/mod.ts");
-nep.company = await import("./company/mod.ts");
-nep.phone_number = await import("./phone_number/mod.ts");
+nep.name = name;
+nep.address = address;
+nep.internet = internet;
+nep.company = company;
+nep.phone_number = phone_number;
 
 export { nep };

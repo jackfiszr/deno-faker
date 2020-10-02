@@ -1,13 +1,20 @@
+import * as address from "./address/mod.ts";
+import * as internet from "./internet/mod.ts";
+import * as name from "./name/mod.ts";
+import * as phone_number from "./phone_number/mod.ts";
+import * as cell_phone from "./cell_phone/mod.ts";
+import * as company from "./company/mod.ts";
+
 const en_ZA: {
   [key: string]: any;
 } = {};
 
 en_ZA.title = "South Africa (English)";
-en_ZA.address = await import("./address/mod.ts");
-en_ZA.internet = await import("./internet/mod.ts");
-en_ZA.name = await import("./name/mod.ts");
-en_ZA.phone_number = await import("./phone_number/mod.ts");
-en_ZA.cell_phone = await import("./cell_phone/mod.ts");
-en_ZA.company = await import("./company/mod.ts");
+en_ZA.address = address;
+en_ZA.internet = internet;
+en_ZA.name = name;
+en_ZA.phone_number = phone_number;
+en_ZA.cell_phone = cell_phone;
+en_ZA.company = company;
 
 export { en_ZA };

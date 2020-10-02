@@ -1,4 +1,5 @@
-import { nb_NO, en } from "../lib/locales.ts";
+import { en } from "../lib/locales/en/mod.ts";
+import { nb_NO } from "../lib/locales/nb_NO/mod.ts";
 import { Faker } from "../lib/mod.ts";
 
 export const faker = new Faker({

@@ -1,4 +1,5 @@
-import { vi, en } from "../lib/locales.ts";
+import { en } from "../lib/locales/en/mod.ts";
+import { vi } from "../lib/locales/vi/mod.ts";
 import { Faker } from "../lib/mod.ts";
 
 export const faker = new Faker({
