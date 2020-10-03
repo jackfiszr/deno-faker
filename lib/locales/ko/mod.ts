@@ -1,13 +1,20 @@
+import * as address from "./address/mod.ts";
+import * as phone_number from "./phone_number/mod.ts";
+import * as company from "./company/mod.ts";
+import * as internet from "./internet/mod.ts";
+import * as lorem from "./lorem/mod.ts";
+import * as name from "./name/mod.ts";
+
 const ko: {
   [key: string]: any;
 } = {};
 
 ko.title = "Korean";
-ko.address = await import("./address/mod.ts");
-ko.phone_number = await import("./phone_number/mod.ts");
-ko.company = await import("./company/mod.ts");
-ko.internet = await import("./internet/mod.ts");
-ko.lorem = await import("./lorem/mod.ts");
-ko.name = await import("./name/mod.ts");
+ko.address = address;
+ko.phone_number = phone_number;
+ko.company = company;
+ko.internet = internet;
+ko.lorem = lorem;
+ko.name = name;
 
 export { ko };

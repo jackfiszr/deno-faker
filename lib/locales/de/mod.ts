@@ -1,14 +1,22 @@
+import * as address from "./address/mod.ts";
+import * as company from "./company/mod.ts";
+import * as internet from "./internet/mod.ts";
+import * as lorem from "./lorem/mod.ts";
+import * as name from "./name/mod.ts";
+import * as phone_number from "./phone_number/mod.ts";
+import * as cell_phone from "./cell_phone/mod.ts";
+
 const de: {
   [key: string]: any;
 } = {};
 
 de.title = "German";
-de.address = await import("./address/mod.ts");
-de.company = await import("./company/mod.ts");
-de.internet = await import("./internet/mod.ts");
-de.lorem = await import("./lorem/mod.ts");
-de.name = await import("./name/mod.ts");
-de.phone_number = await import("./phone_number/mod.ts");
-de.cell_phone = await import("./cell_phone/mod.ts");
+de.address = address;
+de.company = company;
+de.internet = internet;
+de.lorem = lorem;
+de.name = name;
+de.phone_number = phone_number;
+de.cell_phone = cell_phone;
 
 export { de };
