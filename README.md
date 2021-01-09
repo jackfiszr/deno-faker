@@ -37,7 +37,7 @@ curl http://faker.hook.io?property=name.findName&locale=de
 -->
 ### Deno
 
-    import { faker } from "https://raw.githubusercontent.com/jackfiszr/deno-faker/master/mod.ts";
+    import { faker } from "https://deno.land/x/deno_faker@v1.0.3/mod.ts";
 
     const randomName = faker.name.findName(); // Rowan Nikolaus
     const randomEmail = faker.internet.email(); // Kassandra.Haley@erich.biz
@@ -241,10 +241,10 @@ The default language locale is set to English.
 Setting a new locale is simple:
 
 ```js
-// sets locale to de
-faker.setLocale("de");
+// sets locale to pl
+faker.setLocale("pl");
 // or
-faker.locale = "de";
+faker.locale = "pl";
 ```
 
  * az
@@ -298,7 +298,7 @@ In a production environment, you may only want to include the locale data for a 
 
 ```js
 // loads only pl locale
-import { faker } from "https://raw.githubusercontent.com/jackfiszr/deno-faker/master/locale/pl.ts";
+import { faker } from "https://deno.land/x/deno_faker@v1.0.3/locale/pl.ts";
 ```
 
 ## Setting a randomness seed
@@ -320,7 +320,15 @@ console.log(firstRandom === secondRandom);
 
 ## Tests
 
-    deno test --allow-read
+You can run tests for individual modules, e.g:
+
+    deno test https://deno.land/x/deno_faker@v1.0.3/test/phone_number_test.ts
+
+or clone the repository and run `deno test`:
+
+    git clone https://github.com/jackfiszr/deno-faker && cd deno-faker
+    
+    deno test
 <!--
 You can view a code coverage report generated in coverage/lcov-report/index.html.
 -->
