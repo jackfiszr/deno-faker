@@ -52,6 +52,7 @@ test({
   name: "number() provides numbers with a given precision",
   fn() {
     const options = { min: 0, max: 1.5, precision: 0.5 };
+    // @ts-ignore
     const results = _.chain(_.range(50)).map(function () {
       return faker.random.number(options);
     }).uniq().value().sort();
@@ -174,6 +175,7 @@ test({
   name: "float() provides numbers with a given precision",
   fn() {
     const options = { min: 0, max: 1.5, precision: 0.5 };
+    // @ts-ignore
     const results = _.chain(_.range(50)).map(function () {
       return faker.random.float(options);
     }).uniq().value().sort();
