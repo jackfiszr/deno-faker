@@ -210,5 +210,5 @@ export default [
   "Verónica",
   "Victoria",
   "Virginia",
-  "Yolanda"
+  "Yolanda",
 ];

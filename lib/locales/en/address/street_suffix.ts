@@ -223,5 +223,5 @@ export default [
   "Way",
   "Ways",
   "Well",
-  "Wells"
+  "Wells",
 ];

@@ -29,5 +29,5 @@ export default [
   "cian",
   "azul",
   "lavanda",
-  "plata"
+  "plata",
 ];

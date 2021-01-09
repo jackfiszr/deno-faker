@@ -101,5 +101,5 @@ export default [
   "ruộng",
   "đồng",
   "quê",
-  "hương"
+  "hương",
 ];

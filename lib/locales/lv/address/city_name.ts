@@ -74,5 +74,5 @@ export default [
   "Viesīte",
   "Viļaka",
   "Viļāni",
-  "Zilupe"
+  "Zilupe",
 ];

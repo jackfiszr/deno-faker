@@ -4,5 +4,5 @@ export default [
   "info",
   "com.mx",
   "org",
-  "gob.mx"
+  "gob.mx",
 ];

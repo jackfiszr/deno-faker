@@ -30,5 +30,5 @@ export default [
   "TL",
   "VZ",
   "YN",
-  "ZS"
+  "ZS",
 ];

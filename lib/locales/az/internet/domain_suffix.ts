@@ -4,5 +4,5 @@ export default [
   "com.az",
   "info",
   "net",
-  "org"
+  "org",
 ];

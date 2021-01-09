@@ -600,5 +600,5 @@ export default [
   "Židlochovice",
   "Žirovnice",
   "Žlutice",
-  "Žulová"
+  "Žulová",
 ];

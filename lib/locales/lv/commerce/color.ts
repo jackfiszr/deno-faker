@@ -21,5 +21,5 @@ export default [
   "zelta",
   "красно-пурпурный",
   "lillā",
-  "sudrabaina"
+  "sudrabaina",
 ];

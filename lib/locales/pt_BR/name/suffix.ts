@@ -1,5 +1,5 @@
 export default [
   "Jr.",
   "Neto",
-  "Filho"
+  "Filho",
 ];

@@ -7,7 +7,7 @@ test({
   fn() {
     const date = faker.date.past(75);
     assert(date < new Date());
-  }
+  },
 });
 
 test({
@@ -16,7 +16,7 @@ test({
     const refDate = new Date();
     const date = faker.date.past(0, refDate.toJSON());
     assert(date < refDate); // date should be before the date given
-  }
+  },
 });
 
 test({
@@ -25,7 +25,7 @@ test({
     const refDate = new Date(2120, 11, 9, 10, 0, 0, 0); // set the date beyond the usual calculation (to make sure this is working correctly)
     const date = faker.date.past(75, refDate.toJSON());
     assert(date < refDate && date > new Date()); // date should be before date given but after the current time
-  }
+  },
 });
 
 test({
@@ -33,7 +33,7 @@ test({
   fn() {
     const date = faker.date.future(75);
     assert(date > new Date());
-  }
+  },
 });
 
 test({
@@ -42,7 +42,7 @@ test({
     const refDate = new Date();
     const date = faker.date.future(0, refDate.toJSON());
     assert(date > refDate); // date should be after the date given
-  }
+  },
 });
 
 test({
@@ -51,7 +51,7 @@ test({
     const refDate = new Date(1880, 11, 9, 10, 0, 0, 0); // set the date beyond the usual calculation (to make sure this is working correctly)
     const date = faker.date.future(75, refDate.toJSON());
     assert(date > refDate && date < new Date()); // date should be after the date given, but before the current time
-  }
+  },
 });
 
 test({
@@ -59,7 +59,7 @@ test({
   fn() {
     const date = faker.date.recent(30);
     assert(date <= new Date());
-  }
+  },
 });
 
 test({
@@ -70,17 +70,17 @@ test({
     const refDate = new Date(2120, 11, 9, 10, 0, 0, 0); // set the date beyond the usual calculation (to make sure this is working correctly)
     const date = faker.date.recent(days, refDate);
     const lowerBound = new Date(
-      refDate.getTime() - (days * 24 * 60 * 60 * 1000)
+      refDate.getTime() - (days * 24 * 60 * 60 * 1000),
     );
     assert(
       lowerBound <= date,
-      "`recent()` date should not be further back than `n` days ago"
+      "`recent()` date should not be further back than `n` days ago",
     );
     assert(
       date <= refDate,
-      "`recent()` date should not be ahead of the starting date reference"
+      "`recent()` date should not be ahead of the starting date reference",
     );
-  }
+  },
 });
 
 test({
@@ -88,7 +88,7 @@ test({
   fn() {
     const date = faker.date.soon(30);
     assert(date >= new Date());
-  }
+  },
 });
 
 test({
@@ -99,17 +99,17 @@ test({
     const refDate = new Date(1880, 11, 9, 10, 0, 0, 0); // set the date beyond the usual calculation (to make sure this is working correctly)
     const date = faker.date.soon(days, refDate);
     const upperBound = new Date(
-      refDate.getTime() + (days * 24 * 60 * 60 * 1000)
+      refDate.getTime() + (days * 24 * 60 * 60 * 1000),
     );
     assert(
       date <= upperBound,
-      "`soon()` date should not be further ahead than `n` days ago"
+      "`soon()` date should not be further ahead than `n` days ago",
     );
     assert(
       refDate <= date,
-      "`soon()` date should not be behind the starting date reference"
+      "`soon()` date should not be behind the starting date reference",
     );
-  }
+  },
 });
 
 test({
@@ -119,7 +119,7 @@ test({
     const to = new Date(2000, 6, 8, 10, 12, 0, 0);
     const date = faker.date.between(from, to);
     assert(date > from && date < to);
-  }
+  },
 });
 
 test({
@@ -127,7 +127,7 @@ test({
   fn() {
     const month = faker.date.month();
     assert(faker.definitions.date.month.wide.indexOf(month) !== -1);
-  }
+  },
 });
 
 test({
@@ -136,7 +136,7 @@ test({
   fn() {
     const month = faker.date.month({ context: true });
     assert(faker.definitions.date.month.wide_context.indexOf(month) !== -1);
-  }
+  },
 });
 
 test({
@@ -145,7 +145,7 @@ test({
   fn() {
     const month = faker.date.month({ abbr: true });
     assert(faker.definitions.date.month.abbr.indexOf(month) !== -1);
-  }
+  },
 });
 
 test({
@@ -154,7 +154,7 @@ test({
   fn() {
     const month = faker.date.month({ abbr: true, context: true });
     assert(faker.definitions.date.month.abbr_context.indexOf(month) !== -1);
-  }
+  },
 });
 
 test({
@@ -166,7 +166,7 @@ test({
     const month = faker.date.month({ context: true });
     assert(faker.definitions.date.month.wide.indexOf(month) !== -1);
     faker.definitions.date.month.wide_context = backup_wide_context;
-  }
+  },
 });
 
 test({
@@ -178,7 +178,7 @@ test({
     const month = faker.date.month({ abbr: true, context: true });
     assert(faker.definitions.date.month.abbr.indexOf(month) !== -1);
     faker.definitions.date.month.abbr_context = backup_abbr_context;
-  }
+  },
 });
 
 test({
@@ -187,7 +187,7 @@ test({
   fn() {
     const weekday = faker.date.weekday();
     assert(faker.definitions.date.weekday.wide.indexOf(weekday) !== -1);
-  }
+  },
 });
 
 test({
@@ -196,9 +196,9 @@ test({
   fn() {
     const weekday = faker.date.weekday({ context: true });
     assert(
-      faker.definitions.date.weekday.wide_context.indexOf(weekday) !== -1
+      faker.definitions.date.weekday.wide_context.indexOf(weekday) !== -1,
     );
-  }
+  },
 });
 
 test({
@@ -207,7 +207,7 @@ test({
   fn() {
     const weekday = faker.date.weekday({ abbr: true });
     assert(faker.definitions.date.weekday.abbr.indexOf(weekday) !== -1);
-  }
+  },
 });
 
 test({
@@ -216,9 +216,9 @@ test({
   fn() {
     const weekday = faker.date.weekday({ abbr: true, context: true });
     assert(
-      faker.definitions.date.weekday.abbr_context.indexOf(weekday) !== -1
+      faker.definitions.date.weekday.abbr_context.indexOf(weekday) !== -1,
     );
-  }
+  },
 });
 
 test({
@@ -230,7 +230,7 @@ test({
     const weekday = faker.date.weekday({ context: true });
     assert(faker.definitions.date.weekday.wide.indexOf(weekday) !== -1);
     faker.definitions.date.weekday.wide_context = backup_wide_context;
-  }
+  },
 });
 
 test({
@@ -242,5 +242,5 @@ test({
     const weekday = faker.date.weekday({ abbr: true, context: true });
     assert(faker.definitions.date.weekday.abbr.indexOf(weekday) !== -1);
     faker.definitions.date.weekday.abbr_context = backup_abbr_context;
-  }
+  },
 });

@@ -48,5 +48,5 @@ export default [
   "Nozipho",
   "Nonkululeko",
   "Sibongile",
-  "Siphephelo"
+  "Siphephelo",
 ];

@@ -302,5 +302,5 @@ export default [
   "Ximena Guadalupe",
   "Yamileth",
   "Yaretzi",
-  "Zoe"
+  "Zoe",
 ];

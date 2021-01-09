@@ -45,7 +45,7 @@ class Lorem {
   sentence = (wordCount: number, range: number) => {
     if (typeof wordCount == "undefined") {
       wordCount = this.faker.random.number(
-        { min: 3, max: 10 }
+        { min: 3, max: 10 },
       );
     }
     // if (typeof range == 'undefined') { range = 7; }
@@ -96,7 +96,7 @@ class Lorem {
   paragraph = (sentenceCount: number) => {
     if (typeof sentenceCount == "undefined") sentenceCount = 3;
     return this.faker.lorem.sentences(
-      sentenceCount + this.faker.random.number(3)
+      sentenceCount + this.faker.random.number(3),
     );
   };
 
@@ -133,7 +133,7 @@ class Lorem {
       "lorem.sentences",
       "lorem.paragraph",
       "lorem.paragraphs",
-      "lorem.lines"
+      "lorem.lines",
     ];
     const randomLoremMethod = this.faker.random.arrayElement(loremMethods);
     return this.faker.fake("{{" + randomLoremMethod + "}}");
@@ -148,7 +148,7 @@ class Lorem {
   lines = (lineCount: number) => {
     if (typeof lineCount === "undefined") {
       lineCount = this.faker.random.number(
-        { min: 1, max: 5 }
+        { min: 1, max: 5 },
       );
     }
     return this.faker.lorem.sentences(lineCount, "\n");

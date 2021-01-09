@@ -4,5 +4,5 @@ export default [
   "Vlaams-Brabant",
   "Antwerpen",
   "Limburg",
-  "Brussel"
+  "Brussel",
 ];

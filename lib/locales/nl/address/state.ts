@@ -10,5 +10,5 @@ export default [
   "Groningen",
   "Noord-Brabant",
   "Limburg",
-  "Flevoland"
+  "Flevoland",
 ];

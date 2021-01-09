@@ -8,5 +8,5 @@ export default [
   "#{man_first_name} #{man_last_name}",
   "#{woman_first_name} #{woman_last_name}",
   "#{woman_first_name} #{woman_last_name}",
-  "#{woman_first_name} #{woman_last_name}"
+  "#{woman_first_name} #{woman_last_name}",
 ];

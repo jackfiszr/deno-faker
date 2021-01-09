@@ -44,5 +44,5 @@ export default [
   "tunet",
   "vollen",
   "vika",
-  "åsen"
+  "åsen",
 ];

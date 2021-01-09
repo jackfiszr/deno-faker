@@ -622,5 +622,5 @@ export default [
   "Zayas",
   "Zelaya",
   "Zepeda",
-  "Zúñiga"
+  "Zúñiga",
 ];

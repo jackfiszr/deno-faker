@@ -4,10 +4,4 @@ import prefix from "./prefix.ts";
 import nobility_title_prefix from "./nobility_title_prefix.ts";
 import name from "./name.ts";
 
-export {
-  first_name,
-  last_name,
-  prefix,
-  nobility_title_prefix,
-  name
-};
+export { first_name, last_name, name, nobility_title_prefix, prefix };

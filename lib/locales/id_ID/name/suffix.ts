@@ -18,5 +18,5 @@ export default [
   "M.TI.",
   "M.Pd",
   "M.Farm",
-  "M.Ak"
+  "M.Ak",
 ];

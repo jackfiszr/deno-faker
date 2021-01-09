@@ -4,5 +4,5 @@ export default [
   "#{Name.first_name}#{city_suffix}",
   "#{Name.first_name}#{city_suffix}",
   "#{Name.last_name}#{city_suffix}",
-  "#{Name.last_name}#{city_suffix}"
+  "#{Name.last_name}#{city_suffix}",
 ];

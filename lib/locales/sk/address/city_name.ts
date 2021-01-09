@@ -77,5 +77,5 @@ export default [
   "Žiar nad Hronom",
   "Žilina",
   "Zlaté Moravce",
-  "Zvolen"
+  "Zvolen",
 ];

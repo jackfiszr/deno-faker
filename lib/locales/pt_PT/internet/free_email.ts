@@ -7,5 +7,5 @@ export default [
   "portugalmail.pt",
   "mail.pt",
   "sapo.pt",
-  "aeiou.pt"
+  "aeiou.pt",
 ];

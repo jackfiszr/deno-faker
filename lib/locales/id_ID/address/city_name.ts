@@ -225,5 +225,5 @@ export default [
   "Negara,Bali",
   "Singaraja",
   "Tabanan",
-  "Bangli"
+  "Bangli",
 ];

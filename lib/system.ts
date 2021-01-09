@@ -53,7 +53,7 @@ class System {
    */
   mimeType = () => {
     return this.faker.random.arrayElement(
-      Object.keys(this.faker.definitions.system.mimeTypes)
+      Object.keys(this.faker.definitions.system.mimeTypes),
     );
   };
 
@@ -83,7 +83,7 @@ class System {
       "image/gif",
       "video/mp4",
       "video/mpeg",
-      "text/html"
+      "text/html",
     ];
     return this.faker.system.fileExt(this.faker.random.arrayElement(types));
   };
@@ -96,7 +96,7 @@ class System {
   fileType = () => {
     const types: string[] = [];
     const mimes = this.faker.definitions.system.mimeTypes;
-    Object.keys(mimes).forEach(function(m) {
+    Object.keys(mimes).forEach(function (m) {
       const parts = m.split("/");
       if (types.indexOf(parts[0]) === -1) {
         types.push(parts[0]);
@@ -121,9 +121,9 @@ class System {
     }
 
     // reduce mime-types to those with file-extensions
-    Object.keys(mimes).forEach(function(m) {
+    Object.keys(mimes).forEach(function (m) {
       if (mimes[m].extensions instanceof Array) {
-        mimes[m].extensions.forEach(function(ext: string) {
+        mimes[m].extensions.forEach(function (ext: string) {
           exts.push(ext);
         });
       }
@@ -159,7 +159,7 @@ class System {
     return [
       this.faker.random.number(9),
       this.faker.random.number(9),
-      this.faker.random.number(9)
+      this.faker.random.number(9),
     ].join(".");
   };
 }

@@ -6,5 +6,5 @@ export default [
   "Home Loan",
   "Credit Card",
   "Auto Loan",
-  "Personal Loan"
+  "Personal Loan",
 ];

@@ -27,7 +27,7 @@ class Vehicle {
   manufacturer = () => {
     const schema = schemas.manufacturer;
     return this.faker.random.arrayElement(
-      this.faker.definitions.vehicle.manufacturer
+      this.faker.definitions.vehicle.manufacturer,
     );
   };
 
@@ -39,7 +39,7 @@ class Vehicle {
   model = () => {
     const schema = schemas.model;
     return this.faker.random.arrayElement(
-      this.faker.definitions.vehicle.model
+      this.faker.definitions.vehicle.model,
     );
   };
 

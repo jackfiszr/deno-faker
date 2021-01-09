@@ -838,5 +838,5 @@ export default [
   "vulpēs",
   "vultīculus",
   "vultūosus",
-  "xīphīās"
+  "xīphīās",
 ];

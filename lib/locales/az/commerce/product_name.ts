@@ -9,7 +9,7 @@ export default {
     "Fantastik",
     "Əlverişli",
     "Parlaq",
-    "Mükəmməl"
+    "Mükəmməl",
   ],
   "material": [
     "Polad",
@@ -18,7 +18,7 @@ export default {
     "Plastik",
     "Pambıq",
     "Qranit",
-    "Rezin"
+    "Rezin",
   ],
   "product": [
     "Stul",
@@ -28,6 +28,6 @@ export default {
     "Kulon",
     "Stol",
     "Sviter",
-    "Kəmər"
-  ]
+    "Kəmər",
+  ],
 };

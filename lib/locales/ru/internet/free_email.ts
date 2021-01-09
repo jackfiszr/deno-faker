@@ -4,5 +4,5 @@ export default [
   "mail.ru",
   "gmail.com",
   "yahoo.com",
-  "hotmail.com"
+  "hotmail.com",
 ];

@@ -21,5 +21,5 @@ export default [
   "Västmanland",
   "Älvsborg",
   "Örebro",
-  "Östergötland"
+  "Östergötland",
 ];

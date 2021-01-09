@@ -13,7 +13,7 @@ test({
     assert(faker.name.lastName.calledThrice);
     faker.random.number.restore();
     faker.name.lastName.restore();
-  }
+  },
 });
 
 test({
@@ -27,7 +27,7 @@ test({
     assert(faker.name.lastName.calledTwice);
     faker.random.number.restore();
     faker.name.lastName.restore();
-  }
+  },
 });
 
 test({
@@ -44,7 +44,7 @@ test({
     faker.random.number.restore();
     faker.name.lastName.restore();
     faker.company.companySuffix.restore();
-  }
+  },
 });
 
 test({
@@ -52,7 +52,7 @@ test({
   fn() {
     const suffix = faker.company.companySuffix();
     assert(faker.company.suffixes().indexOf(suffix) !== -1);
-  }
+  },
 });
 
 test({
@@ -73,7 +73,7 @@ test({
     faker.company.catchPhraseAdjective.restore();
     faker.company.catchPhraseDescriptor.restore();
     faker.company.catchPhraseNoun.restore();
-  }
+  },
 });
 
 test({
@@ -93,5 +93,5 @@ test({
     faker.company.bsBuzz.restore();
     faker.company.bsAdjective.restore();
     faker.company.bsNoun.restore();
-  }
+  },
 });

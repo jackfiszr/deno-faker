@@ -7,11 +7,11 @@ import suffix from "./suffix.ts";
 import name from "./name.ts";
 
 export {
-  first_name,
   feminine_name,
-  masculine_name,
+  first_name,
   last_name,
+  masculine_name,
+  name,
   prefix,
   suffix,
-  name
 };

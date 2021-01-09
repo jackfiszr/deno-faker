@@ -7,7 +7,7 @@ export default {
     "čtvrtek",
     "Pátek",
     "Sobota",
-    "Neděle"
+    "Neděle",
   ],
   // Property "wide_context" is optional, if not set then "wide" will be used instead
   // It is used to specify a word in context, which may differ from a stand-alone word
@@ -18,7 +18,7 @@ export default {
     "čtvrtek",
     "Pátek",
     "Sobota",
-    "Neděle"
+    "Neděle",
   ],
   abbr: [
     "Po",
@@ -27,7 +27,7 @@ export default {
     "čt",
     "Pá",
     "So",
-    "Ne"
+    "Ne",
   ],
   // Property "abbr_context" is optional, if not set then "abbr" will be used instead
   // It is used to specify a word in context, which may differ from a stand-alone word
@@ -38,6 +38,6 @@ export default {
     "čt",
     "Pá",
     "So",
-    "Ne"
-  ]
+    "Ne",
+  ],
 };

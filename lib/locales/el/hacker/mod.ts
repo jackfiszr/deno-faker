@@ -3,9 +3,4 @@ import adjective from "./adjective.ts";
 import noun from "./noun.ts";
 import verb from "./verb.ts";
 
-export {
-  abbreviation,
-  adjective,
-  noun,
-  verb
-};
+export { abbreviation, adjective, noun, verb };

@@ -233,5 +233,5 @@ export default [
   "Zahid Xəlilov",
   "Zaur Kərimov",
   "Zavod",
-  "Zərgərpalan"
+  "Zərgərpalan",
 ];

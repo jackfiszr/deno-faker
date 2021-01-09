@@ -51,5 +51,5 @@ export default [
   "Surket",
   "Syangja",
   "Tanahu",
-  "Terhathum"
+  "Terhathum",
 ];

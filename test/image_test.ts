@@ -7,7 +7,7 @@ test({
   fn() {
     const imageUrl = faker.image.lorempixel.imageUrl();
     assertEquals(imageUrl, "http://lorempixel.com/640/480");
-  }
+  },
 });
 
 test({
@@ -16,7 +16,7 @@ test({
   fn() {
     const imageUrl = faker.image.lorempixel.imageUrl(100, 100);
     assertEquals(imageUrl, "http://lorempixel.com/100/100");
-  }
+  },
 });
 
 test({
@@ -25,7 +25,7 @@ test({
   fn() {
     const imageUrl = faker.image.lorempixel.imageUrl(100, 100, "abstract");
     assertEquals(imageUrl, "http://lorempixel.com/100/100/abstract");
-  }
+  },
 });
 
 test({
@@ -33,9 +33,9 @@ test({
   fn() {
     assertNotEquals(
       -1,
-      faker.image.lorempixel.avatar().indexOf("s3.amazonaws.com/uifaces/faces")
+      faker.image.lorempixel.avatar().indexOf("s3.amazonaws.com/uifaces/faces"),
     );
-  }
+  },
 });
 
 test({
@@ -43,7 +43,7 @@ test({
   fn() {
     const abstract = faker.image.lorempixel.abstract();
     assertEquals(abstract, "http://lorempixel.com/640/480/abstract");
-  }
+  },
 });
 
 test({
@@ -51,7 +51,7 @@ test({
   fn() {
     const animals = faker.image.lorempixel.animals();
     assertEquals(animals, "http://lorempixel.com/640/480/animals");
-  }
+  },
 });
 
 test({
@@ -59,7 +59,7 @@ test({
   fn() {
     const business = faker.image.lorempixel.business();
     assertEquals(business, "http://lorempixel.com/640/480/business");
-  }
+  },
 });
 
 test({
@@ -67,7 +67,7 @@ test({
   fn() {
     const cats = faker.image.lorempixel.cats();
     assertEquals(cats, "http://lorempixel.com/640/480/cats");
-  }
+  },
 });
 
 test({
@@ -75,7 +75,7 @@ test({
   fn() {
     const city = faker.image.lorempixel.city();
     assertEquals(city, "http://lorempixel.com/640/480/city");
-  }
+  },
 });
 
 test({
@@ -83,7 +83,7 @@ test({
   fn() {
     const food = faker.image.lorempixel.food();
     assertEquals(food, "http://lorempixel.com/640/480/food");
-  }
+  },
 });
 
 test({
@@ -91,7 +91,7 @@ test({
   fn() {
     const nightlife = faker.image.lorempixel.nightlife();
     assertEquals(nightlife, "http://lorempixel.com/640/480/nightlife");
-  }
+  },
 });
 
 test({
@@ -99,7 +99,7 @@ test({
   fn() {
     const fashion = faker.image.lorempixel.fashion();
     assertEquals(fashion, "http://lorempixel.com/640/480/fashion");
-  }
+  },
 });
 
 test({
@@ -107,7 +107,7 @@ test({
   fn() {
     const people = faker.image.lorempixel.people();
     assertEquals(people, "http://lorempixel.com/640/480/people");
-  }
+  },
 });
 
 test({
@@ -115,7 +115,7 @@ test({
   fn() {
     const nature = faker.image.lorempixel.nature();
     assertEquals(nature, "http://lorempixel.com/640/480/nature");
-  }
+  },
 });
 
 test({
@@ -123,7 +123,7 @@ test({
   fn() {
     const sports = faker.image.lorempixel.sports();
     assertEquals(sports, "http://lorempixel.com/640/480/sports");
-  }
+  },
 });
 
 test({
@@ -131,7 +131,7 @@ test({
   fn() {
     const technics = faker.image.lorempixel.technics();
     assertEquals(technics, "http://lorempixel.com/640/480/technics");
-  }
+  },
 });
 
 test({
@@ -139,7 +139,7 @@ test({
   fn() {
     const transport = faker.image.lorempixel.transport();
     assertEquals(transport, "http://lorempixel.com/640/480/transport");
-  }
+  },
 });
 
 test({
@@ -147,7 +147,7 @@ test({
   fn() {
     const imageUrl = faker.image.unsplash.imageUrl();
     assertEquals(imageUrl, "https://source.unsplash.com/640x480");
-  }
+  },
 });
 
 test({
@@ -156,7 +156,7 @@ test({
   fn() {
     const imageUrl = faker.image.unsplash.imageUrl(100, 100);
     assertEquals(imageUrl, "https://source.unsplash.com/100x100");
-  }
+  },
 });
 
 test({
@@ -166,9 +166,9 @@ test({
     const imageUrl = faker.image.unsplash.imageUrl(100, 100, "food");
     assertEquals(
       imageUrl,
-      "https://source.unsplash.com/category/food/100x100"
+      "https://source.unsplash.com/category/food/100x100",
     );
-  }
+  },
 });
 
 test({
@@ -179,13 +179,13 @@ test({
       100,
       100,
       "food",
-      "keyword1,keyword2"
+      "keyword1,keyword2",
     );
     assertEquals(
       imageUrl,
-      "https://source.unsplash.com/category/food/100x100?keyword1,keyword2"
+      "https://source.unsplash.com/category/food/100x100?keyword1,keyword2",
     );
-  }
+  },
 });
 
 test({
@@ -196,13 +196,13 @@ test({
       100,
       100,
       "food",
-      "keyword1,?ds)0123$*908932409"
+      "keyword1,?ds)0123$*908932409",
     );
     assertEquals(
       imageUrl,
-      "https://source.unsplash.com/category/food/100x100"
+      "https://source.unsplash.com/category/food/100x100",
     );
-  }
+  },
 });
 
 test({
@@ -211,13 +211,13 @@ test({
     const food = faker.image.unsplash.image(
       100,
       200,
-      "keyword1,keyword2,keyword3"
+      "keyword1,keyword2,keyword3",
     );
     assertEquals(
       food,
-      "https://source.unsplash.com/100x200?keyword1,keyword2,keyword3"
+      "https://source.unsplash.com/100x200?keyword1,keyword2,keyword3",
     );
-  }
+  },
 });
 
 test({
@@ -225,7 +225,7 @@ test({
   fn() {
     const food = faker.image.unsplash.food();
     assertEquals(food, "https://source.unsplash.com/category/food/640x480");
-  }
+  },
 });
 
 test({
@@ -234,9 +234,9 @@ test({
     const people = faker.image.unsplash.people();
     assertEquals(
       people,
-      "https://source.unsplash.com/category/people/640x480"
+      "https://source.unsplash.com/category/people/640x480",
     );
-  }
+  },
 });
 
 test({
@@ -245,9 +245,9 @@ test({
     const nature = faker.image.unsplash.nature();
     assertEquals(
       nature,
-      "https://source.unsplash.com/category/nature/640x480"
+      "https://source.unsplash.com/category/nature/640x480",
     );
-  }
+  },
 });
 
 test({
@@ -256,9 +256,9 @@ test({
     const technology = faker.image.unsplash.technology();
     assertEquals(
       technology,
-      "https://source.unsplash.com/category/technology/640x480"
+      "https://source.unsplash.com/category/technology/640x480",
     );
-  }
+  },
 });
 
 test({
@@ -267,9 +267,9 @@ test({
     const objects = faker.image.unsplash.objects();
     assertEquals(
       objects,
-      "https://source.unsplash.com/category/objects/640x480"
+      "https://source.unsplash.com/category/objects/640x480",
     );
-  }
+  },
 });
 
 test({
@@ -278,9 +278,9 @@ test({
     const buildings = faker.image.unsplash.buildings();
     assertEquals(
       buildings,
-      "https://source.unsplash.com/category/buildings/640x480"
+      "https://source.unsplash.com/category/buildings/640x480",
     );
-  }
+  },
 });
 
 test({
@@ -289,9 +289,9 @@ test({
     const dataUri = faker.image.dataUri(200, 300);
     assertEquals(
       dataUri,
-      "data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20version%3D%221.1%22%20baseProfile%3D%22full%22%20width%3D%22200%22%20height%3D%22300%22%3E%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22grey%22%2F%3E%3Ctext%20x%3D%22100%22%20y%3D%22150%22%20font-size%3D%2220%22%20alignment-baseline%3D%22middle%22%20text-anchor%3D%22middle%22%20fill%3D%22white%22%3E200x300%3C%2Ftext%3E%3C%2Fsvg%3E"
+      "data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20version%3D%221.1%22%20baseProfile%3D%22full%22%20width%3D%22200%22%20height%3D%22300%22%3E%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22grey%22%2F%3E%3Ctext%20x%3D%22100%22%20y%3D%22150%22%20font-size%3D%2220%22%20alignment-baseline%3D%22middle%22%20text-anchor%3D%22middle%22%20fill%3D%22white%22%3E200x300%3C%2Ftext%3E%3C%2Fsvg%3E",
     );
-  }
+  },
 });
 
 test({
@@ -300,7 +300,7 @@ test({
     const dataUri = faker.image.dataUri(200, 300, "red");
     assertEquals(
       dataUri,
-      "data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20version%3D%221.1%22%20baseProfile%3D%22full%22%20width%3D%22200%22%20height%3D%22300%22%3E%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22red%22%2F%3E%3Ctext%20x%3D%22100%22%20y%3D%22150%22%20font-size%3D%2220%22%20alignment-baseline%3D%22middle%22%20text-anchor%3D%22middle%22%20fill%3D%22white%22%3E200x300%3C%2Ftext%3E%3C%2Fsvg%3E"
+      "data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20version%3D%221.1%22%20baseProfile%3D%22full%22%20width%3D%22200%22%20height%3D%22300%22%3E%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22red%22%2F%3E%3Ctext%20x%3D%22100%22%20y%3D%22150%22%20font-size%3D%2220%22%20alignment-baseline%3D%22middle%22%20text-anchor%3D%22middle%22%20fill%3D%22white%22%3E200x300%3C%2Ftext%3E%3C%2Fsvg%3E",
     );
-  }
+  },
 });

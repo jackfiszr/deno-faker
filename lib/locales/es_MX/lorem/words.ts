@@ -266,5 +266,5 @@ export default [
   "Incristalizable",
   "Incruentamente",
   "Incruento",
-  "Incrustación"
+  "Incrustación",
 ];

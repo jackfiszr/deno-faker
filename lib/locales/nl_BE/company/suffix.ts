@@ -2,5 +2,5 @@ export default [
   "NV",
   "BVBA",
   "CVBA",
-  "VZW"
+  "VZW",
 ];

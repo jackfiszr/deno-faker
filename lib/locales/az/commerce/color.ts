@@ -16,5 +16,5 @@ export default [
   "tünd qırmızı",
   "xlorofil",
   "yaşıl",
-  "çəhrayı"
+  "çəhrayı",
 ];

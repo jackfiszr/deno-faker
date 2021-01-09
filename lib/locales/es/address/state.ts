@@ -15,5 +15,5 @@ export default [
   "Comunidad de Madrid",
   "Navarra",
   "País Vasco",
-  "Región de Murcia"
+  "Región de Murcia",
 ];

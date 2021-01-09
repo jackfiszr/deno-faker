@@ -6,5 +6,5 @@ export default [
   "WA",
   "TAS",
   "ACT",
-  "VIC"
+  "VIC",
 ];

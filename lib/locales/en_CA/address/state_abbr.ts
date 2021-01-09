@@ -11,5 +11,5 @@ export default [
   "PE",
   "QC",
   "SK",
-  "YT"
+  "YT",
 ];

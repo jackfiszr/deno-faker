@@ -8,7 +8,7 @@ test({
   fn() {
     const name = faker.fake("{{phone.phoneNumber}}");
     assert(name.match(/\d/));
-  }
+  },
 });
 
 test({
@@ -16,10 +16,10 @@ test({
     "fake() replaces multiple tokens with random values for methods with no parameters",
   fn() {
     const name = faker.fake(
-      "{{helpers.randomize}}{{helpers.randomize}}{{helpers.randomize}}"
+      "{{helpers.randomize}}{{helpers.randomize}}{{helpers.randomize}}",
     );
     assert(name.match(/[abc]{3}/));
-  }
+  },
 });
 
 test({
@@ -28,7 +28,7 @@ test({
   fn() {
     const random = faker.fake('{{helpers.slugify("Will This Work")}}');
     assert(random === "Will-This-Work");
-  }
+  },
 });
 test({
   name:
@@ -36,35 +36,35 @@ test({
   fn() {
     const arr = ["one", "two", "three"];
     const random = faker.fake(
-      '{{helpers.randomize(["one", "two", "three"])}}'
+      '{{helpers.randomize(["one", "two", "three"])}}',
     );
     assert(arr.indexOf(random) > -1);
-  }
+  },
 });
 
 test({
   name: "fake() does not allow undefined parameters",
   fn() {
-    assertThrows(function() {
+    assertThrows(function () {
       faker.fake();
     }, Error);
-  }
+  },
 });
 
 test({
   name: "fake() does not allow invalid module name",
   fn() {
-    assertThrows(function() {
+    assertThrows(function () {
       faker.fake("{{foo.bar}}");
     }, Error);
-  }
+  },
 });
 
 test({
   name: "fake() does not allow invalid method name",
   fn() {
-    assertThrows(function() {
+    assertThrows(function () {
       faker.fake("{{address.foo}}");
     }, Error);
-  }
+  },
 });

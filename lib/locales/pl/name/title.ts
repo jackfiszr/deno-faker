@@ -21,7 +21,7 @@ export default {
     "Internal",
     "Human",
     "Chief",
-    "Principal"
+    "Principal",
   ],
   "level": [
     "Solutions",
@@ -60,7 +60,7 @@ export default {
     "Interactions",
     "Factors",
     "Usability",
-    "Metrics"
+    "Metrics",
   ],
   "job": [
     "Supervisor",
@@ -87,6 +87,6 @@ export default {
     "Facilitator",
     "Agent",
     "Representative",
-    "Strategist"
-  ]
+    "Strategist",
+  ],
 };

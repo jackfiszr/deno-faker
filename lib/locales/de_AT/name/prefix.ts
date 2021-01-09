@@ -1,4 +1,4 @@
 export default [
   "Dr.",
-  "Prof. Dr."
+  "Prof. Dr.",
 ];

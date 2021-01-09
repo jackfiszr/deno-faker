@@ -12,7 +12,7 @@ export default {
     "September",
     "October",
     "November",
-    "December"
+    "December",
   ],
   // Property "wide_context" is optional, if not set then "wide" will be used instead
   // It is used to specify a word in context, which may differ from a stand-alone word
@@ -28,7 +28,7 @@ export default {
     "September",
     "October",
     "November",
-    "December"
+    "December",
   ],
   abbr: [
     "Jan",
@@ -42,7 +42,7 @@ export default {
     "Sep",
     "Oct",
     "Nov",
-    "Dec"
+    "Dec",
   ],
   // Property "abbr_context" is optional, if not set then "abbr" will be used instead
   // It is used to specify a word in context, which may differ from a stand-alone word
@@ -58,6 +58,6 @@ export default {
     "Sep",
     "Oct",
     "Nov",
-    "Dec"
-  ]
+    "Dec",
+  ],
 };

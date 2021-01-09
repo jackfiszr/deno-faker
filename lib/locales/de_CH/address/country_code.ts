@@ -8,5 +8,5 @@ export default [
   "LI",
   "US",
   "HK",
-  "VN"
+  "VN",
 ];

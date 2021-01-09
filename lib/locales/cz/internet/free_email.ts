@@ -3,5 +3,5 @@ export default [
   "seznam.cz",
   "centrum.cz",
   "volny.cz",
-  "atlas.cz"
+  "atlas.cz",
 ];

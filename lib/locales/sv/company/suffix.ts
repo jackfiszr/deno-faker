@@ -5,5 +5,5 @@ export default [
   "Group",
   "Investment",
   "Kommanditbolag",
-  "Aktiebolag"
+  "Aktiebolag",
 ];

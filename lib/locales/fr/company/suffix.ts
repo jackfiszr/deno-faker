@@ -6,5 +6,5 @@ export default [
   "SEM",
   "SCOP",
   "GIE",
-  "EI"
+  "EI",
 ];

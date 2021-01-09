@@ -17,5 +17,5 @@ export default [
   "hult",
   "torp",
   "fred",
-  "vik"
+  "vik",
 ];

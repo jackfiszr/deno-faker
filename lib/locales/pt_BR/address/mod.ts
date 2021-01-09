@@ -10,14 +10,14 @@ import state_abbr from "./state_abbr.ts";
 import default_country from "./default_country.ts";
 
 export {
+  building_number,
   city_prefix,
   city_suffix,
   country,
-  building_number,
-  street_suffix,
-  secondary_address,
+  default_country,
   postcode,
+  secondary_address,
   state,
   state_abbr,
-  default_country
+  street_suffix,
 };

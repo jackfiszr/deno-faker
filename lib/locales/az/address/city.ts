@@ -1,3 +1,3 @@
 export default [
-  "#{Address.city_name}"
+  "#{Address.city_name}",
 ];

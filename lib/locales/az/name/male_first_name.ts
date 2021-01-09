@@ -33,5 +33,5 @@ export default [
   "Bəxtiyar",
   "Bəhruz",
   "Tunar",
-  "Nadir"
+  "Nadir",
 ];

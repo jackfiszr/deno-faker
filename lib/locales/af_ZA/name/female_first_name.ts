@@ -109,5 +109,5 @@ export default [
   "Sonja",
   "Elsa",
   "Elisa",
-  "Kristie"
+  "Kristie",
 ];

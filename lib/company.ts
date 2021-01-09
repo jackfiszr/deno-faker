@@ -28,7 +28,7 @@ class Company {
     const formats = [
       "{{name.lastName}} {{company.companySuffix}}",
       "{{name.lastName}} - {{name.lastName}}",
-      "{{name.lastName}}, {{name.lastName}} and {{name.lastName}}"
+      "{{name.lastName}}, {{name.lastName}} and {{name.lastName}}",
     ];
 
     if (typeof format !== "number") {
@@ -54,7 +54,7 @@ class Company {
    */
   catchPhrase = () => {
     return this.faker.fake(
-      "{{company.catchPhraseAdjective}} {{company.catchPhraseDescriptor}} {{company.catchPhraseNoun}}"
+      "{{company.catchPhraseAdjective}} {{company.catchPhraseDescriptor}} {{company.catchPhraseNoun}}",
     );
   };
 
@@ -65,7 +65,7 @@ class Company {
    */
   bs = () => {
     return this.faker.fake(
-      "{{company.bsBuzz}} {{company.bsAdjective}} {{company.bsNoun}}"
+      "{{company.bsBuzz}} {{company.bsAdjective}} {{company.bsNoun}}",
     );
   };
 
@@ -76,7 +76,7 @@ class Company {
    */
   catchPhraseAdjective = () => {
     return this.faker.random.arrayElement(
-      this.faker.definitions.company.adjective
+      this.faker.definitions.company.adjective,
     );
   };
 
@@ -87,7 +87,7 @@ class Company {
    */
   catchPhraseDescriptor = () => {
     return this.faker.random.arrayElement(
-      this.faker.definitions.company.descriptor
+      this.faker.definitions.company.descriptor,
     );
   };
 
@@ -107,7 +107,7 @@ class Company {
    */
   bsAdjective = () => {
     return this.faker.random.arrayElement(
-      this.faker.definitions.company.bs_adjective
+      this.faker.definitions.company.bs_adjective,
     );
   };
 
@@ -118,7 +118,7 @@ class Company {
    */
   bsBuzz = () => {
     return this.faker.random.arrayElement(
-      this.faker.definitions.company.bs_verb
+      this.faker.definitions.company.bs_verb,
     );
   };
 
@@ -129,7 +129,7 @@ class Company {
    */
   bsNoun = () => {
     return this.faker.random.arrayElement(
-      this.faker.definitions.company.bs_noun
+      this.faker.definitions.company.bs_noun,
     );
   };
 }

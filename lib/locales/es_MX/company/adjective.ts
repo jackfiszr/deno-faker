@@ -83,5 +83,5 @@ export default [
   "Amigable",
   "Versatil",
   "Virtual",
-  "Visionario"
+  "Visionario",
 ];

@@ -5,5 +5,5 @@ export default [
   "KG",
   "GmbH & Co. KG",
   "UG",
-  "OHG"
+  "OHG",
 ];

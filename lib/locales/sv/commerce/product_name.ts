@@ -9,7 +9,7 @@ export default {
     "Fatastisk",
     "Praktisk",
     "Slimmad",
-    "Grym"
+    "Grym",
   ],
   "material": [
     "Stål",
@@ -20,7 +20,7 @@ export default {
     "Bomul",
     "Grnit",
     "Gummi",
-    "Latex"
+    "Latex",
   ],
   "product": [
     "Stol",
@@ -31,6 +31,6 @@ export default {
     "Shirt",
     "Table",
     "Shoes",
-    "Hat"
-  ]
+    "Hat",
+  ],
 };

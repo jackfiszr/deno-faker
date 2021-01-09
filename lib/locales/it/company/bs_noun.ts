@@ -24,5 +24,5 @@ export default [
   "funzionalità",
   "esperienze",
   "webservices",
-  "metodologie"
+  "metodologie",
 ];

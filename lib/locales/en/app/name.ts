@@ -60,5 +60,5 @@ export default [
   "Ronstring",
   "Zathin",
   "Duobam",
-  "Keylex"
+  "Keylex",
 ];

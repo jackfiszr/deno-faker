@@ -149,5 +149,5 @@ export default [
   "Vila Real",
   "Vila Real de Santo António",
   "Viseu",
-  "Vizela"
+  "Vizela",
 ];

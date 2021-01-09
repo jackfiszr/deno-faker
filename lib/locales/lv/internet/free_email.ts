@@ -6,5 +6,5 @@ export default [
   "apollo.lv",
   "yahoo.com",
   "hotmail.com",
-  "gmail.com"
+  "gmail.com",
 ];

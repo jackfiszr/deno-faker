@@ -13,5 +13,5 @@ export default [
   "Ing.",
   "Lic.",
   "Dr.",
-  "Mtro."
+  "Mtro.",
 ];

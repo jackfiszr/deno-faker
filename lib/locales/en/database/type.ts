@@ -22,5 +22,5 @@ export default [
   "enum",
   "set",
   "geometry",
-  "point"
+  "point",
 ];

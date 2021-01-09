@@ -1,4 +1,4 @@
 export default [
   "Pan",
-  "Pani"
+  "Pani",
 ];

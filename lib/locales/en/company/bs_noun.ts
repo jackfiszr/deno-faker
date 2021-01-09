@@ -43,5 +43,5 @@ export default [
   "experiences",
   "web services",
   "methodologies",
-  "blockchains"
+  "blockchains",
 ];

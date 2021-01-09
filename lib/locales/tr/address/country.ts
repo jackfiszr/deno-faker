@@ -234,5 +234,5 @@ export default [
   "Yeni Zelanda",
   "Yunanistan",
   "Zambiya",
-  "Zimbabve"
+  "Zimbabve",
 ];

@@ -104,5 +104,5 @@ export default [
   "Wacana",
   "Waskita",
   "Wasita",
-  "Zulkarnain"
+  "Zulkarnain",
 ];

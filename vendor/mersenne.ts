@@ -54,7 +54,10 @@ declare class MersenneTwister19937 {
 }
 function MersenneTwister19937(this: MersenneTwister19937) {
   /* constants should be scoped inside the class */
-  let N: number, M: number, MATRIX_A: number, UPPER_MASK: number,
+  let N: number,
+    M: number,
+    MATRIX_A: number,
+    UPPER_MASK: number,
     LOWER_MASK: number;
   /* Period parameters */
   //c//#define N 624
@@ -107,13 +110,13 @@ function MersenneTwister19937(this: MersenneTwister19937) {
     mt[0] = unsigned32(s & 0xffffffff);
     for (mti = 1; mti < N; mti++) {
       mt[mti] = //c//(1812433253 * (mt[mti-1] ^ (mt[mti-1] >> 30)) + mti);
-      addition32(
-        multiplication32(
-          1812433253,
-          unsigned32(mt[mti - 1] ^ (mt[mti - 1] >>> 30))
-        ),
-        mti
-      );
+        addition32(
+          multiplication32(
+            1812433253,
+            unsigned32(mt[mti - 1] ^ (mt[mti - 1] >>> 30)),
+          ),
+          mti,
+        );
       /* See Knuth TAOCP Vol2. 3rd Ed. P.106 for multiplier. */
       /* In the previous versions, MSBs of the seed affect   */
       /* only MSBs of the array mt[].                        */
@@ -145,15 +148,15 @@ function MersenneTwister19937(this: MersenneTwister19937) {
           unsigned32(
             mt[i] ^ multiplication32(
               unsigned32(mt[i - 1] ^ (mt[i - 1] >>> 30)),
-              1664525
-            )
+              1664525,
+            ),
           ),
-          init_key[j]
+          init_key[j],
         ),
-        j
+        j,
       );
       mt[i] = //c//mt[i] &= 0xffffffff; /* for WORDSIZE > 32 machines */
-      unsigned32(mt[i] & 0xffffffff);
+        unsigned32(mt[i] & 0xffffffff);
       i++;
       j++;
       if (i >= N) {
@@ -169,10 +172,10 @@ function MersenneTwister19937(this: MersenneTwister19937) {
         unsigned32(
           (mt[i]) ^ multiplication32(
             unsigned32(mt[i - 1] ^ (mt[i - 1] >>> 30)),
-            1566083941
-          )
+            1566083941,
+          ),
         ),
-        i
+        i,
       );
       //c//mt[i] &= 0xffffffff; /* for WORDSIZE > 32 machines */
       mt[i] = unsigned32(mt[i] & 0xffffffff);
@@ -311,7 +314,7 @@ export function seed(S: number) {
 export function seed_array(A: number[]) {
   if (typeof (A) != "object") {
     throw new Error(
-      "seed_array(A) must take array of numbers; is " + typeof (A)
+      "seed_array(A) must take array of numbers; is " + typeof (A),
     );
   }
   gen.init_by_array(A, A.length);

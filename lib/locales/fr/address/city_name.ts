@@ -98,5 +98,5 @@ export default [
   "Villejuif",
   "Hyères",
   "Beauvais",
-  "Cholet"
+  "Cholet",
 ];

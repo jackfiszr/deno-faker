@@ -2,5 +2,5 @@ export default [
   "dr.",
   "drg.",
   "Dr.",
-  "Hj."
+  "Hj.",
 ];

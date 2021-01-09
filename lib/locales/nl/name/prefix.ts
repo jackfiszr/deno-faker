@@ -3,5 +3,5 @@ export default [
   "Mevr. Dr.",
   "Bsc",
   "Msc",
-  "Prof."
+  "Prof.",
 ];

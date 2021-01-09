@@ -35,5 +35,5 @@ export default [
   "Track",
   "Trail",
   "View Rd",
-  "Way"
+  "Way",
 ];

@@ -27,5 +27,5 @@ export default [
   "SCSI",
   "JSON",
   "XSS",
-  "JBOD"
+  "JBOD",
 ];

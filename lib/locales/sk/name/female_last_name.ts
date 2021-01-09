@@ -249,5 +249,5 @@ export default [
   "Šulcová",
   "Šurková",
   "Švehlová",
-  "Šťastná"
+  "Šťastná",
 ];

@@ -25,5 +25,5 @@ export default [
   "Marie",
   "Lotta",
   "Ronja",
-  "Veronica"
+  "Veronica",
 ];

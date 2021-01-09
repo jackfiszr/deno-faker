@@ -3,5 +3,5 @@ export default [
   "com",
   "org.za",
   "info",
-  "net.za"
+  "net.za",
 ];

@@ -190,5 +190,5 @@ export default [
   "Adam",
   "Štefan",
   "Dávid",
-  "Silvester"
+  "Silvester",
 ];

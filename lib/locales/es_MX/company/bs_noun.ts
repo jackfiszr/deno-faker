@@ -42,5 +42,5 @@ export default [
   "funcionalidades",
   "experiencias",
   "servicios web",
-  "metodologías"
+  "metodologías",
 ];

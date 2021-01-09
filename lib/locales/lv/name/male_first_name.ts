@@ -89,5 +89,5 @@ export default [
   "Voldemārs",
   "Zigfrīds",
   "Zigmārs",
-  "Žanis"
+  "Žanis",
 ];

@@ -14,5 +14,5 @@ export default [
   "Kathmandu",
   "Lahan",
   "Nepalgunj",
-  "Pokhara"
+  "Pokhara",
 ];

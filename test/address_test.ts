@@ -17,51 +17,67 @@ function cityRestore() {
   faker.address.citySuffix.restore();
 }
 
-testWrapper({
-  name: "city() occasionally returns prefix + first name + suffix",
-  fn(): void {
-    sinon.stub(faker.random, "number").returns(0);
-    const city = faker.address.city();
-    assert(city);
-    assert(faker.address.cityPrefix.calledOnce);
-    assert(faker.name.firstName.calledOnce);
-    assert(faker.address.citySuffix.calledOnce);
-  }
-}, citySpy, cityRestore);
+testWrapper(
+  {
+    name: "city() occasionally returns prefix + first name + suffix",
+    fn(): void {
+      sinon.stub(faker.random, "number").returns(0);
+      const city = faker.address.city();
+      assert(city);
+      assert(faker.address.cityPrefix.calledOnce);
+      assert(faker.name.firstName.calledOnce);
+      assert(faker.address.citySuffix.calledOnce);
+    },
+  },
+  citySpy,
+  cityRestore,
+);
 
-testWrapper({
-  name: "city() occasionally returns prefix + first name",
-  fn(): void {
-    sinon.stub(faker.random, "number").returns(1);
-    const city = faker.address.city();
-    assert(city);
-    assert(faker.address.cityPrefix.calledOnce);
-    assert(faker.name.firstName.calledOnce);
-  }
-}, citySpy, cityRestore);
+testWrapper(
+  {
+    name: "city() occasionally returns prefix + first name",
+    fn(): void {
+      sinon.stub(faker.random, "number").returns(1);
+      const city = faker.address.city();
+      assert(city);
+      assert(faker.address.cityPrefix.calledOnce);
+      assert(faker.name.firstName.calledOnce);
+    },
+  },
+  citySpy,
+  cityRestore,
+);
 
-testWrapper({
-  name: "city() occasionally returns first name + suffix",
-  fn(): void {
-    sinon.stub(faker.random, "number").returns(2);
-    const city = faker.address.city();
-    assert(city);
-    assert(faker.address.citySuffix.calledOnce);
-  }
-}, citySpy, cityRestore);
+testWrapper(
+  {
+    name: "city() occasionally returns first name + suffix",
+    fn(): void {
+      sinon.stub(faker.random, "number").returns(2);
+      const city = faker.address.city();
+      assert(city);
+      assert(faker.address.citySuffix.calledOnce);
+    },
+  },
+  citySpy,
+  cityRestore,
+);
 
-testWrapper({
-  name: "city() occasionally returns last name + suffix",
-  fn(): void {
-    sinon.stub(faker.random, "number").returns(3);
-    const city = faker.address.city();
-    assert(city);
-    assert(!faker.address.cityPrefix.called);
-    assert(!faker.name.firstName.called);
-    assert(faker.name.lastName.calledOnce);
-    assert(faker.address.citySuffix.calledOnce);
-  }
-}, citySpy, cityRestore);
+testWrapper(
+  {
+    name: "city() occasionally returns last name + suffix",
+    fn(): void {
+      sinon.stub(faker.random, "number").returns(3);
+      const city = faker.address.city();
+      assert(city);
+      assert(!faker.address.cityPrefix.called);
+      assert(!faker.name.firstName.called);
+      assert(faker.name.lastName.calledOnce);
+      assert(faker.address.citySuffix.calledOnce);
+    },
+  },
+  citySpy,
+  cityRestore,
+);
 
 function streetNameSpy() {
   sinon.spy(faker.name, "firstName");
@@ -74,41 +90,53 @@ function streetNameRestore() {
   faker.address.streetSuffix.restore();
 }
 
-testWrapper({
-  name: "streetName() occasionally returns last name + suffix",
-  fn(): void {
-    sinon.stub(faker.random, "number").returns(0);
-    const street_name = faker.address.streetName();
-    assert(street_name);
-    assert(!faker.name.firstName.called);
-    assert(faker.name.lastName.calledOnce);
-    assert(faker.address.streetSuffix.calledOnce);
-    faker.random.number.restore();
-  }
-}, streetNameSpy, streetNameRestore);
+testWrapper(
+  {
+    name: "streetName() occasionally returns last name + suffix",
+    fn(): void {
+      sinon.stub(faker.random, "number").returns(0);
+      const street_name = faker.address.streetName();
+      assert(street_name);
+      assert(!faker.name.firstName.called);
+      assert(faker.name.lastName.calledOnce);
+      assert(faker.address.streetSuffix.calledOnce);
+      faker.random.number.restore();
+    },
+  },
+  streetNameSpy,
+  streetNameRestore,
+);
 
-testWrapper({
-  name: "streetName() occasionally returns first name + suffix",
-  fn(): void {
-    sinon.stub(faker.random, "number").returns(1);
-    const street_name = faker.address.streetName();
-    assert(street_name);
-    assert(faker.name.firstName.calledOnce);
-    assert(!faker.name.lastName.called);
-    assert(faker.address.streetSuffix.calledOnce);
-    faker.random.number.restore();
-  }
-}, streetNameSpy, streetNameRestore);
+testWrapper(
+  {
+    name: "streetName() occasionally returns first name + suffix",
+    fn(): void {
+      sinon.stub(faker.random, "number").returns(1);
+      const street_name = faker.address.streetName();
+      assert(street_name);
+      assert(faker.name.firstName.calledOnce);
+      assert(!faker.name.lastName.called);
+      assert(faker.address.streetSuffix.calledOnce);
+      faker.random.number.restore();
+    },
+  },
+  streetNameSpy,
+  streetNameRestore,
+);
 
-testWrapper({
-  name: "streetName() trims trailing whitespace from the name",
-  fn(): void {
-    faker.address.streetSuffix.restore();
-    sinon.stub(faker.address, "streetSuffix").returns("");
-    const street_name = faker.address.streetName();
-    assert(!street_name.match(/ $/));
-  }
-}, streetNameSpy, streetNameRestore);
+testWrapper(
+  {
+    name: "streetName() trims trailing whitespace from the name",
+    fn(): void {
+      faker.address.streetSuffix.restore();
+      sinon.stub(faker.address, "streetSuffix").returns("");
+      const street_name = faker.address.streetName();
+      assert(!street_name.match(/ $/));
+    },
+  },
+  streetNameSpy,
+  streetNameRestore,
+);
 
 function streetAddressSpy() {
   sinon.spy(faker.address, "streetName");
@@ -120,52 +148,68 @@ function streetAddressRestore() {
   faker.address.secondaryAddress.restore();
 }
 
-testWrapper({
-  name: "streetAddress() occasionally returns a 5-digit street number",
-  fn(): void {
-    sinon.stub(faker.random, "number").returns(0);
-    const address = faker.address.streetAddress();
-    const parts = address.split(" ");
-    assertEquals(parts[0].length, 5);
-    assert(faker.address.streetName.called);
-    faker.random.number.restore();
-  }
-}, streetAddressSpy, streetAddressRestore);
+testWrapper(
+  {
+    name: "streetAddress() occasionally returns a 5-digit street number",
+    fn(): void {
+      sinon.stub(faker.random, "number").returns(0);
+      const address = faker.address.streetAddress();
+      const parts = address.split(" ");
+      assertEquals(parts[0].length, 5);
+      assert(faker.address.streetName.called);
+      faker.random.number.restore();
+    },
+  },
+  streetAddressSpy,
+  streetAddressRestore,
+);
 
-testWrapper({
-  name: "streetAddress() occasionally returns a 4-digit street number",
-  fn(): void {
-    sinon.stub(faker.random, "number").returns(1);
-    const address = faker.address.streetAddress();
-    const parts = address.split(" ");
-    assertEquals(parts[0].length, 4);
-    assert(faker.address.streetName.called);
-    faker.random.number.restore();
-  }
-}, streetAddressSpy, streetAddressRestore);
+testWrapper(
+  {
+    name: "streetAddress() occasionally returns a 4-digit street number",
+    fn(): void {
+      sinon.stub(faker.random, "number").returns(1);
+      const address = faker.address.streetAddress();
+      const parts = address.split(" ");
+      assertEquals(parts[0].length, 4);
+      assert(faker.address.streetName.called);
+      faker.random.number.restore();
+    },
+  },
+  streetAddressSpy,
+  streetAddressRestore,
+);
 
-testWrapper({
-  name: "streetAddress() occasionally returns a 3-digit street number",
-  fn(): void {
-    sinon.stub(faker.random, "number").returns(2);
-    const address = faker.address.streetAddress();
-    const parts = address.split(" ");
-    assertEquals(parts[0].length, 3);
-    assert(faker.address.streetName.called);
-    assert(!faker.address.secondaryAddress.called);
-    faker.random.number.restore();
-  }
-}, streetAddressSpy, streetAddressRestore);
+testWrapper(
+  {
+    name: "streetAddress() occasionally returns a 3-digit street number",
+    fn(): void {
+      sinon.stub(faker.random, "number").returns(2);
+      const address = faker.address.streetAddress();
+      const parts = address.split(" ");
+      assertEquals(parts[0].length, 3);
+      assert(faker.address.streetName.called);
+      assert(!faker.address.secondaryAddress.called);
+      faker.random.number.restore();
+    },
+  },
+  streetAddressSpy,
+  streetAddressRestore,
+);
 
-testWrapper({
-  name:
-    "streetAddress() when useFulladdress is true, adds a secondary address to the result",
-  fn(): void {
-    const address = faker.address.streetAddress(true);
-    const parts = address.split(" ");
-    assert(faker.address.secondaryAddress.called);
-  }
-}, streetAddressSpy, streetAddressRestore);
+testWrapper(
+  {
+    name:
+      "streetAddress() when useFulladdress is true, adds a secondary address to the result",
+    fn(): void {
+      const address = faker.address.streetAddress(true);
+      const parts = address.split(" ");
+      assert(faker.address.secondaryAddress.called);
+    },
+  },
+  streetAddressSpy,
+  streetAddressRestore,
+);
 
 test({
   name: "secondaryAddress() randomly chooses an Apt or Suite number",
@@ -174,12 +218,12 @@ test({
     const address = faker.address.secondaryAddress();
     const expected_array = [
       "Apt. ###",
-      "Suite ###"
+      "Suite ###",
     ];
     assert(address);
     assert(faker.random.arrayElement.calledWith(expected_array));
     faker.random.arrayElement.restore();
-  }
+  },
 });
 
 test({
@@ -190,7 +234,7 @@ test({
     assert(county);
     assert(faker.address.county.called);
     faker.address.county.restore();
-  }
+  },
 });
 
 test({
@@ -201,7 +245,7 @@ test({
     assert(country);
     assert(faker.address.country.called);
     faker.address.country.restore();
-  }
+  },
 });
 
 test({
@@ -212,7 +256,7 @@ test({
     assert(countryCode);
     assert(faker.address.countryCode.called);
     faker.address.countryCode.restore();
-  }
+  },
 });
 
 test({
@@ -223,7 +267,7 @@ test({
     assert(state);
     assert(faker.address.state.called);
     faker.address.state.restore();
-  }
+  },
 });
 
 test({
@@ -234,7 +278,7 @@ test({
     assert(zipCode);
     assert(faker.address.zipCode.called);
     faker.address.zipCode.restore();
-  }
+  },
 });
 
 test({
@@ -245,7 +289,7 @@ test({
     // try another format
     zipCode = faker.address.zipCode("###-###");
     assert(zipCode.match(/^\d{3}-\d{3}$/));
-  }
+  },
 });
 
 test({
@@ -255,7 +299,7 @@ test({
     faker.locale = "pl";
     const zipCode = faker.address.zipCode();
     assert(zipCode.match(/^[0-9]{2}\-[0-9]{3}$/));
-  }
+  },
 });
 
 test({
@@ -272,7 +316,7 @@ test({
     const zipCode3 = faker.address.zipCodeByState(states[2]);
     assert(zipCode3 >= 98001);
     assert(zipCode3 <= 99403);
-  }
+  },
 });
 
 test({
@@ -283,7 +327,7 @@ test({
     const zipCode = faker.address.zipCodeByState(state);
     assert(faker.address.zipCode.called);
     faker.address.zipCode.restore();
-  }
+  },
 });
 
 test({
@@ -297,7 +341,7 @@ test({
     assert(faker.address.zipCode.called);
     // assert(zipCode === undefined)
     faker.address.zipCode.restore();
-  }
+  },
 });
 
 test({
@@ -313,7 +357,7 @@ test({
       assert(faker.random.number.called);
       faker.random.number.restore();
     }
-  }
+  },
 });
 
 test({
@@ -330,7 +374,7 @@ test({
       assert(faker.random.number.called);
       faker.random.number.restore();
     }
-  }
+  },
 });
 
 test({
@@ -347,7 +391,7 @@ test({
       assert(faker.random.number.called);
       faker.random.number.restore();
     }
-  }
+  },
 });
 
 test({
@@ -363,7 +407,7 @@ test({
       assert(faker.random.number.called);
       faker.random.number.restore();
     }
-  }
+  },
 });
 
 test({
@@ -381,7 +425,7 @@ test({
       assert(faker.random.number.called);
       faker.random.number.restore();
     }
-  }
+  },
 });
 
 test({
@@ -398,7 +442,7 @@ test({
       assert(faker.random.number.called);
       faker.random.number.restore();
     }
-  }
+  },
 });
 
 test({
@@ -408,7 +452,7 @@ test({
     const direction = faker.address.direction();
     assertEquals(direction, "North");
     faker.address.direction.restore();
-  }
+  },
 });
 
 test({
@@ -418,7 +462,7 @@ test({
     const direction = faker.address.direction(false);
     assertEquals(direction, "N");
     faker.address.direction.restore();
-  }
+  },
 });
 
 test({
@@ -427,7 +471,7 @@ test({
     const direction = faker.address.direction(true);
     assertEquals(typeof direction, "string");
     assertEquals(direction.length <= 2, true);
-  }
+  },
 });
 
 test({
@@ -437,7 +481,7 @@ test({
     const direction = faker.address.direction(true);
     assertEquals(direction, "N");
     faker.address.direction.restore();
-  }
+  },
 });
 
 test({
@@ -447,7 +491,7 @@ test({
     const ordinalDirection = faker.address.ordinalDirection();
     assertEquals(ordinalDirection, "West");
     faker.address.ordinalDirection.restore();
-  }
+  },
 });
 
 test({
@@ -457,7 +501,7 @@ test({
     const ordinalDirection = faker.address.ordinalDirection(true);
     assertEquals(ordinalDirection, "W");
     faker.address.ordinalDirection.restore();
-  }
+  },
 });
 
 test({
@@ -466,7 +510,7 @@ test({
     const ordinalDirection = faker.address.ordinalDirection(true);
     assertEquals(typeof ordinalDirection, "string");
     assertEquals(ordinalDirection.length <= 2, true);
-  }
+  },
 });
 
 test({
@@ -476,7 +520,7 @@ test({
     const cardinalDirection = faker.address.cardinalDirection();
     assertEquals(cardinalDirection, "Northwest");
     faker.address.cardinalDirection.restore();
-  }
+  },
 });
 
 test({
@@ -486,7 +530,7 @@ test({
     const cardinalDirection = faker.address.cardinalDirection(true);
     assertEquals(cardinalDirection, "NW");
     faker.address.cardinalDirection.restore();
-  }
+  },
 });
 
 test({
@@ -495,7 +539,7 @@ test({
     const cardinalDirection = faker.address.cardinalDirection(true);
     assertEquals(typeof cardinalDirection, "string");
     assertEquals(cardinalDirection.length <= 2, true);
-  }
+  },
 });
 
 test({
@@ -507,7 +551,7 @@ test({
       lon1: number,
       lat2: number,
       lon2: number,
-      isMetric: boolean
+      isMetric: boolean,
     ) {
       function degreesToRadians(degrees: number) {
         return degrees * (Math.PI / 180.0);
@@ -520,7 +564,7 @@ test({
       const dLon = degreesToRadians(lon2 - lon1);
       const a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
         Math.cos(degreesToRadians(lat1)) * Math.cos(degreesToRadians(lat2)) *
-        Math.sin(dLon / 2) * Math.sin(dLon / 2);
+          Math.sin(dLon / 2) * Math.sin(dLon / 2);
       const distance = R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
       return isMetric ? distance : kilometersToMiles(distance);
     }
@@ -532,7 +576,7 @@ test({
       const coordinate = faker.address.nearbyGPSCoordinate(
         [latFloat1, lonFloat1],
         radius,
-        isMetric
+        isMetric,
       );
       assert(coordinate.length === 2);
       assert(typeof coordinate[0] === "string");
@@ -552,7 +596,7 @@ test({
         lonFloat1,
         latFloat2,
         lonFloat2,
-        isMetric
+        isMetric,
       );
       assert(actualDistance <= (radius + error));
     }
@@ -563,10 +607,10 @@ test({
     const coordinate = faker.address.nearbyGPSCoordinate(
       [latFloat1, lonFloat1],
       undefined,
-      isMetric
+      isMetric,
     );
     assert(coordinate.length === 2);
     assert(typeof coordinate[0] === "string");
     assert(typeof coordinate[1] === "string");
-  }
+  },
 });

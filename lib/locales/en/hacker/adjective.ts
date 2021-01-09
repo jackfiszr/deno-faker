@@ -16,5 +16,5 @@ export default [
   "neural",
   "optical",
   "solid state",
-  "mobile"
+  "mobile",
 ];

@@ -203,5 +203,5 @@ export default [
   "Tuvalu",
   "Nauru",
   "Monaco",
-  "Vatikanstaten"
+  "Vatikanstaten",
 ];

@@ -2,7 +2,7 @@ import {
   assert,
   assertEquals,
   assertStrictEquals,
-  sinon
+  sinon,
 } from "./support/test_deps.ts";
 import { faker } from "../mod.ts";
 const { test } = Deno;
@@ -15,7 +15,7 @@ test({
     const res = email.split("@")[0];
     assertEquals(res, "Aiden.Harann55");
     faker.internet.userName.restore();
-  }
+  },
 });
 
 test({
@@ -26,7 +26,7 @@ test({
     const res = email.split("@")[0];
     assertEquals(res, "Aiden.Harann55");
     faker.internet.userName.restore();
-  }
+  },
 });
 
 test({
@@ -34,7 +34,7 @@ test({
   fn(): void {
     const email = faker.internet.exampleEmail();
     assert(email.match(/@example\.(org|com|net)$/));
-  }
+  },
 });
 
 test({
@@ -47,7 +47,7 @@ test({
     assert(faker.name.firstName.called);
     faker.random.number.restore();
     faker.name.firstName.restore();
-  }
+  },
 });
 
 test({
@@ -67,7 +67,7 @@ test({
     faker.name.firstName.restore();
     faker.name.lastName.restore();
     faker.random.arrayElement.restore();
-  }
+  },
 });
 
 test({
@@ -79,7 +79,7 @@ test({
     assertEquals(domain_name, "bar.net");
     faker.internet.domainWord.restore();
     faker.internet.domainSuffix.restore();
-  }
+  },
 });
 
 test({
@@ -90,7 +90,7 @@ test({
     assert(domain_word);
     assertStrictEquals(domain_word, "foo");
     faker.name.firstName.restore();
-  }
+  },
 });
 
 test({
@@ -101,7 +101,7 @@ test({
     const domain_word = faker.internet.domainWord();
     assertStrictEquals(domain_word, "dangelo");
     faker.name.firstName.restore();
-  }
+  },
 });
 
 test({
@@ -109,7 +109,7 @@ test({
   fn(): void {
     const protocol = faker.internet.protocol();
     assert(protocol);
-  }
+  },
 });
 
 test({
@@ -120,7 +120,7 @@ test({
     assert(protocol);
     assertStrictEquals(protocol, "http");
     faker.random.number.restore();
-  }
+  },
 });
 
 test({
@@ -131,7 +131,7 @@ test({
     assert(protocol);
     assertStrictEquals(protocol, "https");
     faker.random.number.restore();
-  }
+  },
 });
 
 test({
@@ -143,7 +143,7 @@ test({
     const url = faker.internet.url();
     assert(url);
     assertStrictEquals(url, "http://bar.net");
-  }
+  },
 });
 
 test({
@@ -152,7 +152,7 @@ test({
     const ip = faker.internet.ip();
     const parts = ip.split(".");
     assertEquals(parts.length, 4);
-  }
+  },
 });
 
 test({
@@ -161,7 +161,7 @@ test({
     const ip = faker.internet.ipv6();
     const parts = ip.split(":");
     assertEquals(parts.length, 8);
-  }
+  },
 });
 
 test({
@@ -169,7 +169,7 @@ test({
   fn(): void {
     const ua = faker.internet.userAgent();
     assert(ua);
-  }
+  },
 });
 
 test({
@@ -177,7 +177,7 @@ test({
   fn(): void {
     const color = faker.internet.color(100, 100, 100);
     assert(color.match(/^#[a-f0-9]{6}$/));
-  }
+  },
 });
 
 test({
@@ -185,7 +185,7 @@ test({
   fn(): void {
     const mac = faker.internet.mac();
     assert(mac.match(/^([a-f0-9]{2}:){5}[a-f0-9]{2}$/));
-  }
+  },
 });
 
 test({
@@ -193,7 +193,7 @@ test({
   fn(): void {
     const mac = faker.internet.mac("-");
     assert(mac.match(/^([a-f0-9]{2}-){5}[a-f0-9]{2}$/));
-  }
+  },
 });
 
 test({
@@ -201,7 +201,7 @@ test({
   fn(): void {
     const mac = faker.internet.mac("");
     assert(mac.match(/^[a-f0-9]{12}$/));
-  }
+  },
 });
 
 test({
@@ -212,5 +212,5 @@ test({
     assert(mac.match(/^([a-f0-9]{2}:){5}[a-f0-9]{2}$/));
     mac = faker.internet.mac("&");
     assert(mac.match(/^([a-f0-9]{2}:){5}[a-f0-9]{2}$/));
-  }
+  },
 });

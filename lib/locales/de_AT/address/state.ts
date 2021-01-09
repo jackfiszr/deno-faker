@@ -7,5 +7,5 @@ export default [
   "Steiermark",
   "Tirol",
   "Vorarlberg",
-  "Wien"
+  "Wien",
 ];

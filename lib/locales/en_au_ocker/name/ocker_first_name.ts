@@ -4,5 +4,5 @@ export default [
   "Davo",
   "Johno",
   "Shano",
-  "Shazza"
+  "Shazza",
 ];

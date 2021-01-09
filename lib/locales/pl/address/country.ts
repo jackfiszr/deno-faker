@@ -196,5 +196,5 @@ export default [
   "Wyspy Świętego Tomasza i Książęca",
   "Zambia",
   "Zimbabwe",
-  "Zjednoczone Emiraty Arabskie"
+  "Zjednoczone Emiraty Arabskie",
 ];

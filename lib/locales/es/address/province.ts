@@ -48,5 +48,5 @@ export default [
   "Valladolid",
   "Vizcaya",
   "Zamora",
-  "Zaragoza"
+  "Zaragoza",
 ];

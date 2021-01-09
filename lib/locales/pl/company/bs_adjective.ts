@@ -63,5 +63,5 @@ export default [
   "collaborative",
   "compelling",
   "holistic",
-  "rich"
+  "rich",
 ];

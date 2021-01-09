@@ -89,5 +89,5 @@ export default [
   "Yago",
   "Yuri",
   "Washington",
-  "Warley"
+  "Warley",
 ];

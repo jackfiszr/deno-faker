@@ -98,5 +98,5 @@ export default [
   "Sergent Major Drag Marin",
   "Bega",
   "Dobrun",
-  "Fulgeresti"
+  "Fulgeresti",
 ];

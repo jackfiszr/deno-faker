@@ -7,5 +7,5 @@ export default [
   "Quai",
   "Passage",
   "Impasse",
-  "Place"
+  "Place",
 ];

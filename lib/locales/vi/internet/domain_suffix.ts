@@ -3,5 +3,5 @@ export default [
   "net",
   "info",
   "vn",
-  "com.vn"
+  "com.vn",
 ];

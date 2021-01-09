@@ -68,5 +68,5 @@ export default [
   "West Sussex",
   "West Yorkshire",
   "Wiltshire",
-  "Worcestershire"
+  "Worcestershire",
 ];

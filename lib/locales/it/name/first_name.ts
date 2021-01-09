@@ -360,5 +360,5 @@ export default [
   "Vienna",
   "Violante",
   "Vitalba",
-  "Zelida"
+  "Zelida",
 ];

@@ -3,5 +3,5 @@ export default [
   "pl",
   "com.pl",
   "net",
-  "org"
+  "org",
 ];

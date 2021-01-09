@@ -127,5 +127,5 @@ export default [
   "Alcobendas",
   "Reus",
   "Calahorra",
-  "Inca"
+  "Inca",
 ];

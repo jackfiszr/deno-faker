@@ -6,5 +6,5 @@ export default [
   "Alameda",
   "Marginal",
   "Viela",
-  "Rodovia"
+  "Rodovia",
 ];

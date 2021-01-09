@@ -4,5 +4,5 @@ export default [
   "IU",
   "Bezp.Org.",
   "Firma",
-  "Biedrība"
+  "Biedrība",
 ];

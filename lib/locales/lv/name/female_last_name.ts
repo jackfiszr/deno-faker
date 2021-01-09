@@ -207,5 +207,5 @@ export default [
   "Gasjūne",
   "Pauļuka",
   "Sosāre",
-  "Meškūne"
+  "Meškūne",
 ];

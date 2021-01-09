@@ -6,5 +6,5 @@ export default [
   "& Co.",
   "Gruppe",
   "LLC",
-  "Inc."
+  "Inc.",
 ];

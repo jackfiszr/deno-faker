@@ -3,5 +3,5 @@ export default [
   "mail.az",
   "gmail.com",
   "yahoo.com",
-  "hotmail.com"
+  "hotmail.com",
 ];

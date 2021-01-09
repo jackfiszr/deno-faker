@@ -4,5 +4,5 @@ export default [
   "weg",
   "dreef",
   "plein",
-  "park"
+  "park",
 ];

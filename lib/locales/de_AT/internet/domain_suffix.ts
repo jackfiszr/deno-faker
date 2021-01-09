@@ -6,5 +6,5 @@ export default [
   "org",
   "de",
   "ch",
-  "at"
+  "at",
 ];

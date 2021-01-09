@@ -9,49 +9,65 @@ function shuffleSpy() {
 function shuffleRestore() {
   faker.helpers.shuffle.restore();
 }
-testWrapper({
-  name: "words() returns three words, when no 'num' param passed in",
-  fn() {
-    const str = faker.lorem.words();
-    const words = str.split(" ");
-    assert(Array.isArray(words));
-    assertEquals(true, words.length >= 3);
-    // assert(faker.helpers.shuffle.called)
-  }
-}, shuffleSpy, shuffleRestore);
+testWrapper(
+  {
+    name: "words() returns three words, when no 'num' param passed in",
+    fn() {
+      const str = faker.lorem.words();
+      const words = str.split(" ");
+      assert(Array.isArray(words));
+      assertEquals(true, words.length >= 3);
+      // assert(faker.helpers.shuffle.called)
+    },
+  },
+  shuffleSpy,
+  shuffleRestore,
+);
 
-testWrapper({
-  name:
-    "words() returns requested number of words, when 'num' param passed in",
-  fn() {
-    const str = faker.lorem.words(7);
-    const words = str.split(" ");
-    assert(Array.isArray(words));
-    assertEquals(words.length, 7);
-  }
-}, shuffleSpy, shuffleRestore);
+testWrapper(
+  {
+    name:
+      "words() returns requested number of words, when 'num' param passed in",
+    fn() {
+      const str = faker.lorem.words(7);
+      const words = str.split(" ");
+      assert(Array.isArray(words));
+      assertEquals(words.length, 7);
+    },
+  },
+  shuffleSpy,
+  shuffleRestore,
+);
 
-const validateSlug = function(wordCount: number, str: string) {
+const validateSlug = function (wordCount: number, str: string) {
   assertEquals(1, str.match(/^[a-z][a-z-]*[a-z]$/)!.length);
   assertEquals(wordCount - 1, str.match(/-/g)!.length);
 };
-testWrapper({
-  name:
-    "slug() returns a slug with three words, when no 'wordCount' param passed in",
-  fn() {
-    const str = faker.lorem.slug();
-    validateSlug(3, str);
-  }
-}, shuffleSpy, shuffleRestore);
+testWrapper(
+  {
+    name:
+      "slug() returns a slug with three words, when no 'wordCount' param passed in",
+    fn() {
+      const str = faker.lorem.slug();
+      validateSlug(3, str);
+    },
+  },
+  shuffleSpy,
+  shuffleRestore,
+);
 
-testWrapper({
-  name:
-    "slug() returns a slug with requested number of words, when 'wordCount' param passed in",
-  fn() {
-    const str = faker.lorem.slug(7);
-    validateSlug(7, str);
-  }
-}, shuffleSpy, shuffleRestore);
+testWrapper(
+  {
+    name:
+      "slug() returns a slug with requested number of words, when 'wordCount' param passed in",
+    fn() {
+      const str = faker.lorem.slug(7);
+      validateSlug(7, str);
+    },
+  },
+  shuffleSpy,
+  shuffleRestore,
+);
 /*
 test({
   name: 'sentence() returns a string of at least three words, when no \'wordCount\' or \'range\' param passed in',

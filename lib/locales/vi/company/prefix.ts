@@ -4,5 +4,5 @@ export default [
   "Cty",
   "Cửa hàng",
   "Trung tâm",
-  "Chi nhánh"
+  "Chi nhánh",
 ];

@@ -98,5 +98,5 @@ export default [
   "Yengwa",
   "Zondo",
   "Zondi",
-  "Zubane"
+  "Zubane",
 ];

@@ -3,5 +3,5 @@ export default [
   "Velha",
   "Grande",
   "Vila",
-  "Município de"
+  "Município de",
 ];

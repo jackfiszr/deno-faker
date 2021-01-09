@@ -98,5 +98,5 @@ export default [
   "Valentini",
   "Villa",
   "Vitale",
-  "Vitali"
+  "Vitali",
 ];

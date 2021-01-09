@@ -7,7 +7,7 @@ export default {
     "Wednesday",
     "Thursday",
     "Friday",
-    "Saturday"
+    "Saturday",
   ],
   // Property "wide_context" is optional, if not set then "wide" will be used instead
   // It is used to specify a word in context, which may differ from a stand-alone word
@@ -18,7 +18,7 @@ export default {
     "Wednesday",
     "Thursday",
     "Friday",
-    "Saturday"
+    "Saturday",
   ],
   abbr: [
     "Sun",
@@ -27,7 +27,7 @@ export default {
     "Wed",
     "Thu",
     "Fri",
-    "Sat"
+    "Sat",
   ],
   // Property "abbr_context" is optional, if not set then "abbr" will be used instead
   // It is used to specify a word in context, which may differ from a stand-alone word
@@ -38,6 +38,6 @@ export default {
     "Wed",
     "Thu",
     "Fri",
-    "Sat"
-  ]
+    "Sat",
+  ],
 };

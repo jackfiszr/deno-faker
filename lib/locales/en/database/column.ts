@@ -12,5 +12,5 @@ export default [
   "avatar",
   "status",
   "createdAt",
-  "updatedAt"
+  "updatedAt",
 ];

@@ -207,5 +207,5 @@ export default [
   "Zimmermann",
   "Zingg",
   "Zollinger",
-  "Zürcher"
+  "Zürcher",
 ];

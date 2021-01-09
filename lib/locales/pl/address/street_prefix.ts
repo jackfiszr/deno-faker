@@ -1,4 +1,4 @@
 export default [
   "ul.",
-  "al."
+  "al.",
 ];

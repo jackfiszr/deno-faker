@@ -3,9 +3,4 @@ import column from "./column.ts";
 import engine from "./engine.ts";
 import _type from "./type.ts";
 
-export {
-  collation,
-  column,
-  engine,
-  _type
-};
+export { _type, collation, column, engine };

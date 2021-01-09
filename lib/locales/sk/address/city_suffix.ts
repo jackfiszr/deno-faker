@@ -17,5 +17,5 @@ export default [
   "fort",
   "haven",
   "side",
-  "shire"
+  "shire",
 ];

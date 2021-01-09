@@ -58,5 +58,5 @@ export default [
   "/var/mail",
   "/var/spool",
   "/var/tmp",
-  "/var/yp"
+  "/var/yp",
 ];

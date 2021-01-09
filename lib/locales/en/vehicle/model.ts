@@ -50,5 +50,5 @@ export default [
   "Spyder",
   "Countach",
   "Mercielago",
-  "Aventador"
+  "Aventador",
 ];

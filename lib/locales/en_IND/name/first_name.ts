@@ -760,5 +760,5 @@ export default [
   "Vyas",
   "Yogendra",
   "Yoginder",
-  "Yogesh"
+  "Yogesh",
 ];

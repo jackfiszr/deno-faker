@@ -112,5 +112,5 @@ export default [
   "Theunis",
   "Theuns",
   "Wessel",
-  "Stephaans"
+  "Stephaans",
 ];

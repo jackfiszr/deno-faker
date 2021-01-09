@@ -16,7 +16,7 @@ export default {
     "Licencia",
     "Refinado",
     "Sin marca",
-    "Sabrosa"
+    "Sabrosa",
   ],
   "material": [
     "Acero",
@@ -29,7 +29,7 @@ export default {
     "Metal",
     "Soft",
     "Fresco",
-    "Frozen"
+    "Frozen",
   ],
   "product": [
     "Presidente",
@@ -54,6 +54,6 @@ export default {
     "Tocino",
     "Pizza",
     "Ensalada",
-    "Embutidos"
-  ]
+    "Embutidos",
+  ],
 };

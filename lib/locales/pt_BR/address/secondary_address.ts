@@ -3,5 +3,5 @@ export default [
   "Sobrado ##",
   "Casa #",
   "Lote ##",
-  "Quadra ##"
+  "Quadra ##",
 ];

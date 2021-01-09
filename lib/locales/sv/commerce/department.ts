@@ -15,5 +15,5 @@ export default [
   "Klädsel",
   "Skor",
   "Smycken",
-  "Sport"
+  "Sport",
 ];

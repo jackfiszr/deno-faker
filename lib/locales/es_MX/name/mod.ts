@@ -5,11 +5,4 @@ import suffix from "./suffix.ts";
 import title from "./title.ts";
 import name from "./name.ts";
 
-export {
-  first_name,
-  last_name,
-  prefix,
-  suffix,
-  title,
-  name
-};
+export { first_name, last_name, name, prefix, suffix, title };

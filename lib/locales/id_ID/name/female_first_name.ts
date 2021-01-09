@@ -220,5 +220,5 @@ export default [
   "Zulaikha",
   "Zamira",
   "Zelda",
-  "Zelaya"
+  "Zelaya",
 ];

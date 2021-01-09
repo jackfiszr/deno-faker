@@ -30,5 +30,5 @@ export default [
   "#{last_name} #{female_first_name}",
   "#{prefix} #{female_first_name} #{last_name}",
   "#{prefix} #{female_first_name} #{last_name}",
-  "#{prefix} #{female_first_name} #{last_name}"
+  "#{prefix} #{female_first_name} #{last_name}",
 ];

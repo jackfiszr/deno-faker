@@ -1,4 +1,4 @@
 export default [
   "s Väg",
-  "s Gata"
+  "s Gata",
 ];

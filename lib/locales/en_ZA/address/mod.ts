@@ -4,10 +4,4 @@ import default_country from "./default_country.ts";
 import postcode from "./postcode.ts";
 import state from "./state.ts";
 
-export {
-  city,
-  city_prefix,
-  default_country,
-  postcode,
-  state
-};
+export { city, city_prefix, default_country, postcode, state };

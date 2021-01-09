@@ -239,5 +239,5 @@ export default [
   "Zulu",
   "Zungu",
   "Zuma",
-  "Zwane"
+  "Zwane",
 ];

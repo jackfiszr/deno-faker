@@ -17,7 +17,7 @@ class Database {
   column = () => {
     const schema = schemas.column;
     return this.faker.random.arrayElement(
-      this.faker.definitions.database.column
+      this.faker.definitions.database.column,
     );
   };
 
@@ -29,7 +29,7 @@ class Database {
   type = () => {
     const schema = schemas.type;
     return this.faker.random.arrayElement(
-      this.faker.definitions.database.type
+      this.faker.definitions.database.type,
     );
   };
 
@@ -41,7 +41,7 @@ class Database {
   collation = () => {
     const schema = schemas.collation;
     return this.faker.random.arrayElement(
-      this.faker.definitions.database.collation
+      this.faker.definitions.database.collation,
     );
   };
 
@@ -53,7 +53,7 @@ class Database {
   engine = () => {
     const schema = schemas.engine;
     return this.faker.random.arrayElement(
-      this.faker.definitions.database.engine
+      this.faker.definitions.database.engine,
     );
   };
 }

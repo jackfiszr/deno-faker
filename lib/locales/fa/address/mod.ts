@@ -14,16 +14,16 @@ import city_suffix from "./city_suffix.ts";
 
 export {
   building_number,
-  street_prefix,
-  secondary_address,
-  postcode,
-  state,
-  city_name,
   city,
-  street_suffix,
-  street_name,
-  street_address,
-  default_country,
+  city_name,
   city_prefix,
-  city_suffix
+  city_suffix,
+  default_country,
+  postcode,
+  secondary_address,
+  state,
+  street_address,
+  street_name,
+  street_prefix,
+  street_suffix,
 };

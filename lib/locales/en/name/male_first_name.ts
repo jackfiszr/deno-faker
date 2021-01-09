@@ -498,5 +498,5 @@ export default [
   "Marlon",
   "Emanuel",
   "Jerald",
-  "Edmond"
+  "Edmond",
 ];

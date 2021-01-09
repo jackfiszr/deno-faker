@@ -13,5 +13,5 @@ test({
       faker.setLocale(locale);
       assertEquals(faker.locale, locale);
     }
-  }
+  },
 });

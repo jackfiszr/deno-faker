@@ -31,7 +31,7 @@ class Phone {
   phoneNumberFormat = (phoneFormatsArrayIndex: number) => {
     phoneFormatsArrayIndex = phoneFormatsArrayIndex || 0;
     return this.faker.helpers.replaceSymbolWithNumber(
-      this.faker.definitions.phone_number.formats[phoneFormatsArrayIndex]
+      this.faker.definitions.phone_number.formats[phoneFormatsArrayIndex],
     );
   };
 
@@ -42,7 +42,7 @@ class Phone {
    */
   phoneFormats = () => {
     return this.faker.random.arrayElement(
-      this.faker.definitions.phone_number.formats
+      this.faker.definitions.phone_number.formats,
     );
   };
 }

@@ -235,5 +235,5 @@ export default [
   "Weihnachtsinsel",
   "Westsahara",
   "Zentralafrikanische Republik",
-  "Zypern"
+  "Zypern",
 ];

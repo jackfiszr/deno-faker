@@ -702,5 +702,5 @@ export default [
   "Żukowski",
   "Żurawski",
   "Żurek",
-  "Żyła"
+  "Żyła",
 ];

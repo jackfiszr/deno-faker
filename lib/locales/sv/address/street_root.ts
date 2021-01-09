@@ -26,5 +26,5 @@ export default [
   "Fabriks",
   "Åker",
   "Bäck",
-  "Asp"
+  "Asp",
 ];

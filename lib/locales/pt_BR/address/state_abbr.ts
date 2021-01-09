@@ -22,5 +22,5 @@ export default [
   "RO",
   "RR",
   "SC",
-  "SP"
+  "SP",
 ];

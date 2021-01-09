@@ -9,7 +9,7 @@ test({
   fn() {
     const num = faker.helpers.replaceSymbolWithNumber("#AB");
     assert(num.match(/\dAB/));
-  }
+  },
 });
 
 test({
@@ -18,7 +18,7 @@ test({
   fn() {
     const num = faker.helpers.replaceSymbolWithNumber("#AB", "A");
     assert(num.match(/#\dB/));
-  }
+  },
 });
 
 test({
@@ -26,7 +26,7 @@ test({
   fn() {
     const num = faker.helpers.replaceSymbols("*AB");
     assert(num.match(/\wAB/));
-  }
+  },
 });
 
 test({
@@ -37,7 +37,7 @@ test({
     assert(shuffled.length === 2);
     assert(faker.random.number.calledWith(1));
     faker.random.number.restore();
-  }
+  },
 });
 
 test({
@@ -45,7 +45,7 @@ test({
   fn() {
     const shuffled = faker.helpers.shuffle([]);
     assert(shuffled.length === 0);
-  }
+  },
 });
 
 test({
@@ -53,28 +53,28 @@ test({
   fn() {
     assertEquals(faker.helpers.slugify("Aiden.Harªann"), "Aiden.Harann");
     assertEquals(faker.helpers.slugify("d'angelo.net"), "dangelo.net");
-  }
+  },
 });
 
 test({
   name: "mustache() returns empty string with no arguments",
   fn() {
     assertEquals(faker.helpers.mustache(), "");
-  }
+  },
 });
 
 test({
   name: "repeatString() returns empty string with no arguments",
   fn() {
     assertEquals(faker.helpers.repeatString(), "");
-  }
+  },
 });
 
 test({
   name: "replaceSymbols() returns empty string with no arguments",
   fn() {
     assertEquals(faker.helpers.replaceSymbols(), "");
-  }
+  },
 });
 /*
 test({
@@ -89,7 +89,7 @@ test({
   fn() {
     const card = faker.helpers.createCard();
     assert(typeof card === "object");
-  }
+  },
 });
 
 test({
@@ -97,7 +97,7 @@ test({
   fn() {
     const card = faker.helpers.userCard();
     assert(typeof card === "object");
-  }
+  },
 });
 
 test({
@@ -105,7 +105,7 @@ test({
   fn() {
     const card = faker.helpers.userCard();
     assert(typeof card === "object");
-  }
+  },
 });
 
 // Make sure we keep this function for backward-compatibility.
@@ -116,7 +116,7 @@ test({
     const elem = faker.helpers.randomize(arr);
     assert(elem);
     assert(arr.indexOf(elem) !== -1);
-  }
+  },
 });
 
 test({
@@ -124,13 +124,13 @@ test({
     "replaceCreditCardSymbols() returns a credit card number given a schema",
   fn() {
     const number = faker.helpers.replaceCreditCardSymbols(
-      "6453-####-####-####-###L"
+      "6453-####-####-####-###L",
     );
     assert(
-      number.match(/^6453\-([0-9]){4}\-([0-9]){4}\-([0-9]){4}\-([0-9]){4}$/)
+      number.match(/^6453\-([0-9]){4}\-([0-9]){4}\-([0-9]){4}\-([0-9]){4}$/),
     );
     assert(luhnCheck(number));
-  }
+  },
 });
 
 test({
@@ -138,13 +138,13 @@ test({
   fn() {
     const number = faker.helpers.replaceCreditCardSymbols(
       "6453-****-****-****-***L",
-      "*"
+      "*",
     );
     assert(
-      number.match(/^6453\-([0-9]){4}\-([0-9]){4}\-([0-9]){4}\-([0-9]){4}$/)
+      number.match(/^6453\-([0-9]){4}\-([0-9]){4}\-([0-9]){4}\-([0-9]){4}$/),
     );
     assert(luhnCheck(number));
-  }
+  },
 });
 
 test({
@@ -152,22 +152,22 @@ test({
   fn() {
     let number = faker.helpers.replaceCreditCardSymbols(
       "6453-*{4}-*{4}-*{4}-*{3}L",
-      "*"
+      "*",
     );
     assert(
-      number.match(/^6453\-([0-9]){4}\-([0-9]){4}\-([0-9]){4}\-([0-9]){4}$/)
+      number.match(/^6453\-([0-9]){4}\-([0-9]){4}\-([0-9]){4}\-([0-9]){4}$/),
     );
     assert(luhnCheck(number));
     number = faker.helpers.replaceCreditCardSymbols(
-      "645[5-9]-#{4,6}-#{1,2}-#{4,6}-#{3}L"
+      "645[5-9]-#{4,6}-#{1,2}-#{4,6}-#{3}L",
     );
     assert(
       number.match(
-        /^645[5-9]\-([0-9]){4,6}\-([0-9]){1,2}\-([0-9]){4,6}\-([0-9]){4}$/
-      )
+        /^645[5-9]\-([0-9]){4,6}\-([0-9]){1,2}\-([0-9]){4,6}\-([0-9]){4}$/,
+      ),
     );
     assert(luhnCheck(number));
-  }
+  },
 });
 
 test({
@@ -175,7 +175,7 @@ test({
     "regexpStyleStringParse() returns an empty string when called without param",
   fn() {
     assert(faker.helpers.regexpStyleStringParse() === "");
-  }
+  },
 });
 
 test({
@@ -184,7 +184,7 @@ test({
     const string = faker.helpers.regexpStyleStringParse("#{5,10}");
     assert(string.length <= 10 && string.length >= 5);
     assert(string.match(/^\#{5,10}$/));
-  }
+  },
 });
 
 test({
@@ -193,7 +193,7 @@ test({
     const string = faker.helpers.regexpStyleStringParse("#{10,5}");
     assert(string.length <= 10 && string.length >= 5);
     assert(string.match(/^\#{5,10}$/));
-  }
+  },
 });
 
 test({
@@ -201,17 +201,17 @@ test({
   fn() {
     assert(
       faker.helpers.regexpStyleStringParse("%{10}") ===
-        faker.helpers.repeatString("%", 10)
+        faker.helpers.repeatString("%", 10),
     );
     assert(
       faker.helpers.regexpStyleStringParse("%{30}") ===
-        faker.helpers.repeatString("%", 30)
+        faker.helpers.repeatString("%", 30),
     );
     assert(
       faker.helpers.regexpStyleStringParse("%{5}") ===
-        faker.helpers.repeatString("%", 5)
+        faker.helpers.repeatString("%", 5),
     );
-  }
+  },
 });
 
 test({
@@ -219,17 +219,17 @@ test({
   fn() {
     const string = faker.helpers.regexpStyleStringParse("Hello[0-9]");
     assert(string.match(/^Hello[0-9]$/));
-  }
+  },
 });
 
 test({
   name: "regexpStyleStringParse() deals with multiple tokens in one string",
   fn() {
     const string = faker.helpers.regexpStyleStringParse(
-      "Test#{5}%{2,5}Testing**[1-5]**{10}END"
+      "Test#{5}%{2,5}Testing**[1-5]**{10}END",
     );
     assert(string.match(/^Test\#{5}%{2,5}Testing\*\*[1-5]\*\*{10}END$/));
-  }
+  },
 });
 
 test({
@@ -243,5 +243,5 @@ test({
     assert(transaction.name);
     assert(transaction.type);
     assert(transaction.account);
-  }
+  },
 });

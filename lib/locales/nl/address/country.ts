@@ -254,5 +254,5 @@ export default [
   "Zuid-Afrika",
   "Zuid-Korea",
   "Zweden",
-  "Zwitserland"
+  "Zwitserland",
 ];

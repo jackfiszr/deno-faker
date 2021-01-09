@@ -70,7 +70,7 @@ class Address {
       "{{address.cityPrefix}} {{name.firstName}}{{address.citySuffix}}",
       "{{address.cityPrefix}} {{name.firstName}}",
       "{{name.firstName}}{{address.citySuffix}}",
-      "{{name.lastName}}{{address.citySuffix}}"
+      "{{name.lastName}}{{address.citySuffix}}",
     ];
 
     if (typeof format !== "number") {
@@ -86,7 +86,7 @@ class Address {
    */
   cityPrefix = () => {
     return this.faker.random.arrayElement(
-      this.faker.definitions.address.city_prefix
+      this.faker.definitions.address.city_prefix,
     );
   };
 
@@ -97,7 +97,7 @@ class Address {
    */
   citySuffix = () => {
     return this.faker.random.arrayElement(
-      this.faker.definitions.address.city_suffix
+      this.faker.definitions.address.city_suffix,
     );
   };
 
@@ -162,7 +162,7 @@ class Address {
    */
   streetSuffix = () => {
     return this.faker.random.arrayElement(
-      this.faker.definitions.address.street_suffix
+      this.faker.definitions.address.street_suffix,
     );
   };
 
@@ -173,7 +173,7 @@ class Address {
    */
   streetPrefix = () => {
     return this.faker.random.arrayElement(
-      this.faker.definitions.address.street_prefix
+      this.faker.definitions.address.street_prefix,
     );
   };
 
@@ -186,8 +186,8 @@ class Address {
     return this.Helpers.replaceSymbolWithNumber(this.faker.random.arrayElement(
       [
         "Apt. ###",
-        "Suite ###"
-      ]
+        "Suite ###",
+      ],
     ));
   };
 
@@ -198,7 +198,7 @@ class Address {
    */
   county = () => {
     return this.faker.random.arrayElement(
-      this.faker.definitions.address.county
+      this.faker.definitions.address.county,
     );
   };
 
@@ -209,7 +209,7 @@ class Address {
    */
   country = () => {
     return this.faker.random.arrayElement(
-      this.faker.definitions.address.country
+      this.faker.definitions.address.country,
     );
   };
 
@@ -220,7 +220,7 @@ class Address {
    */
   countryCode = () => {
     return this.faker.random.arrayElement(
-      this.faker.definitions.address.country_code
+      this.faker.definitions.address.country_code,
     );
   };
 
@@ -232,7 +232,7 @@ class Address {
    */
   state = (useAbbr: boolean) => {
     return this.faker.random.arrayElement(
-      this.faker.definitions.address.state
+      this.faker.definitions.address.state,
     );
   };
 
@@ -243,7 +243,7 @@ class Address {
    */
   stateAbbr = () => {
     return this.faker.random.arrayElement(
-      this.faker.definitions.address.state_abbr
+      this.faker.definitions.address.state_abbr,
     );
   };
 
@@ -263,7 +263,7 @@ class Address {
     return this.faker.random.number({
       max: max,
       min: min,
-      precision: parseFloat((0.0).toPrecision(precision) + "1")
+      precision: parseFloat((0.0).toPrecision(precision) + "1"),
     }).toFixed(precision);
   };
 
@@ -283,7 +283,7 @@ class Address {
     return this.faker.random.number({
       max: max,
       min: min,
-      precision: parseFloat((0.0).toPrecision(precision) + "1")
+      precision: parseFloat((0.0).toPrecision(precision) + "1"),
     }).toFixed(precision);
   };
 
@@ -297,11 +297,11 @@ class Address {
     const schema = schemas.direction;
     if (typeof useAbbr === "undefined" || useAbbr === false) {
       return this.faker.random.arrayElement(
-        this.faker.definitions.address.direction
+        this.faker.definitions.address.direction,
       );
     }
     return this.faker.random.arrayElement(
-      this.faker.definitions.address.direction_abbr
+      this.faker.definitions.address.direction_abbr,
     );
   };
 
@@ -316,13 +316,13 @@ class Address {
     if (typeof useAbbr === "undefined" || useAbbr === false) {
       return (
         this.faker.random.arrayElement(
-          this.faker.definitions.address.direction.slice(0, 4)
+          this.faker.definitions.address.direction.slice(0, 4),
         )
       );
     }
     return (
       this.faker.random.arrayElement(
-        this.faker.definitions.address.direction_abbr.slice(0, 4)
+        this.faker.definitions.address.direction_abbr.slice(0, 4),
       )
     );
   };
@@ -338,13 +338,13 @@ class Address {
     if (typeof useAbbr === "undefined" || useAbbr === false) {
       return (
         this.faker.random.arrayElement(
-          this.faker.definitions.address.direction.slice(4, 8)
+          this.faker.definitions.address.direction.slice(4, 8),
         )
       );
     }
     return (
       this.faker.random.arrayElement(
-        this.faker.definitions.address.direction_abbr.slice(4, 8)
+        this.faker.definitions.address.direction_abbr.slice(4, 8),
       )
     );
   };
@@ -352,7 +352,7 @@ class Address {
   nearbyGPSCoordinate = (
     coordinate: number[],
     radius: number,
-    isMetric: boolean
+    isMetric: boolean,
   ) => {
     function randomFloat(min: number, max: number) {
       return Math.random() * (max - min) + min;
@@ -370,7 +370,7 @@ class Address {
       coordinate: number[],
       bearing: number,
       distance: number,
-      isMetric: boolean
+      isMetric: boolean,
     ) {
       const R = 6378.137; // Radius of the Earth (http://nssdc.gsfc.nasa.gov/planetary/factsheet/earthfact.html)
       const d = isMetric ? distance : kilometersToMiles(distance); // Distance in km
@@ -378,12 +378,14 @@ class Address {
       const lat1 = degreesToRadians(coordinate[0]); // Current lat point converted to radians
       const lon1 = degreesToRadians(coordinate[1]); // Current long point converted to radians
 
-      const lat2 = Math.asin(Math.sin(lat1) * Math.cos(d / R) +
-        Math.cos(lat1) * Math.sin(d / R) * Math.cos(bearing));
+      const lat2 = Math.asin(
+        Math.sin(lat1) * Math.cos(d / R) +
+          Math.cos(lat1) * Math.sin(d / R) * Math.cos(bearing),
+      );
 
       let lon2 = lon1 + Math.atan2(
         Math.sin(bearing) * Math.sin(d / R) * Math.cos(lat1),
-        Math.cos(d / R) - Math.sin(lat1) * Math.sin(lat2)
+        Math.cos(d / R) - Math.sin(lat1) * Math.sin(lat2),
       );
 
       // Keep longitude in range [-180, 180]
@@ -411,7 +413,7 @@ class Address {
       coordinate,
       degreesToRadians(Math.random() * 360.0),
       radius,
-      isMetric
+      isMetric,
     );
     return [randomCoord[0].toFixed(4), randomCoord[1].toFixed(4)];
   };

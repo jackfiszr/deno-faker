@@ -25,5 +25,5 @@ export default [
   "ciano",
   "azure",
   "lavanda",
-  "prata"
+  "prata",
 ];

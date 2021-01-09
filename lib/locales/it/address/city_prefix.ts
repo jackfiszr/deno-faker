@@ -3,5 +3,5 @@ export default [
   "Borgo",
   "Sesto",
   "Quarto",
-  "Settimo"
+  "Settimo",
 ];

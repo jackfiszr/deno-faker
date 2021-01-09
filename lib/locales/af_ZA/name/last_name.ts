@@ -163,5 +163,5 @@ export default [
   "Boshoff",
   "Kriel",
   "Vosloo",
-  "Carstens"
+  "Carstens",
 ];

@@ -7,5 +7,5 @@ export default [
   "Amarillo",
   "Verde",
   "Morado",
-  "Violeta"
+  "Violeta",
 ];

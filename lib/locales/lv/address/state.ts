@@ -26,5 +26,5 @@ export default [
   "Tukuma raj.",
   "Valkas raj.",
   "Valmieras raj.",
-  "Ventspils raj."
+  "Ventspils raj.",
 ];

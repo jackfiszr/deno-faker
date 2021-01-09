@@ -4,5 +4,5 @@ export default [
   "Norra",
   "Södra",
   "Övre",
-  "Undre"
+  "Undre",
 ];

@@ -24,5 +24,5 @@ export default [
   "Valai",
   "Vaud",
   "Zoug",
-  "Zurich"
+  "Zurich",
 ];

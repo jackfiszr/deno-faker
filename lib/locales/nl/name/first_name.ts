@@ -48,5 +48,5 @@ export default [
   "Thijs",
   "Thomas",
   "Tim",
-  "Tom"
+  "Tom",
 ];

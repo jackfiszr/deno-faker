@@ -13,5 +13,5 @@ export default [
   "brun",
   "rosa",
   "purpur",
-  "korall"
+  "korall",
 ];

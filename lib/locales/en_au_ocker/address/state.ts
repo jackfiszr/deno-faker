@@ -6,5 +6,5 @@ export default [
   "Western Australia",
   "Tasmania",
   "Australian Capital Territory",
-  "Victoria"
+  "Victoria",
 ];

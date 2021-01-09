@@ -91,5 +91,5 @@ export default [
   "Valentina",
   "Vânia",
   "Vera",
-  "Vitória"
+  "Vitória",
 ];

@@ -14,7 +14,7 @@ export default {
     "Guapo",
     "Guapa",
     "Refinado",
-    "Sabroso"
+    "Sabroso",
   ],
   "material": [
     "Acero",
@@ -24,7 +24,7 @@ export default {
     "Granito",
     "Metal",
     "Ladrillo",
-    "Hormigon"
+    "Hormigon",
   ],
   "product": [
     "Silla",
@@ -50,6 +50,6 @@ export default {
     "Pizza",
     "Ensalada",
     "Salchichas",
-    "Patatas fritas"
-  ]
+    "Patatas fritas",
+  ],
 };

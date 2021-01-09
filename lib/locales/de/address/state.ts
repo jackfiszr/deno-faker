@@ -14,5 +14,5 @@ export default [
   "Sachsen",
   "Sachsen-Anhalt",
   "Schleswig-Holstein",
-  "Thüringen"
+  "Thüringen",
 ];

@@ -9,5 +9,5 @@ export default [
   "info",
   "name",
   "net",
-  "org"
+  "org",
 ];

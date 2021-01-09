@@ -18,5 +18,5 @@ export default [
   "Rua",
   "Travessa",
   "Urbanização",
-  "Viela"
+  "Viela",
 ];

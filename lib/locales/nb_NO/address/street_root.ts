@@ -31,5 +31,5 @@ export default [
   "Bru",
   "Blåveis",
   "Torg",
-  "Sjø"
+  "Sjø",
 ];

@@ -44,5 +44,5 @@ export default [
   "plug-and-play",
   "collaborative",
   "olistiche",
-  "ricche"
+  "ricche",
 ];

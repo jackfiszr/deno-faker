@@ -242,5 +242,5 @@ export default [
   "Western Sahara",
   "Yemen",
   "Zambia",
-  "Zimbabwe"
+  "Zimbabwe",
 ];

@@ -11,7 +11,7 @@ export default {
     "septembris",
     "oktobris",
     "novembris",
-    "decembris"
+    "decembris",
   ],
   wide_context: [
     "janvārī",
@@ -25,7 +25,7 @@ export default {
     "septembrī",
     "oktobrī",
     "novembrī",
-    "decembrī"
+    "decembrī",
   ],
   abbr: [
     "jan.",
@@ -39,7 +39,7 @@ export default {
     "sep.",
     "okt.",
     "nov.",
-    "dec."
+    "dec.",
   ],
   abbr_context: [
     "janv.",
@@ -53,6 +53,6 @@ export default {
     "sept.",
     "okt.",
     "nov.",
-    "dec."
-  ]
+    "dec.",
+  ],
 };

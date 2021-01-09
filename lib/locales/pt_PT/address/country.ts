@@ -236,5 +236,5 @@ export default [
   "Vietname",
   "Wallis e Futuna",
   "Zâmbia",
-  "Zimbabué"
+  "Zimbabué",
 ];

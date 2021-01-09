@@ -76,5 +76,5 @@ export default [
   "Yevlax",
   "Zaqatala",
   "Zəngilan",
-  "Zərdab"
+  "Zərdab",
 ];

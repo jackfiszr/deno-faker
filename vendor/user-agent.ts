@@ -44,7 +44,7 @@ function rnd(a: any, b?: any) {
   }
   if (a && typeof a === "object") {
     // returns a random key from the passed object keys are weighted by the decimal probability in their value
-    return (function(obj) {
+    return (function (obj) {
       const rand = rnd(0, 100) / 100;
       let min = 0, max = 0, return_val;
       for (const key in obj) {
@@ -61,7 +61,7 @@ function rnd(a: any, b?: any) {
     }(a));
   }
   throw new TypeError(
-    "Invalid arguments passed to rnd. (" + (b ? a + ", " + b : a) + ")"
+    "Invalid arguments passed to rnd. (" + (b ? a + ", " + b : a) + ")",
   );
 }
 function randomLang() {
@@ -161,7 +161,7 @@ function randomLang() {
     "VI",
     "VO",
     "YI",
-    "ZH"
+    "ZH",
   ]);
 }
 function randomBrowserAndOS() {
@@ -170,7 +170,7 @@ function randomBrowserAndOS() {
     iexplorer: .27477061836,
     firefox: .19384170608,
     safari: .06186781118,
-    opera: .01574236955
+    opera: .01574236955,
   });
   const os: {
     [key: string]: { [key: string]: number } | string[];
@@ -179,7 +179,7 @@ function randomBrowserAndOS() {
     firefox: { win: .83, mac: .16, lin: .01 },
     opera: { win: .91, mac: .03, lin: .06 },
     safari: { win: .04, mac: .96 },
-    iexplorer: ["win"]
+    iexplorer: ["win"],
   };
   return [browser, rnd(os[browser])];
 }
@@ -189,7 +189,7 @@ function randomProc(arch: string) {
   } = {
     lin: ["i686", "x86_64"],
     mac: { "Intel": .48, "PPC": .01, "U Intel": .48, "U PPC": .01 },
-    win: ["", "WOW64", "Win64 x64"]
+    win: ["", "WOW64", "Win64 x64"],
   };
   return rnd(procs[arch]);
 }
@@ -229,18 +229,19 @@ const version_string = {
   },
   safari() {
     return rnd(531, 538) + "." + rnd(0, 2) + "." + rnd(0, 2);
-  }
+  },
 };
 const browsers: { [key: string]: Function } = {
   firefox(arch: string) {
     // https://developer.mozilla.org/en-US/docs/Gecko_user_agent_string_reference
     const firefox_ver = rnd(5, 15) + randomRevision(2),
       gecko_ver = "Gecko/20100101 Firefox/" + firefox_ver,
-      proc = randomProc(arch), os_ver = (arch === "win")
+      proc = randomProc(arch),
+      os_ver = (arch === "win")
         ? "(Windows NT " + version_string.nt() + ((proc) ? " " + proc : "")
         : (arch === "mac")
-          ? "(Macintosh " + proc + " Mac OS X " + version_string.osx()
-          : "(X11 Linux " + proc;
+        ? "(Macintosh " + proc + " Mac OS X " + version_string.osx()
+        : "(X11 Linux " + proc;
     return "Mozilla/5.0 " + os_ver + " rv:" + firefox_ver.slice(0, -2) + ") " +
       gecko_ver;
   },
@@ -260,16 +261,17 @@ const browsers: { [key: string]: Function } = {
   opera(arch: string) {
     // http://www.opera.com/docs/history/
     const presto_ver = " Presto/" + version_string.presto() + " Version/" +
-      version_string.presto2() + ")", os_ver = (arch === "win")
+        version_string.presto2() + ")",
+      os_ver = (arch === "win")
         ? "(Windows NT " + version_string.nt() + " U " + randomLang() +
           presto_ver
         : (arch === "lin")
-          ? "(X11 Linux " + randomProc(arch) + " U " + randomLang() +
-            presto_ver
-          : "(Macintosh Intel Mac OS X " + version_string.osx() + " U " +
-            randomLang() + " Presto/" +
-            version_string.presto() + " Version/" + version_string.presto2() +
-            ")";
+        ? "(X11 Linux " + randomProc(arch) + " U " + randomLang() +
+          presto_ver
+        : "(Macintosh Intel Mac OS X " + version_string.osx() + " U " +
+          randomLang() + " Presto/" +
+          version_string.presto() + " Version/" + version_string.presto2() +
+          ")";
     return "Opera/" + rnd(9, 14) + "." + rnd(0, 99) + " " + os_ver;
   },
   safari(arch: string) {
@@ -284,16 +286,17 @@ const browsers: { [key: string]: Function } = {
       " (KHTML, like Gecko) Version/" + ver + " Safari/" + safari;
   },
   chrome(arch: string) {
-    const safari = version_string.safari(), os_ver = (arch === "mac")
-      ? "(Macintosh " + randomProc("mac") + " Mac OS X " +
-        version_string.osx("_") + ") "
-      : (arch === "win")
+    const safari = version_string.safari(),
+      os_ver = (arch === "mac")
+        ? "(Macintosh " + randomProc("mac") + " Mac OS X " +
+          version_string.osx("_") + ") "
+        : (arch === "win")
         ? "(Windows U Windows NT " + version_string.nt() + ")"
         : "(X11 Linux " + randomProc(arch);
     return "Mozilla/5.0 " + os_ver + " AppleWebKit/" + safari +
       " (KHTML, like Gecko) Chrome/" + version_string.chrome() + " Safari/" +
       safari;
-  }
+  },
 };
 export function generate() {
   const [browser, os] = randomBrowserAndOS();

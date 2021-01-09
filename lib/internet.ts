@@ -18,7 +18,7 @@ class Internet {
   avatar = () => {
     const schema = schemas.avatar;
     return this.faker.random.arrayElement(
-      this.faker.definitions.internet.avatar_uri
+      this.faker.definitions.internet.avatar_uri,
     );
   };
 
@@ -34,10 +34,10 @@ class Internet {
     const schema = schemas.email;
     provider = provider ||
       this.faker.random.arrayElement(
-        this.faker.definitions.internet.free_email
+        this.faker.definitions.internet.free_email,
       );
     return this.faker.helpers.slugify(
-      this.faker.internet.userName(firstName, lastName)
+      this.faker.internet.userName(firstName, lastName),
     ) + "@" + provider;
   };
 
@@ -50,7 +50,7 @@ class Internet {
    */
   exampleEmail = (firstName: string, lastName: string) => {
     const provider = this.faker.random.arrayElement(
-      this.faker.definitions.internet.example_email
+      this.faker.definitions.internet.example_email,
     );
     return this.email(firstName, lastName, provider);
   };
@@ -126,7 +126,7 @@ class Internet {
   domainSuffix = () => {
     const schema = schemas.domainSuffix;
     return this.faker.random.arrayElement(
-      this.faker.definitions.internet.domain_suffix
+      this.faker.definitions.internet.domain_suffix,
     );
   };
 
@@ -187,8 +187,8 @@ class Internet {
             "c",
             "d",
             "e",
-            "f"
-          ]
+            "f",
+          ],
         ));
       }
       return result;
@@ -226,7 +226,9 @@ class Internet {
     baseBlue255 = baseBlue255 || 0;
     // based on awesome response : http://stackoverflow.com/questions/43044/algorithm-to-randomly-generate-an-aesthetically-pleasing-color-palette
     const red = Math.floor((this.faker.random.number(256) + baseRed255) / 2);
-    const green = Math.floor((this.faker.random.number(256) + baseGreen255) / 2);
+    const green = Math.floor(
+      (this.faker.random.number(256) + baseGreen255) / 2,
+    );
     const blue = Math.floor((this.faker.random.number(256) + baseBlue255) / 2);
     const redStr = red.toString(16);
     const greenStr = green.toString(16);
@@ -275,7 +277,7 @@ class Internet {
     len: number,
     memorable: boolean,
     pattern: RegExp,
-    prefix: string
+    prefix: string,
   ) => {
     const schema = schemas.password;
     len = len || 15;
@@ -295,7 +297,7 @@ class Internet {
       length: number,
       memorable: boolean,
       pattern: RegExp,
-      prefix: string
+      prefix: string,
     ): string => {
       let char, n;
       if (length == null) {

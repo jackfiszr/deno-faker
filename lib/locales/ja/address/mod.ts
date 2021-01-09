@@ -7,11 +7,11 @@ import city from "./city.ts";
 import street_name from "./street_name.ts";
 
 export {
+  city,
+  city_prefix,
+  city_suffix,
   postcode,
   state,
   state_abbr,
-  city_prefix,
-  city_suffix,
-  city,
-  street_name
+  street_name,
 };

@@ -1,5 +1,3 @@
 import formats from "./formats.ts";
 
-export {
-  formats
-};
+export { formats };

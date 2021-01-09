@@ -11,5 +11,5 @@ export default [
   "FK",
   "BIS",
   "FIF",
-  "IK"
+  "IK",
 ];

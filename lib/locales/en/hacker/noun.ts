@@ -22,5 +22,5 @@ export default [
   "bus",
   "circuit",
   "capacitor",
-  "matrix"
+  "matrix",
 ];

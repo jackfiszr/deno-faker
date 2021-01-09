@@ -2,5 +2,5 @@ export default [
   "SPA",
   "e figli",
   "Group",
-  "s.r.l."
+  "s.r.l.",
 ];

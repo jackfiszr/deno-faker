@@ -69,5 +69,5 @@ export default [
   "Transgender Female",
   "Transgender Person",
   "Transmasculine",
-  "Two-spirit"
+  "Two-spirit",
 ];

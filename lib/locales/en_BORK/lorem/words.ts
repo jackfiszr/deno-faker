@@ -101,5 +101,5 @@ export default [
   "vhu",
   "yuoo",
   "zee",
-  "zeere-a"
+  "zeere-a",
 ];

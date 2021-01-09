@@ -198,5 +198,5 @@ export default [
   "Eva",
   "Filoména",
   "Ivana",
-  "Milada"
+  "Milada",
 ];

@@ -25,5 +25,5 @@ export default [
   "Santa Catarina",
   "São Paulo",
   "Sergipe",
-  "Tocantins"
+  "Tocantins",
 ];

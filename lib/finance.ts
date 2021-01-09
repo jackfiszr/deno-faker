@@ -37,7 +37,7 @@ class Finance {
   accountName = () => {
     return [
       this.Helpers.randomize(this.faker.definitions.finance.account_type),
-      "Account"
+      "Account",
     ].join(" ");
   };
 
@@ -115,7 +115,7 @@ class Finance {
     dec = dec === undefined ? 2 : dec;
     symbol = symbol || "";
     const randValue = this.faker.random.number(
-      { max: max, min: min, precision: Math.pow(10, -dec) }
+      { max: max, min: min, precision: Math.pow(10, -dec) },
     );
 
     return symbol + randValue.toFixed(dec);
@@ -128,7 +128,7 @@ class Finance {
    */
   transactionType = () => {
     return this.Helpers.randomize(
-      this.faker.definitions.finance.transaction_type
+      this.faker.definitions.finance.transaction_type,
     );
   };
 
@@ -139,7 +139,7 @@ class Finance {
    */
   currencyCode = () => {
     return this.faker.random.objectElement(
-      this.faker.definitions.finance.currency
+      this.faker.definitions.finance.currency,
     )["code"];
   };
 
@@ -151,7 +151,7 @@ class Finance {
   currencyName = () => {
     return this.faker.random.objectElement(
       this.faker.definitions.finance.currency,
-      "key"
+      "key",
     );
   };
 
@@ -165,7 +165,7 @@ class Finance {
 
     while (!symbol) {
       symbol = this.faker.random.objectElement(
-        this.faker.definitions.finance.currency
+        this.faker.definitions.finance.currency,
       )["symbol"];
     }
     return symbol;
@@ -183,7 +183,7 @@ class Finance {
 
     for (let i = 0; i < addressLength - 1; i++) {
       address += this.faker.random.arrayElement(
-        "123456789abcdefghijkmnopqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ".split("")
+        "123456789abcdefghijkmnopqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ".split(""),
       );
     }
 
@@ -288,7 +288,7 @@ class Finance {
     }
     const checksum = 98 -
       ibanLib.mod97(ibanLib.toDigitString(s + ibanFormat.country + "00"));
-    const checksumStr = String(checksum).padStart(2, '0');
+    const checksumStr = String(checksum).padStart(2, "0");
     const iban = ibanFormat.country + checksumStr + s;
     const ibanMatch = iban.match(/.{1,4}/g);
     if (ibanMatch === null) {
@@ -311,11 +311,11 @@ class Finance {
       this.Helpers.replaceSymbols("?") + "1" +
       (prob < 10
         ? this.Helpers.replaceSymbols(
-          "?" + this.faker.random.arrayElement(vowels) + "?"
+          "?" + this.faker.random.arrayElement(vowels) + "?",
         )
         : prob < 40
-          ? this.Helpers.replaceSymbols("###")
-          : "");
+        ? this.Helpers.replaceSymbols("###")
+        : "");
   };
 }
 

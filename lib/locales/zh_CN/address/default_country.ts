@@ -1,3 +1,3 @@
 export default [
-  "中国"
+  "中国",
 ];

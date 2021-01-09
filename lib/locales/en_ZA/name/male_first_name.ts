@@ -249,5 +249,5 @@ export default [
   "Conrad",
   "Percy",
   "Tommie",
-  "Jan"
+  "Jan",
 ];

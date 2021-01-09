@@ -4,5 +4,5 @@ export default [
   "biz",
   "info",
   "name",
-  "gov.tr"
+  "gov.tr",
 ];

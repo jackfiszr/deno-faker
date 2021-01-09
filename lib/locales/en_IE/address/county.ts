@@ -24,5 +24,5 @@ export default [
   "Waterford",
   "Westmeath",
   "Wexford",
-  "Wicklow"
+  "Wicklow",
 ];

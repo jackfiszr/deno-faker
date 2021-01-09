@@ -1,3 +1,3 @@
 export default [
-  "Taiwan (R.O.C.)"
+  "Taiwan (R.O.C.)",
 ];

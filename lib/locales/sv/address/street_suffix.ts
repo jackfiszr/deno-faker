@@ -3,5 +3,5 @@ export default [
   "gatan",
   "gränden",
   "gärdet",
-  "allén"
+  "allén",
 ];

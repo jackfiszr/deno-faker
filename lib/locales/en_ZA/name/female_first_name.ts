@@ -289,5 +289,5 @@ export default [
   "Camille",
   "Tami",
   "Elisa",
-  "Kristie"
+  "Kristie",
 ];

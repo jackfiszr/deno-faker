@@ -48,5 +48,5 @@ export default [
   "Even",
   "Theodor",
   "Mikkel",
-  "Aksel"
+  "Aksel",
 ];

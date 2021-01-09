@@ -198,5 +198,5 @@ export default [
   "Lola",
   "Leah",
   "Eve",
-  "Kiara"
+  "Kiara",
 ];

@@ -1,3 +1,3 @@
 export default [
-  "#{street_root}"
+  "#{street_root}",
 ];

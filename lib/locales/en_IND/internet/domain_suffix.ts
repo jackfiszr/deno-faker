@@ -6,5 +6,5 @@ export default [
   "name",
   "net",
   "org",
-  "co.in"
+  "co.in",
 ];

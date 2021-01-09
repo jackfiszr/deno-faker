@@ -492,5 +492,5 @@ export default [
   "Yusuf",
   "Yosef",
   "Yono",
-  "Yoga"
+  "Yoga",
 ];

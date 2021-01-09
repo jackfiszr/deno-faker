@@ -385,5 +385,5 @@ export default [
   "Zenobia",
   "Zenovia",
   "Zina",
-  "Zoe"
+  "Zoe",
 ];

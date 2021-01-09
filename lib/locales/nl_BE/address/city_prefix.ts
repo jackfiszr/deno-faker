@@ -1124,5 +1124,5 @@ export default [
   "Zwevegem",
   "Zwevezele",
   "Zwijnaarde",
-  "Zwijndrecht"
+  "Zwijndrecht",
 ];

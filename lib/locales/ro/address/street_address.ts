@@ -1,3 +1,3 @@
 export default [
-  "#{street_name}, #{building_number}, #{secondary_address}"
+  "#{street_name}, #{building_number}, #{secondary_address}",
 ];

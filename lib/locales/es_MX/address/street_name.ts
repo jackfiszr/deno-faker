@@ -4,5 +4,5 @@ export default [
   "#{street_suffix} #{street}",
   "#{street_suffix} #{street}",
   "#{street_suffix} #{street}",
-  "#{street_suffix} #{street}"
+  "#{street_suffix} #{street}",
 ];

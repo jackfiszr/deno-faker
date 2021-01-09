@@ -7,7 +7,7 @@ export default {
     "onsdag",
     "torsdag",
     "fredag",
-    "lördag"
+    "lördag",
   ],
   abbr: [
     "sön",
@@ -16,6 +16,6 @@ export default {
     "ons",
     "tor",
     "fre",
-    "lör"
-  ]
+    "lör",
+  ],
 };

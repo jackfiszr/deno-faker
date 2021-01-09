@@ -26,5 +26,5 @@ export default [
   "våg",
   "ø",
   "øy",
-  "ås"
+  "ås",
 ];

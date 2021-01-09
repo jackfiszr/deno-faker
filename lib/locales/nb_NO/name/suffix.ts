@@ -5,5 +5,5 @@ export default [
   "II",
   "III",
   "IV",
-  "V"
+  "V",
 ];

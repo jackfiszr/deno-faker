@@ -91,5 +91,5 @@ export default [
   "caja de herramientas",
   "utilización",
   "website",
-  "fuerza de trabajo"
+  "fuerza de trabajo",
 ];

@@ -248,5 +248,5 @@ export default [
   "YT",
   "ZA",
   "ZM",
-  "ZW"
+  "ZW",
 ];

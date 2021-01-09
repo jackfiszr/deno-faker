@@ -37,7 +37,7 @@ class Image {
       "nature",
       "sports",
       "technics",
-      "transport"
+      "transport",
     ];
     const meth: Function = this[this.faker.random.arrayElement(categories)];
     return meth(width, height, randomize);
@@ -64,7 +64,7 @@ class Image {
     height: number,
     category: string,
     randomize: boolean,
-    https: boolean
+    https: boolean,
   ) => {
     width = width || 640;
     height = height || 480;
@@ -238,11 +238,11 @@ class Image {
     color = color || "grey";
     const svgString =
       '<svg xmlns="http://www.w3.org/2000/svg" version="1.1" baseProfile="full" width="' +
-        width + '" height="' + height +
-        '"><rect width="100%" height="100%" fill="' + color + '"/><text x="' +
-        width / 2 + '" y="' + height / 2 +
-        '" font-size="20" alignment-baseline="middle" text-anchor="middle" fill="white">' +
-        width + "x" + height + "</text></svg>";
+      width + '" height="' + height +
+      '"><rect width="100%" height="100%" fill="' + color + '"/><text x="' +
+      width / 2 + '" y="' + height / 2 +
+      '" font-size="20" alignment-baseline="middle" text-anchor="middle" fill="white">' +
+      width + "x" + height + "</text></svg>";
     const rawPrefix = "data:image/svg+xml;charset=UTF-8,";
     return rawPrefix + encodeURIComponent(svgString);
   };

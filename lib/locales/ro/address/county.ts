@@ -40,5 +40,5 @@ export default [
   "Tulcea",
   "Valcea",
   "Vaslui",
-  "Vrancea"
+  "Vrancea",
 ];

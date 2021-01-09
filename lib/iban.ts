@@ -25,7 +25,7 @@ export default {
     "W",
     "X",
     "Y",
-    "Z"
+    "Z",
   ],
   pattern10: [
     "01",
@@ -36,7 +36,7 @@ export default {
     "06",
     "07",
     "08",
-    "09"
+    "09",
   ],
   pattern100: [
     "001",
@@ -47,14 +47,14 @@ export default {
     "006",
     "007",
     "008",
-    "009"
+    "009",
   ],
-  toDigitString: function(str: string) {
-    return str.replace(/[A-Z]/gi, function(match: string): string {
+  toDigitString: function (str: string) {
+    return str.replace(/[A-Z]/gi, function (match: string): string {
       return String(match.toUpperCase().charCodeAt(0) - 55);
     });
   },
-  mod97: function(digitStr: any) {
+  mod97: function (digitStr: any) {
     let m = 0;
     for (let i = 0; i < digitStr.length; i++) {
       m = ((m * 10) + (digitStr[i] | 0)) % 97;
@@ -68,14 +68,14 @@ export default {
       bban: [
         {
           type: "n",
-          count: 8
+          count: 8,
         },
         {
           type: "c",
-          count: 16
-        }
+          count: 16,
+        },
       ],
-      format: "ALkk bbbs sssx cccc cccc cccc cccc"
+      format: "ALkk bbbs sssx cccc cccc cccc cccc",
     },
     {
       country: "AD",
@@ -83,14 +83,14 @@ export default {
       bban: [
         {
           type: "n",
-          count: 8
+          count: 8,
         },
         {
           type: "c",
-          count: 12
-        }
+          count: 12,
+        },
       ],
-      format: "ADkk bbbb ssss cccc cccc cccc"
+      format: "ADkk bbbb ssss cccc cccc cccc",
     },
     {
       country: "AT",
@@ -98,14 +98,14 @@ export default {
       bban: [
         {
           type: "n",
-          count: 5
+          count: 5,
         },
         {
           type: "n",
-          count: 11
-        }
+          count: 11,
+        },
       ],
-      format: "ATkk bbbb bccc cccc cccc"
+      format: "ATkk bbbb bccc cccc cccc",
     },
     {
       country: "AZ",
@@ -113,14 +113,14 @@ export default {
       bban: [
         {
           type: "c",
-          count: 4
+          count: 4,
         },
         {
           type: "n",
-          count: 20
-        }
+          count: 20,
+        },
       ],
-      format: "AZkk bbbb cccc cccc cccc cccc cccc"
+      format: "AZkk bbbb cccc cccc cccc cccc cccc",
     },
     {
       country: "BH",
@@ -128,14 +128,14 @@ export default {
       bban: [
         {
           type: "a",
-          count: 4
+          count: 4,
         },
         {
           type: "c",
-          count: 14
-        }
+          count: 14,
+        },
       ],
-      format: "BHkk bbbb cccc cccc cccc cc"
+      format: "BHkk bbbb cccc cccc cccc cc",
     },
     {
       country: "BE",
@@ -143,14 +143,14 @@ export default {
       bban: [
         {
           type: "n",
-          count: 3
+          count: 3,
         },
         {
           type: "n",
-          count: 9
-        }
+          count: 9,
+        },
       ],
-      format: "BEkk bbbc cccc ccxx"
+      format: "BEkk bbbc cccc ccxx",
     },
     {
       country: "BA",
@@ -158,14 +158,14 @@ export default {
       bban: [
         {
           type: "n",
-          count: 6
+          count: 6,
         },
         {
           type: "n",
-          count: 10
-        }
+          count: 10,
+        },
       ],
-      format: "BAkk bbbs sscc cccc ccxx"
+      format: "BAkk bbbs sscc cccc ccxx",
     },
     {
       country: "BR",
@@ -173,22 +173,22 @@ export default {
       bban: [
         {
           type: "n",
-          count: 13
+          count: 13,
         },
         {
           type: "n",
-          count: 10
+          count: 10,
         },
         {
           type: "a",
-          count: 1
+          count: 1,
         },
         {
           type: "c",
-          count: 1
-        }
+          count: 1,
+        },
       ],
-      format: "BRkk bbbb bbbb ssss sccc cccc ccct n"
+      format: "BRkk bbbb bbbb ssss sccc cccc ccct n",
     },
     {
       country: "BG",
@@ -196,18 +196,18 @@ export default {
       bban: [
         {
           type: "a",
-          count: 4
+          count: 4,
         },
         {
           type: "n",
-          count: 6
+          count: 6,
         },
         {
           type: "c",
-          count: 8
-        }
+          count: 8,
+        },
       ],
-      format: "BGkk bbbb ssss ddcc cccc cc"
+      format: "BGkk bbbb ssss ddcc cccc cc",
     },
     {
       country: "CR",
@@ -215,14 +215,14 @@ export default {
       bban: [
         {
           type: "n",
-          count: 3
+          count: 3,
         },
         {
           type: "n",
-          count: 14
-        }
+          count: 14,
+        },
       ],
-      format: "CRkk bbbc cccc cccc cccc c"
+      format: "CRkk bbbc cccc cccc cccc c",
     },
     {
       country: "HR",
@@ -230,14 +230,14 @@ export default {
       bban: [
         {
           type: "n",
-          count: 7
+          count: 7,
         },
         {
           type: "n",
-          count: 10
-        }
+          count: 10,
+        },
       ],
-      format: "HRkk bbbb bbbc cccc cccc c"
+      format: "HRkk bbbb bbbc cccc cccc c",
     },
     {
       country: "CY",
@@ -245,14 +245,14 @@ export default {
       bban: [
         {
           type: "n",
-          count: 8
+          count: 8,
         },
         {
           type: "c",
-          count: 16
-        }
+          count: 16,
+        },
       ],
-      format: "CYkk bbbs ssss cccc cccc cccc cccc"
+      format: "CYkk bbbs ssss cccc cccc cccc cccc",
     },
     {
       country: "CZ",
@@ -260,14 +260,14 @@ export default {
       bban: [
         {
           type: "n",
-          count: 10
+          count: 10,
         },
         {
           type: "n",
-          count: 10
-        }
+          count: 10,
+        },
       ],
-      format: "CZkk bbbb ssss sscc cccc cccc"
+      format: "CZkk bbbb ssss sscc cccc cccc",
     },
     {
       country: "DK",
@@ -275,14 +275,14 @@ export default {
       bban: [
         {
           type: "n",
-          count: 4
+          count: 4,
         },
         {
           type: "n",
-          count: 10
-        }
+          count: 10,
+        },
       ],
-      format: "DKkk bbbb cccc cccc cc"
+      format: "DKkk bbbb cccc cccc cc",
     },
     {
       country: "DO",
@@ -290,14 +290,14 @@ export default {
       bban: [
         {
           type: "a",
-          count: 4
+          count: 4,
         },
         {
           type: "n",
-          count: 20
-        }
+          count: 20,
+        },
       ],
-      format: "DOkk bbbb cccc cccc cccc cccc cccc"
+      format: "DOkk bbbb cccc cccc cccc cccc cccc",
     },
     {
       country: "TL",
@@ -305,14 +305,14 @@ export default {
       bban: [
         {
           type: "n",
-          count: 3
+          count: 3,
         },
         {
           type: "n",
-          count: 16
-        }
+          count: 16,
+        },
       ],
-      format: "TLkk bbbc cccc cccc cccc cxx"
+      format: "TLkk bbbc cccc cccc cccc cxx",
     },
     {
       country: "EE",
@@ -320,14 +320,14 @@ export default {
       bban: [
         {
           type: "n",
-          count: 4
+          count: 4,
         },
         {
           type: "n",
-          count: 12
-        }
+          count: 12,
+        },
       ],
-      format: "EEkk bbss cccc cccc cccx"
+      format: "EEkk bbss cccc cccc cccx",
     },
     {
       country: "FO",
@@ -335,14 +335,14 @@ export default {
       bban: [
         {
           type: "n",
-          count: 4
+          count: 4,
         },
         {
           type: "n",
-          count: 10
-        }
+          count: 10,
+        },
       ],
-      format: "FOkk bbbb cccc cccc cx"
+      format: "FOkk bbbb cccc cccc cx",
     },
     {
       country: "FI",
@@ -350,14 +350,14 @@ export default {
       bban: [
         {
           type: "n",
-          count: 6
+          count: 6,
         },
         {
           type: "n",
-          count: 8
-        }
+          count: 8,
+        },
       ],
-      format: "FIkk bbbb bbcc cccc cx"
+      format: "FIkk bbbb bbcc cccc cx",
     },
     {
       country: "FR",
@@ -365,18 +365,18 @@ export default {
       bban: [
         {
           type: "n",
-          count: 10
+          count: 10,
         },
         {
           type: "c",
-          count: 11
+          count: 11,
         },
         {
           type: "n",
-          count: 2
-        }
+          count: 2,
+        },
       ],
-      format: "FRkk bbbb bggg ggcc cccc cccc cxx"
+      format: "FRkk bbbb bggg ggcc cccc cccc cxx",
     },
     {
       country: "GE",
@@ -384,14 +384,14 @@ export default {
       bban: [
         {
           type: "c",
-          count: 2
+          count: 2,
         },
         {
           type: "n",
-          count: 16
-        }
+          count: 16,
+        },
       ],
-      format: "GEkk bbcc cccc cccc cccc cc"
+      format: "GEkk bbcc cccc cccc cccc cc",
     },
     {
       country: "DE",
@@ -399,14 +399,14 @@ export default {
       bban: [
         {
           type: "n",
-          count: 8
+          count: 8,
         },
         {
           type: "n",
-          count: 10
-        }
+          count: 10,
+        },
       ],
-      format: "DEkk bbbb bbbb cccc cccc cc"
+      format: "DEkk bbbb bbbb cccc cccc cc",
     },
     {
       country: "GI",
@@ -414,14 +414,14 @@ export default {
       bban: [
         {
           type: "a",
-          count: 4
+          count: 4,
         },
         {
           type: "c",
-          count: 15
-        }
+          count: 15,
+        },
       ],
-      format: "GIkk bbbb cccc cccc cccc ccc"
+      format: "GIkk bbbb cccc cccc cccc ccc",
     },
     {
       country: "GR",
@@ -429,14 +429,14 @@ export default {
       bban: [
         {
           type: "n",
-          count: 7
+          count: 7,
         },
         {
           type: "c",
-          count: 16
-        }
+          count: 16,
+        },
       ],
-      format: "GRkk bbbs sssc cccc cccc cccc ccc"
+      format: "GRkk bbbs sssc cccc cccc cccc ccc",
     },
     {
       country: "GL",
@@ -444,14 +444,14 @@ export default {
       bban: [
         {
           type: "n",
-          count: 4
+          count: 4,
         },
         {
           type: "n",
-          count: 10
-        }
+          count: 10,
+        },
       ],
-      format: "GLkk bbbb cccc cccc cc"
+      format: "GLkk bbbb cccc cccc cc",
     },
     {
       country: "GT",
@@ -459,18 +459,18 @@ export default {
       bban: [
         {
           type: "c",
-          count: 4
+          count: 4,
         },
         {
           type: "c",
-          count: 4
+          count: 4,
         },
         {
           type: "c",
-          count: 16
-        }
+          count: 16,
+        },
       ],
-      format: "GTkk bbbb mmtt cccc cccc cccc cccc"
+      format: "GTkk bbbb mmtt cccc cccc cccc cccc",
     },
     {
       country: "HU",
@@ -478,14 +478,14 @@ export default {
       bban: [
         {
           type: "n",
-          count: 8
+          count: 8,
         },
         {
           type: "n",
-          count: 16
-        }
+          count: 16,
+        },
       ],
-      format: "HUkk bbbs sssk cccc cccc cccc cccx"
+      format: "HUkk bbbs sssk cccc cccc cccc cccx",
     },
     {
       country: "IS",
@@ -493,14 +493,14 @@ export default {
       bban: [
         {
           type: "n",
-          count: 6
+          count: 6,
         },
         {
           type: "n",
-          count: 16
-        }
+          count: 16,
+        },
       ],
-      format: "ISkk bbbb sscc cccc iiii iiii ii"
+      format: "ISkk bbbb sscc cccc iiii iiii ii",
     },
     {
       country: "IE",
@@ -508,18 +508,18 @@ export default {
       bban: [
         {
           type: "c",
-          count: 4
+          count: 4,
         },
         {
           type: "n",
-          count: 6
+          count: 6,
         },
         {
           type: "n",
-          count: 8
-        }
+          count: 8,
+        },
       ],
-      format: "IEkk aaaa bbbb bbcc cccc cc"
+      format: "IEkk aaaa bbbb bbcc cccc cc",
     },
     {
       country: "IL",
@@ -527,14 +527,14 @@ export default {
       bban: [
         {
           type: "n",
-          count: 6
+          count: 6,
         },
         {
           type: "n",
-          count: 13
-        }
+          count: 13,
+        },
       ],
-      format: "ILkk bbbn nncc cccc cccc ccc"
+      format: "ILkk bbbn nncc cccc cccc ccc",
     },
     {
       country: "IT",
@@ -542,18 +542,18 @@ export default {
       bban: [
         {
           type: "a",
-          count: 1
+          count: 1,
         },
         {
           type: "n",
-          count: 10
+          count: 10,
         },
         {
           type: "c",
-          count: 12
-        }
+          count: 12,
+        },
       ],
-      format: "ITkk xaaa aabb bbbc cccc cccc ccc"
+      format: "ITkk xaaa aabb bbbc cccc cccc ccc",
     },
     {
       country: "JO",
@@ -561,18 +561,18 @@ export default {
       bban: [
         {
           type: "a",
-          count: 4
+          count: 4,
         },
         {
           type: "n",
-          count: 4
+          count: 4,
         },
         {
           type: "n",
-          count: 18
-        }
+          count: 18,
+        },
       ],
-      format: "JOkk bbbb nnnn cccc cccc cccc cccc cc"
+      format: "JOkk bbbb nnnn cccc cccc cccc cccc cc",
     },
     {
       country: "KZ",
@@ -580,14 +580,14 @@ export default {
       bban: [
         {
           type: "n",
-          count: 3
+          count: 3,
         },
         {
           type: "c",
-          count: 13
-        }
+          count: 13,
+        },
       ],
-      format: "KZkk bbbc cccc cccc cccc"
+      format: "KZkk bbbc cccc cccc cccc",
     },
     {
       country: "XK",
@@ -595,14 +595,14 @@ export default {
       bban: [
         {
           type: "n",
-          count: 4
+          count: 4,
         },
         {
           type: "n",
-          count: 12
-        }
+          count: 12,
+        },
       ],
-      format: "XKkk bbbb cccc cccc cccc"
+      format: "XKkk bbbb cccc cccc cccc",
     },
     {
       country: "KW",
@@ -610,14 +610,14 @@ export default {
       bban: [
         {
           type: "a",
-          count: 4
+          count: 4,
         },
         {
           type: "c",
-          count: 22
-        }
+          count: 22,
+        },
       ],
-      format: "KWkk bbbb cccc cccc cccc cccc cccc cc"
+      format: "KWkk bbbb cccc cccc cccc cccc cccc cc",
     },
     {
       country: "LV",
@@ -625,14 +625,14 @@ export default {
       bban: [
         {
           type: "a",
-          count: 4
+          count: 4,
         },
         {
           type: "c",
-          count: 13
-        }
+          count: 13,
+        },
       ],
-      format: "LVkk bbbb cccc cccc cccc c"
+      format: "LVkk bbbb cccc cccc cccc c",
     },
     {
       country: "LB",
@@ -640,14 +640,14 @@ export default {
       bban: [
         {
           type: "n",
-          count: 4
+          count: 4,
         },
         {
           type: "c",
-          count: 20
-        }
+          count: 20,
+        },
       ],
-      format: "LBkk bbbb cccc cccc cccc cccc cccc"
+      format: "LBkk bbbb cccc cccc cccc cccc cccc",
     },
     {
       country: "LI",
@@ -655,14 +655,14 @@ export default {
       bban: [
         {
           type: "n",
-          count: 5
+          count: 5,
         },
         {
           type: "c",
-          count: 12
-        }
+          count: 12,
+        },
       ],
-      format: "LIkk bbbb bccc cccc cccc c"
+      format: "LIkk bbbb bccc cccc cccc c",
     },
     {
       country: "LT",
@@ -670,14 +670,14 @@ export default {
       bban: [
         {
           type: "n",
-          count: 5
+          count: 5,
         },
         {
           type: "n",
-          count: 11
-        }
+          count: 11,
+        },
       ],
-      format: "LTkk bbbb bccc cccc cccc"
+      format: "LTkk bbbb bccc cccc cccc",
     },
     {
       country: "LU",
@@ -685,14 +685,14 @@ export default {
       bban: [
         {
           type: "n",
-          count: 3
+          count: 3,
         },
         {
           type: "c",
-          count: 13
-        }
+          count: 13,
+        },
       ],
-      format: "LUkk bbbc cccc cccc cccc"
+      format: "LUkk bbbc cccc cccc cccc",
     },
     {
       country: "MK",
@@ -700,18 +700,18 @@ export default {
       bban: [
         {
           type: "n",
-          count: 3
+          count: 3,
         },
         {
           type: "c",
-          count: 10
+          count: 10,
         },
         {
           type: "n",
-          count: 2
-        }
+          count: 2,
+        },
       ],
-      format: "MKkk bbbc cccc cccc cxx"
+      format: "MKkk bbbc cccc cccc cxx",
     },
     {
       country: "MT",
@@ -719,18 +719,18 @@ export default {
       bban: [
         {
           type: "a",
-          count: 4
+          count: 4,
         },
         {
           type: "n",
-          count: 5
+          count: 5,
         },
         {
           type: "c",
-          count: 18
-        }
+          count: 18,
+        },
       ],
-      format: "MTkk bbbb ssss sccc cccc cccc cccc ccc"
+      format: "MTkk bbbb ssss sccc cccc cccc cccc ccc",
     },
     {
       country: "MR",
@@ -738,14 +738,14 @@ export default {
       bban: [
         {
           type: "n",
-          count: 10
+          count: 10,
         },
         {
           type: "n",
-          count: 13
-        }
+          count: 13,
+        },
       ],
-      format: "MRkk bbbb bsss sscc cccc cccc cxx"
+      format: "MRkk bbbb bsss sscc cccc cccc cxx",
     },
     {
       country: "MU",
@@ -753,22 +753,22 @@ export default {
       bban: [
         {
           type: "a",
-          count: 4
+          count: 4,
         },
         {
           type: "n",
-          count: 4
+          count: 4,
         },
         {
           type: "n",
-          count: 15
+          count: 15,
         },
         {
           type: "a",
-          count: 3
-        }
+          count: 3,
+        },
       ],
-      format: "MUkk bbbb bbss cccc cccc cccc 000d dd"
+      format: "MUkk bbbb bbss cccc cccc cccc 000d dd",
     },
     {
       country: "MC",
@@ -776,18 +776,18 @@ export default {
       bban: [
         {
           type: "n",
-          count: 10
+          count: 10,
         },
         {
           type: "c",
-          count: 11
+          count: 11,
         },
         {
           type: "n",
-          count: 2
-        }
+          count: 2,
+        },
       ],
-      format: "MCkk bbbb bsss sscc cccc cccc cxx"
+      format: "MCkk bbbb bsss sscc cccc cccc cxx",
     },
     {
       country: "MD",
@@ -795,14 +795,14 @@ export default {
       bban: [
         {
           type: "c",
-          count: 2
+          count: 2,
         },
         {
           type: "c",
-          count: 18
-        }
+          count: 18,
+        },
       ],
-      format: "MDkk bbcc cccc cccc cccc cccc"
+      format: "MDkk bbcc cccc cccc cccc cccc",
     },
     {
       country: "ME",
@@ -810,14 +810,14 @@ export default {
       bban: [
         {
           type: "n",
-          count: 3
+          count: 3,
         },
         {
           type: "n",
-          count: 15
-        }
+          count: 15,
+        },
       ],
-      format: "MEkk bbbc cccc cccc cccc xx"
+      format: "MEkk bbbc cccc cccc cccc xx",
     },
     {
       country: "NL",
@@ -825,14 +825,14 @@ export default {
       bban: [
         {
           type: "a",
-          count: 4
+          count: 4,
         },
         {
           type: "n",
-          count: 10
-        }
+          count: 10,
+        },
       ],
-      format: "NLkk bbbb cccc cccc cc"
+      format: "NLkk bbbb cccc cccc cc",
     },
     {
       country: "NO",
@@ -840,14 +840,14 @@ export default {
       bban: [
         {
           type: "n",
-          count: 4
+          count: 4,
         },
         {
           type: "n",
-          count: 7
-        }
+          count: 7,
+        },
       ],
-      format: "NOkk bbbb cccc ccx"
+      format: "NOkk bbbb cccc ccx",
     },
     {
       country: "PK",
@@ -855,14 +855,14 @@ export default {
       bban: [
         {
           type: "c",
-          count: 4
+          count: 4,
         },
         {
           type: "n",
-          count: 16
-        }
+          count: 16,
+        },
       ],
-      format: "PKkk bbbb cccc cccc cccc cccc"
+      format: "PKkk bbbb cccc cccc cccc cccc",
     },
     {
       country: "PS",
@@ -870,18 +870,18 @@ export default {
       bban: [
         {
           type: "c",
-          count: 4
+          count: 4,
         },
         {
           type: "n",
-          count: 9
+          count: 9,
         },
         {
           type: "n",
-          count: 12
-        }
+          count: 12,
+        },
       ],
-      format: "PSkk bbbb xxxx xxxx xccc cccc cccc c"
+      format: "PSkk bbbb xxxx xxxx xccc cccc cccc c",
     },
     {
       country: "PL",
@@ -889,14 +889,14 @@ export default {
       bban: [
         {
           type: "n",
-          count: 8
+          count: 8,
         },
         {
           type: "n",
-          count: 16
-        }
+          count: 16,
+        },
       ],
-      format: "PLkk bbbs sssx cccc cccc cccc cccc"
+      format: "PLkk bbbs sssx cccc cccc cccc cccc",
     },
     {
       country: "PT",
@@ -904,14 +904,14 @@ export default {
       bban: [
         {
           type: "n",
-          count: 8
+          count: 8,
         },
         {
           type: "n",
-          count: 13
-        }
+          count: 13,
+        },
       ],
-      format: "PTkk bbbb ssss cccc cccc cccx x"
+      format: "PTkk bbbb ssss cccc cccc cccx x",
     },
     {
       country: "QA",
@@ -919,14 +919,14 @@ export default {
       bban: [
         {
           type: "a",
-          count: 4
+          count: 4,
         },
         {
           type: "c",
-          count: 21
-        }
+          count: 21,
+        },
       ],
-      format: "QAkk bbbb cccc cccc cccc cccc cccc c"
+      format: "QAkk bbbb cccc cccc cccc cccc cccc c",
     },
     {
       country: "RO",
@@ -934,14 +934,14 @@ export default {
       bban: [
         {
           type: "a",
-          count: 4
+          count: 4,
         },
         {
           type: "c",
-          count: 16
-        }
+          count: 16,
+        },
       ],
-      format: "ROkk bbbb cccc cccc cccc cccc"
+      format: "ROkk bbbb cccc cccc cccc cccc",
     },
     {
       country: "SM",
@@ -949,18 +949,18 @@ export default {
       bban: [
         {
           type: "a",
-          count: 1
+          count: 1,
         },
         {
           type: "n",
-          count: 10
+          count: 10,
         },
         {
           type: "c",
-          count: 12
-        }
+          count: 12,
+        },
       ],
-      format: "SMkk xaaa aabb bbbc cccc cccc ccc"
+      format: "SMkk xaaa aabb bbbc cccc cccc ccc",
     },
     {
       country: "SA",
@@ -968,14 +968,14 @@ export default {
       bban: [
         {
           type: "n",
-          count: 2
+          count: 2,
         },
         {
           type: "c",
-          count: 18
-        }
+          count: 18,
+        },
       ],
-      format: "SAkk bbcc cccc cccc cccc cccc"
+      format: "SAkk bbcc cccc cccc cccc cccc",
     },
     {
       country: "RS",
@@ -983,14 +983,14 @@ export default {
       bban: [
         {
           type: "n",
-          count: 3
+          count: 3,
         },
         {
           type: "n",
-          count: 15
-        }
+          count: 15,
+        },
       ],
-      format: "RSkk bbbc cccc cccc cccc xx"
+      format: "RSkk bbbc cccc cccc cccc xx",
     },
     {
       country: "SK",
@@ -998,14 +998,14 @@ export default {
       bban: [
         {
           type: "n",
-          count: 10
+          count: 10,
         },
         {
           type: "n",
-          count: 10
-        }
+          count: 10,
+        },
       ],
-      format: "SKkk bbbb ssss sscc cccc cccc"
+      format: "SKkk bbbb ssss sscc cccc cccc",
     },
     {
       country: "SI",
@@ -1013,14 +1013,14 @@ export default {
       bban: [
         {
           type: "n",
-          count: 5
+          count: 5,
         },
         {
           type: "n",
-          count: 10
-        }
+          count: 10,
+        },
       ],
-      format: "SIkk bbss sccc cccc cxx"
+      format: "SIkk bbss sccc cccc cxx",
     },
     {
       country: "ES",
@@ -1028,14 +1028,14 @@ export default {
       bban: [
         {
           type: "n",
-          count: 10
+          count: 10,
         },
         {
           type: "n",
-          count: 10
-        }
+          count: 10,
+        },
       ],
-      format: "ESkk bbbb gggg xxcc cccc cccc"
+      format: "ESkk bbbb gggg xxcc cccc cccc",
     },
     {
       country: "SE",
@@ -1043,14 +1043,14 @@ export default {
       bban: [
         {
           type: "n",
-          count: 3
+          count: 3,
         },
         {
           type: "n",
-          count: 17
-        }
+          count: 17,
+        },
       ],
-      format: "SEkk bbbc cccc cccc cccc cccc"
+      format: "SEkk bbbc cccc cccc cccc cccc",
     },
     {
       country: "CH",
@@ -1058,14 +1058,14 @@ export default {
       bban: [
         {
           type: "n",
-          count: 5
+          count: 5,
         },
         {
           type: "c",
-          count: 12
-        }
+          count: 12,
+        },
       ],
-      format: "CHkk bbbb bccc cccc cccc c"
+      format: "CHkk bbbb bccc cccc cccc c",
     },
     {
       country: "TN",
@@ -1073,14 +1073,14 @@ export default {
       bban: [
         {
           type: "n",
-          count: 5
+          count: 5,
         },
         {
           type: "n",
-          count: 15
-        }
+          count: 15,
+        },
       ],
-      format: "TNkk bbss sccc cccc cccc cccc"
+      format: "TNkk bbss sccc cccc cccc cccc",
     },
     {
       country: "TR",
@@ -1088,18 +1088,18 @@ export default {
       bban: [
         {
           type: "n",
-          count: 5
+          count: 5,
         },
         {
           type: "c",
-          count: 1
+          count: 1,
         },
         {
           type: "c",
-          count: 16
-        }
+          count: 16,
+        },
       ],
-      format: "TRkk bbbb bxcc cccc cccc cccc cc"
+      format: "TRkk bbbb bxcc cccc cccc cccc cc",
     },
     {
       country: "AE",
@@ -1107,14 +1107,14 @@ export default {
       bban: [
         {
           type: "n",
-          count: 3
+          count: 3,
         },
         {
           type: "n",
-          count: 16
-        }
+          count: 16,
+        },
       ],
-      format: "AEkk bbbc cccc cccc cccc ccc"
+      format: "AEkk bbbc cccc cccc cccc ccc",
     },
     {
       country: "GB",
@@ -1122,18 +1122,18 @@ export default {
       bban: [
         {
           type: "a",
-          count: 4
+          count: 4,
         },
         {
           type: "n",
-          count: 6
+          count: 6,
         },
         {
           type: "n",
-          count: 8
-        }
+          count: 8,
+        },
       ],
-      format: "GBkk bbbb ssss sscc cccc cc"
+      format: "GBkk bbbb ssss sscc cccc cc",
     },
     {
       country: "VG",
@@ -1141,15 +1141,15 @@ export default {
       bban: [
         {
           type: "c",
-          count: 4
+          count: 4,
         },
         {
           type: "n",
-          count: 16
-        }
+          count: 16,
+        },
       ],
-      format: "VGkk bbbb cccc cccc cccc cccc"
-    }
+      format: "VGkk bbbb cccc cccc cccc cccc",
+    },
   ],
   iso3166: [
     "AC",
@@ -1418,6 +1418,6 @@ export default {
     "ZA",
     "ZM",
     "ZR",
-    "ZW"
-  ]
+    "ZW",
+  ],
 };

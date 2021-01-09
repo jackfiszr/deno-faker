@@ -23,5 +23,5 @@ export default [
   "Kung",
   "Kö",
   "Lyck",
-  "Ny"
+  "Ny",
 ];

@@ -2,5 +2,5 @@ export default [
   "South Africa",
   "The Republic of South Africa",
   "SA",
-  "South Africa"
+  "South Africa",
 ];

@@ -16,7 +16,7 @@ export default {
     "Licenciado",
     "Refinado",
     "Sem Marca",
-    "Saboroso"
+    "Saboroso",
   ],
   "material": [
     "Aço",
@@ -29,7 +29,7 @@ export default {
     "Metal",
     "Suave",
     "Fresco",
-    "Congelado"
+    "Congelado",
   ],
   "product": [
     "Cadeira",
@@ -55,6 +55,6 @@ export default {
     "Pizza",
     "Salada",
     "Salsichas",
-    "Batatas Fritas"
-  ]
+    "Batatas Fritas",
+  ],
 };

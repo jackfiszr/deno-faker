@@ -108,5 +108,5 @@ export default [
   "VR",
   "VV",
   "VI",
-  "VT"
+  "VT",
 ];

@@ -1,5 +1,5 @@
 export default [
   "Sr.",
   "Sra.",
-  "Sta."
+  "Sta.",
 ];

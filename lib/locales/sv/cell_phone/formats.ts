@@ -1,3 +1,3 @@
 export default [
-  "#{common_cell_prefix}-###-####"
+  "#{common_cell_prefix}-###-####",
 ];

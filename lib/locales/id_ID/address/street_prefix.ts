@@ -6,5 +6,5 @@ export default [
   "Jr.",
   "Kpg.",
   "Ki.",
-  "Psr."
+  "Psr.",
 ];

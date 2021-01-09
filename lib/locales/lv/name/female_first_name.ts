@@ -103,5 +103,5 @@ export default [
   "Žanete",
   "Žanna",
   "Ženija",
-  "Žubīte"
+  "Žubīte",
 ];

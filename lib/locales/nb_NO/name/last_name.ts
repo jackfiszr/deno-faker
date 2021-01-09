@@ -98,5 +98,5 @@ export default [
   "Hopland",
   "Gran",
   "Finstad",
-  "Edvardsen"
+  "Edvardsen",
 ];

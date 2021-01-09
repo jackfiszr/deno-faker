@@ -37,5 +37,5 @@ export default [
   "Naranjo",
   "Cedro",
   "Jalisco",
-  "Avena"
+  "Avena",
 ];

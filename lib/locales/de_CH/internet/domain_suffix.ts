@@ -7,5 +7,5 @@ export default [
   "li",
   "at",
   "ch",
-  "ch"
+  "ch",
 ];

@@ -1,3 +1,3 @@
 export default [
-  "#{prefix} #{Name.last_name}"
+  "#{prefix} #{Name.last_name}",
 ];

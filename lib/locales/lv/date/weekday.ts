@@ -6,7 +6,7 @@ export default {
     "Trešdiena",
     "Ceturtdiena",
     "Piektdiena",
-    "Sestdiena"
+    "Sestdiena",
   ],
   wide_context: [
     "svētdien",
@@ -15,7 +15,7 @@ export default {
     "trešdien",
     "ceturtdien",
     "piektdien",
-    "sestdien"
+    "sestdien",
   ],
   abbr: [
     "Pr",
@@ -24,7 +24,7 @@ export default {
     "Ct",
     "Pk",
     "Se",
-    "Sv"
+    "Sv",
   ],
   abbr_context: [
     "sv.",
@@ -33,6 +33,6 @@ export default {
     "tr.",
     "cet.",
     "pk.",
-    "se."
-  ]
+    "se.",
+  ],
 };

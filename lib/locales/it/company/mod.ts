@@ -8,12 +8,12 @@ import bs_adjective from "./bs_adjective.ts";
 import name from "./name.ts";
 
 export {
-  suffix,
-  noun,
-  descriptor,
   adjective,
+  bs_adjective,
   bs_noun,
   bs_verb,
-  bs_adjective,
-  name
+  descriptor,
+  name,
+  noun,
+  suffix,
 };

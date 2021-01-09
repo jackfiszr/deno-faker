@@ -148,5 +148,5 @@ export default [
   "Guyot",
   "Barre",
   "Marty",
-  "Cousin"
+  "Cousin",
 ];

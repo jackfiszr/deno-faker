@@ -9,13 +9,13 @@ import street_suffix from "./street_suffix.ts";
 import street_name from "./street_name.ts";
 
 export {
+  city,
+  city_name,
+  city_suffix,
   postcode,
   state,
   state_abbr,
-  city_suffix,
-  city_name,
-  city,
+  street_name,
   street_root,
   street_suffix,
-  street_name
 };

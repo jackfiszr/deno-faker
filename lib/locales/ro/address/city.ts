@@ -298,5 +298,5 @@ export default [
   "Vașcău",
   "Nucet",
   "Solca",
-  "Băile Tușnad"
+  "Băile Tușnad",
 ];

@@ -1,4 +1,4 @@
 export default [
   "Ap. ##",
-  "Ap. ###"
+  "Ap. ###",
 ];

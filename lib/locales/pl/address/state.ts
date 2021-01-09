@@ -14,5 +14,5 @@ export default [
   "Świętokrzyskie",
   "Warmińsko-mazurskie",
   "Wielkopolskie",
-  "Zachodniopomorskie"
+  "Zachodniopomorskie",
 ];

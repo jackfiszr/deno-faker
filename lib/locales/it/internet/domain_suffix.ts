@@ -6,5 +6,5 @@ export default [
   "org",
   "it",
   "it",
-  "it"
+  "it",
 ];

@@ -298,5 +298,5 @@ export default [
   "Voicu",
   "Voinea",
   "Zaharia",
-  "Zamfir"
+  "Zamfir",
 ];

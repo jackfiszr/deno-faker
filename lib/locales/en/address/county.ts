@@ -4,5 +4,5 @@ export default [
   "Berkshire",
   "Borders",
   "Buckinghamshire",
-  "Cambridgeshire"
+  "Cambridgeshire",
 ];

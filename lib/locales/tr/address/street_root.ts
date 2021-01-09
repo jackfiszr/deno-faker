@@ -39,5 +39,5 @@ export default [
   "Bayır Sokak",
   "Kerimoğlu Sokak",
   "Nalbant Sokak",
-  "Bandak Sokak"
+  "Bandak Sokak",
 ];

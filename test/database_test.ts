@@ -9,7 +9,7 @@ test({
     const column = faker.database.column();
     assertEquals(column, "title");
     faker.database.column.restore();
-  }
+  },
 });
 
 test({
@@ -19,7 +19,7 @@ test({
     const collation = faker.database.collation();
     assertEquals(collation, "utf8_bin");
     faker.database.collation.restore();
-  }
+  },
 });
 
 test({
@@ -29,7 +29,7 @@ test({
     const engine = faker.database.engine();
     assertEquals(engine, "InnoDB");
     faker.database.engine.restore();
-  }
+  },
 });
 
 test({
@@ -39,5 +39,5 @@ test({
     const type = faker.database.type();
     assertEquals(type, "int");
     faker.database.type.restore();
-  }
+  },
 });

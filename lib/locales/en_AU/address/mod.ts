@@ -6,10 +6,10 @@ import street_suffix from "./street_suffix.ts";
 import default_country from "./default_country.ts";
 
 export {
-  state_abbr,
-  state,
-  postcode,
   building_number,
+  default_country,
+  postcode,
+  state,
+  state_abbr,
   street_suffix,
-  default_country
 };

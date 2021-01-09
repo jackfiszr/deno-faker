@@ -5,5 +5,5 @@ export default [
   "net",
   "org",
   "de",
-  "ch"
+  "ch",
 ];

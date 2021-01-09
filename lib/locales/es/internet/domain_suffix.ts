@@ -3,5 +3,5 @@ export default [
   "es",
   "info",
   "com.es",
-  "org"
+  "org",
 ];

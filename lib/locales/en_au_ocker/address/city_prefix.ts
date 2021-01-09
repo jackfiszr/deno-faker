@@ -10,5 +10,5 @@ export default [
   "Stones Corner",
   "St Kilda",
   "Surry Hills",
-  "Yarra Valley"
+  "Yarra Valley",
 ];

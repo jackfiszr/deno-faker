@@ -16,5 +16,5 @@ export default [
   "bəzək",
   "İdman",
   "turizm",
-  "Avtomobil"
+  "Avtomobil",
 ];

@@ -3,5 +3,5 @@ export default [
   "Mme",
   "Mlle",
   "Dr",
-  "Prof"
+  "Prof",
 ];

@@ -4,5 +4,5 @@ export default [
   "gatve",
   "gāte",
   "laukums",
-  "dambis"
+  "dambis",
 ];

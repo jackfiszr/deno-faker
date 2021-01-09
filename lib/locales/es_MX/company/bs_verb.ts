@@ -58,5 +58,5 @@ export default [
   "matriz",
   "productize",
   "redefinir",
-  "recontextualizar"
+  "recontextualizar",
 ];

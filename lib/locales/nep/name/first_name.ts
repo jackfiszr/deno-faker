@@ -53,5 +53,5 @@ export default [
   "Sunita",
   "Suraj",
   "Susan",
-  "Sushant"
+  "Sushant",
 ];

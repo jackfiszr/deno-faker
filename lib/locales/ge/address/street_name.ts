@@ -1,3 +1,3 @@
 export default [
-  "#{street_title} #{street_suffix}"
+  "#{street_title} #{street_suffix}",
 ];

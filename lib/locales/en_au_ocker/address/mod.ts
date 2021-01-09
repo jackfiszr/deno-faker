@@ -11,15 +11,15 @@ import street_suffix from "./street_suffix.ts";
 import default_country from "./default_country.ts";
 
 export {
-  street_root,
-  street_name,
-  city_prefix,
+  building_number,
   city,
-  state_abbr,
+  city_prefix,
+  default_country,
+  postcode,
   region,
   state,
-  postcode,
-  building_number,
+  state_abbr,
+  street_name,
+  street_root,
   street_suffix,
-  default_country
 };

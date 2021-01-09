@@ -18,5 +18,5 @@ export default [
   "web.id",
   "my.id",
   "biz.id",
-  "desa.id"
+  "desa.id",
 ];

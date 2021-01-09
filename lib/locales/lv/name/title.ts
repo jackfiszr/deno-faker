@@ -11,7 +11,7 @@ export default {
     "Investīciju",
     "Starptautiskās",
     "Iekšējās",
-    "Personu"
+    "Personu",
   ],
   "level": [
     "risinājumu",
@@ -43,7 +43,7 @@ export default {
     "grāmatojumu",
     "sadarbības",
     "lietojamības",
-    "mērījumu"
+    "mērījumu",
   ],
   "job": [
     "uzraugs",
@@ -67,6 +67,6 @@ export default {
     "konsultants",
     "asistents",
     "aģents",
-    "stratēģis"
-  ]
+    "stratēģis",
+  ],
 };

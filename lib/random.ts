@@ -28,7 +28,7 @@ class Random {
   number = (options: any) => {
     if (typeof options === "number") {
       options = {
-        max: options
+        max: options,
       };
     }
 
@@ -52,7 +52,7 @@ class Random {
     }
 
     let randomNumber = Math.floor(
-      mersenne.rand(max / options.precision, options.min / options.precision)
+      mersenne.rand(max / options.precision, options.min / options.precision),
     );
     // Workaround problem in Float point arithmetics for e.g. 6681493 / 0.01
     randomNumber = randomNumber / (1 / options.precision);
@@ -69,7 +69,7 @@ class Random {
   float = (options: any) => {
     if (typeof options === "number") {
       options = {
-        precision: options
+        precision: options,
       };
     }
     options = options || {};
@@ -119,7 +119,7 @@ class Random {
     const countToRemove = arrayCopy.length - count;
     for (let i = 0; i < countToRemove; i++) {
       const indexToRemove = this.faker.random.number(
-        { max: arrayCopy.length - 1 }
+        { max: arrayCopy.length - 1 },
       );
       arrayCopy.splice(indexToRemove, 1);
     }
@@ -201,7 +201,7 @@ class Random {
       "hacker.abbreviation",
       "name.jobDescriptor",
       "name.jobArea",
-      "name.jobType"
+      "name.jobType",
     ];
 
     // randomly pick from the many faker methods that can generate words
@@ -253,11 +253,11 @@ class Random {
   alpha = (options: any) => {
     if (typeof options === "undefined") {
       options = {
-        count: 1
+        count: 1,
       };
     } else if (typeof options === "number") {
       options = {
-        count: options
+        count: options,
       };
     } else if (typeof options.count === "undefined") {
       options.count = 1;
@@ -296,8 +296,8 @@ class Random {
           "w",
           "x",
           "y",
-          "z"
-        ]
+          "z",
+        ],
       );
     }
 
@@ -354,8 +354,8 @@ class Random {
           "w",
           "x",
           "y",
-          "z"
-        ]
+          "z",
+        ],
       );
     }
 
@@ -398,8 +398,8 @@ class Random {
           "C",
           "D",
           "E",
-          "F"
-        ]
+          "F",
+        ],
       );
     }
 

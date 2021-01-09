@@ -86,7 +86,7 @@ class Faker {
         "male_middle_name",
         "female_middle_name",
         "male_last_name",
-        "female_last_name"
+        "female_last_name",
       ],
       "address": [
         "city_prefix",
@@ -101,7 +101,7 @@ class Faker {
         "postcode",
         "postcode_by_state",
         "direction",
-        "direction_abbr"
+        "direction_abbr",
       ],
       "company": [
         "adjective",
@@ -110,7 +110,7 @@ class Faker {
         "bs_adjective",
         "bs_noun",
         "bs_verb",
-        "suffix"
+        "suffix",
       ],
       "lorem": ["words"],
       "hacker": [
@@ -119,7 +119,7 @@ class Faker {
         "noun",
         "verb",
         "ingverb",
-        "phrase"
+        "phrase",
       ],
       "phone_number": ["formats"],
       "finance": [
@@ -127,21 +127,21 @@ class Faker {
         "transaction_type",
         "currency",
         "iban",
-        "credit_card"
+        "credit_card",
       ],
       "internet": [
         "avatar_uri",
         "domain_suffix",
         "free_email",
         "example_email",
-        "password"
+        "password",
       ],
       "commerce": [
         "color",
         "department",
         "product_name",
         "price",
-        "categories"
+        "categories",
       ],
       "database": ["collation", "column", "engine", "type"],
       "system": ["mimeTypes", "directoryPaths"],
@@ -153,10 +153,10 @@ class Faker {
         "type",
         "fuel",
         "vin",
-        "color"
+        "color",
       ],
       "title": "",
-      "separator": ""
+      "separator": "",
     };
 
     // Create a Getter for all definitions.foo.bar properties
@@ -187,7 +187,7 @@ class Faker {
                 // return localized data
                 return this.locales[this.locale][d][p];
               }
-            }
+            },
           });
         });
       }

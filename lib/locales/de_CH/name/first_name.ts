@@ -334,5 +334,5 @@ export default [
   "Yolande",
   "Yves",
   "Yvette",
-  "Yvonne"
+  "Yvonne",
 ];

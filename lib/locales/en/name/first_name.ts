@@ -3005,5 +3005,5 @@ export default [
   "Zoila",
   "Zola",
   "Zora",
-  "Zula"
+  "Zula",
 ];

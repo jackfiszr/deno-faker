@@ -21,7 +21,7 @@ export default {
     "Humano",
     "Gerente",
     "SubGerente",
-    "Director"
+    "Director",
   ],
   "level": [
     "Soluciones",
@@ -59,7 +59,7 @@ export default {
     "Interacciones",
     "Factores",
     "Usabilidad",
-    "Métricas"
+    "Métricas",
   ],
   "job": [
     "Supervisor",
@@ -90,6 +90,6 @@ export default {
     "Scrum Master",
     "Scrum Owner",
     "Product Owner",
-    "Scrum Developer"
-  ]
+    "Scrum Developer",
+  ],
 };

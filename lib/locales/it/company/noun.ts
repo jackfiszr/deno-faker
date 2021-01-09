@@ -87,5 +87,5 @@ export default [
   "Strumenti",
   "Utilizzazione",
   "Sito web",
-  "Forza lavoro"
+  "Forza lavoro",
 ];

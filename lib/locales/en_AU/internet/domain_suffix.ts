@@ -4,5 +4,5 @@ export default [
   "net.au",
   "net",
   "org.au",
-  "org"
+  "org",
 ];

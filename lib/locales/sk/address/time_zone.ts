@@ -141,5 +141,5 @@ export default [
   "Pacific/Auckland",
   "Pacific/Tongatapu",
   "Pacific/Fakaofo",
-  "Pacific/Apia"
+  "Pacific/Apia",
 ];

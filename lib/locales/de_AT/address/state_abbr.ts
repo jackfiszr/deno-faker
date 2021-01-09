@@ -7,5 +7,5 @@ export default [
   "Stmk.",
   "T",
   "Vbg.",
-  "W"
+  "W",
 ];

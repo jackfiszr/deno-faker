@@ -87,5 +87,5 @@ export default [
   "Varrier",
   "Varma",
   "Varman",
-  "Verma"
+  "Verma",
 ];

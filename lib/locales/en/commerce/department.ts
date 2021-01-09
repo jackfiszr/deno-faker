@@ -20,5 +20,5 @@ export default [
   "Sports",
   "Outdoors",
   "Automotive",
-  "Industrial"
+  "Industrial",
 ];

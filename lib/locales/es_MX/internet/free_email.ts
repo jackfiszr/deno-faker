@@ -3,5 +3,5 @@ export default [
   "yahoo.com",
   "hotmail.com",
   "nearbpo.com",
-  "corpfolder.com"
+  "corpfolder.com",
 ];

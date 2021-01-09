@@ -67,5 +67,5 @@ export default [
   "Winarsih",
   "Wulandari",
   "Wastuti",
-  "Zulaika"
+  "Zulaika",
 ];

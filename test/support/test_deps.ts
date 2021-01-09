@@ -3,7 +3,7 @@ export {
   assertEquals,
   assertNotEquals,
   assertStrictEquals,
-  assertThrows
+  assertThrows,
 } from "https://deno.land/std@0.82.0/testing/asserts.ts";
 // @ts-ignore
 export { default as sinon } from "https://cdn.skypack.dev/sinon@9.2.2";

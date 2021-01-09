@@ -8,5 +8,5 @@ export default [
   "Məmmədov",
   "Xəlilov",
   "Nəzərov",
-  "Rəhimov"
+  "Rəhimov",
 ];

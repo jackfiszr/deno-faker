@@ -48,5 +48,5 @@ export default [
   "Vries",
   "Wal",
   "Willems",
-  "Wit"
+  "Wit",
 ];

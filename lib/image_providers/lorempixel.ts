@@ -31,12 +31,12 @@ class Lorempixel {
       "nature",
       "sports",
       "technics",
-      "transport"
+      "transport",
     ];
     return this[this.faker.random.arrayElement(categories)](
       width,
       height,
-      randomize
+      randomize,
     );
   }
   /**
@@ -60,7 +60,7 @@ class Lorempixel {
     width: number,
     height: number,
     category: string,
-    randomize: boolean
+    randomize: boolean,
   ) {
     width = width || 640;
     height = height || 480;
@@ -89,7 +89,7 @@ class Lorempixel {
       width,
       height,
       "abstract",
-      randomize
+      randomize,
     );
   }
   /**
@@ -105,7 +105,7 @@ class Lorempixel {
       width,
       height,
       "animals",
-      randomize
+      randomize,
     );
   }
   /**
@@ -121,7 +121,7 @@ class Lorempixel {
       width,
       height,
       "business",
-      randomize
+      randomize,
     );
   }
   /**
@@ -137,7 +137,7 @@ class Lorempixel {
       width,
       height,
       "cats",
-      randomize
+      randomize,
     );
   }
   /**
@@ -153,7 +153,7 @@ class Lorempixel {
       width,
       height,
       "city",
-      randomize
+      randomize,
     );
   }
   /**
@@ -169,7 +169,7 @@ class Lorempixel {
       width,
       height,
       "food",
-      randomize
+      randomize,
     );
   }
   /**
@@ -185,7 +185,7 @@ class Lorempixel {
       width,
       height,
       "nightlife",
-      randomize
+      randomize,
     );
   }
   /**
@@ -201,7 +201,7 @@ class Lorempixel {
       width,
       height,
       "fashion",
-      randomize
+      randomize,
     );
   }
   /**
@@ -217,7 +217,7 @@ class Lorempixel {
       width,
       height,
       "people",
-      randomize
+      randomize,
     );
   }
   /**
@@ -233,7 +233,7 @@ class Lorempixel {
       width,
       height,
       "nature",
-      randomize
+      randomize,
     );
   }
   /**
@@ -249,7 +249,7 @@ class Lorempixel {
       width,
       height,
       "sports",
-      randomize
+      randomize,
     );
   }
   /**
@@ -265,7 +265,7 @@ class Lorempixel {
       width,
       height,
       "technics",
-      randomize
+      randomize,
     );
   }
   /**
@@ -281,7 +281,7 @@ class Lorempixel {
       width,
       height,
       "transport",
-      randomize
+      randomize,
     );
   }
 }

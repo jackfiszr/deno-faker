@@ -1,5 +1,5 @@
 export default [
   "Hr.",
   "Fr.",
-  "Dr."
+  "Dr.",
 ];

@@ -28,5 +28,5 @@ export default [
   "PNG",
   "SAS",
   "JSON",
-  "XSS"
+  "XSS",
 ];

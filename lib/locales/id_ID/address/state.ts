@@ -32,5 +32,5 @@ export default [
   "Maluku",
   "Maluku Utara",
   "Papua Barat",
-  "Papua"
+  "Papua",
 ];

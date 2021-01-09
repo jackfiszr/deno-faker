@@ -6,5 +6,5 @@ export default [
   "ne.kr",
   "net",
   "or.kr",
-  "org"
+  "org",
 ];

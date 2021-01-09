@@ -18,5 +18,5 @@ export default [
   "أغراض رياضية",
   "Outdoors",
   "Automotive",
-  "صناعة"
+  "صناعة",
 ];

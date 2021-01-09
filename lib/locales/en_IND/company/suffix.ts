@@ -5,5 +5,5 @@ export default [
   "and Sons",
   "Corp",
   "Group",
-  "Brothers"
+  "Brothers",
 ];

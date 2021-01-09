@@ -20,7 +20,7 @@ export default {
     "Interno",
     "Humano",
     "Gerente",
-    "Director"
+    "Director",
   ],
   "level": [
     "Soluciones",
@@ -58,7 +58,7 @@ export default {
     "Interacciones",
     "Factores",
     "Usabilidad",
-    "Métricas"
+    "Métricas",
   ],
   "job": [
     "Supervisor",
@@ -85,6 +85,6 @@ export default {
     "Facilitador",
     "Agente",
     "Representante",
-    "Estratega"
-  ]
+    "Estratega",
+  ],
 };

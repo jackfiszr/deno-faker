@@ -5,5 +5,5 @@ export default [
   "Borgo",
   "Contrada",
   "Rotonda",
-  "Incrocio"
+  "Incrocio",
 ];

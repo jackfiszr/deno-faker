@@ -1029,5 +1029,5 @@ export default [
   "Zum Claashäuschen",
   "Zündhütchenweg",
   "Zur Alten Brauerei",
-  "Zur alten Fabrik"
+  "Zur alten Fabrik",
 ];

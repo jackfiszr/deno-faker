@@ -997,5 +997,5 @@ export default [
   "Zoubková",
   "Zouharová",
   "žůrková",
-  "Zvěřinová"
+  "Zvěřinová",
 ];

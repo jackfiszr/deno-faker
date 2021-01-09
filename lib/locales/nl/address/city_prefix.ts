@@ -2499,5 +2499,5 @@ export default [
   "Zwiggelte",
   "Zwijn",
   "Zwinderen",
-  "Zwolle"
+  "Zwolle",
 ];

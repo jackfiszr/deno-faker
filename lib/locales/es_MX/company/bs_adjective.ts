@@ -63,5 +63,5 @@ export default [
   "Colaboración",
   "Convincente",
   "Holístico",
-  "Ricos"
+  "Ricos",
 ];

@@ -99,5 +99,5 @@ export default [
   "Valente",
   "Vaz",
   "Vicente",
-  "Vieira"
+  "Vieira",
 ];

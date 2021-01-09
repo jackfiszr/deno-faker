@@ -186,5 +186,5 @@ export default [
   "Vicente",
   "Vítor",
   "Vitória",
-  "Xavier"
+  "Xavier",
 ];

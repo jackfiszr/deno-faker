@@ -4,5 +4,5 @@ export default [
   "biz",
   "ch",
   "ch",
-  "ch"
+  "ch",
 ];

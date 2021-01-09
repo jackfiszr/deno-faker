@@ -20,5 +20,5 @@ export default [
   "Oliveira",
   "Martins",
   "Moreira",
-  "Albuquerque"
+  "Albuquerque",
 ];

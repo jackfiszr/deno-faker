@@ -5,5 +5,5 @@ export default [
   "van 't",
   "van het",
   "de",
-  "den"
+  "den",
 ];

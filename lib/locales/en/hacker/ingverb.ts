@@ -14,5 +14,5 @@ export default [
   "synthesizing",
   "transmitting",
   "programming",
-  "parsing"
+  "parsing",
 ];

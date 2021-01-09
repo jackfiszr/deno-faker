@@ -68,5 +68,5 @@ export default [
   "tangibile",
   "terziaria",
   "uniforme",
-  "valore aggiunto"
+  "valore aggiunto",
 ];

@@ -20,5 +20,5 @@ export default [
   "Picardie",
   "Poitou-Charentes",
   "Provence-Alpes-Côte d'Azur",
-  "Rhône-Alpes"
+  "Rhône-Alpes",
 ];

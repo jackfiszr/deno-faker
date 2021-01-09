@@ -1,5 +1,5 @@
 export default [
   "Esc. ###",
   "Puerta ###",
-  "Edificio #"
+  "Edificio #",
 ];

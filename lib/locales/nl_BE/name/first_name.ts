@@ -198,5 +198,5 @@ export default [
   "Lana",
   "Sterre",
   "Maud",
-  "Chloe"
+  "Chloe",
 ];

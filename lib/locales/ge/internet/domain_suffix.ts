@@ -4,5 +4,5 @@ export default [
   "net",
   "org",
   "com.ge",
-  "org.ge"
+  "org.ge",
 ];

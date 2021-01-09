@@ -174,5 +174,5 @@ export default [
   "Vjetnama",
   "Jemena",
   "Zambija",
-  "Zimbabve"
+  "Zimbabve",
 ];

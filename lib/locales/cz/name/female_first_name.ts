@@ -784,5 +784,5 @@ export default [
   "Žitoslava",
   "Živa",
   "Živana",
-  "Žofie"
+  "Žofie",
 ];

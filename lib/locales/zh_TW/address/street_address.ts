@@ -1,3 +1,3 @@
 export default [
-  "#{street_name}#{building_number}號"
+  "#{street_name}#{building_number}號",
 ];

@@ -2,7 +2,7 @@ import {
   assert,
   assertEquals,
   assertStrictEquals,
-  sinon
+  sinon,
 } from "./support/test_deps.ts";
 import { faker } from "../mod.ts";
 const { test } = Deno;
@@ -12,7 +12,7 @@ test({
   fn() {
     const color = faker.commerce.color();
     assert(faker.definitions.commerce.color.indexOf(color) !== -1);
-  }
+  },
 });
 
 test({
@@ -21,7 +21,7 @@ test({
   fn() {
     const department = faker.commerce.department();
     assert(department.split(" ").length === 1);
-  }
+  },
 });
 /*
 test({
@@ -70,7 +70,7 @@ test({
     faker.commerce.productAdjective.restore();
     faker.commerce.productMaterial.restore();
     faker.commerce.product.restore();
-  }
+  },
 });
 
 test({
@@ -81,7 +81,7 @@ test({
     assert(price);
     assertEquals((price > 0), true, "the amount should be greater than 0");
     assertEquals((price < 1001), true, "the amount should be less than 1000");
-  }
+  },
 });
 
 test({
@@ -96,9 +96,9 @@ test({
       actual,
       expected,
       "The expected location of the decimal is " + expected + " but it was " +
-        actual + " amount " + price
+        actual + " amount " + price,
     );
-  }
+  },
 });
 
 test({
@@ -112,9 +112,9 @@ test({
     assertEquals(
       actual,
       expected,
-      "The expected match should not include a currency symbol"
+      "The expected match should not include a currency symbol",
     );
-  }
+  },
 });
 
 test({
@@ -124,7 +124,7 @@ test({
     const amount = faker.commerce.price(-200, -1);
     assert(amount);
     assertEquals((amount == 0.00), true, "the amount should equal 0");
-  }
+  },
 });
 
 test({
@@ -133,7 +133,7 @@ test({
     const price = faker.commerce.price(100, 100, 1);
     assert(price);
     assertStrictEquals(price, "100.0", "the price should be equal 100.0");
-  }
+  },
 });
 
 test({
@@ -142,5 +142,5 @@ test({
     const price = faker.commerce.price(100, 100, 0);
     assert(price);
     assertStrictEquals(price, "100", "the price should be equal 100");
-  }
+  },
 });

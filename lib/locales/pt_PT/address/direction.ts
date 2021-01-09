@@ -6,5 +6,5 @@ export default [
   "Nordeste",
   "Noroeste",
   "Sudeste",
-  "Sodoeste"
+  "Sodoeste",
 ];

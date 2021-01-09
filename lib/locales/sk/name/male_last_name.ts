@@ -255,5 +255,5 @@ export default [
   "Šulc",
   "Šurka",
   "Švehla",
-  "Šťastný"
+  "Šťastný",
 ];

@@ -17,5 +17,5 @@ export default [
   "firm.ro",
   "www.ro",
   "arts.ro",
-  "rec.ro"
+  "rec.ro",
 ];

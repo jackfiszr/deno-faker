@@ -19,5 +19,5 @@ export default [
   "Sporta",
   "Tūrisma",
   "Auto",
-  "Rūpniecības"
+  "Rūpniecības",
 ];

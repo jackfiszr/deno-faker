@@ -29,5 +29,5 @@ export default [
   "Tlaxcala",
   "Veracruz",
   "Yucatán",
-  "Zacatecas"
+  "Zacatecas",
 ];

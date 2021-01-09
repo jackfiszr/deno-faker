@@ -286,5 +286,5 @@ export default [
   "Vlaicu",
   "Voicu",
   "Zamfir",
-  "Zeno"
+  "Zeno",
 ];

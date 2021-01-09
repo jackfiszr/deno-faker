@@ -26,5 +26,5 @@ export default [
   "exploit",
   "transizionali",
   "matrici",
-  "ricontestualizzate"
+  "ricontestualizzate",
 ];

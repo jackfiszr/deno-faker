@@ -37,5 +37,5 @@ export default [
   "Shrestha",
   "Subedi",
   "Tamang",
-  "Thapa"
+  "Thapa",
 ];

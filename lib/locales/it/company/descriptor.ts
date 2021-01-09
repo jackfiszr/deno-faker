@@ -55,5 +55,5 @@ export default [
   "user-friendly",
   "versatile",
   "virtuale",
-  "visionaria"
+  "visionaria",
 ];

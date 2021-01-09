@@ -3,5 +3,5 @@ export default [
   "laan",
   "weg",
   "plantsoen",
-  "park"
+  "park",
 ];

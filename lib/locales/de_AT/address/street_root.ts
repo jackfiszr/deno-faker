@@ -196,5 +196,5 @@ export default [
   "Ziehrerstraße",
   "Zulechnerweg",
   "Zwergjoch",
-  "Ötzbruck"
+  "Ötzbruck",
 ];

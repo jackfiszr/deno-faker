@@ -16,7 +16,7 @@ export default {
     "Licensed",
     "Refined",
     "Unbranded",
-    "Tasty"
+    "Tasty",
   ],
   "material": [
     "Steel",
@@ -29,7 +29,7 @@ export default {
     "Metal",
     "Soft",
     "Fresh",
-    "Frozen"
+    "Frozen",
   ],
   "product": [
     "Chair",
@@ -55,6 +55,6 @@ export default {
     "Pizza",
     "Salad",
     "Sausages",
-    "Chips"
-  ]
+    "Chips",
+  ],
 };

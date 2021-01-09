@@ -93,5 +93,5 @@ export default [
   "Vasco",
   "Vicente",
   "Vítor",
-  "Xavier"
+  "Xavier",
 ];

@@ -6,5 +6,5 @@ export default [
   "NE",
   "NW",
   "SE",
-  "SW"
+  "SW",
 ];

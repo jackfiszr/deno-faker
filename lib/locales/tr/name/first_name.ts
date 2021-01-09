@@ -729,5 +729,5 @@ export default [
   "Kıvanç",
   "Kıvılcım",
   "Kızdurmuş",
-  "Kızılalma"
+  "Kızılalma",
 ];

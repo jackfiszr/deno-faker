@@ -15,7 +15,7 @@ class Hacker {
    */
   abbreviation = () => {
     return this.faker.random.arrayElement(
-      this.faker.definitions.hacker.abbreviation
+      this.faker.definitions.hacker.abbreviation,
     );
   };
 
@@ -26,7 +26,7 @@ class Hacker {
    */
   adjective = () => {
     return this.faker.random.arrayElement(
-      this.faker.definitions.hacker.adjective
+      this.faker.definitions.hacker.adjective,
     );
   };
 
@@ -55,7 +55,7 @@ class Hacker {
    */
   ingverb = () => {
     return this.faker.random.arrayElement(
-      this.faker.definitions.hacker.ingverb
+      this.faker.definitions.hacker.ingverb,
     );
   };
 
@@ -70,11 +70,11 @@ class Hacker {
       adjective: this.adjective,
       ingverb: this.ingverb,
       noun: this.noun,
-      verb: this.verb
+      verb: this.verb,
     };
 
     const phrase = this.faker.random.arrayElement(
-      this.faker.definitions.hacker.phrase
+      this.faker.definitions.hacker.phrase,
     );
     return this.faker.helpers.mustache(phrase, data);
   };

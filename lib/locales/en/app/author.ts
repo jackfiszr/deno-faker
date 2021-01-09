@@ -1,4 +1,4 @@
 export default [
   "#{Name.name}",
-  "#{Company.name}"
+  "#{Company.name}",
 ];

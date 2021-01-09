@@ -10,14 +10,14 @@ import title from "./title.ts";
 import name from "./name.ts";
 
 export {
-  male_first_name,
-  male_middle_name,
-  male_last_name,
   female_first_name,
-  female_middle_name,
   female_last_name,
+  female_middle_name,
+  male_first_name,
+  male_last_name,
+  male_middle_name,
+  name,
   prefix,
   suffix,
   title,
-  name
 };

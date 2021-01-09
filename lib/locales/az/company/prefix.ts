@@ -1,5 +1,5 @@
 export default [
   "ASC",
   "MMC",
-  "QSC"
+  "QSC",
 ];

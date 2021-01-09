@@ -1,3 +1,3 @@
 export default [
-  "#{Address.state} #{creature}"
+  "#{Address.state} #{creature}",
 ];

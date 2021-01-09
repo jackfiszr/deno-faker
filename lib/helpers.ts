@@ -92,7 +92,7 @@ class Helpers {
       "W",
       "X",
       "Y",
-      "Z"
+      "Z",
     ];
     let str = "";
 
@@ -126,7 +126,7 @@ class Helpers {
     // Function calculating the Luhn checksum of a number string
     const getCheckBit = (number: number[]) => {
       number.reverse();
-      number = number.map(function(num, index) {
+      number = number.map(function (num, index) {
         if (index % 2 === 0) {
           num *= 2;
           if (num > 9) {
@@ -135,7 +135,7 @@ class Helpers {
         }
         return num;
       });
-      const sum = number.reduce(function(prev, curr) {
+      const sum = number.reduce(function (prev, curr) {
         return prev + curr;
       });
       return sum % 10;
@@ -145,7 +145,7 @@ class Helpers {
     string = this.faker.helpers.regexpStyleStringParse(string); // replace [4-9] with a random number in range etc...
     string = this.faker.helpers.replaceSymbolWithNumber(string, symbol); // replace ### with random numbers
 
-    const numberList = string.replace(/\D/g, "").split("").map(function(num) {
+    const numberList = string.replace(/\D/g, "").split("").map(function (num) {
       return parseInt(num);
     });
     const checkNum = getCheckBit(numberList);
@@ -244,10 +244,7 @@ class Helpers {
     for (
       let j, x, i = o.length - 1;
       i;
-      j = this.faker.random.number(i),
-        x = o[--i],
-        o[i] = o[j],
-        o[j] = x
+      j = this.faker.random.number(i), x = o[--i], o[i] = o[j], o[j] = x
     );
     return o;
   }
@@ -291,41 +288,41 @@ class Helpers {
         "zipcode": this.faker.address.zipCode(),
         "geo": {
           "lat": this.faker.address.latitude(),
-          "lng": this.faker.address.longitude()
-        }
+          "lng": this.faker.address.longitude(),
+        },
       },
       "phone": this.faker.phone.phoneNumber(),
       "website": this.faker.internet.domainName(),
       "company": {
         "name": this.faker.company.companyName(),
         "catchPhrase": this.faker.company.catchPhrase(),
-        "bs": this.faker.company.bs()
+        "bs": this.faker.company.bs(),
       },
       "posts": [
         {
           "words": this.faker.lorem.words(),
           "sentence": this.faker.lorem.sentence(),
           "sentences": this.faker.lorem.sentences(),
-          "paragraph": this.faker.lorem.paragraph()
+          "paragraph": this.faker.lorem.paragraph(),
         },
         {
           "words": this.faker.lorem.words(),
           "sentence": this.faker.lorem.sentence(),
           "sentences": this.faker.lorem.sentences(),
-          "paragraph": this.faker.lorem.paragraph()
+          "paragraph": this.faker.lorem.paragraph(),
         },
         {
           "words": this.faker.lorem.words(),
           "sentence": this.faker.lorem.sentence(),
           "sentences": this.faker.lorem.sentences(),
-          "paragraph": this.faker.lorem.paragraph()
-        }
+          "paragraph": this.faker.lorem.paragraph(),
+        },
       ],
       "accountHistory": [
         this.faker.helpers.createTransaction(),
         this.faker.helpers.createTransaction(),
-        this.faker.helpers.createTransaction()
-      ]
+        this.faker.helpers.createTransaction(),
+      ],
     };
   }
 
@@ -344,7 +341,7 @@ class Helpers {
       "email": this.faker.internet.email(userName),
       "dob": this.faker.date.past(
         50,
-        new Date("Sat Sep 20 1992 21:35:02 GMT+0200 (CEST)")
+        new Date("Sat Sep 20 1992 21:35:02 GMT+0200 (CEST)"),
       ),
       "phone": this.faker.phone.phoneNumber(),
       "address": {
@@ -354,15 +351,15 @@ class Helpers {
         "zipcode": this.faker.address.zipCode(),
         "geo": {
           "lat": this.faker.address.latitude(),
-          "lng": this.faker.address.longitude()
-        }
+          "lng": this.faker.address.longitude(),
+        },
       },
       "website": this.faker.internet.domainName(),
       "company": {
         "name": this.faker.company.companyName(),
         "catchPhrase": this.faker.company.catchPhrase(),
-        "bs": this.faker.company.bs()
-      }
+        "bs": this.faker.company.bs(),
+      },
     };
   }
 
@@ -383,16 +380,16 @@ class Helpers {
         "zipcode": this.faker.address.zipCode(),
         "geo": {
           "lat": this.faker.address.latitude(),
-          "lng": this.faker.address.longitude()
-        }
+          "lng": this.faker.address.longitude(),
+        },
       },
       "phone": this.faker.phone.phoneNumber(),
       "website": this.faker.internet.domainName(),
       "company": {
         "name": this.faker.company.companyName(),
         "catchPhrase": this.faker.company.catchPhrase(),
-        "bs": this.faker.company.bs()
-      }
+        "bs": this.faker.company.bs(),
+      },
     };
   }
 
@@ -409,7 +406,7 @@ class Helpers {
       "name": [this.faker.finance.accountName(), this.faker.finance.mask()]
         .join(" "),
       "type": this.randomize(this.faker.definitions.finance.transaction_type),
-      "account": this.faker.finance.account()
+      "account": this.faker.finance.account(),
     };
   };
 }

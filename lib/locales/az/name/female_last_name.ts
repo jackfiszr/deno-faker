@@ -8,5 +8,5 @@ export default [
   "Əliyeva",
   "Tahirova",
   "Seyidova",
-  "Vəsiyeva"
+  "Vəsiyeva",
 ];

@@ -5,5 +5,5 @@ export default [
   "South",
   "New",
   "Lake",
-  "Port"
+  "Port",
 ];

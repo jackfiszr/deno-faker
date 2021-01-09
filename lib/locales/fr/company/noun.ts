@@ -102,5 +102,5 @@ export default [
   "toolset",
   "utilisation",
   "website",
-  "workforce"
+  "workforce",
 ];

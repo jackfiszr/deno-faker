@@ -1,4 +1,4 @@
 export default [
   "MBA",
-  "Phd."
+  "Phd.",
 ];

@@ -98,5 +98,5 @@ export default [
   "Vusumuzi",
   "Themba",
   "Zenzele",
-  "Ndleleni"
+  "Ndleleni",
 ];

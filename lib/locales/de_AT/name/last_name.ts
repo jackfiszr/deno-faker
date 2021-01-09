@@ -1686,5 +1686,5 @@ export default [
   "Zwiener",
   "Zümsande",
   "Östringer",
-  "Überacker"
+  "Überacker",
 ];

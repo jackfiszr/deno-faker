@@ -1,7 +1,7 @@
 export function testWrapper(
   t: Deno.TestDefinition,
   setUp: Function,
-  tearDown: Function
+  tearDown: Function,
 ) {
   async function wrapped() {
     setUp();
@@ -16,7 +16,7 @@ export function testWrapper(
 
 export function luhnCheck(number: string) {
   number = number.replace(/\D/g, "");
-  let split = number.split("").map(num => parseInt(num));
+  let split = number.split("").map((num) => parseInt(num));
   const check = split.pop();
   split = split.reverse().map((num, index) => {
     if (index % 2 === 0) {

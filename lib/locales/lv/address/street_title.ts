@@ -345,5 +345,5 @@ export default [
   "Zvārtavas",
   "Žaņa Lipkes",
   "Žīguru",
-  "Žubīšu"
+  "Žubīšu",
 ];

@@ -5,5 +5,5 @@ export default [
   "i.ua",
   "meta.ua",
   "yandex.ua",
-  "gmail.com"
+  "gmail.com",
 ];

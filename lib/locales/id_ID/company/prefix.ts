@@ -3,5 +3,5 @@ export default [
   "CV",
   "UD",
   "PD",
-  "Perum"
+  "Perum",
 ];

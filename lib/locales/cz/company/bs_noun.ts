@@ -107,5 +107,5 @@ export default [
   "functionalities",
   "experiences",
   "web services",
-  "methodologies"
+  "methodologies",
 ];

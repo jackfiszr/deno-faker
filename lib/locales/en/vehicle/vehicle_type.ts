@@ -9,5 +9,5 @@ export default [
   "Passenger Van",
   "SUV",
   "Sedan",
-  "Wagon"
+  "Wagon",
 ];

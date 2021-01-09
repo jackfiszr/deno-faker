@@ -14,5 +14,5 @@ export default [
   "SN",
   "ST",
   "SH",
-  "TH"
+  "TH",
 ];

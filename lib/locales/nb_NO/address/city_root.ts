@@ -15,5 +15,5 @@ export default [
   "Stor",
   "Tand",
   "Ut",
-  "Vest"
+  "Vest",
 ];

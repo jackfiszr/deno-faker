@@ -247,5 +247,5 @@ export default [
   "maiores",
   "doloribus",
   "asperiores",
-  "repellat"
+  "repellat",
 ];

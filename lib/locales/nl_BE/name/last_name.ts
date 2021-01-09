@@ -30,5 +30,5 @@ export default [
   "Verhaeghe",
   "Verstraete",
   "Willems",
-  "Wouters"
+  "Wouters",
 ];

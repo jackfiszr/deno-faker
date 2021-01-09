@@ -380,5 +380,5 @@ export default [
   "Zambia",
   "Zambijská republika",
   "Zimbabwe",
-  "Zimbabwianska republika"
+  "Zimbabwianska republika",
 ];

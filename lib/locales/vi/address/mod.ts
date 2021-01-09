@@ -3,9 +3,4 @@ import city from "./city.ts";
 import county from "./county.ts";
 import default_country from "./default_country.ts";
 
-export {
-  city_root,
-  city,
-  county,
-  default_country
-};
+export { city, city_root, county, default_country };

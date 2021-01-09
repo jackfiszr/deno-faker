@@ -906,5 +906,5 @@ export default [
   "Żuromin",
   "Żychlin",
   "Żyrardów",
-  "Żywiec"
+  "Żywiec",
 ];

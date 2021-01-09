@@ -7,5 +7,5 @@ export default [
   "Western Cape,",
   "KwaZulu-Natal",
   "Mpumalanga",
-  "Eastern Cape"
+  "Eastern Cape",
 ];

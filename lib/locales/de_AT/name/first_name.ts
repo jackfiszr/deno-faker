@@ -1153,5 +1153,5 @@ export default [
   "Zeynep",
   "Zoe",
   "Zoey",
-  "Zoé"
+  "Zoé",
 ];

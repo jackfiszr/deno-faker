@@ -4,5 +4,5 @@ export default [
   "vlaanderen",
   "com",
   "net",
-  "org"
+  "org",
 ];

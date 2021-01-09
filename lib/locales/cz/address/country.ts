@@ -193,5 +193,5 @@ export default [
   "Vietnam",
   "Východní Timor",
   "Zambie",
-  "Zimbabwe"
+  "Zimbabwe",
 ];

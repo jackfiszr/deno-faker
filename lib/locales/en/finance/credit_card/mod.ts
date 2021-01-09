@@ -11,15 +11,15 @@ import laser from "./laser.ts";
 import instapayment from "./instapayment.ts";
 
 export {
-  visa,
-  mastercard,
-  discover,
+  _switch,
   american_express,
   diners_club,
+  discover,
+  instapayment,
   jcb,
-  _switch,
-  solo,
-  maestro,
   laser,
-  instapayment
+  maestro,
+  mastercard,
+  solo,
+  visa,
 };

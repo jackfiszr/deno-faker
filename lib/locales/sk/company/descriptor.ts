@@ -99,5 +99,5 @@ export default [
   "well-modulated",
   "zero administration",
   "zero defect",
-  "zero tolerance"
+  "zero tolerance",
 ];

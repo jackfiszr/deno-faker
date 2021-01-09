@@ -1,3 +1,3 @@
 export default [
-  "#{Address.city} #{suffix}"
+  "#{Address.city} #{suffix}",
 ];

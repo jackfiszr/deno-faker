@@ -14,5 +14,5 @@ export default [
   "ŚK",
   "WM",
   "WP",
-  "ZP"
+  "ZP",
 ];

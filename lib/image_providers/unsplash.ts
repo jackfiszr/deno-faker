@@ -14,7 +14,7 @@ class Unsplash {
       "people",
       "technology",
       "objects",
-      "buildings"
+      "buildings",
     ];
   }
 
@@ -51,7 +51,7 @@ class Unsplash {
     width: number,
     height: number,
     category: string | undefined,
-    keyword: string
+    keyword: string,
   ) {
     width = width || 640;
     height = height || 480;
@@ -66,7 +66,7 @@ class Unsplash {
 
     if (typeof keyword !== "undefined") {
       const keywordFormat = new RegExp(
-        "^([A-Za-z0-9].+,[A-Za-z0-9]+)$|^([A-Za-z0-9]+)$"
+        "^([A-Za-z0-9].+,[A-Za-z0-9]+)$|^([A-Za-z0-9]+)$",
       );
       if (keywordFormat.test(keyword)) {
         url += "?" + keyword;
@@ -99,7 +99,7 @@ class Unsplash {
       width,
       height,
       "people",
-      keyword
+      keyword,
     );
   }
   /**
@@ -115,7 +115,7 @@ class Unsplash {
       width,
       height,
       "nature",
-      keyword
+      keyword,
     );
   }
   /**
@@ -131,7 +131,7 @@ class Unsplash {
       width,
       height,
       "technology",
-      keyword
+      keyword,
     );
   }
   /**
@@ -147,7 +147,7 @@ class Unsplash {
       width,
       height,
       "objects",
-      keyword
+      keyword,
     );
   }
   /**
@@ -163,7 +163,7 @@ class Unsplash {
       width,
       height,
       "buildings",
-      keyword
+      keyword,
     );
   }
 }

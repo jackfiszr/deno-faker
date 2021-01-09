@@ -5,5 +5,5 @@ export default [
   "Süd",
   "Neu",
   "Alt",
-  "Bad"
+  "Bad",
 ];

@@ -10,7 +10,7 @@ test({
     assert(phone_number.match(/\d/));
     assert(faker.helpers.replaceSymbolWithNumber.called);
     faker.helpers.replaceSymbolWithNumber.restore();
-  }
+  },
 });
 
 test({
@@ -22,7 +22,7 @@ test({
       const phone_number = faker.phone.phoneNumberFormat(1);
       assert(phone_number.match(/\(\d\d\d\) \d\d\d-\d\d\d\d/));
     }
-  }
+  },
 });
 
 test({
@@ -35,7 +35,7 @@ test({
       console.log(phone_number);
       assert(phone_number.match(/\([2-9]\d\d\) [2-9]\d\d-\d\d\d\d/));
     }
-  }
+  },
 });
 
 test({
@@ -47,5 +47,5 @@ test({
       const phone_number = faker.phone.phoneNumberFormat(1);
       assert(phone_number.match(/\([2-9]\d\d\)[2-9]\d\d-\d\d\d\d/));
     }
-  }
+  },
 });

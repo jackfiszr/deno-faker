@@ -2,7 +2,7 @@ import {
   assert,
   assertEquals,
   assertStrictEquals,
-  sinon
+  sinon,
 } from "./support/test_deps.ts";
 import { testWrapper } from "./support/test_utils.ts";
 import { faker } from "../mod.ts";
@@ -15,7 +15,7 @@ test({
     const first_name = faker.name.firstName();
     assertEquals(first_name, "foo");
     faker.name.firstName.restore();
-  }
+  },
 });
 
 test({
@@ -25,7 +25,7 @@ test({
     const last_name = faker.name.lastName();
     assertEquals(last_name, "foo");
     faker.name.lastName.restore();
-  }
+  },
 });
 
 test({
@@ -37,7 +37,7 @@ test({
     const parts = name.split(" ");
     assertStrictEquals(parts.length, 2);
     faker.random.number.restore();
-  }
+  },
 });
 
 test({
@@ -49,7 +49,7 @@ test({
     const parts = name.split(" ");
     assert(parts.length >= 3);
     faker.random.number.restore();
-  }
+  },
 });
 
 test({
@@ -67,7 +67,7 @@ test({
     faker.name.prefix.restore();
     faker.name.firstName.restore();
     faker.name.lastName.restore();
-  }
+  },
 });
 
 test({
@@ -85,7 +85,7 @@ test({
     faker.name.prefix.restore();
     faker.name.firstName.restore();
     faker.name.lastName.restore();
-  }
+  },
 });
 
 test({
@@ -100,7 +100,7 @@ test({
     assertEquals(parts[parts.length - 1], "Jr.");
     faker.name.suffix.restore();
     faker.random.number.restore();
-  }
+  },
 });
 
 test({
@@ -112,7 +112,7 @@ test({
     const name = faker.name.findName();
     // reset locale
     faker.locale = "en";
-  }
+  },
 });
 test({
   name: "title() returns a random title",
@@ -121,7 +121,7 @@ test({
     const title = faker.name.title();
     assertEquals(title, "Lead Solutions Supervisor");
     faker.name.title.restore();
-  }
+  },
 });
 
 test({
@@ -142,7 +142,7 @@ test({
     faker.name.jobDescriptor.restore();
     faker.name.jobArea.restore();
     faker.name.jobType.restore();
-  }
+  },
 });
 
 let oldLocale: string;
@@ -154,9 +154,9 @@ function localePrefixes() {
     TEST: {
       name: {
         male_prefix: ["Mp"],
-        female_prefix: ["Fp"]
-      }
-    }
+        female_prefix: ["Fp"],
+      },
+    },
   };
 }
 function localePrefix() {
@@ -166,9 +166,9 @@ function localePrefix() {
     ...faker.locales,
     TEST: {
       name: {
-        prefix: ["P"]
-      }
-    }
+        prefix: ["P"],
+      },
+    },
   };
 }
 function resetLocale() {
@@ -176,38 +176,54 @@ function resetLocale() {
   delete faker.locale["TEST"];
 }
 
-testWrapper({
-  name:
-    "prefix() returns male prefix when using a locale with gender specific name prefixes",
-  fn(): void {
-    const prefix = faker.name.prefix(0);
-    assertEquals(prefix, "Mp");
-  }
-}, localePrefixes, resetLocale);
+testWrapper(
+  {
+    name:
+      "prefix() returns male prefix when using a locale with gender specific name prefixes",
+    fn(): void {
+      const prefix = faker.name.prefix(0);
+      assertEquals(prefix, "Mp");
+    },
+  },
+  localePrefixes,
+  resetLocale,
+);
 
-testWrapper({
-  name:
-    "prefix() returns female prefix when using a locale with gender specific name prefixes",
-  fn(): void {
-    const prefix = faker.name.prefix(1);
-    assertEquals(prefix, "Fp");
-  }
-}, localePrefixes, resetLocale);
+testWrapper(
+  {
+    name:
+      "prefix() returns female prefix when using a locale with gender specific name prefixes",
+    fn(): void {
+      const prefix = faker.name.prefix(1);
+      assertEquals(prefix, "Fp");
+    },
+  },
+  localePrefixes,
+  resetLocale,
+);
 
-testWrapper({
-  name:
-    "prefix() returns either prefix when using a locale with gender specific name prefixes",
-  fn(): void {
-    const prefix = faker.name.prefix();
-    assert(["Mp", "Fp"].indexOf(prefix) >= 0);
-  }
-}, localePrefixes, resetLocale);
+testWrapper(
+  {
+    name:
+      "prefix() returns either prefix when using a locale with gender specific name prefixes",
+    fn(): void {
+      const prefix = faker.name.prefix();
+      assert(["Mp", "Fp"].indexOf(prefix) >= 0);
+    },
+  },
+  localePrefixes,
+  resetLocale,
+);
 
-testWrapper({
-  name:
-    "prefix() returns a prefix when using a locale without gender specific name prefixes",
-  fn(): void {
-    const prefix = faker.name.prefix();
-    assertEquals(prefix, "P");
-  }
-}, localePrefix, resetLocale);
+testWrapper(
+  {
+    name:
+      "prefix() returns a prefix when using a locale without gender specific name prefixes",
+    fn(): void {
+      const prefix = faker.name.prefix();
+      assertEquals(prefix, "P");
+    },
+  },
+  localePrefix,
+  resetLocale,
+);

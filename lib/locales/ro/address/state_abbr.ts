@@ -40,5 +40,5 @@ export default [
   "TL",
   "VL",
   "VS",
-  "VN"
+  "VN",
 ];

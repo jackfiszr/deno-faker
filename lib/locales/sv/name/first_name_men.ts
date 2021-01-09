@@ -8,5 +8,5 @@ export default [
   "Nils",
   "Lennart",
   "Emil",
-  "Hans"
+  "Hans",
 ];

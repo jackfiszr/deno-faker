@@ -5,11 +5,4 @@ import verb from "./verb.ts";
 import ingverb from "./ingverb.ts";
 import phrase from "./phrase.ts";
 
-export {
-  abbreviation,
-  adjective,
-  noun,
-  verb,
-  ingverb,
-  phrase
-};
+export { abbreviation, adjective, ingverb, noun, phrase, verb };

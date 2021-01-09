@@ -20,5 +20,5 @@ export default [
   "Desporto",
   "Ar Livre",
   "Automóveis",
-  "Industrial"
+  "Industrial",
 ];

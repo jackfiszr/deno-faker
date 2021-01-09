@@ -29,5 +29,5 @@ export default [
   "cyan",
   "azure",
   "lavender",
-  "silver"
+  "silver",
 ];

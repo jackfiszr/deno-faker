@@ -1158,5 +1158,5 @@ export default [
   "Žilinská",
   "Živnostenská",
   "Žižkova",
-  "Župné námestie"
+  "Župné námestie",
 ];

@@ -171,5 +171,5 @@ export default [
   "Zoug",
   "Zuchwil",
   "Zurich",
-  "Écublens"
+  "Écublens",
 ];

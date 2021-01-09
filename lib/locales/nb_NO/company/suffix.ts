@@ -4,5 +4,5 @@ export default [
   "ASA",
   "BA",
   "RFH",
-  "og Sønner"
+  "og Sønner",
 ];

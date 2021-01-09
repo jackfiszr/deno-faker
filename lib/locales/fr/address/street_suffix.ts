@@ -64,5 +64,5 @@ export default [
   "Vaneau",
   "de Vaugirard",
   "de la Victoire",
-  "Zadkine"
+  "Zadkine",
 ];

@@ -3,5 +3,5 @@ export default [
   "yahoo.com",
   "hotmail.com",
   "live.com",
-  "bol.com.br"
+  "bol.com.br",
 ];

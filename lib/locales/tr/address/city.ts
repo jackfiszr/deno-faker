@@ -79,5 +79,5 @@ export default [
   "Karabük",
   "Kilis",
   "Osmaniye",
-  "Düzce"
+  "Düzce",
 ];

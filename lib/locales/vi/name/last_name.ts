@@ -71,5 +71,5 @@ export default [
   "Thắm",
   "Thu",
   "Thủy",
-  "Nhàn"
+  "Nhàn",
 ];

@@ -61,5 +61,5 @@ export default [
   "Tây Ninh",
   "Tiền Giang",
   "Trà Vinh",
-  "Vĩnh Long"
+  "Vĩnh Long",
 ];

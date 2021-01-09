@@ -4,5 +4,5 @@ export default [
   "Dr.",
   "Drs.",
   "Ir.",
-  "H."
+  "H.",
 ];

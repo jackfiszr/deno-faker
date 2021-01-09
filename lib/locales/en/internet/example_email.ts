@@ -1,5 +1,5 @@
 export default [
   "example.org",
   "example.com",
-  "example.net"
+  "example.net",
 ];

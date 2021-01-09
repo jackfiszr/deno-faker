@@ -98,5 +98,5 @@ export default [
   "Versatile",
   "Virtual",
   "Visionary",
-  "Vision-oriented"
+  "Vision-oriented",
 ];

@@ -102,5 +102,5 @@ export default [
   "Tom",
   "Nigel",
   "Matt",
-  "Sean"
+  "Sean",
 ];

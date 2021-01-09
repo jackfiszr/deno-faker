@@ -1,4 +1,4 @@
 export default [
   "Jr.",
-  "Sr."
+  "Sr.",
 ];

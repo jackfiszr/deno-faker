@@ -68,5 +68,5 @@ export default [
   "Travesía",
   "Urbanización",
   "Vía",
-  "Vía Pública"
+  "Vía Pública",
 ];

@@ -4,5 +4,5 @@ export default [
   "MEMORY",
   "CSV",
   "BLACKHOLE",
-  "ARCHIVE"
+  "ARCHIVE",
 ];

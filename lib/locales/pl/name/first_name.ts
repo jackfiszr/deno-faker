@@ -406,5 +406,5 @@ export default [
   "Wilhelmina",
   "Ksawera",
   "Ksenia",
-  "Zoe"
+  "Zoe",
 ];

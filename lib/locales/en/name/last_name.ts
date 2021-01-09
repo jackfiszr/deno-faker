@@ -471,5 +471,5 @@ export default [
   "Zemlak",
   "Ziemann",
   "Zieme",
-  "Zulauf"
+  "Zulauf",
 ];

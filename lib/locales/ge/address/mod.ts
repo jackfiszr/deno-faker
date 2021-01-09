@@ -13,17 +13,17 @@ import street_address from "./street_address.ts";
 import default_country from "./default_country.ts";
 
 export {
+  building_number,
+  city,
+  city_name,
   city_prefix,
   city_suffix,
-  city,
   country,
-  building_number,
-  street_suffix,
-  secondary_address,
+  default_country,
   postcode,
-  city_name,
-  street_title,
-  street_name,
+  secondary_address,
   street_address,
-  default_country
+  street_name,
+  street_suffix,
+  street_title,
 };

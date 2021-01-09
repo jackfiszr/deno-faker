@@ -1,4 +1,4 @@
-import { assert, assertEquals, assertThrows, _ } from "./support/test_deps.ts";
+import { _, assert, assertEquals, assertThrows } from "./support/test_deps.ts";
 import * as mersenne from "../vendor/mersenne.ts";
 import { faker } from "../mod.ts";
 const { test } = Deno;
@@ -8,7 +8,7 @@ test({
   fn() {
     const max = 10;
     assert(faker.random.number(max) <= max);
-  }
+  },
 });
 
 test({
@@ -16,7 +16,7 @@ test({
   fn() {
     const options = { max: 10 };
     assert(faker.random.number(options) <= options.max);
-  }
+  },
 });
 
 test({
@@ -24,7 +24,7 @@ test({
   fn() {
     const options = { max: 0 };
     assert(faker.random.number(options) === 0);
-  }
+  },
 });
 
 test({
@@ -33,7 +33,7 @@ test({
   fn() {
     const options = { min: -100, max: 0 };
     assert(faker.random.number(options) <= options.max);
-  }
+  },
 });
 
 test({
@@ -45,21 +45,21 @@ test({
       assert(randomNumber >= options.min);
       assert(randomNumber <= options.max);
     }
-  }
+  },
 });
 
 test({
   name: "number() provides numbers with a given precision",
   fn() {
     const options = { min: 0, max: 1.5, precision: 0.5 };
-    const results = _.chain(_.range(50)).map(function() {
+    const results = _.chain(_.range(50)).map(function () {
       return faker.random.number(options);
     }).uniq().value().sort();
     assert(_.includes(results, 0.5));
     assert(_.includes(results, 1.0));
     assertEquals(results[0], 0);
     assertEquals(_.last(results), 1.5);
-  }
+  },
 });
 
 test({
@@ -70,7 +70,7 @@ test({
       const number = faker.random.number(options);
       assertEquals(number, Number(number.toFixed(2)));
     }
-  }
+  },
 });
 
 test({
@@ -80,22 +80,21 @@ test({
     const max = 2;
     const opts = {
       min: min,
-      max: max
+      max: max,
     };
     faker.random.number(opts);
     assertEquals(opts.min, min);
     assertEquals(opts.max, max);
-  }
+  },
 });
 
 test({
-  name:
-    "number() should return deterministic results when seeded with integer",
+  name: "number() should return deterministic results when seeded with integer",
   fn() {
     faker.seed(100);
     const name = faker.name.findName();
     assertEquals(name, "Eva Jenkins");
-  }
+  },
 });
 
 test({
@@ -105,7 +104,7 @@ test({
     faker.seed([10]);
     const name = faker.name.findName();
     assertEquals(name, "Duane Kub");
-  }
+  },
 });
 
 test({
@@ -115,7 +114,7 @@ test({
     faker.seed([10, 100, 1000]);
     const name = faker.name.findName();
     assertEquals(name, "Alma Shanahan");
-  }
+  },
 });
 
 test({
@@ -123,7 +122,7 @@ test({
   fn() {
     const number = faker.random.float();
     assertEquals(number, Number(number.toFixed(2)));
-  }
+  },
 });
 
 test({
@@ -131,7 +130,7 @@ test({
   fn() {
     const number = faker.random.float(0.001);
     assertEquals(number, Number(number.toFixed(3)));
-  }
+  },
 });
 
 test({
@@ -139,7 +138,7 @@ test({
   fn() {
     const options = { max: 10 };
     assert(faker.random.float(options) <= options.max);
-  }
+  },
 });
 
 test({
@@ -147,7 +146,7 @@ test({
   fn() {
     const options = { max: 0 };
     assert(faker.random.float(options) === 0);
-  }
+  },
 });
 
 test({
@@ -156,7 +155,7 @@ test({
   fn() {
     const options = { min: -100, max: 0 };
     assert(faker.random.float(options) <= options.max);
-  }
+  },
 });
 
 test({
@@ -168,21 +167,21 @@ test({
       assert(randomNumber >= options.min);
       assert(randomNumber <= options.max);
     }
-  }
+  },
 });
 
 test({
   name: "float() provides numbers with a given precision",
   fn() {
     const options = { min: 0, max: 1.5, precision: 0.5 };
-    const results = _.chain(_.range(50)).map(function() {
+    const results = _.chain(_.range(50)).map(function () {
       return faker.random.float(options);
     }).uniq().value().sort();
     assert(_.includes(results, 0.5));
     assert(_.includes(results, 1.0));
     assertEquals(results[0], 0);
     assertEquals(_.last(results), 1.5);
-  }
+  },
 });
 
 test({
@@ -193,7 +192,7 @@ test({
       const number = faker.random.float(options);
       assertEquals(number, Number(number.toFixed(2)));
     }
-  }
+  },
 });
 
 test({
@@ -203,12 +202,12 @@ test({
     const max = 2;
     const opts = {
       min: min,
-      max: max
+      max: max,
     };
     faker.random.float(opts);
     assertEquals(opts.min, min);
     assertEquals(opts.max, max);
-  }
+  },
 });
 
 test({
@@ -216,7 +215,7 @@ test({
   fn() {
     const testArray = ["hello", "to", "you", "my", "friend"];
     assert(testArray.indexOf(faker.random.arrayElement(testArray)) > -1);
-  }
+  },
 });
 
 test({
@@ -225,7 +224,7 @@ test({
   fn() {
     const testArray = ["hello"];
     assert(testArray.indexOf(faker.random.arrayElement(testArray)) > -1);
-  }
+  },
 });
 
 test({
@@ -245,7 +244,7 @@ test({
       // this[element] = true
       Object.defineProperty(subset, element, { value: true });
     }, {});
-  }
+  },
 });
 
 test({
@@ -265,7 +264,7 @@ test({
       assert(!subset.hasOwnProperty(element));
       Object.defineProperty(subset, element, { value: true });
     }, {});
-  }
+  },
 });
 
 test({
@@ -275,7 +274,7 @@ test({
     const RFC4122 =
       /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/;
     assert(RFC4122.test(UUID));
-  }
+  },
 });
 
 test({
@@ -283,7 +282,7 @@ test({
   fn() {
     const bool = faker.random.boolean();
     assert(typeof bool == "boolean");
-  }
+  },
 });
 
 test({
@@ -291,7 +290,7 @@ test({
   fn() {
     const semver = faker.system.semver();
     assert(typeof semver === "string");
-  }
+  },
 });
 
 test({
@@ -299,7 +298,7 @@ test({
   fn() {
     const semver = faker.system.semver();
     assert(/^\d+\.\d+\.\d+$/.test(semver));
-  }
+  },
 });
 
 test({
@@ -307,16 +306,15 @@ test({
   fn() {
     const alpha = faker.random.alpha;
     assert(alpha().length === 1);
-  }
+  },
 });
 
 test({
-  name:
-    "alpha() should return lowercase letter when no upcase option provided",
+  name: "alpha() should return lowercase letter when no upcase option provided",
   fn() {
     const alpha = faker.random.alpha;
     assert(alpha().match(/[a-z]/));
-  }
+  },
 });
 
 test({
@@ -324,7 +322,7 @@ test({
   fn() {
     const alpha = faker.random.alpha;
     assert(alpha({ upcase: true }).match(/[A-Z]/));
-  }
+  },
 });
 
 test({
@@ -332,7 +330,7 @@ test({
   fn() {
     const alpha = faker.random.alpha;
     assert(alpha(5).length === 5);
-  }
+  },
 });
 
 test({
@@ -341,7 +339,7 @@ test({
   fn() {
     const alphaNumeric = faker.random.alphaNumeric;
     assert(alphaNumeric().length === 1);
-  }
+  },
 });
 
 test({
@@ -349,7 +347,7 @@ test({
   fn() {
     const alphaNumeric = faker.random.alphaNumeric;
     assert(alphaNumeric(5).length === 5);
-  }
+  },
 });
 
 test({
@@ -358,7 +356,7 @@ test({
   fn() {
     const hex = faker.random.hexaDecimal();
     assert(hex.match(/^(0x)[0-9a-f]{1}$/i));
-  }
+  },
 });
 
 test({
@@ -366,7 +364,7 @@ test({
   fn() {
     const hex = faker.random.hexaDecimal(5);
     assert(hex.match(/^(0x)[0-9a-f]+$/i));
-  }
+  },
 });
 
 test({
@@ -376,7 +374,7 @@ test({
     const max = 10;
     const randomNumber = mersenne.rand();
     assert(typeof randomNumber === "number");
-  }
+  },
 });
 /*
 test({

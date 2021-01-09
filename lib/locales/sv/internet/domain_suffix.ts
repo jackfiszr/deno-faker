@@ -3,5 +3,5 @@ export default [
   "nu",
   "info",
   "com",
-  "org"
+  "org",
 ];

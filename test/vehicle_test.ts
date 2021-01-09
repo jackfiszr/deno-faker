@@ -9,7 +9,7 @@ test({
     const vehicle = faker.vehicle.vehicle();
     assertEquals(vehicle, "Ford Explorer");
     faker.vehicle.vehicle.restore();
-  }
+  },
 });
 
 test({
@@ -19,7 +19,7 @@ test({
     const manufacturer = faker.vehicle.manufacturer();
     assertEquals(manufacturer, "Porsche");
     faker.vehicle.manufacturer.restore();
-  }
+  },
 });
 
 test({
@@ -29,7 +29,7 @@ test({
     const type = faker.vehicle.type();
     assertEquals(type, "Minivan");
     faker.vehicle.type.restore();
-  }
+  },
 });
 
 test({
@@ -39,7 +39,7 @@ test({
     const fuel = faker.vehicle.fuel();
     assertEquals(fuel, "Hybrid");
     faker.vehicle.fuel.restore();
-  }
+  },
 });
 
 test({
@@ -47,7 +47,7 @@ test({
   fn() {
     const vin = faker.vehicle.vin();
     assert(vin.match(/^[A-Z0-9]{10}[A-Z]{1}[A-Z0-9]{1}\d{5}$/));
-  }
+  },
 });
 
 test({
@@ -57,5 +57,5 @@ test({
     const color = faker.vehicle.color();
     assertEquals(color, "black");
     faker.vehicle.color.restore();
-  }
+  },
 });

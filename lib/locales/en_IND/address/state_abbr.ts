@@ -34,5 +34,5 @@ export default [
   "TR",
   "UP",
   "UK",
-  "WB"
+  "WB",
 ];

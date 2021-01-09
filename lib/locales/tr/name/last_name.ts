@@ -196,5 +196,5 @@ export default [
   "Özkara",
   "Özkök ",
   "Öztonga",
-  "Öztuna"
+  "Öztuna",
 ];

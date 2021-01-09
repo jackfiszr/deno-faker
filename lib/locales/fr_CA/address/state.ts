@@ -11,5 +11,5 @@ export default [
   "Île-du-Prince-Édouard",
   "Québec",
   "Saskatchewan",
-  "Yukon"
+  "Yukon",
 ];

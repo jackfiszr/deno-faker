@@ -4,5 +4,5 @@ export default [
   "s Gate",
   "s Vei",
   "gata",
-  "veien"
+  "veien",
 ];

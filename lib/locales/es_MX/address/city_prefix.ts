@@ -128,5 +128,5 @@ export default [
   "Zacatzingo",
   "Zamora-Jacona",
   "Zapopan",
-  "Zitacuaro"
+  "Zitacuaro",
 ];

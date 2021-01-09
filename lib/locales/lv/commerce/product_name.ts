@@ -11,7 +11,7 @@ export default {
     "Spalvains",
     "Ciets",
     "Mīksts",
-    "Rūgts"
+    "Rūgts",
   ],
   "material": [
     "dzelzs",
@@ -20,7 +20,7 @@ export default {
     "plastmasas",
     "kokvilnas",
     "granīta",
-    "gumijas"
+    "gumijas",
   ],
   "product": [
     "krēsls",
@@ -43,6 +43,6 @@ export default {
     "nazis",
     "plāksteris",
     "telefons",
-    "pončiks"
-  ]
+    "pončiks",
+  ],
 };

@@ -1,6 +1,6 @@
 export default {
   "Ευρώ": {
     "code": "EUR",
-    "symbol": "€"
-  }
+    "symbol": "€",
+  },
 };

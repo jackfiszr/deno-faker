@@ -15,7 +15,7 @@ class Commerce {
    */
   color = () => {
     return this.faker.random.arrayElement(
-      this.faker.definitions.commerce.color
+      this.faker.definitions.commerce.color,
     );
   };
 
@@ -26,7 +26,7 @@ class Commerce {
    */
   department = () => {
     return this.faker.random.arrayElement(
-      this.faker.definitions.commerce.department
+      this.faker.definitions.commerce.department,
     );
   };
 
@@ -66,7 +66,7 @@ class Commerce {
 
     return symbol +
       (Math.round(randValue * Math.pow(10, dec)) / Math.pow(10, dec)).toFixed(
-        dec
+        dec,
       );
   };
 
@@ -103,7 +103,7 @@ class Commerce {
    */
   productAdjective = () => {
     return this.faker.random.arrayElement(
-      this.faker.definitions.commerce.product_name.adjective
+      this.faker.definitions.commerce.product_name.adjective,
     );
   };
 
@@ -114,7 +114,7 @@ class Commerce {
    */
   productMaterial = () => {
     return this.faker.random.arrayElement(
-      this.faker.definitions.commerce.product_name.material
+      this.faker.definitions.commerce.product_name.material,
     );
   };
 
@@ -125,7 +125,7 @@ class Commerce {
    */
   product = () => {
     return this.faker.random.arrayElement(
-      this.faker.definitions.commerce.product_name.product
+      this.faker.definitions.commerce.product_name.product,
     );
   };
 }

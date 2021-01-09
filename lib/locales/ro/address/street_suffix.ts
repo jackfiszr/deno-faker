@@ -1,5 +1,5 @@
 export default [
   "Aleea",
   "Bulevardul",
-  "Intrarea"
+  "Intrarea",
 ];

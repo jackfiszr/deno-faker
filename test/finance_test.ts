@@ -1,12 +1,15 @@
-import { assert, assertEquals, assertStrictEquals } from "./support/test_deps.ts";
+import {
+  assert,
+  assertEquals,
+  assertStrictEquals,
+} from "./support/test_deps.ts";
 import { luhnCheck as luhnFormula } from "./support/test_utils.ts";
 import ibanLib from "../lib/iban.ts";
 import { faker } from "../mod.ts";
 const { test } = Deno;
 
 test({
-  name:
-    "account(length) should supply a default length if no length is passed",
+  name: "account(length) should supply a default length if no length is passed",
   fn() {
     const account = faker.finance.account();
     const expected = 8;
@@ -15,9 +18,9 @@ test({
       actual,
       expected,
       "The expected default account length is " + expected + " but it was " +
-        actual
+        actual,
     );
-  }
+  },
 });
 
 test({
@@ -30,9 +33,9 @@ test({
       actual,
       expected,
       "The expected default account length is " + expected + " but it was " +
-        actual
+        actual,
     );
-  }
+  },
 });
 
 test({
@@ -45,9 +48,9 @@ test({
       actual,
       expected,
       "The expected default account length is " + expected + " but it was " +
-        actual
+        actual,
     );
-  }
+  },
 });
 
 test({
@@ -55,7 +58,7 @@ test({
   fn() {
     const actual = faker.finance.accountName();
     assert(actual);
-  }
+  },
 });
 
 test({
@@ -63,7 +66,7 @@ test({
   fn() {
     const actual = faker.finance.routingNumber();
     assert(actual);
-  }
+  },
 });
 
 test({
@@ -76,9 +79,9 @@ test({
       actual,
       expected,
       "The expected default mask length is " + expected + " but it was " +
-        actual
+        actual,
     );
-  }
+  },
 });
 
 test({
@@ -94,9 +97,9 @@ test({
       actual,
       expected,
       "The expected default mask length is " + expected + " but it was " +
-        actual
+        actual,
     );
-  }
+  },
 });
 
 test({
@@ -110,9 +113,9 @@ test({
       actual,
       expected,
       "The expected default mask length is " + expected + " but it was " +
-        actual
+        actual,
     );
-  }
+  },
 });
 
 test({
@@ -127,9 +130,9 @@ test({
       actual,
       expected,
       "The expected match for parentheses is " + expected + " but it was " +
-        actual
+        actual,
     );
-  }
+  },
 });
 
 test({
@@ -143,9 +146,9 @@ test({
       actual,
       expected,
       "The expected match for parentheses is " + expected + " but it was " +
-        actual
+        actual,
     );
-  }
+  },
 });
 
 test({
@@ -157,7 +160,7 @@ test({
     const parens = !ellipsis;
     const mask = faker.finance.mask(length, ellipsis, parens);
     assert(mask);
-  }
+  },
 });
 
 test({
@@ -168,7 +171,7 @@ test({
     assert(amount);
     assertEquals((amount > 0), true, "the amount should be greater than 0");
     assertEquals((amount < 1001), true, "the amount should be greater than 0");
-  }
+  },
 });
 
 test({
@@ -183,9 +186,9 @@ test({
       actual,
       expected,
       "The expected location of the decimal is " + expected + " but it was " +
-        actual + " amount " + amount
+        actual + " amount " + amount,
     );
-  }
+  },
 });
 
 //TODO: add support for more currency and decimal options
@@ -200,9 +203,9 @@ test({
     assertEquals(
       actual,
       expected,
-      "The expected match should not include a currency symbol"
+      "The expected match should not include a currency symbol",
     );
-  }
+  },
 });
 
 test({
@@ -212,7 +215,7 @@ test({
     assert(amount);
     assertEquals((amount < 0), true, "the amount should be greater than 0");
     assertEquals((amount > -201), true, "the amount should be greater than 0");
-  }
+  },
 });
 
 test({
@@ -221,7 +224,7 @@ test({
     const amount = faker.finance.amount(100, 100, 1);
     assert(amount);
     assertStrictEquals(amount, "100.0", "the amount should be equal 100.0");
-  }
+  },
 });
 
 test({
@@ -230,7 +233,7 @@ test({
     const amount = faker.finance.amount(100, 100, 0);
     assert(amount);
     assertStrictEquals(amount, "100", "the amount should be equal 100");
-  }
+  },
 });
 
 test({
@@ -238,7 +241,7 @@ test({
   fn() {
     const transactionType = faker.finance.transactionType();
     assert(transactionType);
-  }
+  },
 });
 
 test({
@@ -246,7 +249,7 @@ test({
   fn() {
     const currencyCode = faker.finance.currencyCode();
     assert(currencyCode.match(/[A-Z]{3}/));
-  }
+  },
 });
 
 test({
@@ -258,7 +261,7 @@ test({
      *  Therefore we take one from the total length of the address not including the first character ([13])
      */
     assert(bitcoinAddress.match(/^[13][a-km-zA-HJ-NP-Z1-9]{24,33}$/));
-  }
+  },
 });
 
 test({
@@ -266,7 +269,7 @@ test({
   fn() {
     const ethereumAddress = faker.finance.ethereumAddress();
     assert(ethereumAddress.match(/^(0x)[0-9a-f]{40}$/));
-  }
+  },
 });
 
 test({
@@ -278,7 +281,7 @@ test({
     assert(number.length >= 13 && number.length <= 20);
     assert(number.match(/^[0-9]{13,20}$/));
     assert(luhnFormula(number));
-  }
+  },
 });
 
 test({
@@ -292,7 +295,7 @@ test({
     assert(luhnFormula(faker.finance.creditCardNumber("discover")));
     assert(luhnFormula(faker.finance.creditCardNumber()));
     assert(luhnFormula(faker.finance.creditCardNumber()));
-  }
+  },
 });
 
 test({
@@ -309,7 +312,7 @@ test({
     const discover = faker.finance.creditCardNumber("discover");
     assert(luhnFormula(discover));
     const american_express = faker.finance.creditCardNumber(
-      "american_express"
+      "american_express",
     );
     assert(luhnFormula(american_express));
     const diners_club = faker.finance.creditCardNumber("diners_club");
@@ -326,7 +329,7 @@ test({
     assert(luhnFormula(laser));
     const instapayment = faker.finance.creditCardNumber("instapayment");
     assert(luhnFormula(instapayment));
-  }
+  },
 });
 
 test({
@@ -338,7 +341,7 @@ test({
     number = faker.finance.creditCardNumber("234[5-9]#{999}L");
     assert(number.match(/^234[5-9]\d{1000}$/));
     assert(luhnFormula(number));
-  }
+  },
 });
 
 test({
@@ -347,7 +350,7 @@ test({
     const cvv = faker.finance.creditCardCVV();
     assert(cvv.length === 3);
     assert(cvv.match(/^[0-9]{3}$/));
-  }
+  },
 });
 
 test({
@@ -359,9 +362,9 @@ test({
     assertEquals(
       ibanLib.mod97(ibanLib.toDigitString(bban)),
       1,
-      "the result should be equal to 1"
+      "the result should be equal to 1",
     );
-  }
+  },
 });
 
 test({
@@ -371,8 +374,8 @@ test({
     const expr = new RegExp(
       "^[A-Z]{4}(" + ibanLib.iso3166.join("|") +
         ")[A-Z2-9][A-NP-Z0-9]([A-Z0-9]{3})?$",
-      "i"
+      "i",
     );
     assert(bic.match(expr));
-  }
+  },
 });

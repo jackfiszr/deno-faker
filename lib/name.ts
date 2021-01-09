@@ -27,22 +27,22 @@ class Name {
         } else {
           //Fall back to non-gendered names if they exist and gender wasn't specified
           return this.faker.random.arrayElement(
-            this.faker.definitions.name.first_name
+            this.faker.definitions.name.first_name,
           );
         }
       }
       if (gender === 0) {
         return this.faker.random.arrayElement(
-          this.faker.definitions.name.male_first_name
+          this.faker.definitions.name.male_first_name,
         );
       } else {
         return this.faker.random.arrayElement(
-          this.faker.definitions.name.female_first_name
+          this.faker.definitions.name.female_first_name,
         );
       }
     }
     return this.faker.random.arrayElement(
-      this.faker.definitions.name.first_name
+      this.faker.definitions.name.first_name,
     );
   };
 
@@ -65,16 +65,16 @@ class Name {
       }
       if (gender === 0) {
         return this.faker.random.arrayElement(
-          this.faker.locales[this.faker.locale].name.male_last_name
+          this.faker.locales[this.faker.locale].name.male_last_name,
         );
       } else {
         return this.faker.random.arrayElement(
-          this.faker.locales[this.faker.locale].name.female_last_name
+          this.faker.locales[this.faker.locale].name.female_last_name,
         );
       }
     }
     return this.faker.random.arrayElement(
-      this.faker.definitions.name.last_name
+      this.faker.definitions.name.last_name,
     );
   };
 
@@ -152,11 +152,11 @@ class Name {
       }
       if (gender === 0) {
         return this.faker.random.arrayElement(
-          this.faker.locales[this.faker.locale].name.male_prefix
+          this.faker.locales[this.faker.locale].name.male_prefix,
         );
       } else {
         return this.faker.random.arrayElement(
-          this.faker.locales[this.faker.locale].name.female_prefix
+          this.faker.locales[this.faker.locale].name.female_prefix,
         );
       }
     }
@@ -181,12 +181,14 @@ class Name {
    */
   title = () => {
     const descriptor = this.faker.random.arrayElement(
-      this.faker.definitions.name.title.descriptor
-    ), level = this.faker.random.arrayElement(
-      this.faker.definitions.name.title.level
-    ), job = this.faker.random.arrayElement(
-      this.faker.definitions.name.title.job
-    );
+        this.faker.definitions.name.title.descriptor,
+      ),
+      level = this.faker.random.arrayElement(
+        this.faker.definitions.name.title.level,
+      ),
+      job = this.faker.random.arrayElement(
+        this.faker.definitions.name.title.job,
+      );
 
     return descriptor + " " + level + " " + job;
   };
@@ -199,7 +201,7 @@ class Name {
    */
   jobDescriptor = () => {
     return this.faker.random.arrayElement(
-      this.faker.definitions.name.title.descriptor
+      this.faker.definitions.name.title.descriptor,
     );
   };
 
@@ -211,7 +213,7 @@ class Name {
    */
   jobArea = () => {
     return this.faker.random.arrayElement(
-      this.faker.definitions.name.title.level
+      this.faker.definitions.name.title.level,
     );
   };
 
@@ -223,7 +225,7 @@ class Name {
    */
   jobType = () => {
     return this.faker.random.arrayElement(
-      this.faker.definitions.name.title.job
+      this.faker.definitions.name.title.job,
     );
   };
 }

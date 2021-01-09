@@ -3,5 +3,5 @@ export default [
   "com",
   "info",
   "net",
-  "org"
+  "org",
 ];

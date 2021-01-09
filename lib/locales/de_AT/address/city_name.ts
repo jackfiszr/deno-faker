@@ -117,5 +117,5 @@ export default [
   "Übelbach",
   "Überackern",
   "Übersaxen",
-  "Übersbach"
+  "Übersbach",
 ];

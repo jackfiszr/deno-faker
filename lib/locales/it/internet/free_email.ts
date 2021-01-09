@@ -4,5 +4,5 @@ export default [
   "hotmail.com",
   "email.it",
   "libero.it",
-  "yahoo.it"
+  "yahoo.it",
 ];

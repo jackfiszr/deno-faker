@@ -6,12 +6,12 @@ const IGNORED_MODULES = [
   "localeFallback",
   "definitions",
   "fake",
-  "helpers"
+  "helpers",
 ];
 const IGNORED_METHODS: {
   [key: string]: string[];
 } = {
-  system: ["directoryPath", "filePath"] // these are TODOs
+  system: ["directoryPath", "filePath"], // these are TODOs
 };
 
 function isTestableModule(mod: string) {
@@ -19,20 +19,20 @@ function isTestableModule(mod: string) {
 }
 
 function isMethodOf(mod: string) {
-  return function(meth: string) {
+  return function (meth: string) {
     return typeof faker[mod][meth] === "function";
   };
 }
 
 function isTestableMethod(mod: string) {
-  return function(meth: string) {
+  return function (meth: string) {
     return !(mod in IGNORED_METHODS &&
       IGNORED_METHODS[mod].indexOf(meth) >= 0);
   };
 }
 
 function both(pred1: Function, pred2: Function) {
-  return function(value: string) {
+  return function (value: string) {
     return pred1(value) && pred2(value);
   };
 }
@@ -45,13 +45,13 @@ const functionHelpers = {
       .filter(isTestableModule)
       .reduce((result: any, mod) => {
         result[mod] = Object.keys(faker[mod]).filter(
-          both(isMethodOf(mod), isTestableMethod(mod))
+          both(isMethodOf(mod), isTestableMethod(mod)),
         );
         return result;
       }, {});
 
     return modules;
-  }
+  },
 };
 
 export default functionHelpers;

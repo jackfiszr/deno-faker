@@ -23,7 +23,7 @@ class _Date {
 
     const range = {
       min: 1000,
-      max: (years || 1) * 365 * 24 * 3600 * 1000
+      max: (years || 1) * 365 * 24 * 3600 * 1000,
     };
 
     let past = date.getTime();
@@ -48,7 +48,7 @@ class _Date {
 
     const range = {
       min: 1000,
-      max: (years || 1) * 365 * 24 * 3600 * 1000
+      max: (years || 1) * 365 * 24 * 3600 * 1000,
     };
 
     let future = date.getTime();
@@ -89,7 +89,7 @@ class _Date {
 
     const range = {
       min: 1000,
-      max: (days || 1) * 24 * 3600 * 1000
+      max: (days || 1) * 24 * 3600 * 1000,
     };
 
     let future = date.getTime();
@@ -114,7 +114,7 @@ class _Date {
 
     const range = {
       min: 1000,
-      max: (days || 1) * 24 * 3600 * 1000
+      max: (days || 1) * 24 * 3600 * 1000,
     };
 
     let future = date.getTime();

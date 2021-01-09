@@ -6,5 +6,5 @@ export default [
   "#{prefix} #{suffix}#{suffix}#{suffix}",
   "#{prefix} #{Address.city_name}#{suffix}",
   "#{prefix} #{Address.city_name}#{suffix}#{suffix}",
-  "#{prefix} #{Address.city_name}#{suffix}#{suffix}#{suffix}"
+  "#{prefix} #{Address.city_name}#{suffix}#{suffix}#{suffix}",
 ];

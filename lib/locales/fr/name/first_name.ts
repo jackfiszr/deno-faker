@@ -87,5 +87,5 @@ export default [
   "Carla",
   "Maëlle",
   "Alicia",
-  "Mélissa"
+  "Mélissa",
 ];

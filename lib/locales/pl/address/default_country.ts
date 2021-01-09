@@ -1,3 +1,3 @@
 export default [
-  "Polska"
+  "Polska",
 ];

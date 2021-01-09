@@ -1,5 +1,5 @@
 export default [
   "Leil. ###",
   "Oppgang A",
-  "Oppgang B"
+  "Oppgang B",
 ];

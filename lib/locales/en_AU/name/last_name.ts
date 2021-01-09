@@ -284,5 +284,5 @@ export default [
   "Wilkinson",
   "Williamson",
   "Windler",
-  "Wolf"
+  "Wolf",
 ];

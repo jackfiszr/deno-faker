@@ -235,5 +235,5 @@ export default [
   "Sahara",
   "Yemen",
   "Zâmbia",
-  "Zimbábue"
+  "Zimbábue",
 ];

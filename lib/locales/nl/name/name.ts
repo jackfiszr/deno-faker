@@ -4,5 +4,5 @@ export default [
   "#{first_name} #{last_name}",
   "#{first_name} #{last_name}",
   "#{first_name} #{tussenvoegsel} #{last_name}",
-  "#{first_name} #{tussenvoegsel} #{last_name}"
+  "#{first_name} #{tussenvoegsel} #{last_name}",
 ];

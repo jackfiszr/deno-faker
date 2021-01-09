@@ -22,5 +22,5 @@ export default [
   "Rausch",
   "Ridge",
   "Connolly",
-  "LeQuesne"
+  "LeQuesne",
 ];

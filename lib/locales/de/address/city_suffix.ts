@@ -3,5 +3,5 @@ export default [
   "dorf",
   "land",
   "scheid",
-  "burg"
+  "burg",
 ];

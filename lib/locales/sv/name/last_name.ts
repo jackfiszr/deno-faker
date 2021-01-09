@@ -8,5 +8,5 @@ export default [
   "Olsson",
   "Persson",
   "Svensson",
-  "Gustafsson"
+  "Gustafsson",
 ];

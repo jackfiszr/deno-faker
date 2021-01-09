@@ -9,13 +9,13 @@ import suffix from "./suffix.ts";
 import name from "./name.ts";
 
 export {
-  male_prefix,
-  male_first_name,
-  female_prefix,
   female_first_name,
+  female_prefix,
   first_name,
   last_name,
+  male_first_name,
+  male_prefix,
+  name,
   prefix,
   suffix,
-  name
 };

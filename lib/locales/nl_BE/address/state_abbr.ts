@@ -4,5 +4,5 @@ export default [
   "VBR",
   "ANT",
   "LIM",
-  "BRU"
+  "BRU",
 ];

@@ -2,5 +2,5 @@ export default [
   "Bay",
   "Bayan",
   "Dr.",
-  "Prof. Dr."
+  "Prof. Dr.",
 ];

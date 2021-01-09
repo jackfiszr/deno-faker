@@ -4,5 +4,5 @@ export default [
   "Søndre",
   "Gamle",
   "Østre",
-  "Vestre"
+  "Vestre",
 ];

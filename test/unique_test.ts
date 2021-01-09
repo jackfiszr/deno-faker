@@ -8,7 +8,7 @@ test({
   fn() {
     const result = faker.unique(faker.internet.email);
     assertEquals(typeof result, "string");
-  }
+  },
 });
 
 test({
@@ -17,7 +17,7 @@ test({
   fn() {
     const result = faker.unique(faker.internet.email, ["a", "b", "c"]); // third argument is provider, or domain for email
     assert(result.match(/\@c/));
-  }
+  },
 });
 
 test({
@@ -26,7 +26,7 @@ test({
   fn() {
     const result = faker.unique(faker.internet.email, ["a", "b", "c"]); // third argument is provider, or domain for email
     assert(result.match(/\@c/));
-  }
+  },
 });
 
 test({
@@ -35,10 +35,10 @@ test({
     const result = faker.unique(
       faker.internet.protocol,
       [],
-      { exclude: ["https"] }
+      { exclude: ["https"] },
     );
     assertEquals(result, "http");
-  }
+  },
 });
 
 test({
@@ -49,12 +49,12 @@ test({
       result = faker.unique(
         faker.internet.protocol,
         [],
-        { maxTime: 1, maxRetries: 9999, exclude: ["https", "http"] }
+        { maxTime: 1, maxRetries: 9999, exclude: ["https", "http"] },
       );
     } catch (err) {
       assertEquals(err.message.substr(0, 16), "Exceeded maxTime");
     }
-  }
+  },
 });
 
 test({
@@ -65,12 +65,12 @@ test({
       result = faker.unique(
         faker.internet.protocol,
         [],
-        { maxTime: 5000, maxRetries: 5, exclude: ["https", "http"] }
+        { maxTime: 5000, maxRetries: 5, exclude: ["https", "http"] },
       );
     } catch (err) {
       assertEquals(err.message.substr(0, 19), "Exceeded maxRetries");
     }
-  }
+  },
 });
 
 test({
@@ -79,5 +79,5 @@ test({
   fn() {
     const result = faker.unique(faker.internet.email, ["a", "b", "c"]); // third argument is provider, or domain for email
     assert(result.match(/\@c/));
-  }
+  },
 });

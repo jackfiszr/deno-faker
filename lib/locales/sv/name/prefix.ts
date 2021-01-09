@@ -1,5 +1,5 @@
 export default [
   "Dr.",
   "Prof.",
-  "PhD."
+  "PhD.",
 ];

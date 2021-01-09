@@ -6,7 +6,7 @@ export default {
     "Rabu",
     "Kamis",
     "Jumat",
-    "Sabtu"
+    "Sabtu",
   ],
   wide_context: [
     "Minggu",
@@ -15,7 +15,7 @@ export default {
     "Rabu",
     "Kamis",
     "Jumat",
-    "Sabtu"
+    "Sabtu",
   ],
   abbr: [
     "Min",
@@ -24,7 +24,7 @@ export default {
     "Rab",
     "Kam",
     "Jum",
-    "Sab"
+    "Sab",
   ],
   abbr_context: [
     "Min",
@@ -33,6 +33,6 @@ export default {
     "Rab",
     "Kam",
     "Jum",
-    "Sab"
-  ]
+    "Sab",
+  ],
 };

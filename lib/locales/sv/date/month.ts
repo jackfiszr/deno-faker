@@ -12,7 +12,7 @@ export default {
     "september",
     "oktober",
     "november",
-    "december"
+    "december",
   ],
   abbr: [
     "jan",
@@ -26,6 +26,6 @@ export default {
     "sep",
     "okt",
     "nov",
-    "dec"
-  ]
+    "dec",
+  ],
 };

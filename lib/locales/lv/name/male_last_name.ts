@@ -207,5 +207,5 @@ export default [
   "Gasjūns",
   "Pauļuks",
   "Sosārs",
-  "Meškūns"
+  "Meškūns",
 ];

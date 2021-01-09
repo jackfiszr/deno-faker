@@ -15,5 +15,5 @@ export default [
   "Mad",
   "Nav",
   "Vas",
-  "Mur"
+  "Mur",
 ];

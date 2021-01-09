@@ -79,5 +79,5 @@ export default [
   "valor añadido",
   "vía web",
   "defectos cero",
-  "tolerancia cero"
+  "tolerancia cero",
 ];

@@ -7,7 +7,7 @@ const modules = functionalHelpers.modulesList();
 
 for (const locale in faker.locales) {
   faker.locale = locale;
-  Object.keys(modules).forEach(module => {
+  Object.keys(modules).forEach((module) => {
     modules[module].forEach((meth: string) => {
       test({
         name: `functional tests: ${module}.${meth}()`,
@@ -18,7 +18,7 @@ for (const locale in faker.locales) {
           } else {
             assert(result);
           }
-        }
+        },
       });
     });
   });
@@ -27,7 +27,7 @@ for (const locale in faker.locales) {
 for (const locale in faker.locales) {
   faker.locale = locale;
   faker.seed(1);
-  Object.keys(modules).forEach(module => {
+  Object.keys(modules).forEach((module) => {
     modules[module].forEach((meth: string | boolean) => {
       test({
         name: `faker.fake functional tests: ${module}.${meth}()`,
@@ -43,7 +43,7 @@ for (const locale in faker.locales) {
             assert.ok(result)
           }
           */
-        }
+        },
       });
     });
   });

@@ -58,5 +58,5 @@ export default [
   "zhitomir.ua",
   "zp.ua",
   "zt.ua",
-  "укр"
+  "укр",
 ];

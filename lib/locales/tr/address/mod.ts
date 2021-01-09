@@ -8,12 +8,12 @@ import street_name from "./street_name.ts";
 import street_address from "./street_address.ts";
 
 export {
-  city,
-  street_root,
-  country,
-  postcode,
-  default_country,
   building_number,
+  city,
+  country,
+  default_country,
+  postcode,
+  street_address,
   street_name,
-  street_address
+  street_root,
 };

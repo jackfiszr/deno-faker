@@ -17,5 +17,5 @@ export default [
   "Cine",
   "Música",
   "Hogar",
-  "Decoración"
+  "Decoración",
 ];

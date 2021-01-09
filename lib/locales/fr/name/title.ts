@@ -17,6 +17,6 @@ export default {
     "Consultant",
     "Assistant",
     "Agent",
-    "Stagiaire"
-  ]
+    "Stagiaire",
+  ],
 };

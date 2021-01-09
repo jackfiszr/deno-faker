@@ -10,10 +10,10 @@ test({
     assertEquals(
       directoryPath.indexOf("/"),
       0,
-      "generated directoryPath should start with /"
+      "generated directoryPath should start with /",
     );
     faker.random.words.restore();
-  }
+  },
 });
 
 test({
@@ -24,10 +24,10 @@ test({
     assertEquals(
       filePath.indexOf("/"),
       0,
-      "generated filePath should start with /"
+      "generated filePath should start with /",
     );
     faker.random.words.restore();
-  }
+  },
 });
 
 test({
@@ -38,10 +38,10 @@ test({
     assertEquals(
       fileName.indexOf("/"),
       -1,
-      "generated fileNames should not have path seperators"
+      "generated fileNames should not have path seperators",
     );
     faker.random.words.restore();
-  }
+  },
 });
 
 test({
@@ -52,8 +52,8 @@ test({
     assertEquals(
       fileName.indexOf("/"),
       -1,
-      "generated commonFileNames should not have path seperators"
+      "generated commonFileNames should not have path seperators",
     );
     faker.random.words.restore();
-  }
+  },
 });

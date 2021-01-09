@@ -108,5 +108,5 @@ export default [
   "Verona",
   "Vibo Valentia",
   "Vicenza",
-  "Viterbo"
+  "Viterbo",
 ];

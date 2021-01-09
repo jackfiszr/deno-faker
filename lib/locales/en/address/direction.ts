@@ -6,5 +6,5 @@ export default [
   "Northeast",
   "Northwest",
   "Southeast",
-  "Southwest"
+  "Southwest",
 ];

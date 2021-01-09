@@ -794,5 +794,5 @@ export default [
   "Želmír",
   "Žitomír",
   "Žitoslav",
-  "Živan"
+  "Živan",
 ];

@@ -8309,5 +8309,5 @@ export default [
   "Žákovská",
   "Žárovická",
   "Žíšovská",
-  "Žďárská"
+  "Žďárská",
 ];

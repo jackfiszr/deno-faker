@@ -7,7 +7,7 @@ export default {
     "Quinta",
     "Sexta",
     "Sábado",
-    "Domingo"
+    "Domingo",
   ],
   abbr: [
     "Seg",
@@ -16,6 +16,6 @@ export default {
     "Qui",
     "Sex",
     "Sáb",
-    "Dom"
-  ]
+    "Dom",
+  ],
 };

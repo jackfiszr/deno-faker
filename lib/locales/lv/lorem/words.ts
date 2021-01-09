@@ -182,5 +182,5 @@ export default [
   "voļūptātēm",
   "voļūptātēš",
   "voļūptātībūš",
-  "voļūptātūm"
+  "voļūptātūm",
 ];

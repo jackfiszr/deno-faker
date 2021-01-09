@@ -10,5 +10,5 @@ export default [
   "umbro",
   "laziale",
   "terme",
-  "sardo"
+  "sardo",
 ];

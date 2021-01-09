@@ -1,3 +1,3 @@
 export default [
-  "#{city_root}"
+  "#{city_root}",
 ];

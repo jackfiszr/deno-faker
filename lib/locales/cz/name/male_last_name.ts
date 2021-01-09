@@ -997,5 +997,5 @@ export default [
   "Zoubek",
   "Zouhar",
   "žůrek",
-  "Zvěřina"
+  "Zvěřina",
 ];

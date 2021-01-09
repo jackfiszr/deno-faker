@@ -65,5 +65,5 @@ export default [
   "witches",
   "worshipers",
   "zombies",
-  "druids"
+  "druids",
 ];

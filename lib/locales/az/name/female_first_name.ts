@@ -71,5 +71,5 @@ export default [
   "Tuba",
   "Ülviyyə",
   "Ulduz",
-  "Ülkər"
+  "Ülkər",
 ];

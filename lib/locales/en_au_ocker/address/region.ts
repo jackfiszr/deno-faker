@@ -5,5 +5,5 @@ export default [
   "Port Pirie",
   "Gippsland",
   "Elizabeth",
-  "Barossa"
+  "Barossa",
 ];
