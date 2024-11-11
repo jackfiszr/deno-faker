@@ -2,7 +2,6 @@ import * as random_ua from "../vendor/user-agent.ts";
 import schemas from "./schemas.ts";
 
 /**
- *
  * @namespace faker.internet
  */
 class Internet {
@@ -170,7 +169,7 @@ class Internet {
     const randHash = () => {
       let result = "";
       for (let i = 0; i < 4; i++) {
-        result += (this.faker.random.arrayElement(
+        result += this.faker.random.arrayElement(
           [
             "0",
             "1",
@@ -189,7 +188,7 @@ class Internet {
             "e",
             "f",
           ],
-        ));
+        );
       }
       return result;
     };
@@ -285,10 +284,10 @@ class Internet {
       memorable = false;
     }
     /*
-    * password-generator ( function )
-    * Copyright(c) 2011-2013 Bermi Ferrer <bermi@bermilabs.com>
-    * MIT Licensed
-    */
+     * password-generator ( function )
+     * Copyright(c) 2011-2013 Bermi Ferrer <bermi@bermilabs.com>
+     * MIT Licensed
+     */
     let consonant: RegExp, letter: RegExp, password, vowel: RegExp;
     letter = /[a-zA-Z]$/;
     vowel = /[aeiouAEIOU]$/;

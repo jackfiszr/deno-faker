@@ -108,7 +108,7 @@ test({
     assert(typeof sentence === 'string')
     const parts = sentence.split(' ')
     assertEquals(parts.length, 14) // requested 10 plus stubbed 4.
-    assert(faker.random.number.calledWith(4)) // random.number should be called with the 'range' we passed. 
+    assert(faker.random.number.calledWith(4)) // random.number should be called with the 'range' we passed.
     assert(faker.lorem.words.calledWith(14))
     faker.lorem.words.restore()
     faker.random.number.restore()

@@ -1,5 +1,4 @@
 /**
- *
  * @namespace faker.hacker
  */
 class Hacker {

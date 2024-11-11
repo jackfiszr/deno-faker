@@ -1,5 +1,4 @@
 /**
- *
  * @namespace faker.date
  */
 class _Date {

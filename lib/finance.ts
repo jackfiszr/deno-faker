@@ -85,9 +85,9 @@ class Finance {
     }
 
     //prefix with ellipsis
-    template = (ellipsis) ? ["...", template].join("") : template;
+    template = ellipsis ? ["...", template].join("") : template;
 
-    template = (parens) ? ["(", template, ")"].join("") : template;
+    template = parens ? ["(", template, ")"].join("") : template;
 
     //generate random numbers
     template = this.Helpers.replaceSymbolWithNumber(template);
@@ -194,7 +194,7 @@ class Finance {
    * Credit card number
    * @method faker.finance.creditCardNumber
    * @param {string} provider | scheme
-  */
+   */
   creditCardNumber = (provider: string) => {
     provider = provider || "";
     let format, formats;
@@ -227,7 +227,7 @@ class Finance {
   /**
    * Credit card CVV
    * @method faker.finance.creditCardNumber
-  */
+   */
   creditCardCVV = () => {
     let cvv = "";
     for (let i = 0; i < 3; i++) {

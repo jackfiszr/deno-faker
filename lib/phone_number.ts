@@ -1,5 +1,4 @@
 /**
- *
  * @namespace faker.phone
  */
 class Phone {

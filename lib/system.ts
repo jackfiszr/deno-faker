@@ -1,7 +1,6 @@
 // generates fake data for many computer systems properties
 
 /**
- *
  * @namespace faker.system
  */
 class System {

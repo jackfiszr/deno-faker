@@ -1,0 +1,12 @@
+{
+  "version": "4",
+  "remote": {
+    "https://cdn.skypack.dev/-/lodash-es@v4.17.20-OGqVe1PSWaO3mr3KWqgK/dist=es2019,mode=imports/optimized/lodash-es.js": "c1e077353befbe5fd71b6fef6f60b6b5b80d5becd6130bfd40345047db5120c5",
+    "https://cdn.skypack.dev/-/sinon@v9.2.3-CdmJYNbneTGWtdbUTrjG/dist=es2019,mode=imports/optimized/sinon.js": "d60bb838020c2ca3f384b45d108e9d83ec5ae2d63a92e5f23881123d66dbfb68",
+    "https://cdn.skypack.dev/lodash-es@4.17.20": "d3549550a6dd051854da98da2792d4987790ef31b8c5923de8b30edcaf65c225",
+    "https://cdn.skypack.dev/sinon@9.2.3": "8416ad4c1b1ee734ad42021243d1dbfc62c14cb8edc71893f0a1e8855e068423",
+    "https://deno.land/std@0.83.0/fmt/colors.ts": "c5665c66f1a67228f21c5989bbb04b36d369b98dd7ceac06f5e26856c81c2531",
+    "https://deno.land/std@0.83.0/testing/_diff.ts": "9656b2dbe0a76684e705375fd03bfe0108e9e00845ccb9e47abff52f156fe4e8",
+    "https://deno.land/std@0.83.0/testing/asserts.ts": "a8d30ca52b1bf4f928c521e80b58d04ed3930b9507c598cfffd1ecedf3f6eaf2"
+  }
+}

@@ -79,8 +79,8 @@ test({
   fn() {
     const price = faker.commerce.price();
     assert(price);
-    assertEquals((price > 0), true, "the amount should be greater than 0");
-    assertEquals((price < 1001), true, "the amount should be less than 1000");
+    assertEquals(price > 0, true, "the amount should be greater than 0");
+    assertEquals(price < 1001, true, "the amount should be less than 1000");
   },
 });
 
@@ -123,7 +123,7 @@ test({
   fn() {
     const amount = faker.commerce.price(-200, -1);
     assert(amount);
-    assertEquals((amount == 0.00), true, "the amount should equal 0");
+    assertEquals(amount == 0.00, true, "the amount should equal 0");
   },
 });
 

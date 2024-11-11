@@ -36,11 +36,10 @@ import { System } from "./system.ts";
 import { Git } from "./git.ts";
 import { Vehicle } from "./vehicle.ts";
 /**
- *
  * @namespace faker
  */
 class Faker {
-  [key: string]: any
+  [key: string]: any;
 
   constructor(opts: any) {
     this.opts = opts || {};

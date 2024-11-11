@@ -1,6 +1,5 @@
 import schemas from "./schemas.ts";
 /**
- *
  * @namespace faker.vehicle
  */
 class Vehicle {

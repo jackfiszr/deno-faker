@@ -1,10 +1,9 @@
 /**
- *
  * @namespace lorempixel
  * @memberof faker.image
  */
 class Lorempixel {
-  [key: string]: any
+  [key: string]: any;
   constructor(faker: any) {
     this.faker = faker;
   }

@@ -1,7 +1,6 @@
 import * as mersenne from "../vendor/mersenne.ts";
 
 /**
- *
  * @namespace faker.random
  */
 class Random {

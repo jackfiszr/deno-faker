@@ -1,5 +1,4 @@
 /**
- *
  * @namespace faker.name
  */
 class Name {

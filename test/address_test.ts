@@ -572,7 +572,7 @@ test({
       const latFloat1 = parseFloat(faker.address.latitude());
       const lonFloat1 = parseFloat(faker.address.longitude());
       const radius = (Math.random() * 99) + 1; // range of [1, 100)
-      const isMetric = (Math.round(Math.random()) == 1);
+      const isMetric = Math.round(Math.random()) == 1;
       const coordinate = faker.address.nearbyGPSCoordinate(
         [latFloat1, lonFloat1],
         radius,
@@ -603,7 +603,7 @@ test({
     // test once with undefined radius
     const latFloat1 = parseFloat(faker.address.latitude());
     const lonFloat1 = parseFloat(faker.address.longitude());
-    const isMetric = (Math.round(Math.random()) == 1);
+    const isMetric = Math.round(Math.random()) == 1;
     const coordinate = faker.address.nearbyGPSCoordinate(
       [latFloat1, lonFloat1],
       undefined,

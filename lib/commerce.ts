@@ -1,5 +1,4 @@
 /**
- *
  * @namespace faker.commerce
  */
 class Commerce {

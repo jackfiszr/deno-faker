@@ -1,5 +1,4 @@
 /**
- *
  * @namespace faker.company
  */
 class Company {

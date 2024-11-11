@@ -50,7 +50,7 @@
    email: m-mat @ math.sci.hiroshima-u.ac.jp (remove space)
 */
 declare class MersenneTwister19937 {
-  [key: string]: Function
+  [key: string]: Function;
 }
 function MersenneTwister19937(this: MersenneTwister19937) {
   /* constants should be scoped inside the class */
@@ -139,7 +139,7 @@ function MersenneTwister19937(this: MersenneTwister19937) {
     this.init_genrand(19650218);
     i = 1;
     j = 0;
-    k = (N > key_length ? N : key_length);
+    k = N > key_length ? N : key_length;
     for (; k; k--) {
       //c//mt[i] = (mt[i] ^ ((mt[i-1] ^ (mt[i-1] >> 30)) * 1664525))
       //c//	+ init_key[j] + j; /* non linear */
@@ -306,15 +306,15 @@ export function rand(max?: number, min?: number) {
   return Math.floor(gen.genrand_real2() * (max - min) + min);
 }
 export function seed(S: number) {
-  if (typeof (S) != "number") {
-    throw new Error("seed(S) must take numeric argument; is " + typeof (S));
+  if (typeof S != "number") {
+    throw new Error("seed(S) must take numeric argument; is " + typeof S);
   }
   gen.init_genrand(S);
 }
 export function seed_array(A: number[]) {
-  if (typeof (A) != "object") {
+  if (typeof A != "object") {
     throw new Error(
-      "seed_array(A) must take array of numbers; is " + typeof (A),
+      "seed_array(A) must take array of numbers; is " + typeof A,
     );
   }
   gen.init_by_array(A, A.length);

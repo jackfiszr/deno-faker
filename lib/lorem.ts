@@ -1,5 +1,4 @@
 /**
- *
  * @namespace faker.lorem
  */
 class Lorem {

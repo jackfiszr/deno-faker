@@ -1,5 +1,4 @@
 /**
- *
  * @namespace unsplash
  * @memberof faker.image
  */

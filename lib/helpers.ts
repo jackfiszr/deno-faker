@@ -1,5 +1,4 @@
 /**
- *
  * @namespace faker.helpers
  */
 class Helpers {
@@ -170,13 +169,13 @@ class Helpers {
   };
 
   /**
-    * parse string paterns in a similar way to RegExp
-    *
-    * e.g. "#{3}test[1-5]" -> "###test4"
-    *
-    * @method faker.helpers.regexpStyleStringParse
-    * @param {string} string
-    */
+   * parse string paterns in a similar way to RegExp
+   *
+   * e.g. "#{3}test[1-5]" -> "###test4"
+   *
+   * @method faker.helpers.regexpStyleStringParse
+   * @param {string} string
+   */
   regexpStyleStringParse = (string: string) => {
     string = string || "";
     // Deal with range repeat `{min,max}`

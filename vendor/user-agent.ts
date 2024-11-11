@@ -238,7 +238,7 @@ const browsers: { [key: string]: Function } = {
       gecko_ver = "Gecko/20100101 Firefox/" + firefox_ver,
       proc = randomProc(arch),
       os_ver = (arch === "win")
-        ? "(Windows NT " + version_string.nt() + ((proc) ? " " + proc : "")
+        ? "(Windows NT " + version_string.nt() + (proc ? " " + proc : "")
         : (arch === "mac")
         ? "(Macintosh " + proc + " Mac OS X " + version_string.osx()
         : "(X11 Linux " + proc;

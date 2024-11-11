@@ -169,8 +169,8 @@ test({
   fn() {
     const amount = faker.finance.amount();
     assert(amount);
-    assertEquals((amount > 0), true, "the amount should be greater than 0");
-    assertEquals((amount < 1001), true, "the amount should be greater than 0");
+    assertEquals(amount > 0, true, "the amount should be greater than 0");
+    assertEquals(amount < 1001, true, "the amount should be greater than 0");
   },
 });
 
@@ -213,8 +213,8 @@ test({
   fn() {
     const amount = faker.finance.amount(-200, -1);
     assert(amount);
-    assertEquals((amount < 0), true, "the amount should be greater than 0");
-    assertEquals((amount > -201), true, "the amount should be greater than 0");
+    assertEquals(amount < 0, true, "the amount should be greater than 0");
+    assertEquals(amount > -201, true, "the amount should be greater than 0");
   },
 });
 

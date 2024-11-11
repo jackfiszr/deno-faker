@@ -1,14 +1,13 @@
 import { Lorempixel } from "./image_providers/lorempixel.ts";
 import { Unsplash } from "./image_providers/unsplash.ts";
 /**
- *
  * @namespace faker.image
  * @property {object} lorempixel - faker.image.lorempixel
  * @property {object} unsplash - faker.image.unsplash
  * @default Default provider is unsplash image provider
  */
 class Image {
-  [key: string]: any
+  [key: string]: any;
   constructor(faker: any) {
     this.faker = faker;
     this.lorempixel = new Lorempixel(faker);
