@@ -13,25 +13,25 @@ import * as hacker from "./hacker/mod.ts";
 import * as app from "./app/mod.ts";
 import * as finance from "./finance/mod.ts";
 
-const el: {
-  [key: string]: any;
-} = {};
+type ModuleMap = Record<string, string | object>;
 
-el.title = "Ελληνικά";
-el.separator = " & ";
-el.address = address;
-el.credit_card = credit_card;
-el.company = company;
-el.internet = internet;
-el.lorem = lorem;
-el.name = name;
-el.phone_number = phone_number;
-el.cell_phone = cell_phone;
-el.business = business;
-el.commerce = commerce;
-el.team = team;
-el.hacker = hacker;
-el.app = app;
-el.finance = finance;
+const el: ModuleMap = {
+  title: "Ελληνικά",
+  separator: " & ",
+  address,
+  credit_card,
+  company,
+  internet,
+  lorem,
+  name,
+  phone_number,
+  cell_phone,
+  business,
+  commerce,
+  team,
+  hacker,
+  app,
+  finance,
+};
 
 export { el };

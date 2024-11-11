@@ -6,17 +6,17 @@ import * as name from "./name/mod.ts";
 import * as company from "./company/mod.ts";
 import * as lorem from "./lorem/mod.ts";
 
-const vi: {
-  [key: string]: any;
-} = {};
+type ModuleMap = Record<string, string | object>;
 
-vi.title = "Vietnamese";
-vi.address = address;
-vi.internet = internet;
-vi.phone_number = phone_number;
-vi.cell_phone = cell_phone;
-vi.name = name;
-vi.company = company;
-vi.lorem = lorem;
+const vi: ModuleMap = {
+  title: "Vietnamese",
+  address,
+  internet,
+  phone_number,
+  cell_phone,
+  name,
+  company,
+  lorem,
+};
 
 export { vi };

@@ -2,13 +2,13 @@ import * as address from "./address/mod.ts";
 import * as internet from "./internet/mod.ts";
 import * as phone_number from "./phone_number/mod.ts";
 
-const fr_CA: {
-  [key: string]: any;
-} = {};
+type ModuleMap = Record<string, string | object>;
 
-fr_CA.title = "Canada (French)";
-fr_CA.address = address;
-fr_CA.internet = internet;
-fr_CA.phone_number = phone_number;
+const fr_CA: ModuleMap = {
+  title: "Canada (French)",
+  address,
+  internet,
+  phone_number,
+};
 
 export { fr_CA };

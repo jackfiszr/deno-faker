@@ -4,15 +4,15 @@ import * as internet from "./internet/mod.ts";
 import * as company from "./company/mod.ts";
 import * as phone_number from "./phone_number/mod.ts";
 
-const nep: {
-  [key: string]: any;
-} = {};
+type ModuleMap = Record<string, string | object>;
 
-nep.title = "Nepalese";
-nep.name = name;
-nep.address = address;
-nep.internet = internet;
-nep.company = company;
-nep.phone_number = phone_number;
+const nep: ModuleMap = {
+  title: "Nepalese",
+  name,
+  address,
+  internet,
+  company,
+  phone_number,
+};
 
 export { nep };

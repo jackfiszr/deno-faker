@@ -8,20 +8,20 @@ import * as lorem from "./lorem/mod.ts";
 import * as commerce from "./commerce/mod.ts";
 import * as team from "./team/mod.ts";
 
-const es_MX: {
-  [key: string]: any;
-} = {};
+type ModuleMap = Record<string, string | object>;
 
-es_MX.title = "Spanish Mexico";
-es_MX.separator = " & ";
-es_MX.name = name;
-es_MX.address = address;
-es_MX.company = company;
-es_MX.internet = internet;
-es_MX.phone_number = phone_number;
-es_MX.cell_phone = cell_phone;
-es_MX.lorem = lorem;
-es_MX.commerce = commerce;
-es_MX.team = team;
+const es_MX: ModuleMap = {
+  title: "Spanish Mexico",
+  separator: " & ",
+  name,
+  address,
+  company,
+  internet,
+  phone_number,
+  cell_phone,
+  lorem,
+  commerce,
+  team,
+};
 
 export { es_MX };

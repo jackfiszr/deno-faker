@@ -6,18 +6,18 @@ import * as commerce from "./commerce/mod.ts";
 import * as company from "./company/mod.ts";
 import * as date from "./date/mod.ts";
 
-const az: {
-  [key: string]: any;
-} = {};
+type ModuleMap = Record<string, string | object>;
 
-az.title = "Azerbaijani";
-az.separator = " və ";
-az.address = address;
-az.internet = internet;
-az.name = name;
-az.phone_number = phone_number;
-az.commerce = commerce;
-az.company = company;
-az.date = date;
+const az: ModuleMap = {
+  title: "Azerbaijani",
+  separator: " və ",
+  address,
+  internet,
+  name,
+  phone_number,
+  commerce,
+  company,
+  date,
+};
 
 export { az };

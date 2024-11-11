@@ -4,15 +4,15 @@ import * as internet from "./internet/mod.ts";
 import * as name from "./name/mod.ts";
 import * as phone_number from "./phone_number/mod.ts";
 
-const it: {
-  [key: string]: any;
-} = {};
+type ModuleMap = Record<string, string | object>;
 
-it.title = "Italian";
-it.address = address;
-it.company = company;
-it.internet = internet;
-it.name = name;
-it.phone_number = phone_number;
+const it: ModuleMap = {
+  title: "Italian",
+  address,
+  company,
+  internet,
+  name,
+  phone_number,
+};
 
 export { it };

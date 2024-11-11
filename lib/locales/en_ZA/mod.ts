@@ -5,16 +5,16 @@ import * as phone_number from "./phone_number/mod.ts";
 import * as cell_phone from "./cell_phone/mod.ts";
 import * as company from "./company/mod.ts";
 
-const en_ZA: {
-  [key: string]: any;
-} = {};
+type ModuleMap = Record<string, string | object>;
 
-en_ZA.title = "South Africa (English)";
-en_ZA.address = address;
-en_ZA.internet = internet;
-en_ZA.name = name;
-en_ZA.phone_number = phone_number;
-en_ZA.cell_phone = cell_phone;
-en_ZA.company = company;
+const en_ZA: ModuleMap = {
+  title: "South Africa (English)",
+  address,
+  internet,
+  name,
+  phone_number,
+  cell_phone,
+  company,
+};
 
 export { en_ZA };

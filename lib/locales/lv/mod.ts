@@ -8,20 +8,20 @@ import * as company from "./company/mod.ts";
 import * as internet from "./internet/mod.ts";
 import * as lorem from "./lorem/mod.ts";
 
-const lv: {
-  [key: string]: any;
-} = {};
+type ModuleMap = Record<string, string | object>;
 
-lv.title = "Latvian";
-lv.separator = " un ";
-lv.name = name;
-lv.date = date;
-lv.address = address;
-lv.phone_number = phone_number;
-lv.cell_phone = cell_phone;
-lv.commerce = commerce;
-lv.company = company;
-lv.internet = internet;
-lv.lorem = lorem;
+const lv: ModuleMap = {
+  title: "Latvian",
+  separator: " un ",
+  name,
+  date,
+  address,
+  phone_number,
+  cell_phone,
+  commerce,
+  company,
+  internet,
+  lorem,
+};
 
 export { lv };

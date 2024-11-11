@@ -5,16 +5,16 @@ import * as internet from "./internet/mod.ts";
 import * as name from "./name/mod.ts";
 import * as phone_number from "./phone_number/mod.ts";
 
-const ro: {
-  [key: string]: any;
-} = {};
+type ModuleMap = Record<string, string | object>;
 
-ro.title = "Romanian";
-ro.address = address;
-ro.cell_phone = cell_phone;
-ro.date = date;
-ro.internet = internet;
-ro.name = name;
-ro.phone_number = phone_number;
+const ro: ModuleMap = {
+  title: "Romanian",
+  address,
+  cell_phone,
+  date,
+  internet,
+  name,
+  phone_number,
+};
 
 export { ro };

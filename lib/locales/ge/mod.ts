@@ -5,17 +5,17 @@ import * as company from "./company/mod.ts";
 import * as phone_number from "./phone_number/mod.ts";
 import * as cell_phone from "./cell_phone/mod.ts";
 
-const ge: {
-  [key: string]: any;
-} = {};
+type ModuleMap = Record<string, string | object>;
 
-ge.title = "Georgian";
-ge.separator = " და ";
-ge.name = name;
-ge.address = address;
-ge.internet = internet;
-ge.company = company;
-ge.phone_number = phone_number;
-ge.cell_phone = cell_phone;
+const ge: ModuleMap = {
+  title: "Georgian",
+  separator: " და ",
+  name,
+  address,
+  internet,
+  company,
+  phone_number,
+  cell_phone,
+};
 
 export { ge };

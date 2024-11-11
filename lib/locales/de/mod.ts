@@ -6,17 +6,17 @@ import * as name from "./name/mod.ts";
 import * as phone_number from "./phone_number/mod.ts";
 import * as cell_phone from "./cell_phone/mod.ts";
 
-const de: {
-  [key: string]: any;
-} = {};
+type ModuleMap = Record<string, string | object>;
 
-de.title = "German";
-de.address = address;
-de.company = company;
-de.internet = internet;
-de.lorem = lorem;
-de.name = name;
-de.phone_number = phone_number;
-de.cell_phone = cell_phone;
+const de: ModuleMap = {
+  title: "German",
+  address,
+  company,
+  internet,
+  lorem,
+  name,
+  phone_number,
+  cell_phone,
+};
 
 export { de };

@@ -1,10 +1,10 @@
 import * as lorem from "./lorem/mod.ts";
 
-const en_BORK: {
-  [key: string]: any;
-} = {};
+type ModuleMap = Record<string, string | object>;
 
-en_BORK.title = "Bork (English)";
-en_BORK.lorem = lorem;
+const en_BORK: ModuleMap = {
+  title: "Bork (English)",
+  lorem,
+};
 
 export { en_BORK };

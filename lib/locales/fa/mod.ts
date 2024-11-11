@@ -1,12 +1,12 @@
 import * as name from "./name/mod.ts";
 import * as address from "./address/mod.ts";
 
-const fa: {
-  [key: string]: any;
-} = {};
+type ModuleMap = Record<string, string | object>;
 
-fa.title = "Farsi";
-fa.name = name;
-fa.address = address;
+const fa: ModuleMap = {
+  title: "Farsi",
+  name,
+  address,
+};
 
 export { fa };

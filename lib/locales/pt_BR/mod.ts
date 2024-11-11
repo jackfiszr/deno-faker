@@ -5,16 +5,16 @@ import * as lorem from "./lorem/mod.ts";
 import * as name from "./name/mod.ts";
 import * as phone_number from "./phone_number/mod.ts";
 
-const pt_BR: {
-  [key: string]: any;
-} = {};
+type ModuleMap = Record<string, string | object>;
 
-pt_BR.title = "Portuguese (Brazil)";
-pt_BR.address = address;
-pt_BR.company = company;
-pt_BR.internet = internet;
-pt_BR.lorem = lorem;
-pt_BR.name = name;
-pt_BR.phone_number = phone_number;
+const pt_BR: ModuleMap = {
+  title: "Portuguese (Brazil)",
+  address,
+  company,
+  internet,
+  lorem,
+  name,
+  phone_number,
+};
 
 export { pt_BR };

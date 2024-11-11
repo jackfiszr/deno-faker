@@ -8,19 +8,19 @@ import * as commerce from "./commerce/mod.ts";
 import * as team from "./team/mod.ts";
 import * as date from "./date/mod.ts";
 
-const sv: {
-  [key: string]: any;
-} = {};
+type ModuleMap = Record<string, string | object>;
 
-sv.title = "Swedish";
-sv.address = address;
-sv.company = company;
-sv.internet = internet;
-sv.name = name;
-sv.phone_number = phone_number;
-sv.cell_phone = cell_phone;
-sv.commerce = commerce;
-sv.team = team;
-sv.date = date;
+const sv: ModuleMap = {
+  title: "Swedish",
+  address,
+  company,
+  internet,
+  name,
+  phone_number,
+  cell_phone,
+  commerce,
+  team,
+  date,
+};
 
 export { sv };

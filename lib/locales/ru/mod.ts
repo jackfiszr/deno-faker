@@ -7,19 +7,19 @@ import * as company from "./company/mod.ts";
 import * as date from "./date/mod.ts";
 import * as hacker from "./hacker/mod.ts";
 
-const ru: {
-  [key: string]: any;
-} = {};
+type ModuleMap = Record<string, string | object>;
 
-ru.title = "Russian";
-ru.separator = " и ";
-ru.address = address;
-ru.internet = internet;
-ru.name = name;
-ru.phone_number = phone_number;
-ru.commerce = commerce;
-ru.company = company;
-ru.date = date;
-ru.hacker = hacker;
+const ru: ModuleMap = {
+  title: "Russian",
+  separator: " и ",
+  address,
+  internet,
+  name,
+  phone_number,
+  commerce,
+  company,
+  date,
+  hacker,
+};
 
 export { ru };
