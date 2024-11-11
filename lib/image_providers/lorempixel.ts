@@ -1,10 +1,27 @@
+import type { Faker } from "../mod.ts";
+
+interface ModuleMethods {
+  image?: (width: number, height: number, randomize: boolean) => string;
+  avatar?: () => string;
+  imageUrl?: (
+    width: number,
+    height: number,
+    category: string,
+    randomize: boolean,
+  ) => string;
+  // add other specific methods as needed
+  [key: string]: unknown; // keeps it flexible for additional methods if necessary
+}
+
 /**
  * @namespace lorempixel
  * @memberof faker.image
  */
-class Lorempixel {
-  [key: string]: any;
-  constructor(faker: any) {
+class Lorempixel implements ModuleMethods {
+  [key: string]: unknown;
+  faker: Faker;
+
+  constructor(faker: Faker) {
     this.faker = faker;
   }
 

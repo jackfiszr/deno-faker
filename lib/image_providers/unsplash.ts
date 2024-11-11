@@ -1,11 +1,13 @@
+import type { Faker } from "../mod.ts";
+
 /**
  * @namespace unsplash
  * @memberof faker.image
  */
 class Unsplash {
-  faker: any;
+  faker: Faker;
   categories: string[];
-  constructor(faker: any) {
+  constructor(faker: Faker) {
     this.faker = faker;
     this.categories = [
       "food",
