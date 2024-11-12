@@ -1,15 +1,11 @@
 // the `unique` module
-const unique: {
-  [key: string]: Function;
-} = {};
+const unique: { [key: string]: (...args: unknown[]) => unknown } = {};
 
 // global results store
 // currently uniqueness is global to entire faker instance
 // this means that faker should currently *never* return duplicate values across all API methods when using `Faker.unique`
 // it's possible in the future that some users may want to scope found per function call instead of faker instance
-const found: {
-  [key: string]: Function;
-} = {};
+const found: { [key: string]: (...args: unknown[]) => unknown } = {};
 
 // global exclude list of results
 // defaults to nothing excluded
@@ -20,7 +16,7 @@ const currentIterations = 0;
 
 // uniqueness compare function
 // default behavior is to check value as key against object hash
-const defaultCompare = function (obj: { [key: string]: any }, key: string) {
+const defaultCompare = function (obj: { [key: string]: unknown }, key: string) {
   if (typeof obj[key] === "undefined") {
     return -1;
   }
@@ -31,7 +27,7 @@ const defaultCompare = function (obj: { [key: string]: any }, key: string) {
 unique.errorMessage = function (
   now: number,
   code: number,
-  opts: { [key: string]: any },
+  opts: { [key: string]: unknown },
 ) {
   console.error("error", code);
   console.log(
@@ -50,9 +46,9 @@ unique.errorMessage = function (
 };
 
 unique.exec = function (
-  method: Function,
+  method: (...args: string[]) => unknown,
   args: string[],
-  opts: { [key: string]: any },
+  opts: { [key: string]: unknown },
 ) {
   // console.log(currentIterations)
 

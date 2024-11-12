@@ -50,26 +50,26 @@
    email: m-mat @ math.sci.hiroshima-u.ac.jp (remove space)
 */
 declare class MersenneTwister19937 {
-  [key: string]: Function;
+  [key: string]: (...args: unknown[]) => number | void;
 }
 function MersenneTwister19937(this: MersenneTwister19937) {
   /* constants should be scoped inside the class */
-  let N: number,
-    M: number,
-    MATRIX_A: number,
-    UPPER_MASK: number,
-    LOWER_MASK: number;
+  // let N: number,
+  //   M: number,
+  //   MATRIX_A: number,
+  //   UPPER_MASK: number,
+  //   LOWER_MASK: number;
   /* Period parameters */
   //c//#define N 624
   //c//#define M 397
   //c//#define MATRIX_A 0x9908b0dfUL   /* constant vector a */
   //c//#define UPPER_MASK 0x80000000UL /* most significant w-r bits */
   //c//#define LOWER_MASK 0x7fffffffUL /* least significant r bits */
-  N = 624;
-  M = 397;
-  MATRIX_A = 0x9908b0df; /* constant vector a */
-  UPPER_MASK = 0x80000000; /* most significant w-r bits */
-  LOWER_MASK = 0x7fffffff; /* least significant r bits */
+  const N = 624;
+  const M = 397;
+  const MATRIX_A = 0x9908b0df; /* constant vector a */
+  const UPPER_MASK = 0x80000000; /* most significant w-r bits */
+  const LOWER_MASK = 0x7fffffff; /* least significant r bits */
   //c//static unsigned long mt[N]; /* the array for the state vector  */
   //c//static int mti=N+1; /* mti==N+1 means mt[N] is not initialized */
   const mt = new Array(N); /* the array for the state vector  */

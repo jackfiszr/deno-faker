@@ -29,7 +29,10 @@ If we meet some day, and you think this stuff is worth it, you can buy me a beer
 */
 import { Faker } from "../lib/mod.ts";
 
-function rnd(a: any, b?: any) {
+function rnd(
+  a: number | object | string[],
+  b?: number,
+): number | string | undefined {
   // calling rnd() with no arguments is identical to rnd(0, 100)
   a = a || 0;
   b = b || 100;
@@ -48,7 +51,7 @@ function rnd(a: any, b?: any) {
       const rand = rnd(0, 100) / 100;
       let min = 0, max = 0, return_val;
       for (const key in obj) {
-        if (obj.hasOwnProperty(key)) {
+        if (Object.hasOwn(obj, key)) {
           max = obj[key] + min;
           return_val = key;
           if (rand >= min && rand <= max) {
@@ -231,7 +234,7 @@ const version_string = {
     return rnd(531, 538) + "." + rnd(0, 2) + "." + rnd(0, 2);
   },
 };
-const browsers: { [key: string]: Function } = {
+const browsers: Record<string, (arch: string) => string> = {
   firefox(arch: string) {
     // https://developer.mozilla.org/en-US/docs/Gecko_user_agent_string_reference
     const firefox_ver = rnd(5, 15) + randomRevision(2),
