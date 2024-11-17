@@ -241,14 +241,14 @@ test({
     assert(subset.length >= 1 && subset.length <= testArray.length);
     // Check elements
     subset.forEach((element: string) => {
-      assert(testArray.indexOf(element) > -1);
+      assert(testArray.includes(element));
     });
     // Check uniqueness
+    const seen = new Set<string>();
     subset.forEach((element: string) => {
-      assert(!subset.hasOwn(element));
-      // this[element] = true
-      Object.defineProperty(subset, element, { value: true });
-    }, {});
+      assert(!seen.has(element));
+      seen.add(element);
+    });
   },
 });
 
@@ -262,13 +262,14 @@ test({
     assert(subset.length === 3);
     // Check elements
     subset.forEach((element: string) => {
-      assert(testArray.indexOf(element) > -1);
+      assert(testArray.includes(element));
     });
     // Check uniqueness
+    const seen = new Set<string>();
     subset.forEach((element: string) => {
-      assert(!subset.hasOwn(element));
-      Object.defineProperty(subset, element, { value: true });
-    }, {});
+      assert(!seen.has(element));
+      seen.add(element);
+    });
   },
 });
 

@@ -1,9 +1,10 @@
+import type { Faker } from "./mod.ts";
 /**
  * @namespace faker.date
  */
 class _Date {
-  faker: any;
-  constructor(faker: any) {
+  faker: Faker;
+  constructor(faker: Faker) {
     this.faker = faker;
   }
 
@@ -129,7 +130,7 @@ class _Date {
    * @method faker.date.month
    * @param {object} options
    */
-  month = (options: any) => {
+  month = (options: Record<string, unknown>) => {
     options = options || {};
 
     let type = "wide";
@@ -155,7 +156,7 @@ class _Date {
    * @param {object} options
    * @method faker.date.weekday
    */
-  weekday = (options: any) => {
+  weekday = (options: Record<string, unknown>) => {
     options = options || {};
 
     let type = "wide";

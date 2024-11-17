@@ -1,12 +1,13 @@
+import type { Faker } from "./mod.ts";
 import * as mersenne from "../vendor/mersenne.ts";
 
 /**
  * @namespace faker.random
  */
 class Random {
-  faker: any;
+  faker: Faker;
   seed: number;
-  constructor(faker: any, seed?: any) {
+  constructor(faker: Faker, seed: number) {
     this.faker = faker;
     this.seed = seed;
     // Use a user provided seed if it exists
@@ -24,7 +25,7 @@ class Random {
    * @method faker.random.number
    * @param {mixed} options {min, max, precision}
    */
-  number = (options: any) => {
+  number = (options: Record<string, unknown>) => {
     if (typeof options === "number") {
       options = {
         max: options,
@@ -65,7 +66,7 @@ class Random {
    * @method faker.random.float
    * @param {mixed} options
    */
-  float = (options: any) => {
+  float = (options: Record<string, unknown>) => {
     if (typeof options === "number") {
       options = {
         precision: options,
@@ -73,7 +74,7 @@ class Random {
     }
     options = options || {};
     const opts: {
-      [key: string]: any;
+      [key: string]: string;
     } = {};
     for (const p in options) {
       opts[p] = options[p];
@@ -133,7 +134,7 @@ class Random {
    * @param {object} object
    * @param {mixed} field
    */
-  objectElement = (object: any, field: string) => {
+  objectElement = (object: Record<string, unknown>, field: string) => {
     object = object || { "foo": "bar", "too": "car" };
     const array = Object.keys(object);
     const key = this.faker.random.arrayElement(array);
@@ -172,7 +173,7 @@ class Random {
    * @method faker.random.word
    * @param {string} type
    */
-  word = (type: string) => {
+  word = (_type: string) => {
     const wordMethods = [
       "commerce.department",
       "commerce.productName",
@@ -249,7 +250,7 @@ class Random {
    * @method faker.random.alpha
    * @param {mixed} options // defaults to { count: 1, upcase: false }
    */
-  alpha = (options: any) => {
+  alpha = (options: Record<string, unknown>) => {
     if (typeof options === "undefined") {
       options = {
         count: 1,

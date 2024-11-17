@@ -1,10 +1,12 @@
+import type { Faker } from "./mod.ts";
+import type { Helpers } from "./helpers.ts";
 /**
  * @namespace faker.lorem
  */
 class Lorem {
-  faker: any;
-  Helpers: any;
-  constructor(faker: any) {
+  faker: Faker;
+  Helpers: Helpers;
+  constructor(faker: Faker) {
     this.faker = faker;
     this.Helpers = faker.helpers;
   }
@@ -15,7 +17,7 @@ class Lorem {
    * @method faker.lorem.word
    * @param {number} num
    */
-  word = (num: number) => {
+  word = (_num: number) => {
     return this.faker.random.arrayElement(this.faker.definitions.lorem.words);
   };
 
@@ -41,7 +43,7 @@ class Lorem {
    * @param {number} wordCount defaults to a random number between 3 and 10
    * @param {number} range
    */
-  sentence = (wordCount: number, range: number) => {
+  sentence = (wordCount: number, _range: number) => {
     if (typeof wordCount == "undefined") {
       wordCount = this.faker.random.number(
         { min: 3, max: 10 },
@@ -124,7 +126,7 @@ class Lorem {
    * @method faker.lorem.text
    * @param {number} times
    */
-  loremText = (times: number) => {
+  loremText = (_times: number) => {
     const loremMethods = [
       "lorem.word",
       "lorem.words",

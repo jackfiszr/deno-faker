@@ -1,9 +1,10 @@
 import uniqueExec from "../vendor/unique.ts";
+import type { Faker } from "./mod.ts";
 /**
  * @namespace faker.unique
  */
 class Unique {
-  constructor(faker: any) {}
+  constructor(_faker: Faker) {}
   // initialize unique module class variables
 
   // maximum time unique.exec will attempt to run before aborting
@@ -20,7 +21,11 @@ class Unique {
    *
    * @method unique
    */
-  unique(method: Function, args: any, opts: any) {
+  unique(
+    method: () => unknown,
+    args: Record<string, unknown>,
+    opts: Record<string, unknown>,
+  ) {
     opts = opts || {};
     opts.startTime = new Date().getTime();
     if (typeof opts.maxTime !== "number") {

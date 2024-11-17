@@ -1,12 +1,13 @@
+import type { Faker } from "./mod.ts";
+import type { Helpers } from "./helpers.ts";
 import ibanLib from "./iban.ts";
-
 /**
  * @namespace faker.finance
  */
 class Finance {
-  faker: any;
-  Helpers: any;
-  constructor(faker: any) {
+  faker: Faker;
+  Helpers: Helpers;
+  constructor(faker: Faker) {
     this.faker = faker;
     this.Helpers = this.faker.helpers;
   }

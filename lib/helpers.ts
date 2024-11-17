@@ -1,9 +1,10 @@
+import type { Faker } from "./mod.ts";
 /**
  * @namespace faker.helpers
  */
 class Helpers {
-  faker: any;
-  constructor(faker: any) {
+  faker: Faker;
+  constructor(faker: Faker) {
     this.faker = faker;
   }
 
@@ -255,7 +256,7 @@ class Helpers {
    * @param {string} str
    * @param {object} data
    */
-  mustache(str: string, data: any) {
+  mustache(str: string, data: Record<string, unknown>) {
     if (typeof str === "undefined") {
       return "";
     }

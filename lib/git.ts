@@ -1,11 +1,12 @@
+import type { Faker } from "./mod.ts";
 /**
  * @namespace faker.git
  */
 
 class Git {
-  faker: any;
+  faker: Faker;
   hexChars: string[];
-  constructor(faker: any) {
+  constructor(faker: Faker) {
     this.faker = faker;
     this.hexChars = [
       "0",
@@ -44,7 +45,7 @@ class Git {
    * @method faker.git.commitEntry
    * @param {object} options
    */
-  commitEntry = (options: any) => {
+  commitEntry = (options: Record<string, unknown>) => {
     options = options || {};
 
     let entry = "commit {{git.commitSha}}\r\n";

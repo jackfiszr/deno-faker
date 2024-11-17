@@ -1,10 +1,11 @@
+import type { Faker } from "./mod.ts";
 import schemas from "./schemas.ts";
 /**
  * @namespace faker.vehicle
  */
 class Vehicle {
-  faker: any;
-  constructor(faker: any) {
+  faker: Faker;
+  constructor(faker: Faker) {
     this.faker = faker;
   }
 
@@ -14,7 +15,7 @@ class Vehicle {
    * @method faker.vehicle.vehicle
    */
   vehicle = () => {
-    const schema = schemas.vehicle;
+    const _schema = schemas.vehicle;
     return this.faker.fake("{{vehicle.manufacturer}} {{vehicle.model}}");
   };
 
@@ -24,7 +25,7 @@ class Vehicle {
    * @method faker.vehicle.manufacturer
    */
   manufacturer = () => {
-    const schema = schemas.manufacturer;
+    const _schema = schemas.manufacturer;
     return this.faker.random.arrayElement(
       this.faker.definitions.vehicle.manufacturer,
     );
@@ -36,7 +37,7 @@ class Vehicle {
    * @method faker.vehicle.model
    */
   model = () => {
-    const schema = schemas.model;
+    const _schema = schemas.model;
     return this.faker.random.arrayElement(
       this.faker.definitions.vehicle.model,
     );
@@ -48,7 +49,7 @@ class Vehicle {
    * @method faker.vehicle.type
    */
   type = () => {
-    const schema = schemas.vtype;
+    const _schema = schemas.vtype;
     return this.faker.random.arrayElement(this.faker.definitions.vehicle.type);
   };
 
@@ -58,7 +59,7 @@ class Vehicle {
    * @method faker.vehicle.fuel
    */
   fuel = () => {
-    const schema = schemas.fuel;
+    const _schema = schemas.fuel;
     return this.faker.random.arrayElement(this.faker.definitions.vehicle.fuel);
   };
 
@@ -68,7 +69,7 @@ class Vehicle {
    * @method faker.vehicle.vin
    */
   vin = () => {
-    const schema = schemas.vin;
+    const _schema = schemas.vin;
     return (
       this.faker.random.alphaNumeric(10) +
       this.faker.random.alpha({ count: 1, upcase: true }) +
@@ -83,7 +84,7 @@ class Vehicle {
    * @method faker.vehicle.color
    */
   color = () => {
-    const schema = schemas.vcolor;
+    const _schema = schemas.vcolor;
     return this.faker.fake("{{commerce.color}}");
   };
 }

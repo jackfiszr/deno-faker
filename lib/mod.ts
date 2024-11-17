@@ -39,9 +39,9 @@ import { Vehicle } from "./vehicle.ts";
  * @namespace faker
  */
 class Faker {
-  [key: string]: any;
+  [key: string]: unknown;
 
-  constructor(opts: any) {
+  constructor(opts: Record<string, unknown>) {
     this.opts = opts || {};
     // assign options
     this.locales = opts.locales || {};
@@ -159,41 +159,43 @@ class Faker {
     };
 
     // Create a Getter for all definitions.foo.bar properties
-    Object.keys(this._definitions).forEach((d: any) => {
-      if (typeof this.definitions[d] === "undefined") {
-        this.definitions[d] = {};
-      }
+    Object.keys(this._definitions).forEach(
+      (d: keyof typeof this._definitions) => {
+        if (typeof this.definitions[d] === "undefined") {
+          this.definitions[d] = {};
+        }
 
-      if (typeof this._definitions[d] === "string") {
-        this.definitions[d] = this._definitions[d];
-        return;
-      }
+        if (typeof this._definitions[d] === "string") {
+          this.definitions[d] = this._definitions[d];
+          return;
+        }
 
-      if (Array.isArray(this._definitions[d])) {
-        const defsArray = [...this._definitions[d]];
-        defsArray.forEach((p: any) => {
-          Object.defineProperty(this.definitions[d], p, {
-            get: () => {
-              if (
-                typeof this.locales[this.locale][d] === "undefined" ||
-                typeof this.locales[this.locale][d][p] === "undefined"
-              ) {
-                // certain localization sets contain less data then others.
-                // in the case of a missing definition, use the default localeFallback to substitute the missing set data
-                // throw new Error('unknown property ' + d + p)
-                return this.locales[this.localeFallback][d][p];
-              } else {
-                // return localized data
-                return this.locales[this.locale][d][p];
-              }
-            },
+        if (Array.isArray(this._definitions[d])) {
+          const defsArray = [...this._definitions[d]];
+          defsArray.forEach((p: string) => {
+            Object.defineProperty(this.definitions[d], p, {
+              get: () => {
+                if (
+                  typeof this.locales[this.locale][d] === "undefined" ||
+                  typeof this.locales[this.locale][d][p] === "undefined"
+                ) {
+                  // certain localization sets contain less data then others.
+                  // in the case of a missing definition, use the default localeFallback to substitute the missing set data
+                  // throw new Error('unknown property ' + d + p)
+                  return this.locales[this.localeFallback][d][p];
+                } else {
+                  // return localized data
+                  return this.locales[this.locale][d][p];
+                }
+              },
+            });
           });
-        });
-      }
-    });
+        }
+      },
+    );
   }
 
-  setLocale(locale: any) {
+  setLocale(locale: string) {
     this.locale = locale;
   }
 

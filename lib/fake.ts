@@ -1,11 +1,11 @@
+import type { Faker } from "./mod.ts";
 /*
   fake.js - generator method for combining faker methods based on string input
 
 */
-
 class Fake {
-  faker: any;
-  constructor(faker: any) {
+  faker: Faker;
+  constructor(faker: Faker) {
     this.faker = faker;
   }
   /**
@@ -25,7 +25,7 @@ class Fake {
    * @method faker.fake
    * @param {string} str
    */
-  fake = (str: string): any => {
+  fake = (str: string): string => {
     // setup default response as empty string
     let res = "";
 
@@ -83,7 +83,7 @@ class Fake {
     // If anyone actually needs to optimize this specific code path, please open a support issue on github
     try {
       params = JSON.parse(parameters);
-    } catch (err) {
+    } catch (_err) {
       // since JSON.parse threw an error, assume parameters was actually a string
       params = parameters;
     }

@@ -54,10 +54,10 @@ export default {
       return String(match.toUpperCase().charCodeAt(0) - 55);
     });
   },
-  mod97: function (digitStr: any) {
+  mod97: function (digitStr: string) {
     let m = 0;
     for (let i = 0; i < digitStr.length; i++) {
-      m = ((m * 10) + (digitStr[i] | 0)) % 97;
+      m = ((m * 10) + (Number(digitStr[i]) | 0)) % 97;
     }
     return m;
   },

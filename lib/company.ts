@@ -1,9 +1,10 @@
+import type { Faker } from "./mod.ts";
 /**
  * @namespace faker.company
  */
 class Company {
-  faker: any;
-  constructor(faker: any) {
+  faker: Faker;
+  constructor(faker: Faker) {
     this.faker = faker;
   }
 

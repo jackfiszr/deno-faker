@@ -1,9 +1,10 @@
+import type { Faker } from "./mod.ts";
 /**
  * @namespace faker.name
  */
 class Name {
-  faker: any;
-  constructor(faker: any) {
+  faker: Faker;
+  constructor(faker: Faker) {
     this.faker = faker;
   }
   /**
@@ -102,6 +103,7 @@ class Name {
         if (prefix) {
           return prefix + " " + firstName + " " + lastName;
         }
+        /* falls through */
       case 1:
         suffix = this.faker.name.suffix(gender);
         if (suffix) {

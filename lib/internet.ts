@@ -1,3 +1,4 @@
+import type { Faker } from "./mod.ts";
 import * as random_ua from "../vendor/user-agent.ts";
 import schemas from "./schemas.ts";
 
@@ -5,8 +6,8 @@ import schemas from "./schemas.ts";
  * @namespace faker.internet
  */
 class Internet {
-  faker: any;
-  constructor(faker: any) {
+  faker: Faker;
+  constructor(faker: Faker) {
     this.faker = faker;
   }
   /**
@@ -15,7 +16,7 @@ class Internet {
    * @method faker.internet.avatar
    */
   avatar = () => {
-    const schema = schemas.avatar;
+    const _schema = schemas.avatar;
     return this.faker.random.arrayElement(
       this.faker.definitions.internet.avatar_uri,
     );
@@ -30,7 +31,7 @@ class Internet {
    * @param {string} provider
    */
   email = (firstName: string, lastName: string, provider: string) => {
-    const schema = schemas.email;
+    const _schema = schemas.email;
     provider = provider ||
       this.faker.random.arrayElement(
         this.faker.definitions.internet.free_email,
@@ -62,7 +63,7 @@ class Internet {
    * @param {string} lastName
    */
   userName = (firstName: string, lastName: string) => {
-    const schema = schemas.userName;
+    const _schema = schemas.userName;
     let result;
     firstName = firstName || this.faker.name.firstName();
     lastName = lastName || this.faker.name.lastName();
@@ -90,7 +91,7 @@ class Internet {
    * @method faker.internet.protocol
    */
   protocol = () => {
-    const schema = schemas.protocol;
+    const _schema = schemas.protocol;
     const protocols = ["http", "https"];
     return this.faker.random.arrayElement(protocols);
   };
@@ -101,7 +102,7 @@ class Internet {
    * @method faker.internet.url
    */
   url = () => {
-    const schema = schemas.url;
+    const _schema = schemas.url;
     return this.faker.internet.protocol() + "://" +
       this.faker.internet.domainName();
   };
@@ -112,7 +113,7 @@ class Internet {
    * @method faker.internet.domainName
    */
   domainName = () => {
-    const schema = schemas.domainName;
+    const _schema = schemas.domainName;
     return this.faker.internet.domainWord() + "." +
       this.faker.internet.domainSuffix();
   };
@@ -123,7 +124,7 @@ class Internet {
    * @method faker.internet.domainSuffix
    */
   domainSuffix = () => {
-    const schema = schemas.domainSuffix;
+    const _schema = schemas.domainSuffix;
     return this.faker.random.arrayElement(
       this.faker.definitions.internet.domain_suffix,
     );
@@ -135,7 +136,7 @@ class Internet {
    * @method faker.internet.domainWord
    */
   domainWord = () => {
-    const schema = schemas.domainWord;
+    const _schema = schemas.domainWord;
     return this.faker.name.firstName().replace(/([\\~#&*{}/:<>?|\''])/ig, "")
       .toLowerCase();
   };
@@ -146,7 +147,7 @@ class Internet {
    * @method faker.internet.ip
    */
   ip = () => {
-    const schema = schemas.ip;
+    const _schema = schemas.ip;
     const randNum = () => {
       return (this.faker.random.number(255)).toFixed(0);
     };
@@ -165,7 +166,7 @@ class Internet {
    * @method faker.internet.ipv6
    */
   ipv6 = () => {
-    const schema = schemas.ipv6;
+    const _schema = schemas.ipv6;
     const randHash = () => {
       let result = "";
       for (let i = 0; i < 4; i++) {
@@ -206,7 +207,7 @@ class Internet {
    * @method faker.internet.userAgent
    */
   userAgent = () => {
-    const schema = schemas.userAgent;
+    const _schema = schemas.userAgent;
     return random_ua.generate();
   };
 
@@ -219,7 +220,7 @@ class Internet {
    * @param {number} baseBlue255
    */
   color = (baseRed255: number, baseGreen255: number, baseBlue255: number) => {
-    const schema = schemas.color;
+    const _schema = schemas.color;
     baseRed255 = baseRed255 || 0;
     baseGreen255 = baseGreen255 || 0;
     baseBlue255 = baseBlue255 || 0;
@@ -245,7 +246,7 @@ class Internet {
    * @param {string} sep
    */
   mac = (sep: string) => {
-    const schema = schemas.mac;
+    const _schema = schemas.mac;
     let i, mac = "", validSep = ":";
 
     // if the client passed in a different separator than `:`,
@@ -278,7 +279,7 @@ class Internet {
     pattern: RegExp,
     prefix: string,
   ) => {
-    const schema = schemas.password;
+    const _schema = schemas.password;
     len = len || 15;
     if (typeof memorable === "undefined") {
       memorable = false;
@@ -288,17 +289,16 @@ class Internet {
      * Copyright(c) 2011-2013 Bermi Ferrer <bermi@bermilabs.com>
      * MIT Licensed
      */
-    let consonant: RegExp, letter: RegExp, password, vowel: RegExp;
-    letter = /[a-zA-Z]$/;
-    vowel = /[aeiouAEIOU]$/;
-    consonant = /[bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ]$/;
-    const _password = (
+    const _letter = /[a-zA-Z]$/;
+    const vowel = /[aeiouAEIOU]$/;
+    const consonant = /[bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ]$/;
+    const password = (
       length: number,
       memorable: boolean,
       pattern: RegExp,
       prefix: string,
     ): string => {
-      let char, n;
+      let char;
       if (length == null) {
         length = 10;
       }
@@ -321,17 +321,17 @@ class Internet {
           pattern = consonant;
         }
       }
-      n = this.faker.random.number(94) + 33;
+      const n = this.faker.random.number(94) + 33;
       char = String.fromCharCode(n);
       if (memorable) {
         char = char.toLowerCase();
       }
       if (!char.match(pattern)) {
-        return _password(length, memorable, pattern, prefix);
+        return password(length, memorable, pattern, prefix);
       }
-      return _password(length, memorable, pattern, "" + prefix + char);
+      return password(length, memorable, pattern, "" + prefix + char);
     };
-    return _password(len, memorable, pattern, prefix);
+    return password(len, memorable, pattern, prefix);
   };
 }
 

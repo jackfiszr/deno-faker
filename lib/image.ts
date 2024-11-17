@@ -1,5 +1,6 @@
 import { Lorempixel } from "./image_providers/lorempixel.ts";
 import { Unsplash } from "./image_providers/unsplash.ts";
+import type { Faker } from "./mod.ts";
 /**
  * @namespace faker.image
  * @property {object} lorempixel - faker.image.lorempixel
@@ -7,8 +8,8 @@ import { Unsplash } from "./image_providers/unsplash.ts";
  * @default Default provider is unsplash image provider
  */
 class Image {
-  [key: string]: any;
-  constructor(faker: any) {
+  [key: string]: () => string;
+  constructor(faker: Faker) {
     this.faker = faker;
     this.lorempixel = new Lorempixel(faker);
     this.unsplash = new Unsplash(faker);
@@ -22,7 +23,7 @@ class Image {
    * @param {boolean} randomize
    * @method faker.image.image
    */
-  image = (width: number, height: number, randomize: boolean) => {
+  image = (width: number, height: number, randomize: boolean): string => {
     const categories = [
       "abstract",
       "animals",
@@ -38,7 +39,7 @@ class Image {
       "technics",
       "transport",
     ];
-    const meth: Function = this[this.faker.random.arrayElement(categories)];
+    const meth = this[this.faker.random.arrayElement(categories)];
     return meth(width, height, randomize);
   };
   /**

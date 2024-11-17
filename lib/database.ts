@@ -1,10 +1,11 @@
+import type { Faker } from "./mod.ts";
 import schemas from "./schemas.ts";
 /**
  * @namespace faker.database
  */
 class Database {
-  faker: any;
-  constructor(faker: any) {
+  faker: Faker;
+  constructor(faker: Faker) {
     this.faker = faker;
   }
 
@@ -14,7 +15,7 @@ class Database {
    * @method faker.database.column
    */
   column = () => {
-    const schema = schemas.column;
+    const _schema = schemas.column;
     return this.faker.random.arrayElement(
       this.faker.definitions.database.column,
     );
@@ -26,7 +27,7 @@ class Database {
    * @method faker.database.type
    */
   type = () => {
-    const schema = schemas.type;
+    const _schema = schemas.type;
     return this.faker.random.arrayElement(
       this.faker.definitions.database.type,
     );
@@ -38,7 +39,7 @@ class Database {
    * @method faker.database.collation
    */
   collation = () => {
-    const schema = schemas.collation;
+    const _schema = schemas.collation;
     return this.faker.random.arrayElement(
       this.faker.definitions.database.collation,
     );
@@ -50,7 +51,7 @@ class Database {
    * @method faker.database.engine
    */
   engine = () => {
-    const schema = schemas.engine;
+    const _schema = schemas.engine;
     return this.faker.random.arrayElement(
       this.faker.definitions.database.engine,
     );

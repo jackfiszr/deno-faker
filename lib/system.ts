@@ -1,11 +1,11 @@
 // generates fake data for many computer systems properties
-
+import type { Faker } from "./mod.ts";
 /**
  * @namespace faker.system
  */
 class System {
-  faker: any;
-  constructor(faker: any) {
+  faker: Faker;
+  constructor(faker: Faker) {
     this.faker = faker;
   }
   /**
@@ -15,7 +15,7 @@ class System {
    * @param {string} ext
    * @param {string} type
    */
-  fileName = (ext: string, type: string) => {
+  fileName = (_ext: string, _type: string) => {
     let str = this.faker.fake("{{random.words}}.{{system.fileExt}}");
     str = str.replace(/ /g, "_");
     str = str.replace(/\,/g, "_");
@@ -33,7 +33,7 @@ class System {
    * @param {string} ext
    * @param {string} type
    */
-  commonFileName = (ext: string, type: string) => {
+  commonFileName = (ext: string, _type: string) => {
     let str = this.faker.random.words() + "." +
       (ext || this.faker.system.commonFileExt());
     str = str.replace(/ /g, "_");
@@ -72,7 +72,7 @@ class System {
    * @method faker.system.commonFileExt
    * @param {string} type
    */
-  commonFileExt = (type: string) => {
+  commonFileExt = (_type: string) => {
     const types = [
       "application/pdf",
       "audio/mpeg",

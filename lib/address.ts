@@ -1,12 +1,14 @@
+import type { Faker } from "./mod.ts";
+import type { Helpers } from "./helpers.ts";
 import schemas from "./schemas.ts";
 /**
  * @namespace faker.address
  */
 class Address {
-  faker: any;
-  f: any;
-  Helpers: any;
-  constructor(faker: any) {
+  faker: Faker;
+  f?: Faker;
+  Helpers: Helpers;
+  constructor(faker: Faker) {
     this.faker = faker;
     this.Helpers = faker.helpers;
   }
@@ -229,7 +231,7 @@ class Address {
    * @method faker.address.state
    * @param {Boolean} useAbbr
    */
-  state = (useAbbr: boolean) => {
+  state = (_useAbbr: boolean) => {
     return this.faker.random.arrayElement(
       this.faker.definitions.address.state,
     );
@@ -293,7 +295,7 @@ class Address {
    * @param {Boolean} useAbbr return direction abbreviation. defaults to false
    */
   direction = (useAbbr: boolean) => {
-    const schema = schemas.direction;
+    const _schema = schemas.direction;
     if (typeof useAbbr === "undefined" || useAbbr === false) {
       return this.faker.random.arrayElement(
         this.faker.definitions.address.direction,
@@ -311,7 +313,7 @@ class Address {
    * @param {Boolean} useAbbr return direction abbreviation. defaults to false
    */
   cardinalDirection = (useAbbr: boolean) => {
-    const schema = schemas.cardinalDirection;
+    const _schema = schemas.cardinalDirection;
     if (typeof useAbbr === "undefined" || useAbbr === false) {
       return (
         this.faker.random.arrayElement(
@@ -333,7 +335,7 @@ class Address {
    * @param {Boolean} useAbbr return direction abbreviation. defaults to false
    */
   ordinalDirection = (useAbbr: boolean) => {
-    const schema = schemas.ordinalDirection;
+    const _schema = schemas.ordinalDirection;
     if (typeof useAbbr === "undefined" || useAbbr === false) {
       return (
         this.faker.random.arrayElement(
@@ -353,7 +355,7 @@ class Address {
     radius: number,
     isMetric: boolean,
   ) => {
-    function randomFloat(min: number, max: number) {
+    function _randomFloat(min: number, max: number) {
       return Math.random() * (max - min) + min;
     }
     function degreesToRadians(degrees: number) {
