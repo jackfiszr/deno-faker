@@ -109,7 +109,7 @@ test({
   fn(): void {
     faker.locale = "pl";
     // this will throw if this is broken
-    const name = faker.name.findName();
+    const _name = faker.name.findName();
     // reset locale
     faker.locale = "en";
   },

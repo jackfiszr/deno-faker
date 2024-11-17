@@ -203,7 +203,7 @@ testWrapper(
       "streetAddress() when useFulladdress is true, adds a secondary address to the result",
     fn(): void {
       const address = faker.address.streetAddress(true);
-      const parts = address.split(" ");
+      const _parts = address.split(" ");
       assert(faker.address.secondaryAddress.called);
     },
   },
@@ -324,7 +324,7 @@ test({
   fn(): void {
     const state = "XX";
     sinon.spy(faker.address, "zipCode");
-    const zipCode = faker.address.zipCodeByState(state);
+    const _zipCode = faker.address.zipCodeByState(state);
     assert(faker.address.zipCode.called);
     faker.address.zipCode.restore();
   },
@@ -337,7 +337,7 @@ test({
     faker.locale = "zh_CN";
     const state = "IL";
     sinon.spy(faker.address, "zipCode");
-    const zipCode = faker.address.zipCodeByState(state);
+    const _zipCode = faker.address.zipCodeByState(state);
     assert(faker.address.zipCode.called);
     // assert(zipCode === undefined)
     faker.address.zipCode.restore();

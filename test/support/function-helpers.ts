@@ -14,24 +14,27 @@ const IGNORED_METHODS: {
   system: ["directoryPath", "filePath"], // these are TODOs
 };
 
-function isTestableModule(mod: string) {
+function isTestableModule(mod: string): boolean {
   return IGNORED_MODULES.indexOf(mod) === -1;
 }
 
-function isMethodOf(mod: string) {
+function isMethodOf(mod: string): (meth: string) => boolean {
   return function (meth: string) {
     return typeof faker[mod][meth] === "function";
   };
 }
 
-function isTestableMethod(mod: string) {
+function isTestableMethod(mod: string): (meth: string) => boolean {
   return function (meth: string) {
     return !(mod in IGNORED_METHODS &&
       IGNORED_METHODS[mod].indexOf(meth) >= 0);
   };
 }
 
-function both(pred1: Function, pred2: Function) {
+function both(
+  pred1: (value: string) => boolean,
+  pred2: (value: string) => boolean,
+): (value: string) => boolean {
   return function (value: string) {
     return pred1(value) && pred2(value);
   };
@@ -43,7 +46,7 @@ const functionHelpers = {
   modulesList() {
     const modules = Object.keys(faker)
       .filter(isTestableModule)
-      .reduce((result: any, mod) => {
+      .reduce((result: Record<string, string[]>, mod: string) => {
         result[mod] = Object.keys(faker[mod]).filter(
           both(isMethodOf(mod), isTestableMethod(mod)),
         );

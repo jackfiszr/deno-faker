@@ -44,9 +44,9 @@ test({
 test({
   name: "unique() is able to limit unique call by maxTime in ms",
   fn() {
-    let result;
+    let _result;
     try {
-      result = faker.unique(
+      _result = faker.unique(
         faker.internet.protocol,
         [],
         { maxTime: 1, maxRetries: 9999, exclude: ["https", "http"] },
@@ -60,9 +60,9 @@ test({
 test({
   name: "unique() is able to limit unique call by maxRetries",
   fn() {
-    let result;
+    let _result;
     try {
-      result = faker.unique(
+      _result = faker.unique(
         faker.internet.protocol,
         [],
         { maxTime: 5000, maxRetries: 5, exclude: ["https", "http"] },

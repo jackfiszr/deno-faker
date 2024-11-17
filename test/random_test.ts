@@ -1,4 +1,9 @@
-import { _, assert, assertEquals, assertThrows } from "./support/test_deps.ts";
+import {
+  _,
+  assert,
+  assertEquals,
+  type assertThrows as _assertThrows,
+} from "./support/test_deps.ts";
 import * as mersenne from "../vendor/mersenne.ts";
 import { faker } from "../mod.ts";
 const { test } = Deno;
@@ -52,7 +57,6 @@ test({
   name: "number() provides numbers with a given precision",
   fn() {
     const options = { min: 0, max: 1.5, precision: 0.5 };
-    // @ts-ignore
     const results = _.chain(_.range(50)).map(function () {
       return faker.random.number(options);
     }).uniq().value().sort();
@@ -175,7 +179,6 @@ test({
   name: "float() provides numbers with a given precision",
   fn() {
     const options = { min: 0, max: 1.5, precision: 0.5 };
-    // @ts-ignore
     const results = _.chain(_.range(50)).map(function () {
       return faker.random.float(options);
     }).uniq().value().sort();
@@ -242,7 +245,7 @@ test({
     });
     // Check uniqueness
     subset.forEach((element: string) => {
-      assert(!subset.hasOwnProperty(element));
+      assert(!subset.hasOwn(element));
       // this[element] = true
       Object.defineProperty(subset, element, { value: true });
     }, {});
@@ -263,7 +266,7 @@ test({
     });
     // Check uniqueness
     subset.forEach((element: string) => {
-      assert(!subset.hasOwnProperty(element));
+      assert(!subset.hasOwn(element));
       Object.defineProperty(subset, element, { value: true });
     }, {});
   },
@@ -373,7 +376,7 @@ test({
   name:
     "MersenneTwister returns a random number without given min / max arguments",
   fn() {
-    const max = 10;
+    const _max = 10;
     const randomNumber = mersenne.rand();
     assert(typeof randomNumber === "number");
   },

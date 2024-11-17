@@ -107,7 +107,7 @@ test({
     "mask(length, parens, ellipsis) should set a default length of 4 for a zero value",
   fn() {
     const expected = 4;
-    const mask = faker.finance.mask(0, false, false);
+    const _mask = faker.finance.mask(0, false, false);
     const actual = 4; // picks 4 if the random number generator picks 0
     assertEquals(
       actual,
