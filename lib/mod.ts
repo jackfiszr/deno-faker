@@ -39,7 +39,25 @@ import { Vehicle } from "./vehicle.ts";
  * @namespace faker
  */
 class Faker {
-  [key: string]: unknown;
+  fake: Fake;
+  unique: Unique;
+  random: Random;
+  helpers: Helpers;
+  name: Name;
+  address: Address;
+  company: Company;
+  finance: Finance;
+  image: Image;
+  lorem: Lorem;
+  hacker: Hacker;
+  internet: Internet;
+  database: Database;
+  phone: Phone;
+  date: _Date;
+  commerce: Commerce;
+  system: System;
+  git: Git;
+  vehicle: Vehicle;
 
   constructor(opts: Record<string, unknown>) {
     this.opts = opts || {};
