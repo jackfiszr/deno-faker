@@ -30,43 +30,50 @@ If we meet some day, and you think this stuff is worth it, you can buy me a beer
 import { Faker } from "../lib/mod.ts";
 
 function rnd(
-  a: number | object | string[],
+  a: number | Record<string, number> | string[],
   b?: number,
 ): number | string | undefined {
   // calling rnd() with no arguments is identical to rnd(0, 100)
   a = a || 0;
   b = b || 100;
-  if (typeof b === "number" && typeof a === "number") {
+
+  if (typeof a === "number" && typeof b === "number") {
     // 9/2018 - Added faker random to ensure mersenne and seed
     const faker = new Faker({});
     return faker.random.number({ min: a, max: b });
   }
-  if (Object.prototype.toString.call(a) === "[object Array]") {
+
+  if (Array.isArray(a)) {
     // returns a random element from array (a), even weighting
     return a[Math.floor(Math.random() * a.length)];
   }
+
   if (a && typeof a === "object") {
     // returns a random key from the passed object keys are weighted by the decimal probability in their value
-    return (function (obj) {
-      const rand = rnd(0, 100) / 100;
-      let min = 0, max = 0, return_val;
-      for (const key in obj) {
-        if (Object.hasOwn(obj, key)) {
-          max = obj[key] + min;
-          return_val = key;
-          if (rand >= min && rand <= max) {
-            break;
-          }
-          min = min + obj[key];
+    const obj = a as Record<string, number>;
+    const rand = (rnd(0, 100) as number) / 100;
+    let min = 0;
+    let max = 0;
+    let return_val;
+
+    for (const key in obj) {
+      if (Object.prototype.hasOwnProperty.call(obj, key)) {
+        max = obj[key] + min;
+        return_val = key;
+        if (rand >= min && rand <= max) {
+          break;
         }
+        min = max;
       }
-      return return_val;
-    }(a));
+    }
+    return return_val;
   }
+
   throw new TypeError(
-    "Invalid arguments passed to rnd. (" + (b ? a + ", " + b : a) + ")",
+    `Invalid arguments passed to rnd. (${b ? a + ", " + b : a})`,
   );
 }
+
 function randomLang() {
   return rnd([
     "AB",
@@ -167,35 +174,44 @@ function randomLang() {
     "ZH",
   ]);
 }
+
 function randomBrowserAndOS() {
   const browser = rnd({
-    chrome: .45132810566,
-    iexplorer: .27477061836,
-    firefox: .19384170608,
-    safari: .06186781118,
-    opera: .01574236955,
-  });
+    chrome: 0.45132810566,
+    iexplorer: 0.27477061836,
+    firefox: 0.19384170608,
+    safari: 0.06186781118,
+    opera: 0.01574236955,
+  }) as string;
+
   const os: {
     [key: string]: { [key: string]: number } | string[];
   } = {
-    chrome: { win: .89, mac: .09, lin: .02 },
-    firefox: { win: .83, mac: .16, lin: .01 },
-    opera: { win: .91, mac: .03, lin: .06 },
-    safari: { win: .04, mac: .96 },
+    chrome: { win: 0.89, mac: 0.09, lin: 0.02 },
+    firefox: { win: 0.83, mac: 0.16, lin: 0.01 },
+    opera: { win: 0.91, mac: 0.03, lin: 0.06 },
+    safari: { win: 0.04, mac: 0.96 },
     iexplorer: ["win"],
   };
-  return [browser, rnd(os[browser])];
+
+  // Ensure 'browser' is defined and key exists
+  const osSelection = os[browser] || {};
+  return [browser, rnd(osSelection) as string];
 }
+
 function randomProc(arch: string) {
   const procs: {
     [key: string]: { [key: string]: number } | string[];
   } = {
     lin: ["i686", "x86_64"],
-    mac: { "Intel": .48, "PPC": .01, "U Intel": .48, "U PPC": .01 },
+    mac: { "Intel": 0.48, "PPC": 0.01, "U Intel": 0.48, "U PPC": 0.01 },
     win: ["", "WOW64", "Win64 x64"],
   };
-  return rnd(procs[arch]);
+
+  const procOptions = procs[arch];
+  return rnd(procOptions) as string;
 }
+
 function randomRevision(dots: number) {
   let return_val = "";
   // generate a random revision
@@ -213,7 +229,7 @@ const version_string = {
     return rnd(5, 6) + "." + rnd(0, 3);
   },
   ie() {
-    return rnd(7, 11);
+    return rnd(7, 11) as number;
   },
   trident() {
     return rnd(3, 7) + "." + rnd(0, 1);
