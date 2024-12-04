@@ -25,7 +25,7 @@ class Random {
    * @method faker.random.number
    * @param {mixed} options {min, max, precision}
    */
-  number = (options: Record<string, unknown>) => {
+  number = (options: Record<string, unknown> | number) => {
     if (typeof options === "number") {
       options = {
         max: options,
@@ -215,7 +215,7 @@ class Random {
    * @method faker.random.words
    * @param {number} count defaults to a random value between 1 and 3
    */
-  words = (count: number) => {
+  words = (count?: number) => {
     const words = [];
     if (typeof count === "undefined") {
       count = this.faker.random.number({ min: 1, max: 3 });

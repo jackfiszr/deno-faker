@@ -1,5 +1,11 @@
 // generates fake data for many computer systems properties
 import type { Faker } from "./mod.ts";
+
+interface MimeTypeDefinition {
+  [key: string]: {
+    extensions: string[];
+  };
+}
 /**
  * @namespace faker.system
  */
@@ -72,7 +78,7 @@ class System {
    * @method faker.system.commonFileExt
    * @param {string} type
    */
-  commonFileExt = (_type: string) => {
+  commonFileExt = (_type?: string) => {
     const types = [
       "application/pdf",
       "audio/mpeg",
@@ -112,7 +118,8 @@ class System {
    */
   fileExt = (mimeType: string) => {
     const exts: string[] = [];
-    const mimes = this.faker.definitions.system.mimeTypes;
+    const mimes = this.faker.definitions.system
+      .mimeTypes as unknown as MimeTypeDefinition;
 
     // get specific ext by mime-type
     if (typeof mimes[mimeType] === "object") {
