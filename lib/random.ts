@@ -25,7 +25,13 @@ class Random {
    * @method faker.random.number
    * @param {mixed} options {min, max, precision}
    */
-  number = (options: Record<string, unknown> | number) => {
+  number = (
+    options?: {
+      min?: number;
+      max?: number;
+      precision?: number;
+    } | number,
+  ) => {
     if (typeof options === "number") {
       options = {
         max: options,
@@ -66,18 +72,20 @@ class Random {
    * @method faker.random.float
    * @param {mixed} options
    */
-  float = (options: Record<string, unknown>) => {
+  float = (
+    options?: {
+      precision?: number;
+    } | number,
+  ) => {
     if (typeof options === "number") {
       options = {
         precision: options,
       };
     }
     options = options || {};
-    const opts: {
-      [key: string]: string;
-    } = {};
+    const opts: typeof options = {};
     for (const p in options) {
-      opts[p] = options[p];
+      opts[p as keyof typeof options] = options[p as keyof typeof options];
     }
     if (typeof opts.precision === "undefined") {
       opts.precision = 0.01;
@@ -173,7 +181,7 @@ class Random {
    * @method faker.random.word
    * @param {string} type
    */
-  word = (_type: string) => {
+  word = (_type?: string) => {
     const wordMethods = [
       "commerce.department",
       "commerce.productName",
@@ -250,7 +258,12 @@ class Random {
    * @method faker.random.alpha
    * @param {mixed} options // defaults to { count: 1, upcase: false }
    */
-  alpha = (options: Record<string, unknown>) => {
+  alpha = (
+    options?: {
+      count?: number;
+      upcase?: boolean;
+    } | number,
+  ) => {
     if (typeof options === "undefined") {
       options = {
         count: 1,
@@ -268,7 +281,7 @@ class Random {
     }
 
     let wholeString = "";
-    for (let i = 0; i < options.count; i++) {
+    for (let i = 0; i < options.count!; i++) {
       wholeString += this.faker.random.arrayElement(
         [
           "a",
