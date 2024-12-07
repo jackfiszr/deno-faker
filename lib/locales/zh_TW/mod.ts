@@ -2,9 +2,9 @@ import * as address from "./address/mod.ts";
 import * as name from "./name/mod.ts";
 import * as phone_number from "./phone_number/mod.ts";
 
-type ModuleMap = Record<string, string | object>;
+import type { Locale } from "../../types.ts";
 
-const zh_TW: ModuleMap = {
+const zh_TW: Locale = {
   title: "Chinese (Taiwan)",
   address,
   name,

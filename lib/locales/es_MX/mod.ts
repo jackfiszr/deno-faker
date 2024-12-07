@@ -8,9 +8,9 @@ import * as lorem from "./lorem/mod.ts";
 import * as commerce from "./commerce/mod.ts";
 import * as team from "./team/mod.ts";
 
-type ModuleMap = Record<string, string | object>;
+import type { Locale } from "../../types.ts";
 
-const es_MX: ModuleMap = {
+const es_MX: Locale = {
   title: "Spanish Mexico",
   separator: " & ",
   name,

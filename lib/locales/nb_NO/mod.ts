@@ -4,9 +4,9 @@ import * as internet from "./internet/mod.ts";
 import * as name from "./name/mod.ts";
 import * as phone_number from "./phone_number/mod.ts";
 
-type ModuleMap = Record<string, string | object>;
+import type { Locale } from "../../types.ts";
 
-const nb_NO: ModuleMap = {
+const nb_NO: Locale = {
   title: "Norwegian",
   address,
   company,

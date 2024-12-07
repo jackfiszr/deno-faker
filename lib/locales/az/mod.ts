@@ -6,9 +6,9 @@ import * as commerce from "./commerce/mod.ts";
 import * as company from "./company/mod.ts";
 import * as date from "./date/mod.ts";
 
-type ModuleMap = Record<string, string | object>;
+import type { Locale } from "../../types.ts";
 
-const az: ModuleMap = {
+const az: Locale = {
   title: "Azerbaijani",
   separator: " və ",
   address,

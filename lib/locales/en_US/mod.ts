@@ -2,9 +2,9 @@ import * as internet from "./internet/mod.ts";
 import * as address from "./address/mod.ts";
 import * as phone_number from "./phone_number/mod.ts";
 
-type ModuleMap = Record<string, string | object>;
+import type { Locale } from "../../types.ts";
 
-const en_US: ModuleMap = {
+const en_US: Locale = {
   title: "United States (English)",
   internet,
   address,

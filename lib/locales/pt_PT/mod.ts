@@ -6,9 +6,9 @@ import * as cell_phone from "./cell_phone/mod.ts";
 import * as commerce from "./commerce/mod.ts";
 import * as date from "./date/mod.ts";
 
-type ModuleMap = Record<string, string | object>;
+import type { Locale } from "../../types.ts";
 
-const pt_PT: ModuleMap = {
+const pt_PT: Locale = {
   title: "Portuguese (Portugal)",
   address,
   internet,

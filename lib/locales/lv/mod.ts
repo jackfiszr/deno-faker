@@ -8,9 +8,9 @@ import * as company from "./company/mod.ts";
 import * as internet from "./internet/mod.ts";
 import * as lorem from "./lorem/mod.ts";
 
-type ModuleMap = Record<string, string | object>;
+import type { Locale } from "../../types.ts";
 
-const lv: ModuleMap = {
+const lv: Locale = {
   title: "Latvian",
   separator: " un ",
   name,
