@@ -105,7 +105,7 @@ class Name {
         }
         /* falls through */
       case 1:
-        suffix = this.faker.name.suffix(gender);
+        suffix = this.faker.name.suffix();
         if (suffix) {
           return firstName + " " + lastName + " " + suffix;
         }

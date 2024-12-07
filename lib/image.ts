@@ -23,7 +23,7 @@ class Image {
    * @param {boolean} randomize
    * @method faker.image.image
    */
-  image = (width: number, height: number, randomize: boolean): string => {
+  image = (width?: number, height?: number, randomize?: boolean): string => {
     const categories = [
       "abstract",
       "animals",

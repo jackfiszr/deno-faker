@@ -5,9 +5,9 @@ import * as lorem from "./lorem/mod.ts";
 import * as name from "./name/mod.ts";
 import * as phone_number from "./phone_number/mod.ts";
 
-type ModuleMap = Record<string, string | object>;
+import type { Locale } from "../../types.ts";
 
-const nl: ModuleMap = {
+const nl: Locale = {
   title: "Dutch",
   address,
   company,

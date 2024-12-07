@@ -6,9 +6,9 @@ import * as name from "./name/mod.ts";
 import * as company from "./company/mod.ts";
 import * as lorem from "./lorem/mod.ts";
 
-type ModuleMap = Record<string, string | object>;
+import type { Locale } from "../../types.ts";
 
-const vi: ModuleMap = {
+const vi: Locale = {
   title: "Vietnamese",
   address,
   internet,

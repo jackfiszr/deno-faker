@@ -16,9 +16,9 @@ import * as date from "./date/mod.ts";
 import * as system from "./system/mod.ts";
 import * as vehicle from "./vehicle/mod.ts";
 
-type ModuleMap = Record<string, string | object>;
+import type { Locale } from "../../types.ts";
 
-const en: ModuleMap = {
+const en: Locale = {
   title: "English",
   separator: " & ",
   address,

@@ -8,9 +8,9 @@ import * as commerce from "./commerce/mod.ts";
 import * as team from "./team/mod.ts";
 import * as date from "./date/mod.ts";
 
-type ModuleMap = Record<string, string | object>;
+import type { Locale } from "../../types.ts";
 
-const sv: ModuleMap = {
+const sv: Locale = {
   title: "Swedish",
   address,
   company,

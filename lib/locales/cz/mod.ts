@@ -6,9 +6,9 @@ import * as name from "./name/mod.ts";
 import * as phone_number from "./phone_number/mod.ts";
 import * as date from "./date/mod.ts";
 
-type ModuleMap = Record<string, string | object>;
+import type { Locale } from "../../types.ts";
 
-const cz: ModuleMap = {
+const cz: Locale = {
   title: "Czech",
   address,
   company,

@@ -13,9 +13,9 @@ import * as hacker from "./hacker/mod.ts";
 import * as app from "./app/mod.ts";
 import * as finance from "./finance/mod.ts";
 
-type ModuleMap = Record<string, string | object>;
+import type { Locale } from "../../types.ts";
 
-const el: ModuleMap = {
+const el: Locale = {
   title: "Ελληνικά",
   separator: " & ",
   address,

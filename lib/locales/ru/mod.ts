@@ -7,9 +7,9 @@ import * as company from "./company/mod.ts";
 import * as date from "./date/mod.ts";
 import * as hacker from "./hacker/mod.ts";
 
-type ModuleMap = Record<string, string | object>;
+import type { Locale } from "../../types.ts";
 
-const ru: ModuleMap = {
+const ru: Locale = {
   title: "Russian",
   separator: " и ",
   address,

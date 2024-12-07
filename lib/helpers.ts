@@ -37,7 +37,7 @@ class Helpers {
    * @param {string} string
    * @param {string} symbol defaults to `"#"`
    */
-  replaceSymbolWithNumber(string: string, symbol: string) {
+  replaceSymbolWithNumber(string: string, symbol?: string) {
     string = string || "";
     // default symbol is '#'
     if (symbol === undefined) {

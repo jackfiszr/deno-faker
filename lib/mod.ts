@@ -35,30 +35,16 @@ import { Commerce } from "./commerce.ts";
 import { System } from "./system.ts";
 import { Git } from "./git.ts";
 import { Vehicle } from "./vehicle.ts";
+import type { Definitions, Locale } from "./types.ts";
 
-type DefinitionCategory = Record<string, string[]>;
-
-type Definitions = {
-  name: DefinitionCategory;
-  address: DefinitionCategory;
-  company: DefinitionCategory;
-  lorem: DefinitionCategory;
-  hacker: DefinitionCategory;
-  phone_number: DefinitionCategory;
-  finance: DefinitionCategory;
-  internet: DefinitionCategory;
-  commerce: DefinitionCategory;
-  database: DefinitionCategory;
-  system: DefinitionCategory;
-  date: DefinitionCategory;
-  vehicle: DefinitionCategory;
-  title: string;
-  separator: string;
-};
 /**
  * @namespace faker
  */
 class Faker {
+  locales: Record<string, Locale>;
+  locale: string;
+  localeFallback: string;
+
   fake: Fake["fake"];
   unique: Unique;
   random: Random;
@@ -80,7 +66,10 @@ class Faker {
   vehicle: Vehicle;
 
   definitions: Definitions;
-  _definitions: Definitions;
+  _definitions: {
+    [key: string]: string[] | string;
+  };
+  seedValue?: number | number[];
 
   constructor(opts: Record<string, unknown>) {
     this.opts = opts || {};

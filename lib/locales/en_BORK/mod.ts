@@ -1,8 +1,8 @@
 import * as lorem from "./lorem/mod.ts";
 
-type ModuleMap = Record<string, string | object>;
+import type { Locale } from "../../types.ts";
 
-const en_BORK: ModuleMap = {
+const en_BORK: Locale = {
   title: "Bork (English)",
   lorem,
 };
