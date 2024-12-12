@@ -52,9 +52,11 @@ class Name {
       // some locale datasets ( like ru ) have last_name split by gender. i have no idea how last names can have genders, but also i do not speak russian
       // see above comment of firstName method
       if (typeof gender !== "number") gender = this.faker.random.number(1);
+      const maleLastName = locale.male_last_name ?? [];
+      const femaleLastName = locale.female_last_name ?? [];
       return gender === 0
-        ? this.faker.random.arrayElement(locale.male_last_name)
-        : this.faker.random.arrayElement(locale.female_last_name);
+        ? this.faker.random.arrayElement(maleLastName)
+        : this.faker.random.arrayElement(femaleLastName);
     }
     // Fallback in case the locale doesn't have male/female last names
     const definitions = this.faker.definitions.name;
@@ -134,9 +136,11 @@ class Name {
       "male_last_name" in locale
     ) {
       if (typeof gender !== "number") gender = this.faker.random.number(1);
+      const malePrefix = locale.male_prefix ?? [];
+      const femalePrefix = locale.female_prefix ?? [];
       return gender === 0
-        ? this.faker.random.arrayElement(locale.male_prefix)
-        : this.faker.random.arrayElement(locale.female_prefix);
+        ? this.faker.random.arrayElement(malePrefix)
+        : this.faker.random.arrayElement(femalePrefix);
     }
     return this.faker.random.arrayElement(definitions?.prefix ?? []);
   };

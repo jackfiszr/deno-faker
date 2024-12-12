@@ -26,10 +26,6 @@ export type Definitions = {
 };
 
 export interface NameDefinition {
-  male_prefix: string[];
-  male_last_name: string[];
-  female_prefix: string[];
-  female_last_name: string[];
   [key: string]: string[] | undefined;
 }
 
