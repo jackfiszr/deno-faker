@@ -17,7 +17,7 @@ class Lorem {
    * @method faker.lorem.word
    * @param {number} num
    */
-  word = (_num: number) => {
+  word = (_num?: number) => {
     return this.faker.random.arrayElement(this.faker.definitions.lorem.words);
   };
 
@@ -43,7 +43,7 @@ class Lorem {
    * @param {number} wordCount defaults to a random number between 3 and 10
    * @param {number} range
    */
-  sentence = (wordCount: number, _range: number) => {
+  sentence = (wordCount?: number, _range?: number) => {
     if (typeof wordCount == "undefined") {
       wordCount = this.faker.random.number(
         { min: 3, max: 10 },
@@ -76,7 +76,7 @@ class Lorem {
    * @param {number} sentenceCount defautls to a random number between 2 and 6
    * @param {string} separator defaults to `' '`
    */
-  sentences = (sentenceCount: number, separator: string) => {
+  sentences = (sentenceCount: number, separator?: string) => {
     if (typeof sentenceCount === "undefined") {
       sentenceCount = this.faker.random.number({ min: 2, max: 6 });
     }
@@ -94,7 +94,7 @@ class Lorem {
    * @method faker.lorem.paragraph
    * @param {number} sentenceCount defaults to 3
    */
-  paragraph = (sentenceCount: number) => {
+  paragraph = (sentenceCount?: number) => {
     if (typeof sentenceCount == "undefined") sentenceCount = 3;
     return this.faker.lorem.sentences(
       sentenceCount + this.faker.random.number(3),
