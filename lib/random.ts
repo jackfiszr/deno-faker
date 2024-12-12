@@ -6,8 +6,8 @@ import * as mersenne from "../vendor/mersenne.ts";
  */
 class Random {
   faker: Faker;
-  seed: number;
-  constructor(faker: Faker, seed: number) {
+  seed?: number;
+  constructor(faker: Faker, seed?: number) {
     this.faker = faker;
     this.seed = seed;
     // Use a user provided seed if it exists

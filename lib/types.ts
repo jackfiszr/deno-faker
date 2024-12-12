@@ -22,6 +22,15 @@ export type Definitions = {
   vehicle: DefinitionCategory;
   title: string;
   separator: string;
+  [key: string]: DefinitionCategory | string | undefined;
 };
 
-export type Locale = Record<string, string | object>;
+export interface NameDefinition {
+  male_prefix: string[];
+  male_last_name: string[];
+  female_prefix: string[];
+  female_last_name: string[];
+  [key: string]: string[] | undefined;
+}
+
+export type Locale = Record<string, string | NameDefinition>;

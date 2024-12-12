@@ -14,36 +14,26 @@ class Name {
    * @param {mixed} gender
    * @memberof faker.name
    */
-  firstName = (gender: number) => {
-    if (
-      typeof this.faker.definitions.name.male_first_name !== "undefined" &&
-      typeof this.faker.definitions.name.female_first_name !== "undefined"
-    ) {
+  firstName = (gender?: number) => {
+    const definitions = this.faker.definitions.name;
+    if (definitions?.male_first_name && definitions?.female_first_name) {
       // some locale datasets ( like ru ) have first_name split by gender. since the name.first_name field does not exist in these datasets,
       // we must randomly pick a name from either gender array so faker.name.firstName will return the correct locale data ( and not fallback )
       if (typeof gender !== "number") {
-        if (typeof this.faker.definitions.name.first_name === "undefined") {
+        if (!definitions.first_name) {
           gender = this.faker.random.number(1);
         } else {
           //Fall back to non-gendered names if they exist and gender wasn't specified
-          return this.faker.random.arrayElement(
-            this.faker.definitions.name.first_name,
-          );
+          return this.faker.random.arrayElement(definitions.first_name);
         }
       }
       if (gender === 0) {
-        return this.faker.random.arrayElement(
-          this.faker.definitions.name.male_first_name,
-        );
+        return this.faker.random.arrayElement(definitions.male_first_name);
       } else {
-        return this.faker.random.arrayElement(
-          this.faker.definitions.name.female_first_name,
-        );
+        return this.faker.random.arrayElement(definitions.female_first_name);
       }
     }
-    return this.faker.random.arrayElement(
-      this.faker.definitions.name.first_name,
-    );
+    return this.faker.random.arrayElement(definitions.first_name);
   };
 
   /**
@@ -53,29 +43,22 @@ class Name {
    * @param {mixed} gender
    * @memberof faker.name
    */
-  lastName = (gender: number) => {
+  lastName = (gender?: number) => {
+    const locale = this.faker.locales[this.faker.locale]?.name;
     if (
-      typeof this.faker.definitions.name.male_last_name !== "undefined" &&
-      typeof this.faker.definitions.name.female_last_name !== "undefined"
+      typeof locale === "object" && locale !== null &&
+      "male_last_name" in locale
     ) {
       // some locale datasets ( like ru ) have last_name split by gender. i have no idea how last names can have genders, but also i do not speak russian
       // see above comment of firstName method
-      if (typeof gender !== "number") {
-        gender = this.faker.random.number(1);
-      }
-      if (gender === 0) {
-        return this.faker.random.arrayElement(
-          this.faker.locales[this.faker.locale].name.male_last_name,
-        );
-      } else {
-        return this.faker.random.arrayElement(
-          this.faker.locales[this.faker.locale].name.female_last_name,
-        );
-      }
+      if (typeof gender !== "number") gender = this.faker.random.number(1);
+      return gender === 0
+        ? this.faker.random.arrayElement(locale.male_last_name)
+        : this.faker.random.arrayElement(locale.female_last_name);
     }
-    return this.faker.random.arrayElement(
-      this.faker.definitions.name.last_name,
-    );
+    // Fallback in case the locale doesn't have male/female last names
+    const definitions = this.faker.definitions.name;
+    return this.faker.random.arrayElement(definitions?.last_name ?? []);
   };
 
   /**
@@ -143,25 +126,19 @@ class Name {
    * @param {mixed} gender
    * @memberof faker.name
    */
-  prefix = (gender: number) => {
+  prefix = (gender?: number) => {
+    const locale = this.faker.locales[this.faker.locale]?.name;
+    const definitions = this.faker.definitions.name;
     if (
-      typeof this.faker.definitions.name.male_prefix !== "undefined" &&
-      typeof this.faker.definitions.name.female_prefix !== "undefined"
+      typeof locale === "object" && locale !== null &&
+      "male_last_name" in locale
     ) {
-      if (typeof gender !== "number") {
-        gender = this.faker.random.number(1);
-      }
-      if (gender === 0) {
-        return this.faker.random.arrayElement(
-          this.faker.locales[this.faker.locale].name.male_prefix,
-        );
-      } else {
-        return this.faker.random.arrayElement(
-          this.faker.locales[this.faker.locale].name.female_prefix,
-        );
-      }
+      if (typeof gender !== "number") gender = this.faker.random.number(1);
+      return gender === 0
+        ? this.faker.random.arrayElement(locale.male_prefix)
+        : this.faker.random.arrayElement(locale.female_prefix);
     }
-    return this.faker.random.arrayElement(this.faker.definitions.name.prefix);
+    return this.faker.random.arrayElement(definitions?.prefix ?? []);
   };
 
   /**
@@ -171,7 +148,8 @@ class Name {
    * @memberof faker.name
    */
   suffix = () => {
-    return this.faker.random.arrayElement(this.faker.definitions.name.suffix);
+    const definitions = this.faker.definitions.name;
+    return this.faker.random.arrayElement(definitions?.suffix ?? []);
   };
 
   /**
@@ -181,17 +159,11 @@ class Name {
    * @memberof faker.name
    */
   title = () => {
-    const descriptor = this.faker.random.arrayElement(
-        this.faker.definitions.name.title.descriptor,
-      ),
-      level = this.faker.random.arrayElement(
-        this.faker.definitions.name.title.level,
-      ),
-      job = this.faker.random.arrayElement(
-        this.faker.definitions.name.title.job,
-      );
-
-    return descriptor + " " + level + " " + job;
+    const title = this.faker.definitions.name?.title;
+    const descriptor = this.faker.random.arrayElement(title?.descriptor ?? []);
+    const level = this.faker.random.arrayElement(title?.level ?? []);
+    const job = this.faker.random.arrayElement(title?.job ?? []);
+    return `${descriptor} ${level} ${job}`;
   };
 
   /**
@@ -201,9 +173,8 @@ class Name {
    * @memberof faker.name
    */
   jobDescriptor = () => {
-    return this.faker.random.arrayElement(
-      this.faker.definitions.name.title.descriptor,
-    );
+    const title = this.faker.definitions.name?.title;
+    return this.faker.random.arrayElement(title?.descriptor ?? []);
   };
 
   /**
@@ -213,9 +184,8 @@ class Name {
    * @memberof faker.name
    */
   jobArea = () => {
-    return this.faker.random.arrayElement(
-      this.faker.definitions.name.title.level,
-    );
+    const title = this.faker.definitions.name?.title;
+    return this.faker.random.arrayElement(title?.level ?? []);
   };
 
   /**
@@ -225,9 +195,8 @@ class Name {
    * @memberof faker.name
    */
   jobType = () => {
-    return this.faker.random.arrayElement(
-      this.faker.definitions.name.title.job,
-    );
+    const title = this.faker.definitions.name?.title;
+    return this.faker.random.arrayElement(title?.job ?? []);
   };
 }
 

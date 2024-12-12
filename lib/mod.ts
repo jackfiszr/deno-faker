@@ -35,12 +35,13 @@ import { Commerce } from "./commerce.ts";
 import { System } from "./system.ts";
 import { Git } from "./git.ts";
 import { Vehicle } from "./vehicle.ts";
-import type { Definitions, Locale } from "./types.ts";
+import type { Definitions, Locale, NameDefinition } from "./types.ts";
 
 /**
  * @namespace faker
  */
 class Faker {
+  opts: Record<string, unknown>;
   locales: Record<string, Locale>;
   locale: string;
   localeFallback: string;
@@ -74,14 +75,16 @@ class Faker {
   constructor(opts: Record<string, unknown>) {
     this.opts = opts || {};
     // assign options
-    this.locales = opts.locales || {};
-    this.locale = opts.locale || "en";
-    this.localeFallback = opts.localeFallback || "en";
+    this.locales = (opts.locales as Record<string, Locale>) || {};
+    this.locale = typeof opts.locale === "string" ? opts.locale : "en";
+    this.localeFallback = typeof opts.localeFallback === "string"
+      ? opts.localeFallback
+      : "en";
 
-    this.definitions = {};
+    this.definitions = {} as Definitions;
 
     this.fake = new Fake(this).fake;
-    this.unique = new Unique(this).unique;
+    this.unique = new Unique(this);
     this.random = new Random(this);
     this.helpers = new Helpers(this);
     this.name = new Name(this);
@@ -189,47 +192,54 @@ class Faker {
     };
 
     // Create a Getter for all definitions.foo.bar properties
-    Object.keys(this._definitions).forEach(
-      (d: keyof typeof this._definitions) => {
-        if (typeof this.definitions[d] === "undefined") {
-          this.definitions[d] = {};
-        }
+    Object.keys(this._definitions).forEach((d) => {
+      if (typeof this.definitions[d] === "undefined") {
+        this.definitions[d] = {};
+      }
 
-        if (typeof this._definitions[d] === "string") {
-          this.definitions[d] = this._definitions[d];
-          return;
-        }
+      if (typeof this._definitions[d] === "string") {
+        this.definitions[d] = this._definitions[d];
+        return;
+      }
 
-        if (Array.isArray(this._definitions[d])) {
-          const defsArray = [...this._definitions[d]];
-          defsArray.forEach((p: string) => {
-            Object.defineProperty(this.definitions[d], p, {
-              get: () => {
-                if (
-                  typeof this.locales[this.locale][d] === "undefined" ||
-                  typeof this.locales[this.locale][d][p] === "undefined"
-                ) {
-                  // certain localization sets contain less data then others.
-                  // in the case of a missing definition, use the default localeFallback to substitute the missing set data
-                  // throw new Error('unknown property ' + d + p)
-                  return this.locales[this.localeFallback][d][p];
-                } else {
-                  // return localized data
-                  return this.locales[this.locale][d][p];
+      if (Array.isArray(this._definitions[d])) {
+        const defsArray = [...this._definitions[d] as string[]];
+
+        defsArray.forEach((p: string) => {
+          Object.defineProperty(this.definitions[d], p, {
+            get: () => {
+              const localeData = this.locales[this.locale]?.[d];
+              const fallbackData = this.locales[this.localeFallback]?.[d];
+
+              // Narrow localeData and fallbackData to NameDefinition
+              if (typeof localeData === "object" && localeData !== null) {
+                const value = (localeData as NameDefinition)[p];
+                if (value !== undefined) {
+                  return value;
                 }
-              },
-            });
+              }
+
+              if (typeof fallbackData === "object" && fallbackData !== null) {
+                const fallbackValue = (fallbackData as NameDefinition)[p];
+                if (fallbackValue !== undefined) {
+                  return fallbackValue;
+                }
+              }
+
+              // Default fallback if nothing exists
+              return [];
+            },
           });
-        }
-      },
-    );
+        });
+      }
+    });
   }
 
   setLocale(locale: string) {
     this.locale = locale;
   }
 
-  seed(value: number | number[]) {
+  seed(value: number) {
     this.seedValue = value;
     this.random = new Random(this, this.seedValue);
   }
