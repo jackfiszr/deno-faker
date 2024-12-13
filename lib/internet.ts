@@ -30,7 +30,7 @@ class Internet {
    * @param {string} lastName
    * @param {string} provider
    */
-  email = (firstName: string, lastName: string, provider: string) => {
+  email = (firstName?: string, lastName?: string, provider?: string) => {
     const _schema = schemas.email;
     provider = provider ||
       this.faker.random.arrayElement(

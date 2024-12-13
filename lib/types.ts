@@ -25,8 +25,28 @@ export type Definitions = {
   [key: string]: DefinitionCategory | string | undefined;
 };
 
-export interface NameDefinition {
-  [key: string]: string[] | undefined;
+export interface NameModule {
+  title?: {
+    descriptor: string[];
+    level: string[];
+    job: string[];
+  };
+  first_name?: string[];
+  last_name?: string[];
+  [key: string]: string[] | { [key: string]: string[] } | undefined;
 }
 
-export type Locale = Record<string, string | NameDefinition>;
+export interface AddressModule {
+  postcode_by_state?: {
+    [key: string]: { min: number; max: number };
+  };
+  [key: string]:
+    | string[]
+    | { [key: string]: { min: number; max: number } }
+    | undefined;
+}
+
+export type Locale = Record<
+  string,
+  string | NameModule | AddressModule | Record<string, unknown>
+>;
