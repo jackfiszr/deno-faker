@@ -35,7 +35,7 @@ import { Commerce } from "./commerce.ts";
 import { System } from "./system.ts";
 import { Git } from "./git.ts";
 import { Vehicle } from "./vehicle.ts";
-import type { Definitions, Locale, NameDefinition } from "./types.ts";
+import type { Definitions, Locale, NameModule } from "./types.ts";
 
 /**
  * @namespace faker
@@ -211,16 +211,16 @@ class Faker {
               const localeData = this.locales[this.locale]?.[d];
               const fallbackData = this.locales[this.localeFallback]?.[d];
 
-              // Narrow localeData and fallbackData to NameDefinition
+              // Narrow localeData and fallbackData to NameModule
               if (typeof localeData === "object" && localeData !== null) {
-                const value = (localeData as NameDefinition)[p];
+                const value = (localeData as NameModule)[p];
                 if (value !== undefined) {
                   return value;
                 }
               }
 
               if (typeof fallbackData === "object" && fallbackData !== null) {
-                const fallbackValue = (fallbackData as NameDefinition)[p];
+                const fallbackValue = (fallbackData as NameModule)[p];
                 if (fallbackValue !== undefined) {
                   return fallbackValue;
                 }

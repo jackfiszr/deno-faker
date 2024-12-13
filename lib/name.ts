@@ -46,14 +46,16 @@ class Name {
   lastName = (gender?: number) => {
     const locale = this.faker.locales[this.faker.locale]?.name;
     if (
-      typeof locale === "object" && locale !== null &&
-      "male_last_name" in locale
+      typeof locale === "object" &&
+      locale !== null &&
+      Array.isArray(locale.male_last_name) &&
+      Array.isArray(locale.female_last_name)
     ) {
-      // some locale datasets ( like ru ) have last_name split by gender. i have no idea how last names can have genders, but also i do not speak russian
+      // some locale datasets ( like ru ) have last_name split by gender
       // see above comment of firstName method
       if (typeof gender !== "number") gender = this.faker.random.number(1);
-      const maleLastName = locale.male_last_name ?? [];
-      const femaleLastName = locale.female_last_name ?? [];
+      const maleLastName = locale.male_last_name;
+      const femaleLastName = locale.female_last_name;
       return gender === 0
         ? this.faker.random.arrayElement(maleLastName)
         : this.faker.random.arrayElement(femaleLastName);
@@ -132,12 +134,14 @@ class Name {
     const locale = this.faker.locales[this.faker.locale]?.name;
     const definitions = this.faker.definitions.name;
     if (
-      typeof locale === "object" && locale !== null &&
-      "male_last_name" in locale
+      typeof locale === "object" &&
+      locale !== null &&
+      Array.isArray(locale.male_prefix) &&
+      Array.isArray(locale.female_prefix)
     ) {
       if (typeof gender !== "number") gender = this.faker.random.number(1);
-      const malePrefix = locale.male_prefix ?? [];
-      const femalePrefix = locale.female_prefix ?? [];
+      const malePrefix = locale.male_prefix;
+      const femalePrefix = locale.female_prefix;
       return gender === 0
         ? this.faker.random.arrayElement(malePrefix)
         : this.faker.random.arrayElement(femalePrefix);

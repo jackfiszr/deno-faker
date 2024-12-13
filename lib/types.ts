@@ -33,6 +33,10 @@ export interface NameModule {
   };
   first_name?: string[];
   last_name?: string[];
+  male_last_name?: string[];
+  female_last_name?: string[];
+  male_prefix?: string[];
+  female_prefix?: string[];
   [key: string]: string[] | { [key: string]: string[] } | undefined;
 }
 
