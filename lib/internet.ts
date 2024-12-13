@@ -62,22 +62,22 @@ class Internet {
    * @param {string} firstName
    * @param {string} lastName
    */
-  userName = (firstName: string, lastName: string) => {
+  userName = (firstName?: string, lastName?: string): string => {
     const _schema = schemas.userName;
-    let result;
-    firstName = firstName || this.faker.name.firstName();
-    lastName = lastName || this.faker.name.lastName();
+    const safeFirstName = firstName || this.faker.name.firstName() || "user";
+    const safeLastName = lastName || this.faker.name.lastName() || "name";
+    let result = "";
     switch (this.faker.random.number(2)) {
       case 0:
-        result = firstName + this.faker.random.number(99);
+        result = safeFirstName + this.faker.random.number(99);
         break;
       case 1:
-        result = firstName + this.faker.random.arrayElement([".", "_"]) +
-          lastName;
+        result = safeFirstName + this.faker.random.arrayElement([".", "_"]) +
+          safeLastName;
         break;
       case 2:
-        result = firstName + this.faker.random.arrayElement([".", "_"]) +
-          lastName + this.faker.random.number(99);
+        result = safeFirstName + this.faker.random.arrayElement([".", "_"]) +
+          safeLastName + this.faker.random.number(99);
         break;
     }
     result = result?.toString().replace(/'/g, "");
