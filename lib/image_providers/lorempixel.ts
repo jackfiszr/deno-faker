@@ -49,11 +49,11 @@ class Lorempixel implements ModuleMethods {
       "technics",
       "transport",
     ];
-    return this[this.faker.random.arrayElement(categories)](
-      width,
-      height,
-      randomize,
-    );
+    return (this[this.faker.random.arrayElement(categories)] as (
+      width: number,
+      height: number,
+      randomize: boolean,
+    ) => string)(width, height, randomize);
   }
   /**
    * avatar

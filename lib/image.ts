@@ -8,7 +8,10 @@ import type { Faker } from "./mod.ts";
  * @default Default provider is unsplash image provider
  */
 class Image {
-  [key: string]: () => string;
+  faker: Faker;
+  lorempixel: Lorempixel;
+  unsplash: Unsplash;
+
   constructor(faker: Faker) {
     this.faker = faker;
     this.lorempixel = new Lorempixel(faker);
@@ -39,8 +42,8 @@ class Image {
       "technics",
       "transport",
     ];
-    const meth = this[this.faker.random.arrayElement(categories)];
-    return meth(width, height, randomize);
+    const category = this.faker.random.arrayElement(categories);
+    return this.imageUrl(width, height, category, randomize ?? false, false);
   };
   /**
    * avatar
@@ -60,11 +63,11 @@ class Image {
    * @method faker.image.imageUrl
    */
   imageUrl = (
-    width: number,
-    height: number,
-    category: string,
-    randomize: boolean,
-    https: boolean,
+    width?: number,
+    height?: number,
+    category?: string,
+    randomize?: boolean,
+    https?: boolean,
   ) => {
     width = width || 640;
     height = height || 480;
