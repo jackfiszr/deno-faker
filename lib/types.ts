@@ -1,37 +1,12 @@
 type DefinitionCategory = Record<string, string[]>;
 
-interface TitleCategory {
-  descriptor: string[];
-  level: string[];
-  job: string[];
-}
-
-export type Definitions = {
-  name: DefinitionCategory & { title: TitleCategory };
-  address: DefinitionCategory;
-  company: DefinitionCategory;
-  lorem: DefinitionCategory;
-  hacker: DefinitionCategory;
-  phone_number: DefinitionCategory;
-  finance: DefinitionCategory;
-  internet: DefinitionCategory;
-  commerce: DefinitionCategory;
-  database: DefinitionCategory;
-  system: DefinitionCategory;
-  date: DefinitionCategory;
-  vehicle: DefinitionCategory;
-  title: string;
-  separator: string;
-  [key: string]: DefinitionCategory | string | undefined;
-};
-
 export interface NameModule {
   title?: {
     descriptor: string[];
     level: string[];
     job: string[];
   };
-  first_name?: string[];
+  first_name: string[];
   last_name?: string[];
   male_last_name?: string[];
   female_last_name?: string[];
@@ -41,7 +16,7 @@ export interface NameModule {
 }
 
 export interface AddressModule {
-  postcode_by_state?: {
+  postcode_by_state: {
     [key: string]: { min: number; max: number };
   };
   [key: string]:
@@ -49,6 +24,33 @@ export interface AddressModule {
     | { [key: string]: { min: number; max: number } }
     | undefined;
 }
+
+export interface CommerceModule {
+  product_name: {
+    adjective: string[];
+    material: string[];
+    product: string[];
+  };
+}
+
+export type Definitions = {
+  name: DefinitionCategory & NameModule;
+  address: DefinitionCategory & AddressModule;
+  company: DefinitionCategory;
+  lorem: DefinitionCategory;
+  hacker: DefinitionCategory;
+  phone_number: DefinitionCategory;
+  finance: DefinitionCategory;
+  internet: DefinitionCategory;
+  commerce: DefinitionCategory & CommerceModule;
+  database: DefinitionCategory;
+  system: DefinitionCategory;
+  date: DefinitionCategory;
+  vehicle: DefinitionCategory;
+  title: string;
+  separator: string;
+  [key: string]: DefinitionCategory | string | undefined;
+};
 
 export type Locale = Record<
   string,

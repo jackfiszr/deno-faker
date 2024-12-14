@@ -20,7 +20,7 @@ class Address {
    * @method faker.address.zipCode
    * @param {String} format
    */
-  zipCode = (format: string) => {
+  zipCode = (format?: string) => {
     // if zip format is not specified, use the zip format defined for the locale
     if (typeof format === "undefined") {
       const localeFormat = this.faker.definitions.address.postcode;
@@ -256,7 +256,7 @@ class Address {
    * @param {Double} min default is -90
    * @param {number} precision default is 4
    */
-  latitude = (max: number, min: number, precision: number) => {
+  latitude = (max?: number, min?: number, precision?: number) => {
     max = max || 90;
     min = min || -90;
     precision = precision || 4;
@@ -276,7 +276,7 @@ class Address {
    * @param {Double} min default is -180
    * @param {number} precision default is 4
    */
-  longitude = (max: number, min: number, precision: number) => {
+  longitude = (max?: number, min?: number, precision?: number) => {
     max = max || 180;
     min = min || -180;
     precision = precision || 4;
