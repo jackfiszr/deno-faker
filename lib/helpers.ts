@@ -262,7 +262,8 @@ class Helpers {
     }
     for (const p in data) {
       const re = new RegExp("{{" + p + "}}", "g");
-      str = str.replace(re, data[p]);
+      const replacement = typeof data[p] === "string" ? data[p] as string : "";
+      str = str.replace(re, replacement);
     }
     return str;
   }
@@ -341,7 +342,7 @@ class Helpers {
       "email": this.faker.internet.email(userName),
       "dob": this.faker.date.past(
         50,
-        new Date("Sat Sep 20 1992 21:35:02 GMT+0200 (CEST)"),
+        new Date("Sat Sep 20 1992 21:35:02 GMT+0200 (CEST)").toISOString(),
       ),
       "phone": this.faker.phone.phoneNumber(),
       "address": {
