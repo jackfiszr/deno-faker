@@ -141,9 +141,10 @@ class Finance {
    * @returns {string}
    */
   currencyCode = (): string => {
-    return this.faker.random.objectElement(
+    const element = this.faker.random.objectElement(
       this.faker.definitions.finance.currency,
-    ) as { code: string }["code"];
+    );
+    return (element as { code: string }).code;
   };
 
   /**
@@ -153,10 +154,11 @@ class Finance {
    * @returns {string}
    */
   currencyName = (): string => {
-    return this.faker.random.objectElement(
+    const element = this.faker.random.objectElement(
       this.faker.definitions.finance.currency,
       "key",
     );
+    return element as string;
   };
 
   /**
@@ -166,12 +168,15 @@ class Finance {
    * @returns {string}
    */
   currencySymbol = (): string => {
-    let symbol;
+    let symbol: string | undefined;
+
     while (!symbol) {
-      symbol = this.faker.random.objectElement(
+      const element = this.faker.random.objectElement(
         this.faker.definitions.finance.currency,
-      ) as { symbol: string }["symbol"];
+      );
+      symbol = (element as { symbol: string }).symbol;
     }
+
     return symbol;
   };
 

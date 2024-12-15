@@ -1,22 +1,24 @@
 import type { Faker } from "./mod.ts";
 import type { DateDefinition } from "./types.ts";
+
 /**
  * @namespace faker.date
  */
 class _Date {
   faker: Faker;
+
   constructor(faker: Faker) {
     this.faker = faker;
   }
 
   /**
-   * past
+   * Returns a date in the past relative to the given reference date.
    *
-   * @method faker.date.past
-   * @param {number} years
-   * @param {date} refDate
+   * @param {number} years - Number of years to go back.
+   * @param {string} refDate - Reference date (ISO string or Date string).
+   * @returns {Date}
    */
-  past = (years: number, refDate: string) => {
+  past = (years: number, refDate: string): Date => {
     let date = new Date();
     if (typeof refDate !== "undefined") {
       date = new Date(Date.parse(refDate));
@@ -28,20 +30,20 @@ class _Date {
     };
 
     let past = date.getTime();
-    past -= this.faker.random.number(range); // some time from now to N years ago, in milliseconds
+    past -= this.faker.random.number(range); // Go back in milliseconds
     date.setTime(past);
 
     return date;
   };
 
   /**
-   * future
+   * Returns a date in the future relative to the given reference date.
    *
-   * @method faker.date.future
-   * @param {number} years
-   * @param {date} refDate
+   * @param {number} years - Number of years to move forward.
+   * @param {string} refDate - Reference date (ISO string or Date string).
+   * @returns {Date}
    */
-  future = (years: number, refDate: string) => {
+  future = (years: number, refDate: string): Date => {
     let date = new Date();
     if (typeof refDate !== "undefined") {
       date = new Date(Date.parse(refDate));
@@ -53,20 +55,20 @@ class _Date {
     };
 
     let future = date.getTime();
-    future += this.faker.random.number(range); // some time from now to N years later, in milliseconds
+    future += this.faker.random.number(range); // Move forward in milliseconds
     date.setTime(future);
 
     return date;
   };
 
   /**
-   * between
+   * Returns a random date between two given dates.
    *
-   * @method faker.date.between
-   * @param {date} from
-   * @param {date} to
+   * @param {string} from - Start date (ISO string or Date string).
+   * @param {string} to - End date (ISO string or Date string).
+   * @returns {Date}
    */
-  between = (from: string, to: string) => {
+  between = (from: string, to: string): Date => {
     const fromMilli = Date.parse(from);
     const dateOffset = this.faker.random.number(Date.parse(to) - fromMilli);
 
@@ -76,13 +78,13 @@ class _Date {
   };
 
   /**
-   * recent
+   * Returns a date in the recent past relative to the given reference date.
    *
-   * @method faker.date.recent
-   * @param {number} days
-   * @param {date} refDate
+   * @param {number} [days] - Number of days to go back.
+   * @param {string} [refDate] - Reference date (ISO string or Date string).
+   * @returns {Date}
    */
-  recent = (days?: number, refDate?: string) => {
+  recent = (days?: number, refDate?: string): Date => {
     let date = new Date();
     if (typeof refDate !== "undefined") {
       date = new Date(Date.parse(refDate));
@@ -94,20 +96,20 @@ class _Date {
     };
 
     let future = date.getTime();
-    future -= this.faker.random.number(range); // some time from now to N days ago, in milliseconds
+    future -= this.faker.random.number(range); // Go back in milliseconds
     date.setTime(future);
 
     return date;
   };
 
   /**
-   * soon
+   * Returns a date in the near future relative to the given reference date.
    *
-   * @method faker.date.soon
-   * @param {number} days
-   * @param {date} refDate
+   * @param {number} days - Number of days to move forward.
+   * @param {string} refDate - Reference date (ISO string or Date string).
+   * @returns {Date}
    */
-  soon = (days: number, refDate: string) => {
+  soon = (days: number, refDate: string): Date => {
     let date = new Date();
     if (typeof refDate !== "undefined") {
       date = new Date(Date.parse(refDate));
@@ -119,19 +121,19 @@ class _Date {
     };
 
     let future = date.getTime();
-    future += this.faker.random.number(range); // some time from now to N days later, in milliseconds
+    future += this.faker.random.number(range); // Move forward in milliseconds
     date.setTime(future);
 
     return date;
   };
 
   /**
-   * month
+   * Returns a random month name.
    *
-   * @method faker.date.month
-   * @param {object} options
+   * @param {Record<string, unknown>} options - Options to determine format.
+   * @returns {string}
    */
-  month = (options: Record<string, unknown>) => {
+  month = (options: Record<string, unknown>): string => {
     options = options || {};
 
     let type: keyof DateDefinition["month"] = "wide"; // Default type
@@ -152,15 +154,15 @@ class _Date {
   };
 
   /**
-   * weekday
+   * Returns a random weekday name.
    *
-   * @param {object} options
-   * @method faker.date.weekday
+   * @param {Record<string, unknown>} options - Options to determine format.
+   * @returns {string}
    */
-  weekday = (options: Record<string, unknown>) => {
+  weekday = (options: Record<string, unknown>): string => {
     options = options || {};
 
-    let type: keyof DateDefinition["weekday"] = "wide";
+    let type: keyof DateDefinition["weekday"] = "wide"; // Default type
     if (options.abbr) {
       type = "abbr";
     }
