@@ -9,57 +9,59 @@ class Commerce {
   }
 
   /**
-   * color
+   * Returns a random commerce color.
    *
    * @method faker.commerce.color
+   * @returns {string}
    */
-  color = () => {
+  color = (): string => {
     return this.faker.random.arrayElement(
       this.faker.definitions.commerce.color,
     );
   };
 
   /**
-   * department
+   * Returns a random commerce department.
    *
    * @method faker.commerce.department
+   * @returns {string}
    */
-  department = () => {
+  department = (): string => {
     return this.faker.random.arrayElement(
       this.faker.definitions.commerce.department,
     );
   };
 
   /**
-   * productName
+   * Generates a random product name combining adjective, material, and product.
    *
    * @method faker.commerce.productName
+   * @returns {string}
    */
-  productName = () => {
+  productName = (): string => {
     return this.faker.commerce.productAdjective() + " " +
       this.faker.commerce.productMaterial() + " " +
       this.faker.commerce.product();
   };
 
   /**
-   * price
+   * Generates a price string with a specified range, decimal precision, and symbol.
    *
    * @method faker.commerce.price
-   * @param {number} min
-   * @param {number} max
-   * @param {number} dec
-   * @param {string} symbol
-   *
-   * @return {string}
+   * @param {number} min Minimum price value
+   * @param {number} max Maximum price value
+   * @param {number} dec Decimal places
+   * @param {string} symbol Currency symbol
+   * @returns {string}
    */
-  price = (min: number, max: number, dec: number, symbol: string) => {
+  price = (min: number, max: number, dec: number, symbol: string): string => {
     min = min || 1;
     max = max || 1000;
     dec = dec === undefined ? 2 : dec;
     symbol = symbol || "";
 
     if (min < 0 || max < 0) {
-      return symbol + 0.00;
+      return symbol + "0.00";
     }
 
     const randValue = this.faker.random.number({ max: max, min: min });
@@ -70,60 +72,37 @@ class Commerce {
       );
   };
 
-  /*
-  categories = (num) => {
-      const categories = [];
-
-      do {
-          const category = this.faker.random.arrayElement(faker.definitions.commerce.department);
-          if(categories.indexOf(category) === -1) {
-              categories.push(category);
-          }
-      } while(categories.length < num);
-
-      return categories;
-  };
-
-  */
-  /*
-  mergeCategories = (categories) => {
-      const separator = faker.definitions.separator || " &";
-      // TODO: find undefined here
-      categories = categories || faker.definitions.commerce.categories;
-      const commaSeparated = categories.slice(0, -1).join(', ');
-
-      return [commaSeparated, categories[categories.length - 1]].join(separator + " ");
-  };
-  */
-
   /**
-   * productAdjective
+   * Returns a random product adjective.
    *
    * @method faker.commerce.productAdjective
+   * @returns {string}
    */
-  productAdjective = () => {
+  productAdjective = (): string => {
     return this.faker.random.arrayElement(
       this.faker.definitions.commerce.product_name.adjective,
     );
   };
 
   /**
-   * productMaterial
+   * Returns a random product material.
    *
    * @method faker.commerce.productMaterial
+   * @returns {string}
    */
-  productMaterial = () => {
+  productMaterial = (): string => {
     return this.faker.random.arrayElement(
       this.faker.definitions.commerce.product_name.material,
     );
   };
 
   /**
-   * product
+   * Returns a random product name.
    *
    * @method faker.commerce.product
+   * @returns {string}
    */
-  product = () => {
+  product = (): string => {
     return this.faker.random.arrayElement(
       this.faker.definitions.commerce.product_name.product,
     );
