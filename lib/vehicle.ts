@@ -13,8 +13,9 @@ class Vehicle {
    * vehicle
    *
    * @method faker.vehicle.vehicle
+   * @returns {string} A string representing a vehicle, including manufacturer and model.
    */
-  vehicle = () => {
+  vehicle = (): string => {
     const _schema = schemas.vehicle;
     return this.faker.fake("{{vehicle.manufacturer}} {{vehicle.model}}");
   };
@@ -23,8 +24,9 @@ class Vehicle {
    * manufacturer
    *
    * @method faker.vehicle.manufacturer
+   * @returns {string} A string representing a vehicle manufacturer.
    */
-  manufacturer = () => {
+  manufacturer = (): string => {
     const _schema = schemas.manufacturer;
     return this.faker.random.arrayElement(
       this.faker.definitions.vehicle.manufacturer,
@@ -35,8 +37,9 @@ class Vehicle {
    * model
    *
    * @method faker.vehicle.model
+   * @returns {string} A string representing a vehicle model.
    */
-  model = () => {
+  model = (): string => {
     const _schema = schemas.model;
     return this.faker.random.arrayElement(
       this.faker.definitions.vehicle.model,
@@ -47,8 +50,9 @@ class Vehicle {
    * type
    *
    * @method faker.vehicle.type
+   * @returns {string} A string representing the type of vehicle.
    */
-  type = () => {
+  type = (): string => {
     const _schema = schemas.vtype;
     return this.faker.random.arrayElement(this.faker.definitions.vehicle.type);
   };
@@ -57,8 +61,9 @@ class Vehicle {
    * fuel
    *
    * @method faker.vehicle.fuel
+   * @returns {string} A string representing the type of fuel the vehicle uses.
    */
-  fuel = () => {
+  fuel = (): string => {
     const _schema = schemas.fuel;
     return this.faker.random.arrayElement(this.faker.definitions.vehicle.fuel);
   };
@@ -67,8 +72,9 @@ class Vehicle {
    * vin
    *
    * @method faker.vehicle.vin
+   * @returns {string} A string representing a vehicle identification number (VIN).
    */
-  vin = () => {
+  vin = (): string => {
     const _schema = schemas.vin;
     return (
       this.faker.random.alphaNumeric(10) +
@@ -82,8 +88,9 @@ class Vehicle {
    * color
    *
    * @method faker.vehicle.color
+   * @returns {string} A string representing a vehicle color.
    */
-  color = () => {
+  color = (): string => {
     const _schema = schemas.vcolor;
     return this.faker.fake("{{commerce.color}}");
   };
