@@ -9,22 +9,24 @@ class Company {
   }
 
   /**
-   * suffixes
+   * Returns a copy of the company suffixes array.
    *
    * @method faker.company.suffixes
+   * @returns {string[]}
    */
-  suffixes = () => {
+  suffixes = (): string[] => {
     // Don't want the source array exposed to modification, so return a copy
     return this.faker.definitions.company.suffix.slice(0);
   };
 
   /**
-   * companyName
+   * Returns a random company name using one of the predefined formats.
    *
    * @method faker.company.companyName
-   * @param {string} format
+   * @param {number} format
+   * @returns {string}
    */
-  companyName = (format?: number) => {
+  companyName = (format?: number): string => {
     const formats = [
       "{{name.lastName}} {{company.companySuffix}}",
       "{{name.lastName}} - {{name.lastName}}",
@@ -39,95 +41,104 @@ class Company {
   };
 
   /**
-   * companySuffix
+   * Returns a random company suffix.
    *
    * @method faker.company.companySuffix
+   * @returns {string}
    */
-  companySuffix = () => {
+  companySuffix = (): string => {
     return this.faker.random.arrayElement(this.faker.company.suffixes());
   };
 
   /**
-   * catchPhrase
+   * Generates a catchphrase.
    *
    * @method faker.company.catchPhrase
+   * @returns {string}
    */
-  catchPhrase = () => {
+  catchPhrase = (): string => {
     return this.faker.fake(
       "{{company.catchPhraseAdjective}} {{company.catchPhraseDescriptor}} {{company.catchPhraseNoun}}",
     );
   };
 
   /**
-   * bs
+   * Generates a business-speak (BS) phrase.
    *
    * @method faker.company.bs
+   * @returns {string}
    */
-  bs = () => {
+  bs = (): string => {
     return this.faker.fake(
       "{{company.bsBuzz}} {{company.bsAdjective}} {{company.bsNoun}}",
     );
   };
 
   /**
-   * catchPhraseAdjective
+   * Returns a random catchphrase adjective.
    *
    * @method faker.company.catchPhraseAdjective
+   * @returns {string}
    */
-  catchPhraseAdjective = () => {
+  catchPhraseAdjective = (): string => {
     return this.faker.random.arrayElement(
       this.faker.definitions.company.adjective,
     );
   };
 
   /**
-   * catchPhraseDescriptor
+   * Returns a random catchphrase descriptor.
    *
    * @method faker.company.catchPhraseDescriptor
+   * @returns {string}
    */
-  catchPhraseDescriptor = () => {
+  catchPhraseDescriptor = (): string => {
     return this.faker.random.arrayElement(
       this.faker.definitions.company.descriptor,
     );
   };
 
   /**
-   * catchPhraseNoun
+   * Returns a random catchphrase noun.
    *
    * @method faker.company.catchPhraseNoun
+   * @returns {string}
    */
-  catchPhraseNoun = () => {
+  catchPhraseNoun = (): string => {
     return this.faker.random.arrayElement(this.faker.definitions.company.noun);
   };
 
   /**
-   * bsAdjective
+   * Returns a random business-speak (BS) adjective.
    *
    * @method faker.company.bsAdjective
+   * @returns {string}
    */
-  bsAdjective = () => {
+  bsAdjective = (): string => {
     return this.faker.random.arrayElement(
       this.faker.definitions.company.bs_adjective,
     );
   };
 
   /**
-   * bsBuzz
+   * Returns a random business-speak (BS) buzzword.
    *
    * @method faker.company.bsBuzz
+   * @returns {string}
    */
-  bsBuzz = () => {
+  bsBuzz = (): string => {
     return this.faker.random.arrayElement(
       this.faker.definitions.company.bs_verb,
     );
   };
 
   /**
-   * bsNoun
+   * Returns a random business-speak (BS) noun.
    *
    * @method faker.company.bsNoun
+   * @returns {string}
    */
-  bsNoun = () => {
+  bsNoun = (): string => {
     return this.faker.random.arrayElement(
       this.faker.definitions.company.bs_noun,
     );
