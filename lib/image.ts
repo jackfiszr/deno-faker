@@ -1,6 +1,7 @@
 import { Lorempixel } from "./image_providers/lorempixel.ts";
 import { Unsplash } from "./image_providers/unsplash.ts";
 import type { Faker } from "./mod.ts";
+
 /**
  * @namespace faker.image
  * @property {object} lorempixel - faker.image.lorempixel
@@ -25,6 +26,7 @@ class Image {
    * @param {number} height
    * @param {boolean} randomize
    * @method faker.image.image
+   * @returns {string}
    */
   image = (width?: number, height?: number, randomize?: boolean): string => {
     const categories = [
@@ -45,14 +47,17 @@ class Image {
     const category = this.faker.random.arrayElement(categories);
     return this.imageUrl(width, height, category, randomize ?? false, false);
   };
+
   /**
    * avatar
    *
    * @method faker.image.avatar
+   * @returns {string}
    */
-  avatar = () => {
+  avatar = (): string => {
     return this.faker.internet.avatar();
   };
+
   /**
    * imageUrl
    *
@@ -60,7 +65,9 @@ class Image {
    * @param {number} height
    * @param {string} category
    * @param {boolean} randomize
+   * @param {boolean} https
    * @method faker.image.imageUrl
+   * @returns {string}
    */
   imageUrl = (
     width?: number,
@@ -68,7 +75,7 @@ class Image {
     category?: string,
     randomize?: boolean,
     https?: boolean,
-  ) => {
+  ): string => {
     width = width || 640;
     height = height || 480;
     let protocol = "http://";
@@ -86,149 +93,163 @@ class Image {
 
     return url;
   };
+
   /**
    * abstract
    *
    * @param {number} width
    * @param {number} height
    * @param {boolean} randomize
-   * @method faker.image.abstract
+   * @returns {string}
    */
-  abstract = (width: number, height: number, randomize: boolean) => {
-    return this.faker.image.imageUrl(width, height, "abstract", randomize);
+  abstract = (width: number, height: number, randomize: boolean): string => {
+    return this.imageUrl(width, height, "abstract", randomize);
   };
+
   /**
    * animals
    *
    * @param {number} width
    * @param {number} height
    * @param {boolean} randomize
-   * @method faker.image.animals
+   * @returns {string}
    */
-  animals = (width: number, height: number, randomize: boolean) => {
-    return this.faker.image.imageUrl(width, height, "animals", randomize);
+  animals = (width: number, height: number, randomize: boolean): string => {
+    return this.imageUrl(width, height, "animals", randomize);
   };
+
   /**
    * business
    *
    * @param {number} width
    * @param {number} height
    * @param {boolean} randomize
-   * @method faker.image.business
+   * @returns {string}
    */
-  business = (width: number, height: number, randomize: boolean) => {
-    return this.faker.image.imageUrl(width, height, "business", randomize);
+  business = (width: number, height: number, randomize: boolean): string => {
+    return this.imageUrl(width, height, "business", randomize);
   };
+
   /**
    * cats
    *
    * @param {number} width
    * @param {number} height
    * @param {boolean} randomize
-   * @method faker.image.cats
+   * @returns {string}
    */
-  cats = (width: number, height: number, randomize: boolean) => {
-    return this.faker.image.imageUrl(width, height, "cats", randomize);
+  cats = (width: number, height: number, randomize: boolean): string => {
+    return this.imageUrl(width, height, "cats", randomize);
   };
+
   /**
    * city
    *
    * @param {number} width
    * @param {number} height
    * @param {boolean} randomize
-   * @method faker.image.city
+   * @returns {string}
    */
-  city = (width: number, height: number, randomize: boolean) => {
-    return this.faker.image.imageUrl(width, height, "city", randomize);
+  city = (width: number, height: number, randomize: boolean): string => {
+    return this.imageUrl(width, height, "city", randomize);
   };
+
   /**
    * food
    *
    * @param {number} width
    * @param {number} height
    * @param {boolean} randomize
-   * @method faker.image.food
+   * @returns {string}
    */
-  food = (width: number, height: number, randomize: boolean) => {
-    return this.faker.image.imageUrl(width, height, "food", randomize);
+  food = (width: number, height: number, randomize: boolean): string => {
+    return this.imageUrl(width, height, "food", randomize);
   };
+
   /**
    * nightlife
    *
    * @param {number} width
    * @param {number} height
    * @param {boolean} randomize
-   * @method faker.image.nightlife
+   * @returns {string}
    */
-  nightlife = (width: number, height: number, randomize: boolean) => {
-    return this.faker.image.imageUrl(width, height, "nightlife", randomize);
+  nightlife = (width: number, height: number, randomize: boolean): string => {
+    return this.imageUrl(width, height, "nightlife", randomize);
   };
+
   /**
    * fashion
    *
    * @param {number} width
    * @param {number} height
    * @param {boolean} randomize
-   * @method faker.image.fashion
+   * @returns {string}
    */
-  fashion = (width: number, height: number, randomize: boolean) => {
-    return this.faker.image.imageUrl(width, height, "fashion", randomize);
+  fashion = (width: number, height: number, randomize: boolean): string => {
+    return this.imageUrl(width, height, "fashion", randomize);
   };
+
   /**
    * people
    *
    * @param {number} width
    * @param {number} height
    * @param {boolean} randomize
-   * @method faker.image.people
+   * @returns {string}
    */
-  people = (width: number, height: number, randomize: boolean) => {
-    return this.faker.image.imageUrl(width, height, "people", randomize);
+  people = (width: number, height: number, randomize: boolean): string => {
+    return this.imageUrl(width, height, "people", randomize);
   };
+
   /**
    * nature
    *
    * @param {number} width
    * @param {number} height
    * @param {boolean} randomize
-   * @method faker.image.nature
+   * @returns {string}
    */
-  nature = (width: number, height: number, randomize: boolean) => {
-    return this.faker.image.imageUrl(width, height, "nature", randomize);
+  nature = (width: number, height: number, randomize: boolean): string => {
+    return this.imageUrl(width, height, "nature", randomize);
   };
+
   /**
    * sports
    *
    * @param {number} width
    * @param {number} height
    * @param {boolean} randomize
-   * @method faker.image.sports
+   * @returns {string}
    */
-  sports = (width: number, height: number, randomize: boolean) => {
-    return this.faker.image.imageUrl(width, height, "sports", randomize);
+  sports = (width: number, height: number, randomize: boolean): string => {
+    return this.imageUrl(width, height, "sports", randomize);
   };
+
   /**
    * technics
    *
    * @param {number} width
    * @param {number} height
    * @param {boolean} randomize
-   * @method faker.image.technics
+   * @returns {string}
    */
-  technics = (width: number, height: number, randomize: boolean) => {
-    return this.faker.image.imageUrl(width, height, "technics", randomize);
+  technics = (width: number, height: number, randomize: boolean): string => {
+    return this.imageUrl(width, height, "technics", randomize);
   };
+
   /**
    * transport
    *
    * @param {number} width
    * @param {number} height
    * @param {boolean} randomize
-   * @method faker.image.transport
+   * @returns {string}
    */
-  transport = (width: number, height: number, randomize: boolean) => {
-    return this.faker.image.imageUrl(width, height, "transport", randomize);
+  transport = (width: number, height: number, randomize: boolean): string => {
+    return this.imageUrl(width, height, "transport", randomize);
   };
+
   /**
    * dataUri
    *
@@ -236,22 +257,19 @@ class Image {
    * @param {number} height
    * @param {string} color
    * @method faker.image.dataUri
+   * @returns {string}
    */
-  dataUri = (width: number, height: number, color: string) => {
+  dataUri = (width: number, height: number, color: string): string => {
     color = color || "grey";
     const svgString =
-      '<svg xmlns="http://www.w3.org/2000/svg" version="1.1" baseProfile="full" width="' +
-      width + '" height="' + height +
-      '"><rect width="100%" height="100%" fill="' + color + '"/><text x="' +
-      width / 2 + '" y="' + height / 2 +
-      '" font-size="20" alignment-baseline="middle" text-anchor="middle" fill="white">' +
-      width + "x" + height + "</text></svg>";
+      `<svg xmlns="http://www.w3.org/2000/svg" version="1.1" baseProfile="full" width="${width}" height="${height}"><rect width="100%" height="100%" fill="${color}"/><text x="${
+        width / 2
+      }" y="${
+        height / 2
+      }" font-size="20" alignment-baseline="middle" text-anchor="middle" fill="white">${width}x${height}</text></svg>`;
     const rawPrefix = "data:image/svg+xml;charset=UTF-8,";
     return rawPrefix + encodeURIComponent(svgString);
   };
-
-  // Object.assign(self, unsplash);
-  // How to set default as unsplash? should be image.default?
 }
 
 export { Image };
