@@ -6,6 +6,7 @@ interface MimeTypeDefinition {
     extensions: string[];
   };
 }
+
 /**
  * @namespace faker.system
  */
@@ -14,14 +15,16 @@ class System {
   constructor(faker: Faker) {
     this.faker = faker;
   }
+
   /**
-   * generates a file name with extension or optional type
+   * Generates a file name with extension or optional type.
    *
    * @method faker.system.fileName
    * @param {string} ext
    * @param {string} type
+   * @returns {string}
    */
-  fileName = (_ext: string, _type: string) => {
+  fileName = (_ext: string, _type: string): string => {
     let str = this.faker.fake("{{random.words}}.{{system.fileExt}}");
     str = str.replace(/ /g, "_");
     str = str.replace(/\,/g, "_");
@@ -33,13 +36,14 @@ class System {
   };
 
   /**
-   * commonFileName
+   * Generates a common file name with extension or optional type.
    *
    * @method faker.system.commonFileName
    * @param {string} ext
    * @param {string} type
+   * @returns {string}
    */
-  commonFileName = (ext: string, _type: string) => {
+  commonFileName = (ext: string, _type: string): string => {
     let str = this.faker.random.words() + "." +
       (ext || this.faker.system.commonFileExt());
     str = str.replace(/ /g, "_");
@@ -52,33 +56,36 @@ class System {
   };
 
   /**
-   * mimeType
+   * Returns a random MIME type.
    *
    * @method faker.system.mimeType
+   * @returns {string}
    */
-  mimeType = () => {
+  mimeType = (): string => {
     return this.faker.random.arrayElement(
       Object.keys(this.faker.definitions.system.mimeTypes),
     );
   };
 
   /**
-   * returns a commonly used file type
+   * Returns a commonly used file type.
    *
    * @method faker.system.commonFileType
+   * @returns {string}
    */
-  commonFileType = () => {
+  commonFileType = (): string => {
     const types = ["video", "audio", "image", "text", "application"];
     return this.faker.random.arrayElement(types);
   };
 
   /**
-   * returns a commonly used file extension based on optional type
+   * Returns a commonly used file extension based on optional type.
    *
    * @method faker.system.commonFileExt
    * @param {string} type
+   * @returns {string}
    */
-  commonFileExt = (_type?: string) => {
+  commonFileExt = (_type?: string): string => {
     const types = [
       "application/pdf",
       "audio/mpeg",
@@ -94,11 +101,12 @@ class System {
   };
 
   /**
-   * returns any file type available as mime-type
+   * Returns any file type available as MIME type.
    *
    * @method faker.system.fileType
+   * @returns {string}
    */
-  fileType = () => {
+  fileType = (): string => {
     const types: string[] = [];
     const mimes = this.faker.definitions.system.mimeTypes;
     Object.keys(mimes).forEach(function (m) {
@@ -111,22 +119,23 @@ class System {
   };
 
   /**
-   * fileExt
+   * Returns a random file extension.
    *
    * @method faker.system.fileExt
    * @param {string} mimeType
+   * @returns {string}
    */
-  fileExt = (mimeType: string) => {
+  fileExt = (mimeType: string): string => {
     const exts: string[] = [];
     const mimes = this.faker.definitions.system
       .mimeTypes as unknown as MimeTypeDefinition;
 
-    // get specific ext by mime-type
+    // Get specific extension by MIME type.
     if (typeof mimes[mimeType] === "object") {
       return this.faker.random.arrayElement(mimes[mimeType].extensions);
     }
 
-    // reduce mime-types to those with file-extensions
+    // Reduce MIME types to those with file extensions.
     Object.keys(mimes).forEach(function (m) {
       if (mimes[m].extensions instanceof Array) {
         mimes[m].extensions.forEach(function (ext: string) {
@@ -138,30 +147,33 @@ class System {
   };
 
   /**
-   * returns directory path
+   * Returns a random directory path.
    *
    * @method faker.system.directoryPath
+   * @returns {string}
    */
-  directoryPath = () => {
+  directoryPath = (): string => {
     const paths = this.faker.definitions.system.directoryPaths;
     return this.faker.random.arrayElement(paths);
   };
 
   /**
-   * returns file path
+   * Returns a random file path.
    *
    * @method faker.system.filePath
+   * @returns {string}
    */
-  filePath = () => {
+  filePath = (): string => {
     return this.faker.fake("{{system.directoryPath}}/{{system.fileName}}");
   };
 
   /**
-   * semver
+   * Returns a semantic version (semver) string.
    *
    * @method faker.system.semver
+   * @returns {string}
    */
-  semver = () => {
+  semver = (): string => {
     return [
       this.faker.random.number(9),
       this.faker.random.number(9),
