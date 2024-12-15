@@ -20,10 +20,11 @@ class Random {
     }
   }
   /**
-   * returns a single random number based on a max number or range
+   * Returns a single random number based on a max number or range.
    *
    * @method faker.random.number
-   * @param {mixed} options {min, max, precision}
+   * @param {Object|number} options {min, max, precision} or just max as a number
+   * @returns {number}
    */
   number = (
     options?: {
@@ -31,11 +32,9 @@ class Random {
       max?: number;
       precision?: number;
     } | number,
-  ) => {
+  ): number => {
     if (typeof options === "number") {
-      options = {
-        max: options,
-      };
+      options = { max: options };
     }
 
     options = options || {};
@@ -43,14 +42,12 @@ class Random {
     if (typeof options.min === "undefined") {
       options.min = 0;
     }
-
     if (typeof options.max === "undefined") {
       options.max = 99999;
     }
     if (typeof options.precision === "undefined") {
       options.precision = 1;
     }
-
     // Make the range inclusive of the max value
     let max = options.max;
     if (max >= 0) {
@@ -60,27 +57,26 @@ class Random {
     let randomNumber = Math.floor(
       mersenne.rand(max / options.precision, options.min / options.precision),
     );
-    // Workaround problem in Float point arithmetics for e.g. 6681493 / 0.01
+    // Workaround for Float point arithmetics problem (e.g. 6681493 / 0.01)
     randomNumber = randomNumber / (1 / options.precision);
 
     return randomNumber;
   };
 
   /**
-   * returns a single random floating-point number based on a max number or range
+   * Returns a single random floating-point number based on a max number or range.
    *
    * @method faker.random.float
-   * @param {mixed} options
+   * @param {Object|number} options {precision} or precision as a number
+   * @returns {number}
    */
   float = (
     options?: {
       precision?: number;
     } | number,
-  ) => {
+  ): number => {
     if (typeof options === "number") {
-      options = {
-        precision: options,
-      };
+      options = { precision: options };
     }
     options = options || {};
     const opts: typeof options = {};
@@ -98,21 +94,23 @@ class Random {
    *
    * @method faker.random.arrayElement
    * @param {array} array
+   * @returns {T}
    */
   arrayElement = <T>(array: T[]): T => {
-    array = array || ["a", "b", "c"];
+    array = array || ["a", "b", "c"] as unknown as T[];
     const r = this.faker.random.number({ max: array.length - 1 });
     return array[r];
   };
 
   /**
-   * takes an array and returns a subset with random elements of the array
+   * Returns a random subset of elements from an array.
    *
    * @method faker.random.arrayElements
-   * @param {array} array
+   * @param {Array} array
    * @param {number} count number of elements to pick
+   * @returns {string[]}
    */
-  arrayElements = (array: string[], count: number) => {
+  arrayElements = (array: string[], count: number): string[] => {
     array = array || ["a", "b", "c"];
 
     if (typeof count !== "number") {
@@ -125,24 +123,28 @@ class Random {
 
     const arrayCopy = array.slice();
     const countToRemove = arrayCopy.length - count;
+
     for (let i = 0; i < countToRemove; i++) {
       const indexToRemove = this.faker.random.number(
         { max: arrayCopy.length - 1 },
       );
       arrayCopy.splice(indexToRemove, 1);
     }
-
     return arrayCopy;
   };
 
   /**
-   * takes an object and returns the randomly key or value
+   * Returns a random key or value from an object.
    *
    * @method faker.random.objectElement
-   * @param {object} object
-   * @param {mixed} field
+   * @param {Object} object
+   * @param {string} field
+   * @returns {unknown}
    */
-  objectElement = (object: Record<string, unknown>, field?: string) => {
+  objectElement = (
+    object: Record<string, unknown>,
+    field?: string,
+  ): unknown => {
     object = object || { "foo": "bar", "too": "car" };
     const array = Object.keys(object);
     const key = this.faker.random.arrayElement(array);
@@ -151,13 +153,14 @@ class Random {
   };
 
   /**
-   * uuid
+   * Generates a random UUID.
    *
    * @method faker.random.uuid
+   * @returns {string}
    */
-  uuid = () => {
+  uuid = (): string => {
     const RFC4122_TEMPLATE = "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx";
-    const replacePlaceholders = (placeholder: string) => {
+    const replacePlaceholders = (placeholder: string): string => {
       const random = this.faker.random.number({ min: 0, max: 15 });
       const value = placeholder == "x" ? random : (random & 0x3 | 0x8);
       return value.toString(16);
@@ -166,22 +169,24 @@ class Random {
   };
 
   /**
-   * boolean
+   * Generates a random boolean value.
    *
    * @method faker.random.boolean
+   * @returns {boolean}
    */
-  boolean = () => {
+  boolean = (): boolean => {
     return !!this.faker.random.number(1);
   };
 
   // TODO: have ability to return specific type of word? As in: noun, adjective, verb, etc
   /**
-   * word
+   * Generates a random word.
    *
    * @method faker.random.word
    * @param {string} type
+   * @returns {string}
    */
-  word = (_type?: string) => {
+  word = (_type?: string): string => {
     const wordMethods = [
       "commerce.department",
       "commerce.productName",
@@ -218,16 +223,16 @@ class Random {
   };
 
   /**
-   * randomWords
+   * Generates random words.
    *
    * @method faker.random.words
    * @param {number} count defaults to a random value between 1 and 3
+   * @returns {string}
    */
-  words = (count?: number) => {
-    const words = [];
-    if (typeof count === "undefined") {
-      count = this.faker.random.number({ min: 1, max: 3 });
-    }
+  words = (count?: number): string => {
+    const words: string[] = [];
+    count = count || this.faker.random.number({ min: 1, max: 3 });
+
     for (let i = 0; i < count; i++) {
       words.push(this.faker.random.word());
     }
@@ -235,11 +240,12 @@ class Random {
   };
 
   /**
-   * locale
+   * image
    *
    * @method faker.random.image
+   * @returns {string}
    */
-  image = () => {
+  image = (): string => {
     return this.faker.image.image();
   };
 
@@ -247,176 +253,74 @@ class Random {
    * locale
    *
    * @method faker.random.locale
+   * @returns {string}
    */
-  locale = () => {
+  locale = (): string => {
     return this.faker.random.arrayElement(Object.keys(this.faker.locales));
   };
 
   /**
-   * alpha. returns lower/upper alpha characters based count and upcase options
+   * Generates a random alpha character string.
    *
    * @method faker.random.alpha
-   * @param {mixed} options // defaults to { count: 1, upcase: false }
+   * @param {Object|number} options {count, upcase} or count
+   * @returns {string}
    */
   alpha = (
     options?: {
       count?: number;
       upcase?: boolean;
     } | number,
-  ) => {
-    if (typeof options === "undefined") {
-      options = {
-        count: 1,
-      };
-    } else if (typeof options === "number") {
-      options = {
-        count: options,
-      };
-    } else if (typeof options.count === "undefined") {
-      options.count = 1;
-    }
+  ): string => {
+    if (typeof options === "number") options = { count: options };
 
-    if (typeof options.upcase === "undefined") {
-      options.upcase = false;
-    }
-
+    options = options || { count: 1, upcase: false };
+    const letters = "abcdefghijklmnopqrstuvwxyz";
     let wholeString = "";
+
     for (let i = 0; i < options.count!; i++) {
-      wholeString += this.faker.random.arrayElement(
-        [
-          "a",
-          "b",
-          "c",
-          "d",
-          "e",
-          "f",
-          "g",
-          "h",
-          "i",
-          "j",
-          "k",
-          "l",
-          "m",
-          "n",
-          "o",
-          "p",
-          "q",
-          "r",
-          "s",
-          "t",
-          "u",
-          "v",
-          "w",
-          "x",
-          "y",
-          "z",
-        ],
-      );
+      wholeString += this.faker.random.arrayElement(letters.split(""));
     }
 
     return options.upcase ? wholeString.toUpperCase() : wholeString;
   };
 
   /**
-   * alphaNumeric
+   * Generates a random alphanumeric string.
    *
    * @method faker.random.alphaNumeric
-   * @param {number} count defaults to 1
+   * @param {number} count
+   * @returns {string}
    */
-  alphaNumeric = (count: number) => {
-    if (typeof count === "undefined") {
-      count = 1;
-    }
+  alphaNumeric = (count: number): string => {
+    count = count || 1;
+    const chars = "0123456789abcdefghijklmnopqrstuvwxyz";
+    let result = "";
 
-    let wholeString = "";
     for (let i = 0; i < count; i++) {
-      wholeString += this.faker.random.arrayElement(
-        [
-          "0",
-          "1",
-          "2",
-          "3",
-          "4",
-          "5",
-          "6",
-          "7",
-          "8",
-          "9",
-          "a",
-          "b",
-          "c",
-          "d",
-          "e",
-          "f",
-          "g",
-          "h",
-          "i",
-          "j",
-          "k",
-          "l",
-          "m",
-          "n",
-          "o",
-          "p",
-          "q",
-          "r",
-          "s",
-          "t",
-          "u",
-          "v",
-          "w",
-          "x",
-          "y",
-          "z",
-        ],
-      );
+      result += this.faker.random.arrayElement(chars.split(""));
     }
 
-    return wholeString;
+    return result;
   };
 
   /**
-   * hexaDecimal
+   * Generates a random hexadecimal string.
    *
    * @method faker.random.hexaDecimal
-   * @param {number} count defaults to 1
+   * @param {number} count
+   * @returns {string}
    */
-  hexaDecimal = (count: number) => {
-    if (typeof count === "undefined") {
-      count = 1;
-    }
+  hexaDecimal = (count: number): string => {
+    count = count || 1;
+    const hexChars = "0123456789abcdef";
+    let result = "";
 
-    let wholeString = "";
     for (let i = 0; i < count; i++) {
-      wholeString += this.faker.random.arrayElement(
-        [
-          "0",
-          "1",
-          "2",
-          "3",
-          "4",
-          "5",
-          "6",
-          "7",
-          "8",
-          "9",
-          "a",
-          "b",
-          "c",
-          "d",
-          "e",
-          "f",
-          "A",
-          "B",
-          "C",
-          "D",
-          "E",
-          "F",
-        ],
-      );
+      result += this.faker.random.arrayElement(hexChars.split(""));
     }
 
-    return "0x" + wholeString;
+    return "0x" + result;
   };
 }
 
