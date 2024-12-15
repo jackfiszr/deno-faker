@@ -1,4 +1,5 @@
 import type { Faker } from "./mod.ts";
+
 /**
  * @namespace faker.name
  */
@@ -7,14 +8,16 @@ class Name {
   constructor(faker: Faker) {
     this.faker = faker;
   }
+
   /**
    * firstName
    *
    * @method firstName
-   * @param {mixed} gender
+   * @param {number} gender
+   * @returns {string}
    * @memberof faker.name
    */
-  firstName = (gender?: number) => {
+  firstName = (gender?: number): string => {
     const definitions = this.faker.definitions.name;
     if (definitions?.male_first_name && definitions?.female_first_name) {
       // some locale datasets ( like ru ) have first_name split by gender. since the name.first_name field does not exist in these datasets,
@@ -40,10 +43,11 @@ class Name {
    * lastName
    *
    * @method lastName
-   * @param {mixed} gender
+   * @param {number} gender
+   * @returns {string}
    * @memberof faker.name
    */
-  lastName = (gender?: number) => {
+  lastName = (gender?: number): string => {
     const locale = this.faker.locales[this.faker.locale]?.name;
     if (
       typeof locale === "object" &&
@@ -71,26 +75,33 @@ class Name {
    * @method findName
    * @param {string} firstName
    * @param {string} lastName
-   * @param {mixed} gender
+   * @param {number} gender
+   * @returns {string}
    * @memberof faker.name
    */
-  findName = (firstName?: string, lastName?: string, gender?: number) => {
+  findName = (
+    firstName?: string,
+    lastName?: string,
+    gender?: number,
+  ): string => {
     const r = this.faker.random.number(8);
     let prefix, suffix;
     // in particular locales first and last names split by gender,
     // thus we keep consistency by passing 0 as male and 1 as female
+
     if (typeof gender !== "number") {
       gender = this.faker.random.number(1);
     }
     firstName = firstName || this.faker.name.firstName(gender);
     lastName = lastName || this.faker.name.lastName(gender);
+
     switch (r) {
       case 0:
         prefix = this.faker.name.prefix(gender);
         if (prefix) {
           return prefix + " " + firstName + " " + lastName;
         }
-        /* falls through */
+      /* falls through */
       case 1:
         suffix = this.faker.name.suffix();
         if (suffix) {
@@ -105,9 +116,10 @@ class Name {
    * jobTitle
    *
    * @method jobTitle
+   * @returns {string}
    * @memberof faker.name
    */
-  jobTitle = () => {
+  jobTitle = (): string => {
     return this.faker.name.jobDescriptor() + " " +
       this.faker.name.jobArea() + " " +
       this.faker.name.jobType();
@@ -117,9 +129,10 @@ class Name {
    * gender
    *
    * @method gender
+   * @returns {string}
    * @memberof faker.name
    */
-  gender = () => {
+  gender = (): string => {
     return this.faker.random.arrayElement(this.faker.definitions.name.gender);
   };
 
@@ -127,12 +140,14 @@ class Name {
    * prefix
    *
    * @method prefix
-   * @param {mixed} gender
+   * @param {number} gender
+   * @returns {string}
    * @memberof faker.name
    */
-  prefix = (gender?: number) => {
+  prefix = (gender?: number): string => {
     const locale = this.faker.locales[this.faker.locale]?.name;
     const definitions = this.faker.definitions.name;
+
     if (
       typeof locale === "object" &&
       locale !== null &&
@@ -153,9 +168,10 @@ class Name {
    * suffix
    *
    * @method suffix
+   * @returns {string}
    * @memberof faker.name
    */
-  suffix = () => {
+  suffix = (): string => {
     const definitions = this.faker.definitions.name;
     return this.faker.random.arrayElement(definitions?.suffix ?? []);
   };
@@ -164,9 +180,10 @@ class Name {
    * title
    *
    * @method title
+   * @returns {string}
    * @memberof faker.name
    */
-  title = () => {
+  title = (): string => {
     const title = this.faker.definitions.name?.title;
     const descriptor = this.faker.random.arrayElement(title?.descriptor ?? []);
     const level = this.faker.random.arrayElement(title?.level ?? []);
@@ -178,9 +195,10 @@ class Name {
    * jobDescriptor
    *
    * @method jobDescriptor
+   * @returns {string}
    * @memberof faker.name
    */
-  jobDescriptor = () => {
+  jobDescriptor = (): string => {
     const title = this.faker.definitions.name?.title;
     return this.faker.random.arrayElement(title?.descriptor ?? []);
   };
@@ -189,9 +207,10 @@ class Name {
    * jobArea
    *
    * @method jobArea
+   * @returns {string}
    * @memberof faker.name
    */
-  jobArea = () => {
+  jobArea = (): string => {
     const title = this.faker.definitions.name?.title;
     return this.faker.random.arrayElement(title?.level ?? []);
   };
@@ -200,9 +219,10 @@ class Name {
    * jobType
    *
    * @method jobType
+   * @returns {string}
    * @memberof faker.name
    */
-  jobType = () => {
+  jobType = (): string => {
     const title = this.faker.definitions.name?.title;
     return this.faker.random.arrayElement(title?.job ?? []);
   };
