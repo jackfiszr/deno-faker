@@ -1,11 +1,13 @@
 import type { Faker } from "./mod.ts";
 import type { Helpers } from "./helpers.ts";
+
 /**
  * @namespace faker.lorem
  */
 class Lorem {
   faker: Faker;
   Helpers: Helpers;
+
   constructor(faker: Faker) {
     this.faker = faker;
     this.Helpers = faker.helpers;
@@ -16,20 +18,22 @@ class Lorem {
    *
    * @method faker.lorem.word
    * @param {number} num
+   * @returns {string}
    */
-  word = (_num?: number) => {
+  word = (_num?: number): string => {
     return this.faker.random.arrayElement(this.faker.definitions.lorem.words);
   };
 
   /**
-   * generates a space separated list of words
+   * generates a space-separated list of words
    *
    * @method faker.lorem.words
    * @param {number} num number of words, defaults to 3
+   * @returns {string}
    */
-  words = (num?: number) => {
-    if (typeof num == "undefined") num = 3;
-    const words = [];
+  words = (num?: number): string => {
+    if (typeof num === "undefined") num = 3;
+    const words: string[] = [];
     for (let i = 0; i < num; i++) {
       words.push(this.faker.lorem.word());
     }
@@ -42,18 +46,12 @@ class Lorem {
    * @method faker.lorem.sentence
    * @param {number} wordCount defaults to a random number between 3 and 10
    * @param {number} range
+   * @returns {string}
    */
-  sentence = (wordCount?: number, _range?: number) => {
-    if (typeof wordCount == "undefined") {
-      wordCount = this.faker.random.number(
-        { min: 3, max: 10 },
-      );
+  sentence = (wordCount?: number, _range?: number): string => {
+    if (typeof wordCount === "undefined") {
+      wordCount = this.faker.random.number({ min: 3, max: 10 });
     }
-    // if (typeof range == 'undefined') { range = 7; }
-
-    // strange issue with the node_min_test failing for captialize, please fix and add faker.lorem.back
-    //return  faker.lorem.words(wordCount + Helpers.randomNumber(range)).join(' ').capitalize();
-
     const sentence = this.faker.lorem.words(wordCount);
     return sentence.charAt(0).toUpperCase() + sentence.slice(1) + ".";
   };
@@ -63,8 +61,9 @@ class Lorem {
    *
    * @method faker.lorem.slug
    * @param {number} wordCount number of words, defaults to 3
+   * @returns {string}
    */
-  slug = (wordCount: number) => {
+  slug = (wordCount: number): string => {
     const words = this.faker.lorem.words(wordCount);
     return this.Helpers.slugify(words);
   };
@@ -73,16 +72,17 @@ class Lorem {
    * sentences
    *
    * @method faker.lorem.sentences
-   * @param {number} sentenceCount defautls to a random number between 2 and 6
+   * @param {number} sentenceCount defaults to a random number between 2 and 6
    * @param {string} separator defaults to `' '`
+   * @returns {string}
    */
-  sentences = (sentenceCount?: number, separator?: string) => {
+  sentences = (sentenceCount?: number, separator?: string): string => {
     if (typeof sentenceCount === "undefined") {
       sentenceCount = this.faker.random.number({ min: 2, max: 6 });
     }
-    if (typeof separator == "undefined") separator = " ";
-    const sentences = [];
-    for (sentenceCount; sentenceCount > 0; sentenceCount--) {
+    if (typeof separator === "undefined") separator = " ";
+    const sentences: string[] = [];
+    for (let i = sentenceCount; i > 0; i--) {
       sentences.push(this.faker.lorem.sentence());
     }
     return sentences.join(separator);
@@ -93,9 +93,10 @@ class Lorem {
    *
    * @method faker.lorem.paragraph
    * @param {number} sentenceCount defaults to 3
+   * @returns {string}
    */
-  paragraph = (sentenceCount?: number) => {
-    if (typeof sentenceCount == "undefined") sentenceCount = 3;
+  paragraph = (sentenceCount?: number): string => {
+    if (typeof sentenceCount === "undefined") sentenceCount = 3;
     return this.faker.lorem.sentences(
       sentenceCount + this.faker.random.number(3),
     );
@@ -107,14 +108,13 @@ class Lorem {
    * @method faker.lorem.paragraphs
    * @param {number} paragraphCount defaults to 3
    * @param {string} separator defaults to `'\n \r'`
+   * @returns {string}
    */
-  paragraphs = (paragraphCount: number, separator: string) => {
-    if (typeof separator === "undefined") {
-      separator = "\n \r";
-    }
-    if (typeof paragraphCount == "undefined") paragraphCount = 3;
-    const paragraphs = [];
-    for (paragraphCount; paragraphCount > 0; paragraphCount--) {
+  paragraphs = (paragraphCount: number, separator: string): string => {
+    if (typeof separator === "undefined") separator = "\n \r";
+    if (typeof paragraphCount === "undefined") paragraphCount = 3;
+    const paragraphs: string[] = [];
+    for (let i = paragraphCount; i > 0; i--) {
       paragraphs.push(this.faker.lorem.paragraph());
     }
     return paragraphs.join(separator);
@@ -125,8 +125,9 @@ class Lorem {
    *
    * @method faker.lorem.text
    * @param {number} times
+   * @returns {string}
    */
-  loremText = (_times: number) => {
+  loremText = (_times: number): string => {
     const loremMethods = [
       "lorem.word",
       "lorem.words",
@@ -145,12 +146,11 @@ class Lorem {
    *
    * @method faker.lorem.lines
    * @param {number} lineCount defaults to a random number between 1 and 5
+   * @returns {string}
    */
-  lines = (lineCount: number) => {
+  lines = (lineCount: number): string => {
     if (typeof lineCount === "undefined") {
-      lineCount = this.faker.random.number(
-        { min: 1, max: 5 },
-      );
+      lineCount = this.faker.random.number({ min: 1, max: 5 });
     }
     return this.faker.lorem.sentences(lineCount, "\n");
   };
