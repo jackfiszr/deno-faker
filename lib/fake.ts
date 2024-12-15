@@ -8,6 +8,12 @@ class Fake {
   constructor(faker: Faker) {
     this.faker = faker;
   }
+  private isValidKey = <T extends object>(
+    key: string | number | symbol,
+    obj: T,
+  ): key is keyof T => {
+    return key in obj;
+  };
   /**
    * Generator method for combining faker methods based on string input
    *
@@ -47,7 +53,7 @@ class Fake {
 
     // extract method name from between the {{ }} that we found
     // for example: {{name.firstName}}
-    const token = str.substr(start + 2, end - start - 2);
+    const token = str.substring(start + 2, end - start - 2);
     let method = token.replace("}}", "").replace("{{", "");
 
     // console.log('method', method)
@@ -63,43 +69,47 @@ class Fake {
 
     // split the method into module and function
     const parts = method.split(".");
+    const moduleKey = parts[0] as keyof Faker;
 
-    if (typeof this.faker[parts[0]] === "undefined") {
-      throw new Error("Invalid module: " + parts[0]);
+    // Type guard: Check if the moduleKey exists in this.faker
+    if (!this.isValidKey(moduleKey, this.faker)) {
+      throw new Error(`Invalid module: ${moduleKey}`);
     }
 
-    if (typeof this.faker[parts[0]][parts[1]] === "undefined") {
-      throw new Error("Invalid method: " + parts[0] + "." + parts[1]);
+    const module = this.faker[moduleKey];
+    const methodKey = parts[1] as string;
+
+    // Type guard: Check if module is an object and methodKey exists
+    if (typeof module === "object" && module !== null && methodKey in module) {
+      // assign the function from the module.function namespace
+      const fn = (module as Record<string, unknown>)[methodKey];
+
+      // If parameters are populated here, they are always going to be of string type
+      // since we might actually be dealing with an object or array,
+      // we always attempt to the parse the incoming parameters into JSON
+      if (typeof fn === "function") {
+        let params;
+        // Note: we experience a small performance hit here due to JSON.parse try / catch
+        // If anyone actually needs to optimize this specific code path, please open a support issue on github
+        try {
+          params = JSON.parse(parameters);
+        } catch (_err) {
+          // since JSON.parse threw an error, assume parameters was actually a string
+          params = parameters;
+        }
+        const result = typeof params === "string" && params.length === 0
+          ? fn.call(this)
+          : fn.call(this, params);
+
+        // replace the found tag with the returned fake value
+        res = str.replace("{{" + token + "}}", result);
+
+        // return the response recursively until we are done finding all tags
+        return this.fake(res);
+      }
     }
 
-    // assign the function from the module.function namespace
-    const fn = this.faker[parts[0]][parts[1]];
-
-    // If parameters are populated here, they are always going to be of string type
-    // since we might actually be dealing with an object or array,
-    // we always attempt to the parse the incoming parameters into JSON
-    let params;
-    // Note: we experience a small performance hit here due to JSON.parse try / catch
-    // If anyone actually needs to optimize this specific code path, please open a support issue on github
-    try {
-      params = JSON.parse(parameters);
-    } catch (_err) {
-      // since JSON.parse threw an error, assume parameters was actually a string
-      params = parameters;
-    }
-
-    let result;
-    if (typeof params === "string" && params.length === 0) {
-      result = fn.call(this);
-    } else {
-      result = fn.call(this, params);
-    }
-
-    // replace the found tag with the returned fake value
-    res = str.replace("{{" + token + "}}", result);
-
-    // return the response recursively until we are done finding all tags
-    return this.fake(res);
+    throw new Error(`Invalid method: ${moduleKey}.${methodKey}`);
   };
 }
 
