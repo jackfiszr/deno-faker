@@ -13,9 +13,10 @@ class Phone {
    *
    * @method faker.phone.phoneNumber
    * @param {string} format
+   * @returns {string}
    * @memberOf faker.phone
    */
-  phoneNumber = (format?: string) => {
+  phoneNumber = (format?: string): string => {
     format = format || this.faker.phone.phoneFormats();
     return this.faker.helpers.replaceSymbolWithNumber(format);
   };
@@ -26,9 +27,10 @@ class Phone {
    *
    * @method faker.phone.phoneFormatsArrayIndex
    * @param phoneFormatsArrayIndex
+   * @returns {string}
    * @memberOf faker.phone
    */
-  phoneNumberFormat = (phoneFormatsArrayIndex: number) => {
+  phoneNumberFormat = (phoneFormatsArrayIndex: number): string => {
     phoneFormatsArrayIndex = phoneFormatsArrayIndex || 0;
     return this.faker.helpers.replaceSymbolWithNumber(
       this.faker.definitions.phone_number.formats[phoneFormatsArrayIndex],
@@ -39,8 +41,9 @@ class Phone {
    * phoneFormats
    *
    * @method faker.phone.phoneFormats
+   * @returns {string}
    */
-  phoneFormats = () => {
+  phoneFormats = (): string => {
     return this.faker.random.arrayElement(
       this.faker.definitions.phone_number.formats,
     );
