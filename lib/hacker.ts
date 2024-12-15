@@ -1,82 +1,94 @@
 import type { Faker } from "./mod.ts";
+
 /**
  * @namespace faker.hacker
  */
 class Hacker {
   faker: Faker;
+
   constructor(faker: Faker) {
     this.faker = faker;
   }
 
   /**
-   * abbreviation
+   * Returns a random hacker abbreviation.
    *
    * @method faker.hacker.abbreviation
+   * @returns {string}
    */
-  abbreviation = () => {
+  abbreviation = (): string => {
     return this.faker.random.arrayElement(
       this.faker.definitions.hacker.abbreviation,
     );
   };
 
   /**
-   * adjective
+   * Returns a random hacker adjective.
    *
    * @method faker.hacker.adjective
+   * @returns {string}
    */
-  adjective = () => {
+  adjective = (): string => {
     return this.faker.random.arrayElement(
       this.faker.definitions.hacker.adjective,
     );
   };
 
   /**
-   * noun
+   * Returns a random hacker noun.
    *
    * @method faker.hacker.noun
+   * @returns {string}
    */
-  noun = () => {
-    return this.faker.random.arrayElement(this.faker.definitions.hacker.noun);
+  noun = (): string => {
+    return this.faker.random.arrayElement(
+      this.faker.definitions.hacker.noun,
+    );
   };
 
   /**
-   * verb
+   * Returns a random hacker verb.
    *
    * @method faker.hacker.verb
+   * @returns {string}
    */
-  verb = () => {
-    return this.faker.random.arrayElement(this.faker.definitions.hacker.verb);
+  verb = (): string => {
+    return this.faker.random.arrayElement(
+      this.faker.definitions.hacker.verb,
+    );
   };
 
   /**
-   * ingverb
+   * Returns a random hacker 'ing' verb.
    *
    * @method faker.hacker.ingverb
+   * @returns {string}
    */
-  ingverb = () => {
+  ingverb = (): string => {
     return this.faker.random.arrayElement(
       this.faker.definitions.hacker.ingverb,
     );
   };
 
   /**
-   * phrase
+   * Returns a random hacker phrase with interpolated values.
    *
    * @method faker.hacker.phrase
+   * @returns {string}
    */
-  phrase = () => {
+  phrase = (): string => {
     const data = {
-      abbreviation: this.abbreviation,
-      adjective: this.adjective,
-      ingverb: this.ingverb,
-      noun: this.noun,
-      verb: this.verb,
+      abbreviation: this.abbreviation(),
+      adjective: this.adjective(),
+      ingverb: this.ingverb(),
+      noun: this.noun(),
+      verb: this.verb(),
     };
 
-    const phrase = this.faker.random.arrayElement(
+    const phraseTemplate = this.faker.random.arrayElement(
       this.faker.definitions.hacker.phrase,
     );
-    return this.faker.helpers.mustache(phrase, data);
+    return this.faker.helpers.mustache(phraseTemplate, data);
   };
 }
 
