@@ -18,7 +18,7 @@ class Finance {
    * @method faker.finance.account
    * @param {number} length
    */
-  account = (length: number | null) => {
+  account = (length?: number | null) => {
     length = length || 8;
 
     let template = "";
@@ -70,7 +70,7 @@ class Finance {
    * @param {boolean} parens
    * @param {boolean} ellipsis
    */
-  mask = (length: number, parens: boolean, ellipsis: boolean) => {
+  mask = (length?: number, parens?: boolean, ellipsis?: boolean) => {
     //set defaults
     length = (length == 0 || !length || typeof length == "undefined")
       ? 4
@@ -110,7 +110,7 @@ class Finance {
    *
    * @return {string}
    */
-  amount = (min: number, max: number, dec: number, symbol: string) => {
+  amount = (min?: number, max?: number, dec?: number, symbol?: string) => {
     min = min || 0;
     max = max || 1000;
     dec = dec === undefined ? 2 : dec;

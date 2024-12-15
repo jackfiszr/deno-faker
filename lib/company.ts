@@ -24,7 +24,7 @@ class Company {
    * @method faker.company.companyName
    * @param {string} format
    */
-  companyName = (format: number) => {
+  companyName = (format?: number) => {
     const formats = [
       "{{name.lastName}} {{company.companySuffix}}",
       "{{name.lastName}} - {{name.lastName}}",

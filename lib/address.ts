@@ -66,7 +66,7 @@ class Address {
    * @method faker.address.city
    * @param {String} format
    */
-  city = (format: number) => {
+  city = (format?: number) => {
     const formats = [
       "{{address.cityPrefix}} {{name.firstName}}{{address.citySuffix}}",
       "{{address.cityPrefix}} {{name.firstName}}",
@@ -134,7 +134,7 @@ class Address {
    * @method faker.address.streetAddress
    * @param {Boolean} useFullAddress
    */
-  streetAddress = (useFullAddress: boolean) => {
+  streetAddress = (useFullAddress?: boolean) => {
     if (useFullAddress === undefined) useFullAddress = false;
     let address = "";
     switch (this.faker.random.number(2)) {
@@ -231,7 +231,7 @@ class Address {
    * @method faker.address.state
    * @param {Boolean} useAbbr
    */
-  state = (_useAbbr: boolean) => {
+  state = (_useAbbr?: boolean) => {
     return this.faker.random.arrayElement(
       this.faker.definitions.address.state,
     );

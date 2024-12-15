@@ -142,7 +142,7 @@ class Random {
    * @param {object} object
    * @param {mixed} field
    */
-  objectElement = (object: Record<string, unknown>, field: string) => {
+  objectElement = (object: Record<string, unknown>, field?: string) => {
     object = object || { "foo": "bar", "too": "car" };
     const array = Object.keys(object);
     const key = this.faker.random.arrayElement(array);

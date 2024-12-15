@@ -27,7 +27,7 @@ class Lorem {
    * @method faker.lorem.words
    * @param {number} num number of words, defaults to 3
    */
-  words = (num: number) => {
+  words = (num?: number) => {
     if (typeof num == "undefined") num = 3;
     const words = [];
     for (let i = 0; i < num; i++) {
@@ -76,7 +76,7 @@ class Lorem {
    * @param {number} sentenceCount defautls to a random number between 2 and 6
    * @param {string} separator defaults to `' '`
    */
-  sentences = (sentenceCount: number, separator?: string) => {
+  sentences = (sentenceCount?: number, separator?: string) => {
     if (typeof sentenceCount === "undefined") {
       sentenceCount = this.faker.random.number({ min: 2, max: 6 });
     }

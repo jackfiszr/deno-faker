@@ -74,7 +74,7 @@ class Name {
    * @param {mixed} gender
    * @memberof faker.name
    */
-  findName = (firstName: string, lastName: string, gender: number) => {
+  findName = (firstName?: string, lastName?: string, gender?: number) => {
     const r = this.faker.random.number(8);
     let prefix, suffix;
     // in particular locales first and last names split by gender,

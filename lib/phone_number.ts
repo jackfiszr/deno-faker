@@ -15,7 +15,7 @@ class Phone {
    * @param {string} format
    * @memberOf faker.phone
    */
-  phoneNumber = (format: string) => {
+  phoneNumber = (format?: string) => {
     format = format || this.faker.phone.phoneFormats();
     return this.faker.helpers.replaceSymbolWithNumber(format);
   };

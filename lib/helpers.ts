@@ -120,7 +120,7 @@ class Helpers {
    * @param {string} symbol
    */
 
-  replaceCreditCardSymbols = (string: string, symbol: string) => {
+  replaceCreditCardSymbols = (string: string, symbol?: string) => {
     symbol = symbol || "#";
 
     // Function calculating the Luhn checksum of a number string
@@ -345,7 +345,7 @@ class Helpers {
       ),
       "phone": this.faker.phone.phoneNumber(),
       "address": {
-        "street": this.faker.address.streetName(true),
+        "street": this.faker.address.streetName(/* true */),
         "suite": this.faker.address.secondaryAddress(),
         "city": this.faker.address.city(),
         "zipcode": this.faker.address.zipCode(),
@@ -374,7 +374,7 @@ class Helpers {
       "username": this.faker.internet.userName(),
       "email": this.faker.internet.email(),
       "address": {
-        "street": this.faker.address.streetName(true),
+        "street": this.faker.address.streetName(/* true */),
         "suite": this.faker.address.secondaryAddress(),
         "city": this.faker.address.city(),
         "zipcode": this.faker.address.zipCode(),

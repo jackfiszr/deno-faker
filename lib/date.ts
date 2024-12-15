@@ -82,7 +82,7 @@ class _Date {
    * @param {number} days
    * @param {date} refDate
    */
-  recent = (days: number, refDate: string) => {
+  recent = (days?: number, refDate?: string) => {
     let date = new Date();
     if (typeof refDate !== "undefined") {
       date = new Date(Date.parse(refDate));
