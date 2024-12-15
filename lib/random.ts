@@ -99,7 +99,7 @@ class Random {
    * @method faker.random.arrayElement
    * @param {array} array
    */
-  arrayElement = (array: string[]) => {
+  arrayElement = <T>(array: T[]): T => {
     array = array || ["a", "b", "c"];
     const r = this.faker.random.number({ max: array.length - 1 });
     return array[r];

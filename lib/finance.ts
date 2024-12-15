@@ -141,7 +141,7 @@ class Finance {
   currencyCode = () => {
     return this.faker.random.objectElement(
       this.faker.definitions.finance.currency,
-    )["code"];
+    ) as { code: string }["code"];
   };
 
   /**
@@ -167,7 +167,7 @@ class Finance {
     while (!symbol) {
       symbol = this.faker.random.objectElement(
         this.faker.definitions.finance.currency,
-      )["symbol"];
+      ) as { symbol: string }["symbol"];
     }
     return symbol;
   };
@@ -218,11 +218,11 @@ class Finance {
         if (typeof formats === "string") {
           format = formats;
         } else {
-          format = this.faker.random.arrayElement(formats);
+          format = this.faker.random.arrayElement(formats as string[]);
         }
       }
     }
-    format = format.replace(/\//g, "");
+    format = (format ?? "").replace(/\//g, "");
     return this.Helpers.replaceCreditCardSymbols(format);
   };
   /**

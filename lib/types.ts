@@ -48,6 +48,11 @@ export interface DateDefinition {
   };
 }
 
+interface FinanceDefinitions {
+  currency: Record<string, { code: string; symbol: string }>;
+  credit_card: Record<string, string[]>;
+}
+
 export type Definitions = {
   name: DefinitionCategory & NameModule;
   address: DefinitionCategory & AddressModule;
@@ -55,7 +60,7 @@ export type Definitions = {
   lorem: DefinitionCategory;
   hacker: DefinitionCategory;
   phone_number: DefinitionCategory;
-  finance: DefinitionCategory;
+  finance: DefinitionCategory & FinanceDefinitions;
   internet: DefinitionCategory;
   commerce: DefinitionCategory & CommerceModule;
   database: DefinitionCategory;
