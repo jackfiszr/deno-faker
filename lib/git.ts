@@ -1,11 +1,12 @@
 import type { Faker } from "./mod.ts";
+
 /**
  * @namespace faker.git
  */
-
 class Git {
   faker: Faker;
   hexChars: string[];
+
   constructor(faker: Faker) {
     this.faker = faker;
     this.hexChars = [
@@ -29,25 +30,25 @@ class Git {
   }
 
   /**
-   * branch
+   * Returns a random git branch name.
    *
    * @method faker.git.branch
+   * @returns {string}
    */
-  branch = () => {
+  branch = (): string => {
     const noun = this.faker.hacker.noun().replace(" ", "-");
     const verb = this.faker.hacker.verb().replace(" ", "-");
     return noun + "-" + verb;
   };
 
   /**
-   * commitEntry
+   * Returns a random git commit entry.
    *
    * @method faker.git.commitEntry
-   * @param {object} options
+   * @param {Record<string, unknown>} options
+   * @returns {string}
    */
-  commitEntry = (options: Record<string, unknown>) => {
-    options = options || {};
-
+  commitEntry = (options: Record<string, unknown> = {}): string => {
     let entry = "commit {{git.commitSha}}\r\n";
 
     if (
@@ -65,21 +66,23 @@ class Git {
   };
 
   /**
-   * commitMessage
+   * Returns a random git commit message.
    *
    * @method faker.git.commitMessage
+   * @returns {string}
    */
-  commitMessage = () => {
+  commitMessage = (): string => {
     const format = "{{hacker.verb}} {{hacker.adjective}} {{hacker.noun}}";
     return this.faker.fake(format);
   };
 
   /**
-   * commitSha
+   * Returns a random full git commit SHA (40 hexadecimal characters).
    *
    * @method faker.git.commitSha
+   * @returns {string}
    */
-  commitSha = () => {
+  commitSha = (): string => {
     let commit = "";
 
     for (let i = 0; i < 40; i++) {
@@ -90,11 +93,12 @@ class Git {
   };
 
   /**
-   * shortSha
+   * Returns a random short git commit SHA (7 hexadecimal characters).
    *
    * @method faker.git.shortSha
+   * @returns {string}
    */
-  shortSha = () => {
+  shortSha = (): string => {
     let shortSha = "";
 
     for (let i = 0; i < 7; i++) {
