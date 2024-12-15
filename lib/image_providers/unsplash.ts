@@ -7,6 +7,7 @@ import type { Faker } from "../mod.ts";
 class Unsplash {
   faker: Faker;
   categories: string[];
+
   constructor(faker: Faker) {
     this.faker = faker;
     this.categories = [
@@ -27,33 +28,38 @@ class Unsplash {
    * @param {string} keyword
    * @method faker.image.unsplash.image
    * @description search image from unsplash
+   * @returns {string}
    */
-  image(width: number, height: number, keyword: string) {
+  image(width: number, height: number, keyword: string): string {
     return this.imageUrl(width, height, undefined, keyword);
   }
+
   /**
    * avatar
    *
    * @method faker.image.unsplash.avatar
+   * @returns {string}
    */
-  avatar() {
+  avatar(): string {
     return this.faker.internet.avatar();
   }
+
   /**
    * imageUrl
    *
    * @param {number} width
    * @param {number} height
-   * @param {string} category
+   * @param {string | undefined} category
    * @param {string} keyword
    * @method faker.image.unsplash.imageUrl
+   * @returns {string}
    */
   imageUrl(
     width: number,
     height: number,
     category: string | undefined,
     keyword: string,
-  ) {
+  ): string {
     width = width || 640;
     height = height || 480;
 
@@ -76,6 +82,7 @@ class Unsplash {
 
     return url;
   }
+
   /**
    * food
    *
@@ -83,10 +90,12 @@ class Unsplash {
    * @param {number} height
    * @param {string} keyword
    * @method faker.image.unsplash.food
+   * @returns {string}
    */
-  food(width: number, height: number, keyword: string) {
+  food(width: number, height: number, keyword: string): string {
     return this.faker.image.unsplash.imageUrl(width, height, "food", keyword);
   }
+
   /**
    * people
    *
@@ -94,8 +103,9 @@ class Unsplash {
    * @param {number} height
    * @param {string} keyword
    * @method faker.image.unsplash.people
+   * @returns {string}
    */
-  people(width: number, height: number, keyword: string) {
+  people(width: number, height: number, keyword: string): string {
     return this.faker.image.unsplash.imageUrl(
       width,
       height,
@@ -103,6 +113,7 @@ class Unsplash {
       keyword,
     );
   }
+
   /**
    * nature
    *
@@ -110,8 +121,9 @@ class Unsplash {
    * @param {number} height
    * @param {string} keyword
    * @method faker.image.unsplash.nature
+   * @returns {string}
    */
-  nature(width: number, height: number, keyword: string) {
+  nature(width: number, height: number, keyword: string): string {
     return this.faker.image.unsplash.imageUrl(
       width,
       height,
@@ -119,6 +131,7 @@ class Unsplash {
       keyword,
     );
   }
+
   /**
    * technology
    *
@@ -126,8 +139,9 @@ class Unsplash {
    * @param {number} height
    * @param {string} keyword
    * @method faker.image.unsplash.technology
+   * @returns {string}
    */
-  technology(width: number, height: number, keyword: string) {
+  technology(width: number, height: number, keyword: string): string {
     return this.faker.image.unsplash.imageUrl(
       width,
       height,
@@ -135,6 +149,7 @@ class Unsplash {
       keyword,
     );
   }
+
   /**
    * objects
    *
@@ -142,8 +157,9 @@ class Unsplash {
    * @param {number} height
    * @param {string} keyword
    * @method faker.image.unsplash.objects
+   * @returns {string}
    */
-  objects(width: number, height: number, keyword: string) {
+  objects(width: number, height: number, keyword: string): string {
     return this.faker.image.unsplash.imageUrl(
       width,
       height,
@@ -151,6 +167,7 @@ class Unsplash {
       keyword,
     );
   }
+
   /**
    * buildings
    *
@@ -158,8 +175,9 @@ class Unsplash {
    * @param {number} height
    * @param {string} keyword
    * @method faker.image.unsplash.buildings
+   * @returns {string}
    */
-  buildings(width: number, height: number, keyword: string) {
+  buildings(width: number, height: number, keyword: string): string {
     return this.faker.image.unsplash.imageUrl(
       width,
       height,
