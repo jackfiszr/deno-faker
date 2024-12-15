@@ -9,8 +9,7 @@ interface ModuleMethods {
     category: string,
     randomize: boolean,
   ) => string;
-  // add other specific methods as needed
-  [key: string]: unknown; // keeps it flexible for additional methods if necessary
+  [key: string]: unknown;
 }
 
 /**
@@ -32,8 +31,9 @@ class Lorempixel implements ModuleMethods {
    * @param {number} height
    * @param {boolean} randomize
    * @method faker.image.lorempixel.image
+   * @returns {string}
    */
-  image(width: number, height: number, randomize: boolean) {
+  image(width: number, height: number, randomize: boolean): string {
     const categories = [
       "abstract",
       "animals",
@@ -55,14 +55,17 @@ class Lorempixel implements ModuleMethods {
       randomize: boolean,
     ) => string)(width, height, randomize);
   }
+
   /**
    * avatar
    *
    * @method faker.image.lorempixel.avatar
+   * @returns {string}
    */
-  avatar() {
+  avatar(): string {
     return this.faker.internet.avatar();
   }
+
   /**
    * imageUrl
    *
@@ -71,13 +74,14 @@ class Lorempixel implements ModuleMethods {
    * @param {string} category
    * @param {boolean} randomize
    * @method faker.image.lorempixel.imageUrl
+   * @returns {string}
    */
   imageUrl(
     width: number,
     height: number,
     category: string,
     randomize: boolean,
-  ) {
+  ): string {
     width = width || 640;
     height = height || 480;
 
@@ -92,15 +96,16 @@ class Lorempixel implements ModuleMethods {
 
     return url;
   }
+
   /**
    * abstract
    *
    * @param {number} width
    * @param {number} height
    * @param {boolean} randomize
-   * @method faker.image.lorempixel.abstract
+   * @returns {string}
    */
-  abstract(width: number, height: number, randomize: boolean) {
+  abstract(width: number, height: number, randomize: boolean): string {
     return this.faker.image.lorempixel.imageUrl(
       width,
       height,
@@ -108,15 +113,16 @@ class Lorempixel implements ModuleMethods {
       randomize,
     );
   }
+
   /**
    * animals
    *
    * @param {number} width
    * @param {number} height
    * @param {boolean} randomize
-   * @method faker.image.lorempixel.animals
+   * @returns {string}
    */
-  animals(width: number, height: number, randomize: boolean) {
+  animals(width: number, height: number, randomize: boolean): string {
     return this.faker.image.lorempixel.imageUrl(
       width,
       height,
@@ -124,15 +130,16 @@ class Lorempixel implements ModuleMethods {
       randomize,
     );
   }
+
   /**
    * business
    *
    * @param {number} width
    * @param {number} height
    * @param {boolean} randomize
-   * @method faker.image.lorempixel.business
+   * @returns {string}
    */
-  business(width: number, height: number, randomize: boolean) {
+  business(width: number, height: number, randomize: boolean): string {
     return this.faker.image.lorempixel.imageUrl(
       width,
       height,
@@ -140,15 +147,16 @@ class Lorempixel implements ModuleMethods {
       randomize,
     );
   }
+
   /**
    * cats
    *
    * @param {number} width
    * @param {number} height
    * @param {boolean} randomize
-   * @method faker.image.lorempixel.cats
+   * @returns {string}
    */
-  cats(width: number, height: number, randomize: boolean) {
+  cats(width: number, height: number, randomize: boolean): string {
     return this.faker.image.lorempixel.imageUrl(
       width,
       height,
@@ -156,15 +164,16 @@ class Lorempixel implements ModuleMethods {
       randomize,
     );
   }
+
   /**
    * city
    *
    * @param {number} width
    * @param {number} height
    * @param {boolean} randomize
-   * @method faker.image.lorempixel.city
+   * @returns {string}
    */
-  city(width: number, height: number, randomize: boolean) {
+  city(width: number, height: number, randomize: boolean): string {
     return this.faker.image.lorempixel.imageUrl(
       width,
       height,
@@ -172,15 +181,16 @@ class Lorempixel implements ModuleMethods {
       randomize,
     );
   }
+
   /**
    * food
    *
    * @param {number} width
    * @param {number} height
    * @param {boolean} randomize
-   * @method faker.image.lorempixel.food
+   * @returns {string}
    */
-  food(width: number, height: number, randomize: boolean) {
+  food(width: number, height: number, randomize: boolean): string {
     return this.faker.image.lorempixel.imageUrl(
       width,
       height,
@@ -188,15 +198,16 @@ class Lorempixel implements ModuleMethods {
       randomize,
     );
   }
+
   /**
    * nightlife
    *
    * @param {number} width
    * @param {number} height
    * @param {boolean} randomize
-   * @method faker.image.lorempixel.nightlife
+   * @returns {string}
    */
-  nightlife(width: number, height: number, randomize: boolean) {
+  nightlife(width: number, height: number, randomize: boolean): string {
     return this.faker.image.lorempixel.imageUrl(
       width,
       height,
@@ -204,15 +215,16 @@ class Lorempixel implements ModuleMethods {
       randomize,
     );
   }
+
   /**
    * fashion
    *
    * @param {number} width
    * @param {number} height
    * @param {boolean} randomize
-   * @method faker.image.lorempixel.fashion
+   * @returns {string}
    */
-  fashion(width: number, height: number, randomize: boolean) {
+  fashion(width: number, height: number, randomize: boolean): string {
     return this.faker.image.lorempixel.imageUrl(
       width,
       height,
@@ -220,15 +232,16 @@ class Lorempixel implements ModuleMethods {
       randomize,
     );
   }
+
   /**
    * people
    *
    * @param {number} width
    * @param {number} height
    * @param {boolean} randomize
-   * @method faker.image.lorempixel.people
+   * @returns {string}
    */
-  people(width: number, height: number, randomize: boolean) {
+  people(width: number, height: number, randomize: boolean): string {
     return this.faker.image.lorempixel.imageUrl(
       width,
       height,
@@ -236,15 +249,16 @@ class Lorempixel implements ModuleMethods {
       randomize,
     );
   }
+
   /**
    * nature
    *
    * @param {number} width
    * @param {number} height
    * @param {boolean} randomize
-   * @method faker.image.lorempixel.nature
+   * @returns {string}
    */
-  nature(width: number, height: number, randomize: boolean) {
+  nature(width: number, height: number, randomize: boolean): string {
     return this.faker.image.lorempixel.imageUrl(
       width,
       height,
@@ -252,15 +266,16 @@ class Lorempixel implements ModuleMethods {
       randomize,
     );
   }
+
   /**
    * sports
    *
    * @param {number} width
    * @param {number} height
    * @param {boolean} randomize
-   * @method faker.image.lorempixel.sports
+   * @returns {string}
    */
-  sports(width: number, height: number, randomize: boolean) {
+  sports(width: number, height: number, randomize: boolean): string {
     return this.faker.image.lorempixel.imageUrl(
       width,
       height,
@@ -268,15 +283,16 @@ class Lorempixel implements ModuleMethods {
       randomize,
     );
   }
+
   /**
    * technics
    *
    * @param {number} width
    * @param {number} height
    * @param {boolean} randomize
-   * @method faker.image.lorempixel.technics
+   * @returns {string}
    */
-  technics(width: number, height: number, randomize: boolean) {
+  technics(width: number, height: number, randomize: boolean): string {
     return this.faker.image.lorempixel.imageUrl(
       width,
       height,
@@ -284,15 +300,16 @@ class Lorempixel implements ModuleMethods {
       randomize,
     );
   }
+
   /**
    * transport
    *
    * @param {number} width
    * @param {number} height
    * @param {boolean} randomize
-   * @method faker.image.lorempixel.transport
+   * @returns {string}
    */
-  transport(width: number, height: number, randomize: boolean) {
+  transport(width: number, height: number, randomize: boolean): string {
     return this.faker.image.lorempixel.imageUrl(
       width,
       height,
