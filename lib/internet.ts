@@ -7,15 +7,18 @@ import schemas from "./schemas.ts";
  */
 class Internet {
   faker: Faker;
+
   constructor(faker: Faker) {
     this.faker = faker;
   }
+
   /**
    * avatar
    *
    * @method faker.internet.avatar
+   * @returns {string}
    */
-  avatar = () => {
+  avatar = (): string => {
     const _schema = schemas.avatar;
     return this.faker.random.arrayElement(
       this.faker.definitions.internet.avatar_uri,
@@ -29,8 +32,13 @@ class Internet {
    * @param {string} firstName
    * @param {string} lastName
    * @param {string} provider
+   * @returns {string}
    */
-  email = (firstName?: string, lastName?: string, provider?: string) => {
+  email = (
+    firstName?: string,
+    lastName?: string,
+    provider?: string,
+  ): string => {
     const _schema = schemas.email;
     provider = provider ||
       this.faker.random.arrayElement(
@@ -47,8 +55,9 @@ class Internet {
    * @method faker.internet.exampleEmail
    * @param {string} firstName
    * @param {string} lastName
+   * @returns {string}
    */
-  exampleEmail = (firstName: string, lastName: string) => {
+  exampleEmail = (firstName: string, lastName: string): string => {
     const provider = this.faker.random.arrayElement(
       this.faker.definitions.internet.example_email,
     );
@@ -61,6 +70,7 @@ class Internet {
    * @method faker.internet.userName
    * @param {string} firstName
    * @param {string} lastName
+   * @returns {string}
    */
   userName = (firstName?: string, lastName?: string): string => {
     const _schema = schemas.userName;
@@ -89,8 +99,9 @@ class Internet {
    * protocol
    *
    * @method faker.internet.protocol
+   * @returns {string}
    */
-  protocol = () => {
+  protocol = (): string => {
     const _schema = schemas.protocol;
     const protocols = ["http", "https"];
     return this.faker.random.arrayElement(protocols);
@@ -100,8 +111,9 @@ class Internet {
    * url
    *
    * @method faker.internet.url
+   * @returns {string}
    */
-  url = () => {
+  url = (): string => {
     const _schema = schemas.url;
     return this.faker.internet.protocol() + "://" +
       this.faker.internet.domainName();
@@ -111,8 +123,9 @@ class Internet {
    * domainName
    *
    * @method faker.internet.domainName
+   * @returns {string}
    */
-  domainName = () => {
+  domainName = (): string => {
     const _schema = schemas.domainName;
     return this.faker.internet.domainWord() + "." +
       this.faker.internet.domainSuffix();
@@ -122,8 +135,9 @@ class Internet {
    * domainSuffix
    *
    * @method faker.internet.domainSuffix
+   * @returns {string}
    */
-  domainSuffix = () => {
+  domainSuffix = (): string => {
     const _schema = schemas.domainSuffix;
     return this.faker.random.arrayElement(
       this.faker.definitions.internet.domain_suffix,
@@ -134,8 +148,9 @@ class Internet {
    * domainWord
    *
    * @method faker.internet.domainWord
+   * @returns {string}
    */
-  domainWord = () => {
+  domainWord = (): string => {
     const _schema = schemas.domainWord;
     return this.faker.name.firstName().replace(/([\\~#&*{}/:<>?|\''])/ig, "")
       .toLowerCase();
@@ -145,14 +160,15 @@ class Internet {
    * ip
    *
    * @method faker.internet.ip
+   * @returns {string}
    */
-  ip = () => {
+  ip = (): string => {
     const _schema = schemas.ip;
-    const randNum = () => {
+    const randNum = (): string => {
       return (this.faker.random.number(255)).toFixed(0);
     };
 
-    const result = [];
+    const result: string[] = [];
     for (let i = 0; i < 4; i++) {
       result[i] = randNum();
     }
@@ -164,37 +180,21 @@ class Internet {
    * ipv6
    *
    * @method faker.internet.ipv6
+   * @returns {string}
    */
-  ipv6 = () => {
+  ipv6 = (): string => {
     const _schema = schemas.ipv6;
-    const randHash = () => {
+    const randHash = (): string => {
       let result = "";
       for (let i = 0; i < 4; i++) {
         result += this.faker.random.arrayElement(
-          [
-            "0",
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
-            "a",
-            "b",
-            "c",
-            "d",
-            "e",
-            "f",
-          ],
+          "0123456789abcdef".split(""),
         );
       }
       return result;
     };
 
-    const result = [];
+    const result: string[] = [];
     for (let i = 0; i < 8; i++) {
       result[i] = randHash();
     }
@@ -205,8 +205,9 @@ class Internet {
    * userAgent
    *
    * @method faker.internet.userAgent
+   * @returns {string}
    */
-  userAgent = () => {
+  userAgent = (): string => {
     const _schema = schemas.userAgent;
     return random_ua.generate();
   };
@@ -218,13 +219,18 @@ class Internet {
    * @param {number} baseRed255
    * @param {number} baseGreen255
    * @param {number} baseBlue255
+   * @returns {string}
    */
-  color = (baseRed255: number, baseGreen255: number, baseBlue255: number) => {
+  color = (
+    baseRed255: number,
+    baseGreen255: number,
+    baseBlue255: number,
+  ): string => {
     const _schema = schemas.color;
     baseRed255 = baseRed255 || 0;
     baseGreen255 = baseGreen255 || 0;
     baseBlue255 = baseBlue255 || 0;
-    // based on awesome response : http://stackoverflow.com/questions/43044/algorithm-to-randomly-generate-an-aesthetically-pleasing-color-palette
+
     const red = Math.floor((this.faker.random.number(256) + baseRed255) / 2);
     const green = Math.floor(
       (this.faker.random.number(256) + baseGreen255) / 2,
@@ -233,6 +239,7 @@ class Internet {
     const redStr = red.toString(16);
     const greenStr = green.toString(16);
     const blueStr = blue.toString(16);
+
     return "#" +
       (redStr.length === 1 ? "0" : "") + redStr +
       (greenStr.length === 1 ? "0" : "") + greenStr +
@@ -244,8 +251,9 @@ class Internet {
    *
    * @method faker.internet.mac
    * @param {string} sep
+   * @returns {string}
    */
-  mac = (sep: string) => {
+  mac = (sep: string): string => {
     const _schema = schemas.mac;
     let i, mac = "", validSep = ":";
 
@@ -272,66 +280,48 @@ class Internet {
    * @param {boolean} memorable
    * @param {string} pattern
    * @param {string} prefix
+   * @returns {string}
    */
   password = (
     len: number,
     memorable: boolean,
     pattern: RegExp,
     prefix: string,
-  ) => {
+  ): string => {
     const _schema = schemas.password;
-    len = len || 15;
-    if (typeof memorable === "undefined") {
-      memorable = false;
-    }
-    /*
-     * password-generator ( function )
-     * Copyright(c) 2011-2013 Bermi Ferrer <bermi@bermilabs.com>
-     * MIT Licensed
-     */
-    const _letter = /[a-zA-Z]$/;
-    const vowel = /[aeiouAEIOU]$/;
-    const consonant = /[bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ]$/;
+
     const password = (
       length: number,
       memorable: boolean,
       pattern: RegExp,
       prefix: string,
     ): string => {
-      let char;
-      if (length == null) {
-        length = 10;
-      }
-      if (memorable == null) {
-        memorable = true;
-      }
-      if (pattern == null) {
-        pattern = /\w/;
-      }
-      if (prefix == null) {
-        prefix = "";
-      }
-      if (prefix.length >= length) {
-        return prefix;
-      }
+      const consonant = /[bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ]$/;
+      const vowel = /[aeiouAEIOU]$/;
+
+      if (prefix.length >= length) return prefix;
+
+      let nextPattern = pattern;
       if (memorable) {
-        if (prefix.match(consonant)) {
-          pattern = vowel;
-        } else {
-          pattern = consonant;
-        }
+        nextPattern = prefix.match(consonant) ? vowel : consonant;
       }
+
       const n = this.faker.random.number(94) + 33;
-      char = String.fromCharCode(n);
-      if (memorable) {
-        char = char.toLowerCase();
+      const char = String.fromCharCode(n).toLowerCase();
+
+      if (!char.match(nextPattern)) {
+        return password(length, memorable, nextPattern, prefix);
       }
-      if (!char.match(pattern)) {
-        return password(length, memorable, pattern, prefix);
-      }
-      return password(length, memorable, pattern, "" + prefix + char);
+
+      return password(length, memorable, nextPattern, prefix + char);
     };
-    return password(len, memorable, pattern, prefix);
+
+    return password(
+      len || 15,
+      memorable || false,
+      pattern || /\w/,
+      prefix || "",
+    );
   };
 }
 
