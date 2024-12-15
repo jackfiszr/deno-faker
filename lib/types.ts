@@ -15,7 +15,7 @@ export interface NameModule {
   [key: string]: string[] | { [key: string]: string[] } | undefined;
 }
 
-export interface AddressModule {
+interface AddressModule {
   postcode_by_state: {
     [key: string]: { min: number; max: number };
   };
@@ -25,11 +25,26 @@ export interface AddressModule {
     | undefined;
 }
 
-export interface CommerceModule {
+interface CommerceModule {
   product_name: {
     adjective: string[];
     material: string[];
     product: string[];
+  };
+}
+
+export interface DateDefinition {
+  month: {
+    wide: string[];
+    abbr: string[];
+    wide_context?: string[];
+    abbr_context?: string[];
+  };
+  weekday: {
+    wide: string[];
+    abbr: string[];
+    wide_context?: string[];
+    abbr_context?: string[];
   };
 }
 
@@ -45,7 +60,7 @@ export type Definitions = {
   commerce: DefinitionCategory & CommerceModule;
   database: DefinitionCategory;
   system: DefinitionCategory;
-  date: DefinitionCategory;
+  date: DefinitionCategory & DateDefinition;
   vehicle: DefinitionCategory;
   title: string;
   separator: string;

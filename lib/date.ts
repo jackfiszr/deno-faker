@@ -1,4 +1,5 @@
 import type { Faker } from "./mod.ts";
+import type { DateDefinition } from "./types.ts";
 /**
  * @namespace faker.date
  */
@@ -133,19 +134,19 @@ class _Date {
   month = (options: Record<string, unknown>) => {
     options = options || {};
 
-    let type = "wide";
+    let type: keyof DateDefinition["month"] = "wide"; // Default type
     if (options.abbr) {
       type = "abbr";
     }
     if (
       options.context &&
-      typeof this.faker.definitions.date.month[type + "_context"] !==
+      typeof this.faker.definitions.date.month[`${type}_context`] !==
         "undefined"
     ) {
-      type += "_context";
+      type = `${type}_context` as keyof DateDefinition["month"];
     }
 
-    const source = this.faker.definitions.date.month[type];
+    const source = this.faker.definitions.date.month[type] ?? [];
 
     return this.faker.random.arrayElement(source);
   };
@@ -159,19 +160,19 @@ class _Date {
   weekday = (options: Record<string, unknown>) => {
     options = options || {};
 
-    let type = "wide";
+    let type: keyof DateDefinition["weekday"] = "wide";
     if (options.abbr) {
       type = "abbr";
     }
     if (
       options.context &&
-      typeof this.faker.definitions.date.weekday[type + "_context"] !==
+      typeof this.faker.definitions.date.weekday[`${type}_context`] !==
         "undefined"
     ) {
-      type += "_context";
+      type = `${type}_context` as keyof DateDefinition["weekday"];
     }
 
-    const source = this.faker.definitions.date.weekday[type];
+    const source = this.faker.definitions.date.weekday[type] ?? [];
 
     return this.faker.random.arrayElement(source);
   };
