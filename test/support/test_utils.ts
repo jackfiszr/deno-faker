@@ -1,16 +1,17 @@
 export function testWrapper(
-  t: Deno.TestDefinition,
+  t: { name: string; fn: (ctx: Deno.TestContext) => void | Promise<void> },
   setUp: () => void,
   tearDown: () => void,
 ) {
-  async function wrapped() {
+  async function wrapped(ctx: Deno.TestContext) {
     setUp();
     try {
-      await t.fn();
+      await t.fn(ctx);
     } finally {
       tearDown();
     }
   }
+
   Deno.test({ name: t.name, fn: wrapped });
 }
 
