@@ -17,7 +17,7 @@
 
 ### Deno
 
-    import { faker } from "jsr:@jackfiszr/faker@1.1.0";
+    import { faker } from "jsr:@jackfiszr/faker@1.1.1";
 
     const randomName = faker.name.findName(); // Rowan Nikolaus
     const randomEmail = faker.internet.email(); // Kassandra.Haley@erich.biz
@@ -272,7 +272,7 @@ specific set of locales.
 
 ```js
 // loads only pl locale
-import { faker } from "jsr:@jackfiszr/faker@1.1.0/locale/pl.ts";
+import { faker } from "jsr:@jackfiszr/faker@1.1.1/locale/pl.ts";
 ```
 
 ## Setting a randomness seed
@@ -296,7 +296,7 @@ console.log(firstRandom === secondRandom);
 
 You can run tests for individual modules, e.g:
 
-    deno test jsr:@jackfiszr/faker@1.1.0/test/phone_number_test.ts
+    deno test jsr:@jackfiszr/faker@1.1.1/test/phone_number_test.ts
 
 or clone the repository and run `deno test`:
 
