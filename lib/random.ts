@@ -292,7 +292,7 @@ class Random {
    * @param {number} count
    * @returns {string}
    */
-  alphaNumeric = (count: number): string => {
+  alphaNumeric = (count?: number): string => {
     count = count || 1;
     const chars = "0123456789abcdefghijklmnopqrstuvwxyz";
     let result = "";

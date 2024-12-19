@@ -47,7 +47,7 @@ class Faker {
   localeFallback: string;
 
   fake: Fake["fake"];
-  unique: Unique;
+  unique: Unique["unique"];
   random: Random;
   helpers: Helpers;
   name: Name;
@@ -84,7 +84,7 @@ class Faker {
     this.definitions = {} as Definitions;
 
     this.fake = new Fake(this).fake;
-    this.unique = new Unique(this);
+    this.unique = new Unique(this).unique;
     this.random = new Random(this);
     this.helpers = new Helpers(this);
     this.name = new Name(this);
