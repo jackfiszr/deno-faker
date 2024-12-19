@@ -8,6 +8,7 @@ const IGNORED_MODULES = [
   "fake",
   "helpers",
 ];
+
 const IGNORED_METHODS: {
   [key: string]: string[];
 } = {
@@ -18,16 +19,19 @@ function isTestableModule(mod: string): boolean {
   return IGNORED_MODULES.indexOf(mod) === -1;
 }
 
-function isMethodOf(mod: string): (meth: string) => boolean {
+function isMethodOf(mod: keyof typeof faker): (meth: string) => boolean {
   return function (meth: string) {
-    return typeof faker[mod][meth] === "function";
+    const moduleObj = faker[mod];
+    if (moduleObj && typeof moduleObj === "object") {
+      return typeof (moduleObj as Record<string, unknown>)[meth] === "function";
+    }
+    return false;
   };
 }
 
-function isTestableMethod(mod: string): (meth: string) => boolean {
+function isTestableMethod(mod: keyof typeof faker): (meth: string) => boolean {
   return function (meth: string) {
-    return !(mod in IGNORED_METHODS &&
-      IGNORED_METHODS[mod].indexOf(meth) >= 0);
+    return !(mod in IGNORED_METHODS && IGNORED_METHODS[mod].includes(meth));
   };
 }
 
@@ -40,16 +44,20 @@ function both(
   };
 }
 
-// Basic smoke tests to make sure each method is at least implemented and returns a value.
-
 const functionHelpers = {
   modulesList() {
-    const modules = Object.keys(faker)
+    // Use 'keyof typeof faker' to type the modules correctly
+    const modules = (Object.keys(faker) as Array<keyof typeof faker>)
       .filter(isTestableModule)
-      .reduce((result: Record<string, string[]>, mod: string) => {
-        result[mod] = Object.keys(faker[mod]).filter(
-          both(isMethodOf(mod), isTestableMethod(mod)),
-        );
+      .reduce((result: Record<string, string[]>, mod: keyof typeof faker) => {
+        const moduleObj = faker[mod];
+        if (moduleObj && typeof moduleObj === "object") {
+          result[mod] = Object.keys(moduleObj).filter(
+            both(isMethodOf(mod), isTestableMethod(mod)),
+          );
+        } else {
+          result[mod] = [];
+        }
         return result;
       }, {});
 

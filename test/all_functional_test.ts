@@ -7,12 +7,16 @@ const modules = functionalHelpers.modulesList();
 
 for (const locale in faker.locales) {
   faker.locale = locale;
+
   Object.keys(modules).forEach((module) => {
+    const moduleKey = module as keyof typeof faker; // Cast module to keyof faker
+
     modules[module].forEach((meth: string) => {
       test({
         name: `functional tests: ${module}.${meth}()`,
         fn() {
-          const result = faker[module][meth]();
+          const result = (faker[moduleKey] as Record<string, () => unknown>)
+            [meth]();
           if (meth === "boolean") {
             assert(result === true || result === false);
           } else {
@@ -27,22 +31,16 @@ for (const locale in faker.locales) {
 for (const locale in faker.locales) {
   faker.locale = locale;
   faker.seed(1);
+
   Object.keys(modules).forEach((module) => {
+    const moduleKey = module as keyof typeof faker; // Use moduleKey properly
+
     modules[module].forEach((meth: string | boolean) => {
       test({
         name: `faker.fake functional tests: ${module}.${meth}()`,
         fn() {
-          const result = faker.fake("{{" + module + "." + meth + "}}");
-          // just make sure any result is returned
-          // an undefined result usually means an error
+          const result = faker.fake(`{{${moduleKey}.${meth}}}`);
           assert(typeof result !== "undefined");
-          /*
-          if (meth === 'boolean') {
-            assert.ok(result === true || result === false)
-          } else {
-            assert.ok(result)
-          }
-          */
         },
       });
     });
