@@ -272,17 +272,19 @@ class Random {
       upcase?: boolean;
     } | number,
   ): string => {
-    if (typeof options === "number") options = { count: options };
+    // Extract options with safe defaults
+    const { count = 1, upcase = false } = typeof options === "number"
+      ? { count: options }
+      : options || {};
 
-    options = options || { count: 1, upcase: false };
     const letters = "abcdefghijklmnopqrstuvwxyz";
     let wholeString = "";
 
-    for (let i = 0; i < options.count!; i++) {
+    for (let i = 0; i < count; i++) {
       wholeString += this.faker.random.arrayElement(letters.split(""));
     }
 
-    return options.upcase ? wholeString.toUpperCase() : wholeString;
+    return upcase ? wholeString.toUpperCase() : wholeString;
   };
 
   /**
