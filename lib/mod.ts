@@ -208,26 +208,30 @@ class Faker {
         defsArray.forEach((p: string) => {
           Object.defineProperty(this.definitions[d], p, {
             get: () => {
-              const localeData = this.locales[this.locale]?.[d];
-              const fallbackData = this.locales[this.localeFallback]?.[d];
-
-              // Narrow localeData and fallbackData to NameModule
-              if (typeof localeData === "object" && localeData !== null) {
-                const value = (localeData as NameModule)[p];
-                if (value !== undefined) {
-                  return value;
-                }
+              if (
+                typeof (this.locales[this.locale][d] as Record<
+                    string,
+                    unknown
+                  >)[p] === "undefined" ||
+                typeof (this.locales[this.locale][d] as Record<
+                    string,
+                    unknown
+                  >)[p] === "undefined"
+              ) {
+                // certain localization sets contain less data then others.
+                // in the case of a missing definition, use the default localeFallback to substitute the missing set data
+                // throw new Error('unknown property ' + d + p)
+                return (this.locales[this.localeFallback][d] as Record<
+                  string,
+                  unknown
+                >)[p];
+              } else {
+                // return localized data
+                return (this.locales[this.locale][d] as Record<
+                  string,
+                  unknown
+                >)[p];
               }
-
-              if (typeof fallbackData === "object" && fallbackData !== null) {
-                const fallbackValue = (fallbackData as NameModule)[p];
-                if (fallbackValue !== undefined) {
-                  return fallbackValue;
-                }
-              }
-
-              // Default fallback if nothing exists
-              return [];
             },
           });
         });
