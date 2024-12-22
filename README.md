@@ -1,6 +1,8 @@
-# deno-faker - generate massive amounts of fake data in Deno
-
 <img src="https://raw.githubusercontent.com/jackfiszr/deno-faker/main/logo.png" alt="deno-faker-logo" width="200" align="right" />
+
+<br>
+
+# Deno-Faker<br><small>Generating massive amounts of fake data in Deno</small>
 
 This project is a fork of the infamous
 [Faker.js](https://github.com/Marak/faker.js), created shortly before the
