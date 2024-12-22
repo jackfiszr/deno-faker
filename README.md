@@ -1,5 +1,10 @@
 # deno-faker - generate massive amounts of fake data in Deno
 
+This project is a fork of the infamous
+[Faker.js](https://github.com/Marak/faker.js), created shortly before the
+upstream code was removed by the owner
+([full story here](https://www.youtube.com/watch?v=R6S-b_k-ZKY)).
+
 ![Deno-faker](https://raw.githubusercontent.com/jackfiszr/deno-faker/master/logo.png)
 
 ## Usage
