@@ -35,9 +35,10 @@ import { Commerce } from "./commerce.ts";
 import { System } from "./system.ts";
 import { Git } from "./git.ts";
 import { Vehicle } from "./vehicle.ts";
-import type { Definitions, Locale, NameModule } from "./types.ts";
+import type { Definitions, Locale } from "./types.ts";
 
 /**
+ * Main Faker class
  * @namespace faker
  */
 class Faker {
@@ -72,6 +73,10 @@ class Faker {
   };
   seedValue?: number | number[];
 
+  /**
+   * Constructor for the Faker class
+   * @param {Record<string, unknown>} opts - Options for the Faker instance
+   */
   constructor(opts: Record<string, unknown>) {
     this.opts = opts || {};
     // assign options

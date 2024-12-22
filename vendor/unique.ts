@@ -18,7 +18,7 @@ const found: Record<string, unknown> = {};
 const exclude: string[] = [];
 
 // current iteration or retries of unique.exec (current loop depth)
-let _currentIterations = 0;
+const _currentIterations = 0;
 
 // uniqueness compare function
 const defaultCompare = function (obj: Record<string, unknown>, key: string) {
