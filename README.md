@@ -24,7 +24,7 @@ upstream code was removed by the owner
 
 ### Deno
 
-    import { faker } from "jsr:@jackfiszr/faker@1.1.4";
+    import { faker } from "jsr:@jackfiszr/faker@1.1.5";
 
     const randomName = faker.name.findName(); // Rowan Nikolaus
     const randomEmail = faker.internet.email(); // Kassandra.Haley@erich.biz
@@ -279,7 +279,7 @@ specific set of locales.
 
 ```js
 // loads only pl locale
-import { faker } from "jsr:@jackfiszr/faker@1.1.4/locale/pl.ts";
+import { faker } from "jsr:@jackfiszr/faker@1.1.5/locale/pl.ts";
 ```
 
 ## Setting a randomness seed
