@@ -294,15 +294,15 @@ console.log(firstRandom === secondRandom);
 
 ## Tests
 
-You can run tests for individual modules, e.g:
-
-    deno test jsr:@jackfiszr/faker@1.1.2/test/phone_number_test.ts
-
-or clone the repository and run `deno test`:
+Clone the repository and run `deno test`:
 
     git clone https://github.com/jackfiszr/deno-faker && cd deno-faker
 
     deno test --allow-import --no-check
+
+You can run tests for individual modules, e.g:
+
+    deno test --allow-import --no-check test/phone_number_test.ts
 
 <!--
 You can view a code coverage report generated in coverage/lcov-report/index.html.
