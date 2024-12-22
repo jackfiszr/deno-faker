@@ -2,7 +2,7 @@
 
 <br>
 
-# Deno-Faker<br><small>Generating massive amounts of fake data in Deno</small>
+# Deno-Faker <small>Generating massive amounts of fake data in Deno</small>
 
 This project is a fork of the infamous
 [Faker.js](https://github.com/Marak/faker.js), created shortly before the
