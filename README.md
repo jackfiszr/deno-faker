@@ -5,7 +5,7 @@ This project is a fork of the infamous
 upstream code was removed by the owner
 ([full story here](https://www.youtube.com/watch?v=R6S-b_k-ZKY)).
 
-![Deno-faker](https://raw.githubusercontent.com/jackfiszr/deno-faker/master/logo.png)
+<img src="https://raw.githubusercontent.com/jackfiszr/deno-faker/main/logo.png" alt="Deno-faker" width="200" />
 
 ## Usage
 
