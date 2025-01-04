@@ -5,7 +5,7 @@
 # Deno-Faker <small>Generating massive amounts of fake data in Deno</small>
 
 [![JSR](https://jsr.io/badges/@jackfiszr/faker)](https://jsr.io/@jackfiszr/faker)
-[![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/jackfiszr/deno-faker/publish.yml?branch=main)](https://github.com/jackfiszr/deno-faker/actions)
+[![JSR Score](https://jsr.io/badges/@jackfiszr/faker/score)](https://jsr.io/@jackfiszr/faker)
 [![GitHub commit activity](https://img.shields.io/github/commit-activity/m/jackfiszr/deno-faker)](https://github.com/jackfiszr/deno-faker/pulse)
 [![GitHub last commit](https://img.shields.io/github/last-commit/jackfiszr/deno-faker)](https://github.com/jackfiszr/deno-faker/commits/main)
 
