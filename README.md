@@ -4,6 +4,13 @@
 
 # Deno-Faker <small>Generating massive amounts of fake data in Deno</small>
 
+[![JSR](https://jsr.io/badges/@jackfiszr/faker)](https://jsr.io/@jackfiszr/faker)
+[![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/jackfiszr/deno-faker/publish.yml?branch=main)](https://github.com/jackfiszr/deno-faker/actions)
+[![GitHub commit activity](https://img.shields.io/github/commit-activity/m/jackfiszr/deno-faker)](https://github.com/jackfiszr/deno-faker/pulse)
+[![GitHub last commit](https://img.shields.io/github/last-commit/jackfiszr/deno-faker)](https://github.com/jackfiszr/deno-faker/commits/main)
+
+<!--[![GitHub](https://img.shields.io/github/license/jackfiszr/deno-faker)](https://github.com/jackfiszr/deno-faker/blob/main/LICENSE)-->
+
 This project is a fork of the infamous
 [Faker.js](https://github.com/Marak/faker.js), created shortly before the
 upstream code was removed by the owner
