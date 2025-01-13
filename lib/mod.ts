@@ -17,7 +17,7 @@ import { Commerce } from "./commerce.ts";
 import { System } from "./system.ts";
 import { Git } from "./git.ts";
 import { Vehicle } from "./vehicle.ts";
-import type { Definitions, Locale } from "./types.ts";
+import type { Definitions, Locale } from "./types.d.ts";
 
 /**
  * Main Faker class

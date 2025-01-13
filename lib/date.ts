@@ -1,5 +1,5 @@
 import type { Faker } from "./mod.ts";
-import type { DateDefinition } from "./types.ts";
+import type { DateDefinition } from "./types.d.ts";
 
 /**
  * @namespace faker.date

@@ -4,7 +4,7 @@ import * as internet from "./internet/mod.ts";
 import * as company from "./company/mod.ts";
 import * as phone_number from "./phone_number/mod.ts";
 
-import type { Locale } from "../../types.ts";
+import type { Locale } from "../../types.d.ts";
 
 const en_IND: Locale = {
   title: "India (English)",

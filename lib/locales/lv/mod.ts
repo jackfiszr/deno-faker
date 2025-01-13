@@ -8,7 +8,7 @@ import * as company from "./company/mod.ts";
 import * as internet from "./internet/mod.ts";
 import * as lorem from "./lorem/mod.ts";
 
-import type { Locale } from "../../types.ts";
+import type { Locale } from "../../types.d.ts";
 
 const lv: Locale = {
   title: "Latvian",

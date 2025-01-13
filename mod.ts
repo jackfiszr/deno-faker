@@ -9,4 +9,4 @@ import { Faker } from "./lib/mod.ts";
 export const faker: Faker = new Faker({ locales });
 
 export { Faker };
-export type { Definitions, Locale } from "./lib/types.ts";
+export type { Definitions, Locale } from "./lib/types.d.ts";

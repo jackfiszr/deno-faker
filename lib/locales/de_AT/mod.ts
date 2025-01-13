@@ -5,7 +5,7 @@ import * as name from "./name/mod.ts";
 import * as phone_number from "./phone_number/mod.ts";
 import * as cell_phone from "./cell_phone/mod.ts";
 
-import type { Locale } from "../../types.ts";
+import type { Locale } from "../../types.d.ts";
 
 const de_AT: Locale = {
   title: "German (Austria)",

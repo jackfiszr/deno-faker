@@ -7,7 +7,7 @@ import * as company from "./company/mod.ts";
 import * as date from "./date/mod.ts";
 import * as hacker from "./hacker/mod.ts";
 
-import type { Locale } from "../../types.ts";
+import type { Locale } from "../../types.d.ts";
 
 const ru: Locale = {
   title: "Russian",

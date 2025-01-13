@@ -6,7 +6,7 @@ import * as cell_phone from "./cell_phone/mod.ts";
 import * as commerce from "./commerce/mod.ts";
 import * as date from "./date/mod.ts";
 
-import type { Locale } from "../../types.ts";
+import type { Locale } from "../../types.d.ts";
 
 const pt_PT: Locale = {
   title: "Portuguese (Portugal)",

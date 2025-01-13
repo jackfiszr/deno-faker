@@ -6,7 +6,7 @@ import * as commerce from "./commerce/mod.ts";
 import * as company from "./company/mod.ts";
 import * as date from "./date/mod.ts";
 
-import type { Locale } from "../../types.ts";
+import type { Locale } from "../../types.d.ts";
 
 const az: Locale = {
   title: "Azerbaijani",

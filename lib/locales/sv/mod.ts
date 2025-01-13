@@ -8,7 +8,7 @@ import * as commerce from "./commerce/mod.ts";
 import * as team from "./team/mod.ts";
 import * as date from "./date/mod.ts";
 
-import type { Locale } from "../../types.ts";
+import type { Locale } from "../../types.d.ts";
 
 const sv: Locale = {
   title: "Swedish",

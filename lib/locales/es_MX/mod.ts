@@ -8,7 +8,7 @@ import * as lorem from "./lorem/mod.ts";
 import * as commerce from "./commerce/mod.ts";
 import * as team from "./team/mod.ts";
 
-import type { Locale } from "../../types.ts";
+import type { Locale } from "../../types.d.ts";
 
 const es_MX: Locale = {
   title: "Spanish Mexico",

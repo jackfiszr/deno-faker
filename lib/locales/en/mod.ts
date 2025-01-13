@@ -16,7 +16,7 @@ import * as date from "./date/mod.ts";
 import * as system from "./system/mod.ts";
 import * as vehicle from "./vehicle/mod.ts";
 
-import type { Locale } from "../../types.ts";
+import type { Locale } from "../../types.d.ts";
 
 const en: Locale = {
   title: "English",
